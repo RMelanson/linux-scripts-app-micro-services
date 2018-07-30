@@ -22,7 +22,7 @@ You're sections headers will be used to reference location of destination.
 - It is recommended to be installed on a test system in a test environment before promoting to a production environment.<img src="https://github.com/RMelanson/linux-scripts-bootstraps/blob/master/images/caution.png" width="6%" align= "right">
 ## <b>**Install at your own Risk</b>
 ### Repository <img src="https://github.com/RMelanson/linux-scripts-bootstraps/blob/master/images/repository.png" width="5%" align= "right">
-- https://github.com/RMelanson/microservices.git
+- https://github.com/RMelanson/linux-scripts-spring-boot-microservices.git
 #
 ### About<img src="https://github.com/RMelanson/linux-scripts-bootstraps/blob/master/images/aboutMickey.png" width="6%" align= "right">
 - Version: 1.0.0
@@ -34,7 +34,7 @@ You're sections headers will be used to reference location of destination.
 ### Installation<img src="https://github.com/RMelanson/linux-scripts-bootstraps/blob/master/images/installation.png" width="7%" align= "right">
 - Execute the masterBootstrap.sh*, upon installation of a new Linux installation as a bootstrap or as a stand alone bash script. If executing the script manually on a Linux O.S. after downloading from the git repository, be sure to:
   - execute as root ./masterBootstrap.sh
-  - or as user with sudo access sudo ./masterBootstrap.sh
+  - or as user with sudo access sudo ./microservicesBootstrap.sh
 - *Notes: 
     - All script packages are installed under /tmp/scripts directory and may be analyzed in that directory.
     - You may modify the script installation file (??...??Bootstrap.sh) to change the directory package installation location.
@@ -43,7 +43,7 @@ You're sections headers will be used to reference location of destination.
 ### Contents <img src="https://github.com/RMelanson/linux-scripts-bootstraps/blob/master/images/contents.png" width="6%" align= "right">
 
 - README.md ~ Readme file
-- masterBootstrap.sh  ~ Installs this package
+- microservicesBootstrap.sh  ~ Installs this package
 - devToolsBootstrap.sh ~ Installs standard Linux development components.  Read the script and comment out those components you may not want installed.
 - stockWidgetsBootStrap.sh ~ Installs Java Rest API's Propritary software for Stock analysis to JBOSS. (WIP**)
 - jbossBootstrap.sh ~ Installs JBOSS wildfly community edition with complete access as admin.
@@ -69,4 +69,4 @@ It is recommended to read the contents of the scripts to be assured of the insta
 - Name: Robin Melanson
 - email: robin.e.melanson@gmail.com
 
-[Back To The Top](#Package-Linux-scripts-bootstraps)
+[Back To The Top](#Package-linux-scripts-spring-boot-microservices)
