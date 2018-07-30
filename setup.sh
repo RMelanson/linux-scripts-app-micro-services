@@ -5,4 +5,4 @@
 # INSTALL REQUIRED DEVELOPMENT LIBRARIES
 ./install/installJava8.sh
 
-java -jar ./jars/gs-spring-boot-0.1.0.jar &
+java -jar ./jars/token-requestor-0.1.0.jar &
