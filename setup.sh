@@ -8,4 +8,4 @@
 # INSTALL STOCK WIDGETS TEST DATA
 ./install/bootstraps/swTestDataBootstrap.sh
 
-java -jar swAPI_Jar &
+java -jar $swAPI_Jar &
