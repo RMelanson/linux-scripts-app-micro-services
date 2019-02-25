@@ -1,2 +1,6 @@
 # Microservices Environment
-# ToDo
+pkg=microservices
+admin=admin
+owner=wildfly
+group=wildfly
+home=/opt/dev
