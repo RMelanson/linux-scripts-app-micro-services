@@ -11,7 +11,11 @@
 # SET UP LINUX ADMIN USER
 ./install/addLinuxUser.sh $wfOwner $wfGroup $wfHome $pkg
 
+# CREATE SERVICE APPLICATION DIRECTORY
+mkdir -p /opt/MICRO-SERVICES/swAPIs
 
+# INSTALL JAVA APPS TO SERVER
+cp ./jars/* 
 
 java -jar $swAPI_Jar &
 
