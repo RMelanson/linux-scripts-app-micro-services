@@ -12,7 +12,8 @@
 ./install/addLinuxUser.sh $wfOwner $wfGroup $wfHome $pkg
 
 # CREATE SERVICE APPLICATION DIRECTORY
-mkdir -p /opt/MICRO-SERVICES/swAPIs
+mkdir -p $appDir
+chown $ownr:$group $appDir
 
 # INSTALL JAVA APPS TO SERVER
 cp ./jars/* 
