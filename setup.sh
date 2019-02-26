@@ -11,4 +11,9 @@
 # SET UP LINUX ADMIN USER
 ./install/addLinuxUser.sh $wfOwner $wfGroup $wfHome $pkg
 
+
+
 java -jar $swAPI_Jar &
+
+chkconfig --add swAPIs
+chkconfig swAPIs on
