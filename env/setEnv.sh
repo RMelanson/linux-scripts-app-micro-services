@@ -1,6 +1,7 @@
 # Microservices Environment
 pkg=microservices
-admin=admin
-owner=wildfly
-group=wildfly
+admin=dev
+owner=dev
+group=dev
 home=/opt/dev
+appDir=/opt/MICRO-SERVICES
