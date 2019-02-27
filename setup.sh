@@ -21,7 +21,4 @@ cp ./jars/*
 java -jar $swAPI_Jar &
 
 # INSTALL SWAPIs SERVICE
-./install/addSwAPIsAsService.sh
-
-chkconfig --add swAPIs
-chkconfig swAPIs on
+./installs/addSwAPIsAsService.sh
