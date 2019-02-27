@@ -13,12 +13,12 @@
 
 # CREATE SERVICE APPLICATION DIRECTORY
 mkdir -p $appDir
-chown $ownr:$group $appDir
 
 # INSTALL JAVA APPS TO SERVER
-cp ./jars/* 
+cp ./jars/* $appDir
 
-java -jar $swAPI_Jar &
+# INSTALL JAVA APPS TO SERVER
+chown -R $ownr:$group $serviceDir
 
 # INSTALL SWAPIs SERVICE
 ./installs/addSwAPIsAsService.sh
