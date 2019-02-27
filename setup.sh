@@ -15,18 +15,13 @@
 mkdir -p $appDir
 chown $ownr:$group $appDir
 
-# COPY SERVICE DAEMON SCRIPT
-
-
-
-
-
-
-
 # INSTALL JAVA APPS TO SERVER
 cp ./jars/* 
 
 java -jar $swAPI_Jar &
+
+# INSTALL SWAPIs SERVICE
+./addSwAPIsAsService.sh
 
 chkconfig --add swAPIs
 chkconfig swAPIs on
