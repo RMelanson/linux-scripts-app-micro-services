@@ -4,4 +4,5 @@ admin=dev
 owner=dev
 group=dev
 home=/opt/dev
-appDir=/opt/MICRO-SERVICES
+serviceDir=/opt/MICRO-SERVICES
+appDir=$serviceDir/swAPIs
