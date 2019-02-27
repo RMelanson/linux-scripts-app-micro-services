@@ -20,5 +20,5 @@ cp ./jars/* $appDir
 # INSTALL JAVA APPS TO SERVER
 chown -R $ownr:$group $serviceDir
 
-# INSTALL SWAPIs SERVICE
+# INSTALL SWAPIs as a SERVICE
 ./installs/addSwAPIsAsService.sh
