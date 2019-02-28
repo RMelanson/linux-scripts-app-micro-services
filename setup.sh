@@ -9,7 +9,7 @@
 ./installs/bootstraps/swTestDataBootstrap.sh
 
 # SET UP LINUX ADMIN USER
-./installs/addLinuxUser.sh $wfOwner $wfGroup $wfHome $pkg
+./installs/addLinuxUser.sh $owner $group $home $pkg
 
 # CREATE SERVICE APPLICATION DIRECTORY
 mkdir -p $appDir
