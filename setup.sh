@@ -3,13 +3,13 @@
 . ./env/setEnv.sh
 
 # INSTALL REQUIRED DEVELOPMENT LIBRARIES
-./install/installJava8.sh
+./installs/installJava8.sh
 
 # INSTALL STOCK WIDGETS TEST DATA
-./install/bootstraps/swTestDataBootstrap.sh
+./installs/bootstraps/swTestDataBootstrap.sh
 
 # SET UP LINUX ADMIN USER
-./install/addLinuxUser.sh $wfOwner $wfGroup $wfHome $pkg
+./installs/addLinuxUser.sh $wfOwner $wfGroup $wfHome $pkg
 
 # CREATE SERVICE APPLICATION DIRECTORY
 mkdir -p $appDir
