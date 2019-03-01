@@ -1,8 +1,8 @@
 #!/bin/bash
 # chkconfig: 2345 20 80
-# description: swAPIs ~ Stock Widget Microservices
-# processname: swAPIs
-# pidFile: /opt/MICRO-SERVICES/swAPIs.pid
+# description: appServices ~ Start an Application as a Services
+# processname: appServices
+# pidFile: /etc/inet.d/appProcesses/service.pid
 # Author     : Robin Melanson (Contractor)
 # Contact    : robin.e.melanson@gmail.com
 
@@ -10,7 +10,7 @@ parms="$1 $2 $3 $4"
 noArgs=$#
 #Trim parms leading and trailing white spaces
 parms=$(echo -e $parms | sed 's/^[ \t]*//;s/[ \t]*$//')
-echo "Executing service s3fs $parms"
+echo "Executing service appServices $parms"
 
 mode=$1
 
@@ -22,41 +22,38 @@ else
    progName=helloWorld-0.0.1-SNAPSHOT
 fi
 
-exedir=/opt/MICRO-SERVICES/swAPIs
-jarFile=$exedir/$progName.jar
-
-if [ ! -f $jarFile ]
+if [ ! -f $progName ]
 then
-   echo "***NO EXECUTABLE FILE***  $jarFile. " 1>&2
+   echo "***NO EXECUTABLE FILE***  $progName. " 1>&2
    exit -1
 fi
 
-pidFile=$exedir/$progName.pid
+pidFile=$appDir/$progName.pid
 
 usage ()
 {
    echo $"Usage: $0 {start|stop|restart|status|help}"
-     }
+}
 
 help ()
 {
    clear;
    echo "=======================  swAPIs HELP MENU ============================"
-   echo "# description: swAPIs ~ Java swAPIs microservices"
-   echo "# processname: s3fs"
+   echo "# description: appService ~ Add Applications as a Services"
+   echo "# processname: appService"
    echo "# Author     : Robin Melanson (Contractor)"
    echo "# Contact    : robin.e.melanson@gmail.com"
    echo "======================================================================"
-   echo "Usage(1): service s3fs start <cmd (Optional)>"
-   echo "             The swAPI services will be started"
+   echo "Usage(1): service appService start <cmd (Optional)>"
+   echo "             The application as a services will be started"
    echo "Usage(2): service s3fs stop"
-   echo "             The swAPI services will be stopped"
-   echo "Usage(3): service s3fs restart"
+   echo "             The appService service will be stopped"
+   echo "Usage(3): service appService restart"
    echo "             The swAPI services will be restarted"
    echo "             This is accomplished through starting"
-   echo "             and stopping the wAPIs app"
-   echo "Usage(4): service s3fs *"
-   echo "             Prints out the swAPIs usage syntax"
+   echo "             and stopping the appService app"
+   echo "Usage(4): service appService *"
+   echo "             Prints out the appService usage syntax"
 }
 
 setPID_File(){
