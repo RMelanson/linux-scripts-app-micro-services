@@ -1,4 +1,4 @@
 # Microservices Environment
-pkg=microservices
-serviceDir=/opt/MICRO-SERVICES
-appDir=$/etc/init.d/appProcesses
+pkg=app
+appServicesDir=$/etc/init.d/
+appProcDir=$appServicesDir/appProcesses
