@@ -1,8 +1,4 @@
 # Microservices Environment
 pkg=microservices
-admin=dev
-owner=dev
-group=dev
-home=/opt/dev
 serviceDir=/opt/MICRO-SERVICES
-appDir=$serviceDir/swAPIs
+appDir=$/etc/init.d/swAPI_Processes
