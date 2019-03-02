@@ -3,7 +3,7 @@
 . ./env/setEnv.sh
 
 # CREATE SERVICE APPLICATION DIRECTORY
-mkdir -p $appDir
+mkdir -p $appProcessDir
 
 # INSTALL JAVA APPS TO SERVER
 cp ./installs/appServices.d $appServicesDir
