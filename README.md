@@ -1,4 +1,4 @@
-# Package Spring Boot Microservices <img src="https://github.com/RMelanson/linux-scripts-bootstraps/blob/master/images/boot1.png" width="6%" align= "right">
+# Package Spring App Services <img src="https://github.com/RMelanson/linux-scripts-bootstraps/blob/master/images/boot1.png" width="6%" align= "right">
  
 ### Table of Contents
 You're sections headers will be used to reference location of destination.
