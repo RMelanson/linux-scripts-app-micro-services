@@ -12,4 +12,4 @@ cp ./jars/* $appDir
 chown -R $ownr:$group $serviceDir
 
 # INSTALL SWAPIs as a SERVICE
-./installs/addSwAPIsAsService.sh
+./installs/addAppServices.sh
