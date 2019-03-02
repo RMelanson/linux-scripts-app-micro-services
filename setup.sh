@@ -15,4 +15,4 @@ chmod 766 $appServicesDir$prog
 
 # INSTALL SWAPIs as a SERVICE
 echo $scriptName EXECUTING ./installs/addAppServices.sh
-./installs/addAppServices.sh
+. ./installs/addAppServices.sh
