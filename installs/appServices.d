@@ -38,7 +38,7 @@ usage ()
 help ()
 {
    clear;
-   echo "=======================  swAPIs HELP MENU ============================"
+   echo "=======================  appService HELP MENU ============================"
    echo "# description: appService ~ Add Applications as a Services"
    echo "# processname: appService"
    echo "# Author     : Robin Melanson (Contractor)"
@@ -46,10 +46,10 @@ help ()
    echo "======================================================================"
    echo "Usage(1): service appService start <cmd (Optional)>"
    echo "             The application as a services will be started"
-   echo "Usage(2): service s3fs stop"
+   echo "Usage(2): service appService stop"
    echo "             The appService service will be stopped"
    echo "Usage(3): service appService restart"
-   echo "             The swAPI services will be restarted"
+   echo "             The appService  services will be restarted"
    echo "             This is accomplished through starting"
    echo "             and stopping the appService app"
    echo "Usage(4): service appService *"
