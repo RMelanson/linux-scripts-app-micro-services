@@ -9,7 +9,7 @@ echo $scriptName EXECUTING mkdir -p $appProcessDir
 mkdir -p $appProcessDir
 
 # INSTALL JAVA APPS TO SERVER
-echo $scriptName EXECUTING cp ./installs/appServices.d $appServicesDir
+echo $scriptName EXECUTING cp ./installs/appServices.d $appServicesDir/$prog
 cp ./installs/appServices.d $appServicesDir/$prog
 chmod 766 $appServicesDir/$prog
 
