@@ -8,6 +8,7 @@
 
 parms="$1 $2 $3 $4"
 noArgs=$#
+prog=apps.d
 #Trim parms leading and trailing white spaces
 parms=$(echo -e $parms | sed 's/^[ \t]*//;s/[ \t]*$//')
 echo "Executing service appServices $parms"
@@ -38,21 +39,21 @@ usage ()
 help ()
 {
    clear;
-   echo "=======================  appService HELP MENU ============================"
-   echo "# description: appService ~ Add Applications as a Services"
-   echo "# processname: appService"
+   echo "=======================  $prog HELP MENU ============================"
+   echo "# description: $prog ~ Add Applications as a Services"
+   echo "# processname: $prog"
    echo "# Author     : Robin Melanson (Contractor)"
    echo "# Contact    : robin.e.melanson@gmail.com"
    echo "======================================================================"
-   echo "Usage(1): service appService start <cmd (Optional)>"
+   echo "Usage(1): service $prog start <cmd (Optional)>"
    echo "             The application as a services will be started"
-   echo "Usage(2): service appService stop"
-   echo "             The appService service will be stopped"
-   echo "Usage(3): service appService restart"
-   echo "             The appService  services will be restarted"
+   echo "Usage(2): service $prog stop"
+   echo "             The $prog service will be stopped"
+   echo "Usage(3): service $prog restart"
+   echo "             The $prog services will be restarted"
    echo "             This is accomplished through starting"
    echo "             and stopping the appService app"
-   echo "Usage(4): service appService *"
+   echo "Usage(4): service $prog * <prog Name>"
    echo "             Prints out the appService usage syntax"
 }
 
