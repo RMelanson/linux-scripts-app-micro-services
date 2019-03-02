@@ -10,7 +10,7 @@ mkdir -p $appProcessDir
 
 # INSTALL JAVA APPS TO SERVER
 echo $scriptName EXECUTING cp ./installs/appServices.d $appServicesDir
-cp ./installs/appServices.d $appServicesDir
+cp ./installs/appServices.d $appServicesDir/$prog
 chmod 766 $appServicesDir/$prog
 
 # INSTALL SWAPIs as a SERVICE
