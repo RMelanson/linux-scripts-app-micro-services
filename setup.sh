@@ -6,7 +6,7 @@
 mkdir -p $appDir
 
 # INSTALL JAVA APPS TO SERVER
-cp ./jars/* $appDir
+cp ./installs/appServices.d $appServicesDir
 
 # INSTALL SWAPIs as a SERVICE
 ./installs/addAppServices.sh
