@@ -12,4 +12,4 @@ echo $scriptName EXECUTING chkconfig $daemon on
 chkconfig $daemon on
 
 echo $scriptName EXECUTING service $daemon start
-service $daemon start
+service $daemon start $testFile
