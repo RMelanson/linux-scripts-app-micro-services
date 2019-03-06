@@ -17,7 +17,6 @@ mode=$1
 
 if [ $noArgs -gt 1 ]
 then
-   prefix='.jar'
    progName=$2
 else
    progName=springBootHelloWorldDemo-0.1.0
