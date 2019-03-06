@@ -20,7 +20,7 @@ then
    prefix='.jar'
    progName=$2
 else
-   progName=helloWorld-0.0.1-SNAPSHOT
+   progName=springBootHelloWorldDemo-0.1.0
 fi
 
 if [ ! -f $progName ]
