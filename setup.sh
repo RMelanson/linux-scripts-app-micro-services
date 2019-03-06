@@ -14,8 +14,8 @@ cp ./installs/appServices.d $appServicesDir$daemon
 chmod 766 $appServicesDir$daemon
 
 # COPY SAMPLE TEST PROGRAM
-echo $scriptName EXECUTING cp ./jars/springBootHelloWorldDemo-0.1.0.jar $appServicesDir
-cp ./jars/springBootHelloWorldDemo-0.1.0.jar $appServicesDir
+echo $scriptName EXECUTING cp ./jars/springBootHelloWorldDemo-0.1.0.jar $appProcessDir
+cp ./jars/springBootHelloWorldDemo-0.1.0.jar $appProcessDir
 
 # INSTALL SWAPIs as a SERVICE
 echo $scriptName EXECUTING ./installs/addAppServices.sh
