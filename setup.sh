@@ -22,5 +22,5 @@ echo $scriptName EXECUTING ./installs/addAppServices.sh
 . ./installs/addAppServices.sh
 
 # INSTALL TEST APP as a SERVICE
-echo $scriptName EXECUTING service $daemon start $testApp
+echo "$scriptName EXECUTING service $daemon start $testApp"
 service $daemon start $testApp
