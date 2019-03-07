@@ -6,12 +6,15 @@
 # Author     : Robin Melanson (Contractor)
 # Contact    : robin.e.melanson@gmail.com
 
+parms="'$*'"
+echo "ZZZZZZZZZZZZZZZ $parms"
+exit 0
 parms="$1 $2 $3 $4"
 noArgs=$#
 prog=apps.d
 #Trim parms leading and trailing white spaces
 parms=$(echo -e $parms | sed 's/^[ \t]*//;s/[ \t]*$//')
-echo "Executing service appServices $parms"
+echo "Executing service appServices.d $parms"
 
 mode=$1
 
