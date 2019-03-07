@@ -9,12 +9,16 @@
 noArgs=$#
 
 # Concatinate Args
-parms="$*"
+args="$*"
 
-#Trim parms leading and trailing white spaces
-parms=$(echo -e $parms | sed 's/^[ \t]*//;s/[ \t]*$//')
+#Trim args leading and trailing white spaces
+args=$(echo -e $args | sed 's/^[ \t]*//;s/[ \t]*$//')
 
-echo "Executing service appServices.d $parms"
+echo "Executing service appServices.d $args"
+
+exe=$(echo -e $args sed -e 's/^\w*\ *//')
+
+echo "EXE PROGRAM = $exe
 
 mode=$1
 
