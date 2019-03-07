@@ -17,6 +17,10 @@ chmod 766 $appServicesDir/$daemon
 echo $scriptName EXECUTING cp ./jars/springBootHelloWorldDemo-0.1.0.jar $appProcessDir
 cp ./jars/springBootHelloWorldDemo-0.1.0.jar $appProcessDir
 
-# INSTALL SWAPIs as a SERVICE
+# INSTALL $daemon as a SERVICE DEAMON
 echo $scriptName EXECUTING ./installs/addAppServices.sh
 . ./installs/addAppServices.sh
+
+# INSTALL TEST APP as a SERVICE
+echo $scriptName EXECUTING service $daemon start $testApp
+service $daemon start $testApp
