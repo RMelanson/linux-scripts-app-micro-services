@@ -20,5 +20,3 @@ cp ./jars/springBootHelloWorldDemo-0.1.0.jar $appProcessDir
 # INSTALL SWAPIs as a SERVICE
 echo $scriptName EXECUTING ./installs/addAppServices.sh
 . ./installs/addAppServices.sh
-
-echo Here 5 testfile = $testApp
