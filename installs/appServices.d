@@ -36,7 +36,10 @@ then
    exit -1
 fi
 
-pidFile=$appDir/$progName.pid
+
+
+echo progName=$progName
+exit 0
 
 usage ()
 {
