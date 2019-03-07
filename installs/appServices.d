@@ -6,7 +6,7 @@
 # Author     : Robin Melanson (Contractor)
 # Contact    : robin.e.melanson@gmail.com
 
-parms="'$*'"
+parms="$*"
 echo "ZZZZZZZZZZZZZZZ $parms"
 exit 0
 parms="$1 $2 $3 $4"
