@@ -4,6 +4,9 @@ setupName=setup.sh:
 echo setup.sh: EXECUTING ./env/setEnv.sh
 . ./env/setEnv.sh
 
+sudo yum install java-1.8.0
+echo 1 |sudo alternatives --config java
+
 # CREATE SERVICE APPLICATION DIRECTORY
 echo $setupName EXECUTING mkdir -p $appProcessDir
 mkdir -p $appProcessDir
