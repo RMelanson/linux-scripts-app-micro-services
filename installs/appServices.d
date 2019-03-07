@@ -23,24 +23,6 @@ exit 0
 
 mode=$1
 
-if [ $noArgs -gt 1 ]
-then
-   progName=$2
-else
-   progName=springBootHelloWorldDemo-0.1.0
-fi
-
-if [ ! -f $progName ]
-then
-   echo "***NO EXECUTABLE FILE***  $progName. " 1>&2
-   exit -1
-fi
-
-
-
-echo progName=$progName
-exit 0
-
 usage ()
 {
    echo $"Usage: $0 {start|stop|restart|status|help}"
@@ -91,17 +73,21 @@ getPID() {
 
 
 start(){
-   echo STARTING
-   if [ -f $pidFile ]
-   then
-       echo "process $pidFile already running. " 1>&2
-       echo To restart try ""service saAPIs  $jarFile restart""
-   else
-      delaySecs=100
-      run="java -jar $jarFile $delaySecs"
-      $run &
-      setPID_File
-   fi
+   echo STARTING $exe
+   . $exe
+   pid=$(ps -ef | grep $exe)
+   echo PID = $pid
+   
+#   if [ -f $pidFile ]
+#  then
+#      echo "process $pidFile already running. " 1>&2
+#      echo To restart try ""service saAPIs  $jarFile restart""
+#  else
+#     delaySecs=100
+#     run="java -jar $jarFile $delaySecs"
+#     $run &
+#     setPID_File
+#  fi
 }
 
 stop(){
