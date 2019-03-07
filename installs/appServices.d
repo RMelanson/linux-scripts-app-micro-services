@@ -19,7 +19,6 @@ echo "Executing service appServices.d $args"
 exe=$(echo -e $args | sed -e 's/^\w*\ *//')
 
 echo EXE PROGRAM = $exe
-exit 0
 
 mode=$1
 
