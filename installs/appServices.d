@@ -74,6 +74,7 @@ getPID() {
 start(){
    echo STARTING $exe
    $exe &
+   sleep 10
    pid=$(ps -ef | grep $exe)
    echo PID = $pid
    
