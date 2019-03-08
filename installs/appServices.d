@@ -76,7 +76,7 @@ start(){
    echo STARTING $exe
    $exe &
    pid=$!
-   echo EXECUTING echo $exe | tee $pidDir/$pid"
+   echo EXECUTING echo $exe | tee $pidDir/$pid
    echo $exe | tee $pidDir/$pid
  #  sleep 30
    echo EXECUTING ps -ef | grep $pid
