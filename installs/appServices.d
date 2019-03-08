@@ -75,9 +75,8 @@ start(){
    echo STARTING $exe
  #  $exe &
  #  sleep 30
-   echo "QQQQ EXECUTING ps -ef | grep $exe"
+   echo "EXECUTING ps -ef | grep $exe"
    pid=$(ps -ef | grep "$exe")
-   pid=$(ps -ef | grep "sdffasf")
    echo ============================================================================================================
    echo PID = $pid
    echo ============================================================================================================
