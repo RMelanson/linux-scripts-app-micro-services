@@ -76,6 +76,7 @@ start(){
    echo STARTING $exe
    $exe &
    pid=$!
+   echo EXECUTING "echo $exe > $pidDir/$pid"
    echo $exe > $pidDir/$pid
  #  sleep 30
    echo EXECUTING ps -ef | grep $pid
