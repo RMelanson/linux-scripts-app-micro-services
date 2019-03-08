@@ -74,7 +74,8 @@ getPID() {
 start(){
    echo STARTING $exe
    $exe &
-   sleep 10
+   sleep 30
+   echo EXECUTING ps -ef | grep $exe
    pid=$(ps -ef | grep $exe)
    echo PID = $pid
    
@@ -88,7 +89,6 @@ start(){
 #     $run &
 #     setPID_File
 #  fi
-echo EXITING START AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 }
 
@@ -138,6 +138,6 @@ case "$mode" in
         exit 1
         ;;
 esac
-echo EXITING ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+
 exit 0
   
