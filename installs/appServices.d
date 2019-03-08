@@ -73,9 +73,9 @@ getPID() {
 
 start(){
    echo STARTING $exe
-   $exe &
+ #  $exe &
    sleep 30
-   echo EXECUTING ps -ef | grep $exe
+   echo QQQQ EXECUTING ps -ef | grep $exe
    pid=$(ps -ef | grep $exe)
    echo PID = $pid
 }
