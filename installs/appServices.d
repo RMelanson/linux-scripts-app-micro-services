@@ -78,7 +78,8 @@ start(){
    echo EXECUTING ps -ef | grep $exe
    pid=$(ps -ef | grep $exe)
    echo PID = $pid
-   
+}
+
 #   if [ -f $pidFile ]
 #  then
 #      echo "process $pidFile already running. " 1>&2
@@ -90,7 +91,7 @@ start(){
 #     setPID_File
 #  fi
 
-}
+
 
 stop(){
    getPID
