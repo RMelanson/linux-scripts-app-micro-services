@@ -2,12 +2,13 @@
 # chkconfig: 2345 20 80
 # description: appServices ~ Start an Application as a Services
 # processname: appServices
-# pidFile: /etc/inet.d/appProcesses/service.pid
+# pidDir: /etc/inet.d/appProcesses
 # Author     : Robin Melanson (Contractor)
 # Contact    : robin.e.melanson@gmail.com
 
 noArgs=$#
 
+pidDir=/etc/inet.d/appProcesses
 # Concatinate Args
 args="$*"
 
@@ -74,12 +75,14 @@ getPID() {
 start(){
    echo STARTING $exe
    $exe &
+   pid=$!
+   echo $exe > $pidDir/$pid
  #  sleep 30
-   echo EXECUTING ps -ef | grep $!
-   pid=$(ps -ef | grep $!)
+   echo EXECUTING ps -ef | grep $pid
+   proc=$(ps -ef | grep $pid)
    echo ============================================================================================================
+   echo PROC = $proc
    echo PID = $pid
-   echo "$!" = $!
    echo ============================================================================================================
 }
 
