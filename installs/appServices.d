@@ -1,14 +1,14 @@
 #!/bin/bash
-# chkconfig: 2345 20 80
-# description: appServices ~ Start an Application as a Services
-# processname: appServices
-# pidDir: /etc/inet.d/appProcesses
-# Author     : Robin Melanson (Contractor)
-# Contact    : robin.e.melanson@gmail.com
+# chkconfig   : 2345 20 80
+# description : appServices ~ Start an Application as a Services
+# processname : appServices
+# pidDir      : /etc/init.d/appProcesses
+# Author      : Robin Melanson (Contractor)
+# Contact     : robin.e.melanson@gmail.com
 
 noArgs=$#
 
-pidDir=/etc/inet.d/appProcesses
+pidDir=/etc/init.d/appProcesses
 # Concatinate Args
 args="$*"
 
@@ -70,7 +70,6 @@ getPID() {
        pid=0
    fi
 }
-
 
 start(){
    echo STARTING $exe
