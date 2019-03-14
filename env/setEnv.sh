@@ -1,4 +1,6 @@
-# Microservices Environment
+#!/bin/bash
+
+# MICROSERVICES CONFIGURATION PARAMETERS
 pkg=appServices
 appServicesDir=/etc/init.d
 appProcessDir=$appServicesDir/appProcesses
