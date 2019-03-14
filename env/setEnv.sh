@@ -1,5 +1,5 @@
 # Microservices Environment
-pkg=app
+pkg=appServices
 appServicesDir=/etc/init.d
 appProcessDir=$appServicesDir/appProcesses
 daemon=appServices.d
