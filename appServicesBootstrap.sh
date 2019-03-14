@@ -12,8 +12,9 @@ yum update -y
 #INSTALL GIT
 yum install git -y
 
-#Set Cloning Properties
-pkg=appServices
+# SETUP ENVIRONMENT AND PARAMETERS
+. ./env/setEnv.sh
+
 gitRepo="linux-scripts-app-services"
 installDir="/tmp/scripts/utils/appServices"
 if [ -f ~/.ssh/gitHub.key ]; then
