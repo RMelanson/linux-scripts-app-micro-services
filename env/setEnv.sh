@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # MICROSERVICES CONFIGURATION PARAMETERS
-pkg=appServices
+pkg=APP_SERVICES
 gitRepo="linux-scripts-app-services"
-installDir="/tmp/scripts/utils/appServices"
+installDir="/tmp/scripts/utils/$pkg"
 appServicesDir=/etc/init.d
 appProcessDir=$appServicesDir/appProcesses
 daemon=appServices.d
