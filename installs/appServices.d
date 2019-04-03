@@ -1,10 +1,10 @@
 #!/bin/bash
-# chkconfig   : 2345 20 80
-# description : appServices ~ Start an Application as a Services
-# processname : appServices
-# pidDir      : /etc/init.d/appProcesses
-# Author      : Robin Melanson (Contractor)
-# Contact     : robin.e.melanson@gmail.com
+# chkconfig: 2345 20 80
+# description: appServices ~ Start an Application as a Services
+# processname: appServices
+# pidDir: /etc/init.d/appProcesses
+# Author: Robin Melanson (Contractor)
+# Contact: robin.e.melanson@gmail.com
 
 noArgs=$#
 
