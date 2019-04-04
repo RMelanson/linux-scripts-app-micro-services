@@ -4,9 +4,6 @@ setupName=setup.sh:
 echo setup.sh: EXECUTING ./env/setEnv.sh
 . ./env/setEnv.sh
 
-sudo yum install java-1.8.0
-echo 1 |sudo alternatives --config java
-
 #INSTALL JAVA 8
 echo Setup.sh:  EXECUTING . ./installs/installJava8.sh
 . ./installs/installJava8.sh
