@@ -1,5 +1,5 @@
 #! /bin/bash
-setupName=setup.sh:
+setupName=testBootStrapAppServer.sh:
 # SETUP THE REQUIRED ENVIRONMENTt
 echo setup.sh: EXECUTING ./env/setEnv.sh
 . ./env/setEnv.sh
