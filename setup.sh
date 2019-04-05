@@ -13,6 +13,6 @@ echo BEFORE $setupName EXECUTING service $daemon start $testApp
 echo $setupName EXECUTING . ./installs/addAppServices.sh
 . ./installs/addAppServices.sh
 
-# INSTALL TEST APP as a SERVICE
+# INSTALL TEST APP as a SERVICE (uncomment to test)
 echo $setupName EXECUTING . ./installs/testBootStrapAppServer
 . ./installs/testBootStrapAppServer
