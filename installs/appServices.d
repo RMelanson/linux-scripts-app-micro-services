@@ -74,7 +74,7 @@ getPID() {
 }
 
 start(){
-   exe = $exe " &"
+   exe="$exe &"
    echo STARTING $exe
    $exe
    echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
