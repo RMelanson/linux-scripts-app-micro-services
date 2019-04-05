@@ -14,5 +14,5 @@ echo $setupName EXECUTING . ./installs/addAppServices.sh
 . ./installs/addAppServices.sh
 
 # INSTALL TEST APP as a SERVICE (uncomment to test)
-echo $setupName To test EXECUTE . ./test/RESTMicroServiceTestApp.sh
-#. ./test/RESTMicroServiceTestApp.sh
+echo $setupName To test EXECUTE . ./test/RESTMicroServiceAppTest.sh
+#. ./test/RESTMicroServiceAppTest.sh
