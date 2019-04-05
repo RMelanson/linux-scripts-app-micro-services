@@ -4,19 +4,15 @@ setupName=setup.sh:
 echo setup.sh: EXECUTING ./env/setEnv.sh
 . ./env/setEnv.sh
 
-#INSTALL JAVA 8
-echo Setup.sh:  EXECUTING . ./installs/installJava8.sh
-. ./installs/installJava8.sh
-
 # CREATE SERVICE APPLICATION DIRECTORY
 echo $setupName EXECUTING mkdir -p $appProcessDir
 mkdir -p $appProcessDir
 
 # INSTALL $daemon as a SERVICE DEAMON
 echo BEFORE $setupName EXECUTING service $daemon start $testApp
-echo $setupName EXECUTING ./installs/addAppServices.sh
+echo $setupName EXECUTING . ./installs/addAppServices.sh
 . ./installs/addAppServices.sh
 
 # INSTALL TEST APP as a SERVICE
-echo $setupName EXECUTING service $daemon start $testApp
-service $daemon start $testApp
+echo $setupName EXECUTING . ./installs/testBootStrapAppServer
+. ./installs/testBootStrapAppServer
