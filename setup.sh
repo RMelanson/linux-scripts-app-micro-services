@@ -15,4 +15,4 @@ echo $setupName EXECUTING . ./installs/addAppServices.sh
 
 # INSTALL TEST APP as a SERVICE (uncomment to test)
 echo $setupName EXECUTING . ./installs/testBootStrapAppServer
-. ./installs/testBootStrapAppServer
+. ./testBootStrapAppServer
