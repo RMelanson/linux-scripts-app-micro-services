@@ -7,6 +7,7 @@ echo setup.sh: EXECUTING ./env/setEnv.sh
 # CREATE SERVICE APPLICATION DIRECTORY
 echo $setupName EXECUTING mkdir -p $appProcessDir
 mkdir -p $appProcessDir
+cp -rf ./test $appProcessDir
 
 # INSTALL $daemon as a SERVICE DEAMON
 echo BEFORE $setupName EXECUTING service $daemon start $testApp
