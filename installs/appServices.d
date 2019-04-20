@@ -74,9 +74,9 @@ getPID() {
 }
 
 start(){
-   exe="$exe &"
-   echo STARTING $exe
-   $exe
+   prog=$1
+   echo STARTING $prog
+   $prog
    echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
    pid=$!
    echo EXECUTING "echo $exe | tee $pidDir/$pid"
@@ -87,6 +87,15 @@ start(){
    echo PROC = $proc
    echo PID = $pid
    echo CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+}
+
+test(){
+   for f in $pidDir/test
+   do
+	   echo "Starting Test File $f"
+      start $f
+   done
+   
 }
 
 #   if [ -f $pidFile ]
@@ -125,14 +134,13 @@ status() {
 ### main logic ###
 case "$mode" in
   start)
-        start
+        start $exe
         ;;
   stop)
         stop
         ;;
-  restart)
-        $0 stop
-        $0 start
+  test)
+        test
         ;;
   status)
         status
