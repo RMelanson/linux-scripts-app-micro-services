@@ -14,6 +14,6 @@ testServicesScripts=$testServicesDir/scripts
 testServicesPrograms=$testServicesDir/programs
 testServicesJars=$testServicesPrograms/jars
 
-testDownloadDir="jspringBootHelloWorldDemo-0.1.0.jar"
+testDownloadDir="$installDir/installs/test"
 
 testApp="java -jar $testServicesDir/jars/$testDownloadDir"
