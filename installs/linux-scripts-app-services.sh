@@ -1,5 +1,5 @@
 #! /bin/bash
-setupName=testBootStrapAppServer.sh:
+setupName=linux-scripts-app-services.sh:
 # SETUP THE REQUIRED ENVIRONMENTt
 echo $setupName: EXECUTING ./env/setEnv.sh
 . ./env/setEnv.sh
