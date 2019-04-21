@@ -18,6 +18,6 @@ echo BEFORE $setupName EXECUTING service $daemon start $testApp
 echo $setupName EXECUTING . ./installs/addAppServices.sh
 . ./installs/addAppServices.sh
 
-# INSTALL TEST APP as a SERVICE (uncomment to test)
-echo $setupName To test EXECUTE . ./test/RESTMicroServiceAppTest.sh
-#. ./test/RESTMicroServiceAppTest.sh
+# INSTALL TEST APP SERVICE (uncomment to test)
+echo $setupName To Test EXECUTE . ./installs/linux-scripts-app-services
+. ./installs/linux-scripts-app-services
