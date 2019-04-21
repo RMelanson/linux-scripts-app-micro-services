@@ -2,7 +2,7 @@
 
 # MICROSERVICES CONFIGURATION PARAMETERS
 pkg=APP_SERVICES
-bootstrap="appMicroServicesBootstrap.sh.sh"
+bootstrap="appMicroServicesBootstrap.sh"
 
 gitRepo="linux-scripts-app-services"
 installDir="/tmp/scripts/utils/$pkg"
@@ -16,4 +16,4 @@ testServicesJars=$testServicesPrograms/jars
 
 testDownloadDir="$installDir/installs/test"
 
-testApp="java -jar $testServicesDir/jars/$testDownloadDir"
+testApp="$testServicesJars/springBootHelloWorldDemo-0.1.0.jar"
