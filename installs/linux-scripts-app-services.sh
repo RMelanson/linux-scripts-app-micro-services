@@ -10,7 +10,7 @@ mkdir -p $testServicesScriptsDir
 echo $setupName: EXECUTING mkdir $testServicesJarsDir
 mkdir -p $testServicesJarsDir
 
-echo $setupName: EXECUTING cp $testApp $testServicesJarsDir
+echo "$setupName: EXECUTING cp $testApp $testServicesJarsDir"
 cp $testApp $testServicesJarsDir
 
 echo $setupName: EXECUTING echo "java - jar $testServicesJarsDir/$testApp" > $testServicesScriptsDir/springBootHelloWorldDemo-0.1.0.
