@@ -12,6 +12,9 @@ appProcessDir=$appServicesDir/appProcesses
 
 # Set Up testApps service
 testApp="$springBootHelloWorldDemo-0.1.0.jar"
+
+echo "JJJJJJJJJJJJJJUUUUUUUUUUUUUUNNNNNNNNNNNNNKKKKKKKKKKKKKKK testApp=$testApp"
+
 testServicesDir=$appProcessDir/test
 testServicesScriptsDir=$testServicesDir/scripts
 testServicesProgramsDir=$testServicesDir/programs
