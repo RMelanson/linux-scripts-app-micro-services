@@ -5,7 +5,8 @@ pkg=APP_SERVICES
 bootstrap="appMicroServicesBootstrap.sh"
 
 gitRepo="linux-scripts-app-services"
-installDir="/tmp/scripts/utils/$pkg"
+parentDir="/tmp/scripts/utils/"
+installDir="$parentDir/$pkg"
 appServicesDir=/etc/init.d
 daemon=apps
 appProcessDir=$appServicesDir/appProcesses
