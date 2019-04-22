@@ -4,6 +4,9 @@ setupName=setup.sh:
 echo setup.sh: EXECUTING ./env/setEnv.sh
 . ./env/setEnv.sh
 
+# COPY RESTORE 
+cp $pkg_RESTORE.sh ..
+
 #INSTALL JAVA 8
 echo Setup.sh:  EXECUTING . ./installs/installJava8.sh
 . ./installs/installJava8.sh
