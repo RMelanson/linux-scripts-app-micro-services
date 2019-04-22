@@ -1,12 +1,14 @@
 #!/bin/bash
 
-# MICROSERVICES CONFIGURATION PARAMETERS
-pkg=APP_SERVICES
+# LINUX SCRIPTS CONFIGURATION PARAMETERS
 bootstrap="appMicroServicesBootstrap.sh"
-
 gitRepo="linux-scripts-app-services"
-parentDir="/tmp/scripts/utils/"
+
+pkg=APP_SERVICES
+scriptType="utils"
+parentDir="/tmp/scripts/$scriptType/"
 installDir="$parentDir/$pkg"
+
 appServicesDir=/etc/init.d
 daemon=apps
 appProcessDir=$appServicesDir/appProcesses
