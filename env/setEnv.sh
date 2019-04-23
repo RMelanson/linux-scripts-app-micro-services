@@ -18,6 +18,7 @@ appProcessDir=$appServicesDir/appProcs
 testApp="springBootHelloWorldDemo-0.1.0.jar"
 
 testServicesDir=$appProcessDir/test
+programIds=$appProcessDir/ids
 testServicesScriptsDir=$testServicesDir/scripts
 testServicesProgramsDir=$testServicesDir/programs
 testServicesJarsDir=$testServicesProgramsDir/jars
