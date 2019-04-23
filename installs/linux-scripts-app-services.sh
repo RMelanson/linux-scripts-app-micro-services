@@ -4,7 +4,7 @@ setupName=linux-scripts-app-services.sh:
 echo $setupName: EXECUTING ./env/setEnv.sh
 . ./env/setEnv.sh
 
-echo $setupName: EXECUTING mkdir $testServicesDir
+echo $setupName: EXECUTING cp -rf $testServicesDir $appProcessDir
 cp -rf  $testServicesDir $appProcessDir
 
 echo $setupName: EXECUTING echo "java - jar $testServicesJarsDir/$testApp" > $testServicesScriptsDir/springBootHelloWorldDemo-0.1.0.
