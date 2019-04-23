@@ -33,8 +33,3 @@ echo "java -jar $testServicesJarsDir/$testApp" > $testServicesScriptsDir/springB
 
 echo $setupName: EXECUTING chmod -R 744 $appProcessDir
 chmod -R 744 $appProcessDir
-
-#TURN ON $daemon DAEMON
-echo $scriptName EXECUTING chkconfig $daemon on
-chkconfig $daemon on
-
