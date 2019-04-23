@@ -20,10 +20,13 @@ mkdir $programIds
 echo $setupName EXECUTING: mkdir $testServicesScriptsDir
 mkdir -p $testServicesScriptsDir
 
-
-
 echo $setupName EXECUTING chmod 766 $appServicesDir/$daemon
 chmod 766 $appServicesDir/$daemon
 
+
+echo $setupName: EXECUTING echo "java - jar $testServicesJarsDir/$testApp" > $testServicesScriptsDir/springBootHelloWorldDemo-0.1.0.
+echo "java -jar $testServicesJarsDir/$testApp" > $testServicesScriptsDir/springBootHelloWorldDemo-0.1.0.sh
+
+#turn on apps DAEMON
 echo $scriptName EXECUTING chkconfig $daemon on
 chkconfig $daemon on
