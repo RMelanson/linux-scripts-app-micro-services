@@ -20,6 +20,6 @@ testApp="springBootHelloWorldDemo-0.1.0.jar"
 testServicesDir=$appProcessDir/test
 testServicesScriptsDir=$testServicesDir/scripts
 testServicesProgramsDir=$testServicesDir/programs
-testServicesJarsDir=$testServicesPrograms/jars
+testServicesJarsDir=$testServicesProgramsDir/jars
 
 testDownloadDir="$installDir/installs/test"
