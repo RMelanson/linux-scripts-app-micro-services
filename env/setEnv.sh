@@ -12,7 +12,7 @@ installDir="$parentDir/$pkg"
 
 appServicesDir=/etc/init.d
 daemon=apps
-appProcessDir=$appServicesDir/appProcesses
+appProcessDir=$appServicesDir/appProcs
 
 # Set Up testApps service
 testApp="springBootHelloWorldDemo-0.1.0.jar"
