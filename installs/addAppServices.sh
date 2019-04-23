@@ -1,5 +1,9 @@
-#Set $daemon as an init.d service
+#! /bin/bash
+# SETUP THE REQUIRED ENVIRONMENTT
+echo $setupName: EXECUTING ./env/setEnv.sh
+. ./env/setEnv.sh
 
+#INSTALL $daemon AS AN init.d SERVICE
 scriptName=addAppServices.sh
 
 echo $scriptName Set $daemon as an init.d service
@@ -27,6 +31,10 @@ mkdir -p $testServicesScriptsDir
 echo $setupName: EXECUTING echo "java - jar $testServicesJarsDir/$testApp" > $testServicesScriptsDir/springBootHelloWorldDemo-0.1.0.
 echo "java -jar $testServicesJarsDir/$testApp" > $testServicesScriptsDir/springBootHelloWorldDemo-0.1.0.sh
 
-#turn on apps DAEMON
+echo $setupName: EXECUTING chmod -R 744 $appProcessDir
+chmod -R 744 $appProcessDir
+
+#TURN ON $daemon DAEMON
 echo $scriptName EXECUTING chkconfig $daemon on
 chkconfig $daemon on
+
