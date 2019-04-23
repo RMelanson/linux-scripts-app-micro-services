@@ -22,5 +22,5 @@ echo $setupName EXECUTING . ./installs/addAppServices.sh
 . ./installs/addAppServices.sh
 
 # INSTALL TEST APP SERVICES
-echo $setupName To Test EXECUTE . ./installs/linux-scripts-app-services
+echo $setupName To Test EXECUTE . ./installs/linux-scripts-app-services.sh
 . ./installs/linux-scripts-app-services.sh
