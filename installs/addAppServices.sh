@@ -8,6 +8,9 @@ echo $scriptName Set $daemon as an init.d service
 echo $setupName EXECUTING cp ./installs/$daemon.d $appServicesDir/$daemon
 echo y | cp ./installs/$daemon.d $appServicesDir/$daemon
 
+echo $setupName EXECUTING chmod 766 $appServicesDir/$daemon
+chmod 766 $appServicesDir/$daemon
+
 # CREATE PROCESS DIRECTORY
 echo $setupName EXECUTING: cp -rf $installDir/appProcs $appProcessDir
 cp -rf $installDir/appProcs $appProcessDir
@@ -19,9 +22,6 @@ mkdir $programIds
 # ADD apps TEST SERVICES SCRIPTS DIRECTORY
 echo $setupName EXECUTING: mkdir $testServicesScriptsDir
 mkdir -p $testServicesScriptsDir
-
-echo $setupName EXECUTING chmod 766 $appServicesDir/$daemon
-chmod 766 $appServicesDir/$daemon
 
 
 echo $setupName: EXECUTING echo "java - jar $testServicesJarsDir/$testApp" > $testServicesScriptsDir/springBootHelloWorldDemo-0.1.0.
