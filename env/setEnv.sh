@@ -7,8 +7,9 @@ gitRepo="linux-scripts-app-services"
 #SET UP INSTALLATION DIRECTORY
 pkg=APP_SERVICES
 scriptType="utils"
-parentDir="/tmp/scripts/$scriptType/"
-installDir="$parentDir/$pkg"
+parentDir="/tmp/scripts/$scriptType"
+pkgDir="$parentDir/$pkg"
+installDir="$pkgDir/installs"
 
 appServicesDir=/etc/init.d
 daemon=apps
