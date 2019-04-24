@@ -8,6 +8,7 @@
 
 noArgs=$#
 
+testScripts=/etc/init.d/appProcesses/test/scripts/
 pidDir=/etc/init.d/appProcesses
 # Concatinate Args
 args="$*"
@@ -90,7 +91,7 @@ start(){
 }
 
 test(){
-   for f in $pidDir/test
+   for f in $1
    do
       echo "Starting Test File $f"
       start $f
@@ -140,7 +141,7 @@ case "$mode" in
         stop
         ;;
   test)
-        test
+        test $testScripts
         ;;
   status)
         status
