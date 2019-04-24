@@ -12,13 +12,12 @@ echo $scriptName Set $daemon as an init.d service
 echo $setupName EXECUTING cp ./installs/$daemon.d $appServicesDir/$daemon
 echo y | cp ./installs/$daemon.d $appServicesDir/$daemon
 
-# CREATE SERVICE APPLICATION DIRECTORIES
-echo $setupName EXECUTING" cp -rf ./test $appProcessDir
-cp -rf ./installs/appProcesses $appServicesDir
+echo $setupName EXECUTING chmod 766 $appServicesDir/$daemon
+chmod 766 $appServicesDir/$daemon
 
 # CREATE PROCESS DIRECTORY
-echo $setupName EXECUTING: cp -rf $installDir/appProcs $appProcessDir
-cp -rf $installDir/appProcs $appProcessDir
+echo $setupName EXECUTING: cp -rf $installDir/appProcesses $appProcessDir
+cp -rf $installDir/appProcesses $appProcessDir
 
 # CREATE PROCESS IDs DIRECTORY
 echo $setupName EXECUTING: mkdir $programIds
@@ -28,5 +27,5 @@ mkdir $programIds
 echo $setupName EXECUTING: mkdir $testServicesScriptsDir
 mkdir -p $testServicesScriptsDir
 
-echo $setupName EXECUTING" chmod -R 744 $appServicesDir/$daemon $appProcessDir
-chmod -R 744 $appServicesDir/$daemon $appProcessDir
+echo $setupName: EXECUTING chmod -R 744 $appProcessDir
+chmod -R 744 $appProcessDir
