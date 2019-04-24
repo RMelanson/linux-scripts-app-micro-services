@@ -12,7 +12,8 @@ echo Setup.sh:  EXECUTING: . ./installs/installJava8.sh
 . ./installs/installJava8.sh
 
 # SETUP RECOVERY
-cp $reinstall.sh/reinstall.sh $parentDir
+echo $setupName EXECUTING: . ./installs/addAppServices.sh
+. ./installs/setRecovery.sh
 
 # INSTALL $daemon AS A SERVICE
 echo $setupName EXECUTING: . ./installs/addAppServices.sh
