@@ -22,7 +22,7 @@ You're sections headers will be used to reference location of destination.
 - It is recommended to be installed on a test system in a test environment before promoting to a production environment.<img src="https://github.com/RMelanson/linux-scripts-bootstraps/blob/master/images/caution.png" width="6%" align= "right">
 ## <b>**Install at your own Risk</b>
 ### Repository <img src="https://github.com/RMelanson/linux-scripts-bootstraps/blob/master/images/repository.png" width="5%" align= "right">
-- https://github.com/RMelanson/linux-scripts-spring-boot-microservices.git
+- https://github.com/RMelanson/linux-scripts-app-services.git
 #
 ### About<img src="https://github.com/RMelanson/linux-scripts-bootstraps/blob/master/images/aboutMickey.png" width="6%" align= "right">
 - Version: 1.0.0
