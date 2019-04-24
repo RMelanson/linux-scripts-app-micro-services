@@ -7,13 +7,7 @@ echo setup.sh: EXECUTING: ./env/setEnv.sh
 # COPY RESTORE 
 cp $pkg_RESTORE.sh ..
 
-#INSTALL JAVA 8
-echo Setup.sh:  EXECUTING: . ./installs/installJava8.sh
-. ./installs/installJava8.sh
-
-# CREATE SERVICE APPLICATION DIRECTORIES
-echo $setupName EXECUTING" cp -rf ./test $appProcessDir
-cp -rf ./installs/appProcesses $appServicesDir
+echo $setupName EXECUTING" chmod 744 $appServicesDir
 
 # SETUP RECOVERY
 cp $reinstall.sh/reinstall.sh $parentDir
