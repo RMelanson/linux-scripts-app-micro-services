@@ -9,23 +9,23 @@ scriptName=addAppServices.sh
 echo $scriptName Set $daemon as an init.d service
 
 # INSTALL JAVA APPS DAEMON TO SERVER
-echo $setupName EXECUTING cp ./installs/$daemon.d $appServicesDir/$daemon
+echo addAppServices.sh EXECUTING cp ./installs/$daemon.d $appServicesDir/$daemon
 echo y | cp ./installs/$daemon.d $appServicesDir/$daemon
 
-echo $setupName EXECUTING chmod 766 $appServicesDir/$daemon
+echo addAppServices.sh EXECUTING chmod 766 $appServicesDir/$daemon
 chmod 766 $appServicesDir/$daemon
 
 # CREATE PROCESS DIRECTORY
-echo $setupName EXECUTING: cp -rf $installDir/appProcesses $appProcessDir
+echo addAppServices.sh EXECUTING: cp -rf $installDir/appProcesses $appProcessDir
 cp -rf $installDir/appProcesses $appProcessDir
 
 # CREATE PROCESS IDs DIRECTORY
-echo $setupName EXECUTING: mkdir $programIds
+echo addAppServices.sh EXECUTING: mkdir $programIds
 mkdir $programIds
 
 # ADD apps TEST SERVICES SCRIPTS DIRECTORY
-echo $setupName EXECUTING: mkdir $testServicesScriptsDir
+echo addAppServices.sh EXECUTING: mkdir $testServicesScriptsDir
 mkdir -p $testServicesScriptsDir
 
-echo $setupName: EXECUTING chmod -R 744 $appProcessDir
+echo addAppServices.sh EXECUTING: chmod -R 744 $appProcessDir
 chmod -R 744 $appProcessDir
