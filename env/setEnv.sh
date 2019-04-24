@@ -13,7 +13,7 @@ installDir="$pkgDir/installs"
 
 appServicesDir=/etc/init.d
 daemon=apps
-appProcessDir=$appServicesDir/appProcs
+appProcessDir=$appServicesDir/appIds
 
 # Set Up testApps service
 testApp="springBootHelloWorldDemo-0.1.0.jar"
@@ -21,7 +21,6 @@ testApp="springBootHelloWorldDemo-0.1.0.jar"
 testServicesDir=$appProcessDir/test
 programIds=$appProcessDir/ids
 testServicesScriptsDir=$testServicesDir/scripts
-testServicesProgramsDir=$testServicesDir/programs
-testServicesJarsDir=$testServicesProgramsDir/jars
+testServicesJarsDir=$testServicesDir/jars
 
 testDownloadDir="$installDir/installs/test"
