@@ -9,7 +9,7 @@
 noArgs=$#
 
 testScripts=/etc/init.d/appProcesses/test/scripts/
-pidDir=/etc/init.d/appProcesses
+pidDir=/etc/init.d/appProcesses/ids
 # Concatinate Args
 args="$*"
 
@@ -77,23 +77,20 @@ getPID() {
 start(){
    prog=$1
    echo STARTING $prog
-   $prog
-   echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   echo start($1) EXECUTING: "echo $prog & | tee $pidDir/$pid"
+   $prog &
    pid=$!
-   echo EXECUTING "echo $exe | tee $pidDir/$pid"
-   echo "$exe" | tee $pidDir/$pid
-   echo EXECUTING ps -ef | grep $pid
+   echo start($1) EXECUTING: "CREATING PID FILE = $pidDir/$pid"
+   echo "$prog" | tee $pidDir/$pid
+   echo start($1) EXECUTING: "-ef | grep $pid"
    proc=$(ps -ef | grep $pid)
-   echo BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-   echo PROC = $proc
-   echo PID = $pid
-   echo CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 }
 
 test(){
    for f in $1
    do
       echo "Starting Test File $f"
+      script=$(cat $f)
       start $f
    done
    
