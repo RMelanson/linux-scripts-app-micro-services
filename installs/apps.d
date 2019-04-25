@@ -77,10 +77,9 @@ getPID() {
 start(){
    prog=$1
    echo STARTING $prog
-   echo  "start($1) EXECUTING: echo $prog & | tee $pidDir/$pid"
    $prog &
    pid=$!
-   echo "start($1) EXECUTING: CREATING PID FILE = $pidDir/$pid"
+   echo  "start($1) EXECUTING: echo $prog & | tee $pidDir/$pid"
    echo "$prog" | tee $pidDir/$pid
    echo "start($1) EXECUTING: ps -ef | grep $pid"
    proc=$(ps -ef | grep $pid)
