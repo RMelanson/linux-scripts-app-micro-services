@@ -82,7 +82,7 @@ start(){
    pid=$!
    echo "start($1) EXECUTING: CREATING PID FILE = $pidDir/$pid"
    echo "$prog" | tee $pidDir/$pid
-   echo "start($1) EXECUTING: -ef | grep $pid"
+   echo "start($1) EXECUTING: ps -ef | grep $pid"
    proc=$(ps -ef | grep $pid)
 }
 
