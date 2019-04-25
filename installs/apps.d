@@ -8,7 +8,7 @@
 
 noArgs=$#
 
-testScripts=/etc/init.d/appProcesses/test/scripts/
+testScripts=/etc/init.d/appProcesses/test/scripts/*
 pidDir=/etc/init.d/appProcesses/ids
 # Concatinate Args
 args="$*"
