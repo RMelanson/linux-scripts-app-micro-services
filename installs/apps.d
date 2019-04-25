@@ -91,7 +91,7 @@ test(){
    do
       echo "Starting Test File $f"
       script=$(cat $f)
-      start $f
+      start $script
    done
    
 }
