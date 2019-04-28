@@ -76,7 +76,7 @@ stop(){
    if [ -z $1 ]
    then
        echo "***ERROR*** PID not specified"
-       usage()
+       usage
    else
       pid=$1
       pidfile=pidDir$pid
