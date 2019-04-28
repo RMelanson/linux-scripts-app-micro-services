@@ -76,19 +76,22 @@ getPID() {
 }
 
 start(){
-echo "apps.d: START($1) entered"
+   echo "apps.d: START($1) entered"
    prog=$1
-   echo STARTING $prog
-   $prog &
-   pid=$!
-   echo  "start($1) EXECUTING: echo $prog & | tee $pidDir/$pid"
-   echo "$prog" | tee $pidDir/$pid
-   echo "start($1) EXECUTING: ps -ef | grep $pid"
-   proc=$(ps -ef | grep $pid)
+  i f [ -z $pidFile ]
+   then
+      echo STARTING $prog
+      $prog &
+      pid=$!
+      echo  "start($1) EXECUTING: echo $prog & | tee $pidDir/$pid"
+      echo "$prog" | tee $pidDir/$pid
+      echo "start($1) EXECUTING: ps -ef | grep $pid"
+      proc=$(ps -ef | grep $pid)
+   fi
 }
 
 stop(){
-echo "apps.d: STOP($1) entered"
+   echo "apps.d: STOP($1) entered"
    if [ "$pid" -ne 0 ]
    then
       echo STOPPING PID $pid for process $jarFile
