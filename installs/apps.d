@@ -117,13 +117,12 @@ echo "apps.d: STOP($1) entered"
 #  fi
 
 status() {
-   if [ -f $pidFile ]
-   if [ $pid -eq 0 ]
-   then
-      echo NOT RUNNING PROGRAM $jarFile
-   else
-      echo process $pid RUNNING as PROGRAM $jarFile
-   fi
+#   if [ $pid -eq 0 ]
+#   then
+#      echo NOT RUNNING PROGRAM $jarFile
+#   else
+#      echo process $pid RUNNING as PROGRAM $jarFile
+#   fi
 }
 
 ### main logic ###
