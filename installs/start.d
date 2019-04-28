@@ -1,7 +1,7 @@
 #!/bin/bash
 # chkconfig: 2345 20 80
 # description: appServices ~ Start an Application as a Services
-# processname: appServices
+# process Name: start
 # pidDir: /etc/init.d/appProcesses
 # Author: Robin Melanson (Contractor)
 # Contact: robin.e.melanson@gmail.com
@@ -16,7 +16,7 @@ args="$*"
 #Trim args leading and trailing white spaces
 args=$(echo -e $args | sed 's/^[ \t]*//;s/[ \t]*$//')
 
-echo "Executing service appServices.d $args"
+echo "Executing service start $args"
 
 exe=$(echo -e $args | sed -e 's/^\w*\ *//')
 
