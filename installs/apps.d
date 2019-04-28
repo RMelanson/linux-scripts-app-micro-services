@@ -9,8 +9,8 @@
 noArgs=$#
 
 servicesDir=/etc/init.d/services
-pidDir=$services/ids
-testScripts=$services/test/scripts/*
+pidDir=$servicesDir/ids
+testScripts=$servicesDir/test/scripts/*
 # Concatinate Args
 args="$*"
 
