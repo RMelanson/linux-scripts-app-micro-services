@@ -11,15 +11,15 @@ noArgs=$#
 servicesDir=/etc/init.d/services
 pidDir=$servicesDir/ids
 testScripts=$servicesDir/test/scripts/*
-# Concatinate Args
+
 args="$*"
 
 #Trim args leading and trailing white spaces
-args=$(echo -e $args | sed 's/^[ \t]*//;s/[ \t]*$//')
 
-echo "Executing service start $args"
+echo "Executing service $args"
 
-exe=$(echo -e $args | sed -e 's/^\w*\ *//')
+# Concatinate Args
+exe=$(echo $args | cut -d " " -f2-)
 
 mode=$1
 
@@ -51,8 +51,8 @@ help ()
 
 start(){
    echo "apps.d: START($1) entered"
-   prog=$1
-   if [ ! -z $prog ]
+   prog=$(echo $args | cut -d " " -f2-)
+   if [ ! -z "$*" ]
    then
       echo STARTING $prog
       $prog &
