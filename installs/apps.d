@@ -86,7 +86,7 @@ start(){
       echo "start($1) EXECUTING: echo $prog &" | tee $pidDir/$pid
       echo "start($1) STARTING PID $pid => $prog"
    else
-      echo 
+      echo "***ERROR*** PROGRAM NOT DEFINED"
    fi
 }
 
@@ -110,19 +110,10 @@ echo "apps.d: TEST($1) entered"
    done
 }
 
-#  then
-#      echo "process $pidFile already running. " 1>&2
-#      echo To restart try ""service saAPIs  $jarFile restart""
-#  else
-#     delaySecs=100
-#     run="java -jar $jarFile $delaySecs"
-#     $run &
-#     setPID_File
-#  fi
-
 status(){
     echo "apps.d: STATUS($1) entered"
 }
+
 ### main logic ###
 case "$mode" in
   start)
@@ -150,4 +141,3 @@ case "$mode" in
 esac
 
 exit 0
-  
