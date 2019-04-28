@@ -49,42 +49,16 @@ help ()
    echo "             Prints out the appService usage syntax"
 }
 
-setPID_File(){
-   proc=$(ps -ef | grep $jarFile)
-   pid=$(echo $proc|cut -d' ' -f2)
-   echo proc = $proc
-   pid=$(echo $proc| cut -d' ' -f2)
-   echo $pid > $pidFile
-   return $pid
-}
-
-pid=0
-
-getPID() {
-   if [ -z $pidFile ]
-   then
-      echo \*\*\* ERROR \*\*\* PROCESS ID $pidFile NOT DEFINED
-      exit -1
-   elif [ -f $pidFile ]
-      then
-          pid=$(cat $pidFile)
-          echo "Found pid $pid for Process %jarFile"
-      else
-          echo "***ERROR *** PID FILE  $pidFile. NOT FOUND" 1>&2
-          pid=0
-   fi
-}
-
 start(){
    echo "apps.d: START($1) entered"
    prog=$1
-  if [ ! -z $pidFile ]
+   if [ ! -z $prog ]
    then
       echo STARTING $prog
       $prog &
       pid=$!
-      echo "start($1) EXECUTING: echo $prog &" | tee $pidDir/$pid
-      echo "start($1) STARTING PID $pid => $prog"
+      echo "start($1) EXECUTING: echo $prog &"
+      echo $prog > $pidDir/$pid
    else
       echo "***ERROR*** PROGRAM NOT DEFINED"
    fi
@@ -132,7 +106,7 @@ case "$mode" in
         stop
         start
         ;;
-  help)
+  help|usage|about|?)
         help
         ;;
  *) usage
