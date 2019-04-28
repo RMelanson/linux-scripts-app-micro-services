@@ -12,7 +12,7 @@ pkgDir="$parentDir/$pkg"
 installDir="$pkgDir/installs"
 
 appServicesDir=/etc/init.d
-daemon=apps
+daemon=start
 appProcessDir=$appServicesDir/services
 
 # Set Up testApps service
