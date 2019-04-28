@@ -2,15 +2,15 @@
 # chkconfig: 2345 20 80
 # description: appServices ~ Start an Application as a Services
 # process Name: start
-# pidDir: /etc/init.d/appProcesses
+# pidDir: /etc/init.d/servives
 # Author: Robin Melanson (Contractor)
 # Contact: robin.e.melanson@gmail.com
 
 noArgs=$#
 
-testScripts=/etc/init.d/appProcesses/test/scripts/*
 servicesDir=/etc/init.d/services
 pidDir=$services/ids
+testScripts=$services/test/scripts/*
 # Concatinate Args
 args="$*"
 
