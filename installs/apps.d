@@ -49,7 +49,7 @@ about ()
    echo "# Author     : Robin Melanson (Contractor)"
    echo "# Contact    : robin.e.melanson@gmail.com"
    echo "======================================================================"
-   usage()
+   usage
 }
 
 start(){
