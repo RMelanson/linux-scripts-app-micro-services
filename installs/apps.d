@@ -78,15 +78,15 @@ getPID() {
 start(){
    echo "apps.d: START($1) entered"
    prog=$1
-  i f [ -z $pidFile ]
+  if [ ! -z $pidFile ]
    then
       echo STARTING $prog
       $prog &
       pid=$!
-      echo  "start($1) EXECUTING: echo $prog & | tee $pidDir/$pid"
-      echo "$prog" | tee $pidDir/$pid
-      echo "start($1) EXECUTING: ps -ef | grep $pid"
-      proc=$(ps -ef | grep $pid)
+      echo "start($1) EXECUTING: echo $prog &" | tee $pidDir/$pid
+      echo "start($1) STARTING PID $pid => $prog"
+   else
+      echo 
    fi
 }
 
