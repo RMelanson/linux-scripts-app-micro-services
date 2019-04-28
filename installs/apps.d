@@ -27,15 +27,7 @@ usage ()
    echo $"Usage: $0 {start|stop|restart|status|help}"
 }
 
-help ()
-{
-   clear;
-   echo "=======================  $prog HELP MENU ============================"
-   echo "# description: $prog ~ Add Applications as a Services"
-   echo "# processname: $prog"
-   echo "# Author     : Robin Melanson (Contractor)"
-   echo "# Contact    : robin.e.melanson@gmail.com"
-   echo "======================================================================"
+usage () {
    echo "Usage(1): service $prog start <cmd (Optional)>"
    echo "             The application as a services will be started"
    echo "Usage(2): service $prog stop"
@@ -48,30 +40,16 @@ help ()
    echo "             Prints out the appService usage syntax"
 }
 
-setPID_File(){
-   proc=$(ps -ef | grep $jarFile)
-   pid=$(echo $proc|cut -d' ' -f2)
-   echo proc = $proc
-   pid=$(echo $proc| cut -d' ' -f2)
-   echo $pid > $pidFile
-   return $pid
-}
-
-pid=0
-
-getPID() {
-   if [ -z $pidFile ]
-   then
-      echo \*\*\* ERROR \*\*\* PROCESS ID $pidFile NOT DEFINED
-      exit -1
-   elif [ -f $pidFile ]
-      then
-          pid=$(cat $pidFile)
-          echo "Found pid $pid for Process %jarFile"
-      else
-          echo "***ERROR *** PID FILE  $pidFile. NOT FOUND" 1>&2
-          pid=0
-   fi
+about ()
+{
+   clear;
+   echo "=======================  $prog HELP MENU ============================"
+   echo "# description: $prog ~ Add Applications as a Services"
+   echo "# processname: $prog"
+   echo "# Author     : Robin Melanson (Contractor)"
+   echo "# Contact    : robin.e.melanson@gmail.com"
+   echo "======================================================================"
+   usage()
 }
 
 start(){
@@ -80,7 +58,6 @@ start(){
    $prog &
    pid=$!
    echo  "start($1) EXECUTING: echo $prog & | tee $pidDir/$pid"
-   echo "$prog" | tee $pidDir/$pid
    echo "start($1) EXECUTING: ps -ef | grep $pid"
    proc=$(ps -ef | grep $pid)
 }
@@ -95,26 +72,22 @@ test(){
    
 }
 
-#   if [ -f $pidFile ]
-#  then
-#      echo "process $pidFile already running. " 1>&2
-#      echo To restart try ""service saAPIs  $jarFile restart""
-#  else
-#     delaySecs=100
-#     run="java -jar $jarFile $delaySecs"
-#     $run &
-#     setPID_File
-#  fi
-
-
-
 stop(){
-   getPID
-   if [ "$pid" -ne 0 ]
+   if [ -z $1 ]
    then
-      echo STOPPING PID $pid for process $jarFile
-      rm $pidFile
-      kill -9 $pid
+       echo "***ERROR*** PID not specified"
+       usage()
+   else
+      pid=$1
+      pidfile=pidDir$pid
+      echo STOPPING PID $pid for process $pidfile
+      if [ -f $pidFile ]
+      then
+          rm $pidFile
+          kill -9 $pid
+      else
+          echo "*** ERROR PID $pid not Managed by apps services"
+      fi
    fi
 }
 
@@ -134,7 +107,8 @@ case "$mode" in
         start $exe
         ;;
   stop)
-        stop
+        pid=$2
+        stop $2
         ;;
   test)
         test $testScripts
@@ -146,7 +120,7 @@ case "$mode" in
         stop
         start
         ;;
-  help)
+  help|about)
         help
         ;;
  *) usage
