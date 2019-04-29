@@ -12,7 +12,6 @@ servicesDir=/etc/init.d/services
 pidDir=$servicesDir/ids
 testScripts=$servicesDir/test/scripts/*
 
-
 #Trim args leading and trailing white spaces
 
 echo "Executing service $args"
@@ -138,7 +137,11 @@ status(){
    prog=$(echo $args | cut -d " " -f2-)
    if [ -z "$*" ]
    then
-      echo "TO DO LIST ALL PROCESSES"
+      echo RUNNING PROCESSES
+      for f in $pidDir
+      do
+         showStatus "$pid"
+      done
    else
       for pid in "$pids"
       do
