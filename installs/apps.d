@@ -12,7 +12,6 @@ servicesDir=/etc/init.d/services
 pidDir=$servicesDir/ids
 testScripts=$servicesDir/test/scripts/*
 
-
 #Trim args leading and trailing white spaces
 
 echo "Executing service $args"
@@ -24,10 +23,9 @@ mode=$1
 
 usage()
 {
-   msg="$*"
-   if [ ! -z $msg ]
+   if [ ! -z $1 ]
    then
-     echo "$msg"
+     echo $1
    fi
    echo "=============================USAGE================================"
    echo $"Usage: $0 {start|stop|restart|status|help}"
@@ -70,9 +68,10 @@ startServive(){
 }
 
 start(){
-   echo "apps.d: START($args) entered"
-   prog=$(echo $args | cut -d " " -f2-)
-   if [ -z "$*" ]
+   parms="$*"
+   echo "apps.d: START($parms) entered"
+   prog=$(echo $parms | cut -d " " -f2-)
+   if [ -z "$parms"args ]
    then
       usage "***ERROR*** PROGRAM NOT DEFINED"
    else
@@ -81,6 +80,8 @@ start(){
          startServive "$process"
       done
    fi
+}
+
 }
 
 stopProcess(){
@@ -140,7 +141,11 @@ status(){
    prog=$(echo $args | cut -d " " -f2-)
    if [ -z "$*" ]
    then
-      echo "TO DO LIST ALL PROCESSES"
+      echo RUNNING PROCESSES
+      for f in $pidDir
+      do
+         showStatus "$pid"
+      done
    else
       for pid in "$pids"
       do
@@ -164,7 +169,7 @@ case "$mode" in
   status)
         status $serviceParms
         ;;
-  restart|reload 
+  restart|reload)
         stop $serviceParms
         start $serviceParms
         ;;
