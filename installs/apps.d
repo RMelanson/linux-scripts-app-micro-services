@@ -12,6 +12,7 @@ servicesDir=/etc/init.d/services
 pidDir=$servicesDir/ids
 testScripts=$servicesDir/test/scripts/*
 
+
 #Trim args leading and trailing white spaces
 
 echo "Executing service $args"
@@ -23,9 +24,9 @@ mode=$1
 
 usage()
 {
-   if [ ! -z $1 ]
-   then
-     echo $1
+   msg="$*"
+   if [ ! -z $msg ]
+     echo "$msg"
    fi
    echo "=============================USAGE================================"
    echo $"Usage: $0 {start|stop|restart|status|help}"
@@ -138,11 +139,7 @@ status(){
    prog=$(echo $args | cut -d " " -f2-)
    if [ -z "$*" ]
    then
-      echo RUNNING PROCESSES
-      for f in $pidDir
-      do
-         showStatus "$pid"
-      done
+      echo "TO DO LIST ALL PROCESSES"
    else
       for pid in "$pids"
       do
@@ -166,7 +163,7 @@ case "$mode" in
   status)
         status $serviceParms
         ;;
-  restart|reload)
+  restart|reload 
         stop $serviceParms
         start $serviceParms
         ;;
