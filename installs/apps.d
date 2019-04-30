@@ -24,7 +24,7 @@ mode=$1
 usage()
 {
    if [ ! -z $1 ]
-   them
+   then
      echo $1
    fi
    echo "=============================USAGE================================"
@@ -166,7 +166,7 @@ case "$mode" in
   status)
         status $serviceParms
         ;;
-  restart|reload 
+  restart|reload)
         stop $serviceParms
         start $serviceParms
         ;;
