@@ -16,8 +16,8 @@ echo addAppServices.sh EXECUTING chmod 766 $appServicesDir/$daemon
 chmod 766 $appServicesDir/$daemon
 
 # CREATE PROCESS DIRECTORY
-echo addAppServices.sh EXECUTING: cp -rf $installDir/appProcesses $appProcessDir
-cp -rf $installDir/appProcesses $appProcessDir
+echo addAppServices.sh EXECUTING: cp -rf $installDir/servicesDir $servicesDir
+cp -rf $installDir/services $servicesDir
 
 # CREATE PROCESS IDs DIRECTORY
 echo addAppServices.sh EXECUTING: mkdir $programIds
@@ -27,5 +27,5 @@ mkdir $programIds
 echo addAppServices.sh EXECUTING: mkdir $testServicesScriptsDir
 mkdir -p $testServicesScriptsDir
 
-echo addAppServices.sh EXECUTING: chmod -R 744 $appProcessDir
-chmod -R 744 $appProcessDir
+echo addAppServices.sh EXECUTING: chmod -R 744 $servicesDir
+chmod -R 744 $servicesDir
