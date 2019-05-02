@@ -82,8 +82,6 @@ start(){
    fi
 }
 
-}
-
 stopProcess(){
    pid=$1
    if [ -z "$pid" ]
