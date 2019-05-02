@@ -18,8 +18,7 @@ echo "Executing service $args"
 
 mode=$1
 
-usage()
-{
+usage() {
    if [ ! -z $1 ]
    then
      echo $1
@@ -28,8 +27,7 @@ usage()
    echo $"Usage: $0 {start|stop|restart|clean|status|help}"
 }
 
-about()
-{
+about() {
    clear;
    echo "======================= ABOUT APPS SERVICES =========================="
    echo "# description: $prog ~ Add Applications as a Services"
@@ -39,8 +37,7 @@ about()
    usage
 }
 
-help ()
-{
+help () {
    about
    echo "====================  APPS SERVICES HELP MENU ========================"
    echo "Usage(1): service $prog start <cmd (Optional)>"
@@ -56,7 +53,7 @@ help ()
    echo "======================================================================"
 }
 
-start(){
+start() {
    process="$*"
    echo "apps.d: START($process) entered"
    if [ -z "$process" ]
@@ -70,7 +67,7 @@ start(){
    fi
 }
 
-stopProcess(){
+stopProcess() {
    pid=$1
    if [ -z "$pid" ]
    then
@@ -83,7 +80,7 @@ stopProcess(){
     fi
 }
 
-stop(){
+stop() {
    echo "apps.d: START($args) entered"
 #   pids=$(echo $args | cut -d " " -f2-)
    if [ -z "$pids" ]
@@ -97,7 +94,7 @@ stop(){
     fi
 }
 
-test(){
+test() {
    echo "apps.d: TEST($1) entered"
    for f in $1
    do
@@ -107,7 +104,7 @@ test(){
    done
 }
 
-showStatus(){
+showStatus() {
    pid=$1
    echo "apps.d: SHOWSTATUS($pid) entered"
    if [ -z "$pid" ]
@@ -122,7 +119,7 @@ showStatus(){
    fi
 }
 
-clean(){
+clean() {
    echo "======================= APPS CLEAN SERVICES =========================="
    echo "apps.d: CLEAN($args) entered"
    prog=$(echo $args | cut -d " " -f2-)
@@ -133,7 +130,7 @@ clean(){
       do
          showStatus "$pid"
       done
-   elseshowStatus(){
+   else {
    pid=$1
    echo "apps.d: SHOWSTATUS($pid) entered"
    if [ -z "$pid" ]
@@ -148,7 +145,7 @@ clean(){
    fi
 }
 
-status(){
+status() {
    pids=$*
    #Remove Functions Call Name
    pids=${pids//$1/}
