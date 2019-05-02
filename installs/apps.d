@@ -28,7 +28,7 @@ usage()
      echo $1
    fi
    echo "=============================USAGE================================"
-   echo $"Usage: $0 {start|stop|restart|status|help}"
+   echo $"Usage: $0 {start|stop|restart|clean|status|help}"
 }
 
 about()
@@ -59,26 +59,17 @@ help ()
    echo "======================================================================"
 }
 
-startServive(){
-       echo STARTING $prog
-       $prog &
-       pid=$!
-       echo "start($1) EXECUTING: echo $prog &"
-       echo $prog > $pidDir/$pid
-}
-
 start(){
-   parms="$*"
-   echo "apps.d: START($parms) entered"
-   prog=$(echo $parms | cut -d " " -f2-)
-   if [ -z "$parms"args ]
+   process="$*"
+   echo "apps.d: START($process) entered"
+   if [ -z "$process" ]
    then
       usage "***ERROR*** PROGRAM NOT DEFINED"
    else
-      for process in "$@"
-      do
-         startServive "$process"
-      done
+       $process &
+       pid=$!
+       echo "start($1) EXECUTING: echo $process &"
+       echo $process > $pidDir/$pid
    fi
 }
 
@@ -97,7 +88,7 @@ stopProcess(){
 
 stop(){
    echo "apps.d: START($args) entered"
-   pids=$(echo $args | cut -d " " -f2-)
+#   pids=$(echo $args | cut -d " " -f2-)
    if [ -z "$pids" ]
    then
       usage "***ERROR*** NO PID TO STOP"
@@ -134,8 +125,30 @@ showStatus(){
 }
 
 status(){
+   pids="$*"
    echo "====================== APPS SERVICES STATUSES ========================"
-   echo "apps.d: START($args) entered"
+   echo "apps.d: STATUS($pids) entered"
+   prog=$(echo $args | cut -d " " -f2-)
+   if [ -z "$pids" ]
+   then
+      echo RUNNING PROCESSES
+      for f in $pidDir
+      do
+         echo FOUND PID DIRECTORY PROCESS $pid
+         showStatus "$pid"
+      done
+   else
+      for pid in "$pids"
+      do
+         showStatus "$pid"
+      done
+   fi
+   echo "======================================================================"
+}
+
+clean(){
+   echo "======================= APPS CLEAN SERVICES =========================="
+   echo "apps.d: CLEAN($args) entered"
    prog=$(echo $args | cut -d " " -f2-)
    if [ -z "$*" ]
    then
