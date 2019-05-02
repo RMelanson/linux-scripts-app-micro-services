@@ -16,9 +16,6 @@ testScripts=$servicesDir/test/scripts/*
 
 echo "Executing service $args"
 
-# Concatinate Args
-serviceParms=$(echo $args | cut -d " " -f2-)
-
 mode=$1
 
 usage()
@@ -112,6 +109,7 @@ test(){
 
 showStatus(){
    pid=$1
+   echo "apps.d: SHOWSTATUS($pid) entered"
    if [ -z "$pid" ]
    then
       usage "***ERROR*** NO PID TO STOP"
@@ -122,28 +120,6 @@ showStatus(){
      rm $pidFile
      kill -9 $pid
    fi
-}
-
-status(){
-   pids="$*"
-   echo "====================== APPS SERVICES STATUSES ========================"
-   echo "apps.d: STATUS($pids) entered"
-   prog=$(echo $args | cut -d " " -f2-)
-   if [ -z "$pids" ]
-   then
-      echo RUNNING PROCESSES
-      for f in $pidDir
-      do
-         echo FOUND PID DIRECTORY PROCESS $pid
-         showStatus "$pid"
-      done
-   else
-      for pid in "$pids"
-      do
-         showStatus "$pid"
-      done
-   fi
-   echo "======================================================================"
 }
 
 clean(){
@@ -157,6 +133,37 @@ clean(){
       do
          showStatus "$pid"
       done
+   elseshowStatus(){
+   pid=$1
+   echo "apps.d: SHOWSTATUS($pid) entered"
+   if [ -z "$pid" ]
+   then
+      usage "***ERROR*** NO PID TO STOP"
+   else
+     pidFile=pidDir/$1
+     echo STATUS $pid for process $pidFile
+     cat $pidFile
+     rm $pidFile
+     kill -9 $pid
+   fi
+}
+
+status(){
+   pids=$*
+   #Remove Functions Call Name
+   pids=${pids//$1/}
+
+   echo "====================== APPS SERVICES STATUSES ========================"
+   echo "apps.d: STATUS($pids) entered"
+   if [ -z "$pids" ]
+   then
+      echo RUNNING PROCESS DIRECTORY $pidDir/*/etc/init.d/services/ids
+
+      for pid in $pidDir/*
+      do
+         echo FOUND PID DIRECTORY PROCESS $pid
+         showStatus "$pid"
+      done
    else
       for pid in "$pids"
       do
@@ -167,6 +174,9 @@ clean(){
 }
 
 ### main logic ###
+# Concatinate Args
+serviceParms=$(echo $args | cut -d " " -f2-)
+
 case "$mode" in
   start)
         start $serviceParms
@@ -179,6 +189,9 @@ case "$mode" in
         ;;
   status)
         status $serviceParms
+        ;;
+  clean)
+        clean $serviceParms
         ;;
   restart|reload)
         stop $serviceParms
