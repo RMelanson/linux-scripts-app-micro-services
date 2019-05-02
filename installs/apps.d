@@ -121,28 +121,6 @@ showStatus() {
 
 clean() {
    echo "======================= APPS CLEAN SERVICES =========================="
-   echo "apps.d: CLEAN($args) entered"
-   prog=$(echo $args | cut -d " " -f2-)
-   if [ -z "$*" ]
-   then
-      echo RUNNING PROCESSES
-      for f in $pidDir
-      do
-         showStatus "$pid"
-      done
-   else {
-   pid=$1
-   echo "apps.d: SHOWSTATUS($pid) entered"
-   if [ -z "$pid" ]
-   then
-      usage "***ERROR*** NO PID TO STOP"
-   else
-     pidFile=pidDir/$1
-     echo STATUS $pid for process $pidFile
-     cat $pidFile
-     rm $pidFile
-     kill -9 $pid
-   fi
 }
 
 status() {
