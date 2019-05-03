@@ -55,7 +55,7 @@ help () {
 
 start() {
    process="$*"
-   echo "apps.d: START($process) entered"
+   echo "START($process)"
    if [ -z "$process" ]
    then
       usage "***ERROR*** PROGRAM NOT DEFINED"
@@ -73,7 +73,7 @@ stopProcess() {
    then
       usage "***ERROR*** NO PID TO STOP"
    else
-     pidFile=pidDir/$1
+     pidFile=$pidDir/$1
      echo STOPPING PID $pid for process $pidFile
      rm $pidFile
      kill -9 $pid
@@ -81,7 +81,8 @@ stopProcess() {
 }
 
 stop() {
-   echo "apps.d: START($args) entered"
+   process="$*"
+   echo "STOP($process)"
 #   pids=$(echo $args | cut -d " " -f2-)
    if [ -z "$pids" ]
    then
@@ -95,8 +96,9 @@ stop() {
 }
 
 test() {
-   echo "apps.d: TEST($1) entered"
-   for f in $1
+   testDir="$*"
+   echo "TEST($testDir)"
+   for f in $testDir
    do
       echo "Starting Test File $f"
       script=$(cat $f)
@@ -106,16 +108,15 @@ test() {
 
 showStatus() {
    pid=$1
-   echo "apps.d: SHOWSTATUS($pid) entered"
+   echo "SHOW STATUS($pid)"
    if [ -z "$pid" ]
    then
       usage "***ERROR*** NO PID TO STOP"
    else
-     pidFile=pidDir/$1
-     echo STATUS $pid for process $pidFile
+     pidFile=$pidDir/$1
      cat $pidFile
-     rm $pidFile
-     kill -9 $pid
+#     rm $pidFile
+#     kill -9 $pid
    fi
 }
 
@@ -128,20 +129,21 @@ status() {
    #Remove Functions Call Name
    pids=${pids//$1/}
 
-   echo "====================== APPS SERVICES STATUSES ========================"
-   echo "apps.d: STATUS($pids) entered"
+   echo "===================== SHOW APP SERVICES STATUS ======================="
+   echo "STATUS($pids)"
    if [ -z "$pids" ]
    then
-      echo RUNNING PROCESS DIRECTORY $pidDir/*/etc/init.d/services/ids
-
-      for pid in $pidDir/*
+      for file in $pidDir/*
       do
-         echo FOUND PID DIRECTORY PROCESS $pid
+         pid="$(basename -- $file)"
+         #echo "FOUND PID $pid"
          showStatus "$pid"
       done
    else
-      for pid in "$pids"
+      for file in "$pids"
       do
+         pid="$(basename -- $file)"
+         #echo "FOUND PID $pid"
          showStatus "$pid"
       done
    fi
