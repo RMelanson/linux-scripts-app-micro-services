@@ -92,15 +92,15 @@ stop() {
 }
 
 start() {
-   process="$* &"
+   process="$*"
    echoLog "START($process)" | tee -a $logFile
    if [ -z "$process" ]
    then
       usage "***ERROR*** PROGRAM NOT DEFINED"
    else
-       $process
+       $process &
        pid=$!
-       echo "start($1) EXECUTING: echo $process" | tee -a $logFile
+       echo "start($1) EXECUTING: echo $process &" | tee -a $logFile
        echo $process > $pidDir/$pid
    fi
 }
