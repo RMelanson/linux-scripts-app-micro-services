@@ -10,13 +10,23 @@ args="$*"
 noArgs=$#
 servicesDir=/etc/init.d/services
 pidDir=$servicesDir/ids
+logDir=$servicesDir/logs
 testScripts=$servicesDir/test/scripts/*
 
 #Trim args leading and trailing white spaces
 
-echo "Executing service $args"
 
 mode=$1
+setLogFile(){
+   logfile=log$(date +"%y-%m-%d")
+}
+
+echoLog() {
+   setLogFile
+   logStr="$(date +"%H:%M:%S>") $*" | tee -a logFile
+}
+
+echoLog "Executing service $args"
 
 usage() {
    if [ ! -z $1 ]
@@ -53,20 +63,6 @@ help () {
    echo "======================================================================"
 }
 
-start() {
-   process="$*"
-   echo "START($process)"
-   if [ -z "$process" ]
-   then
-      usage "***ERROR*** PROGRAM NOT DEFINED"
-   else
-       $process &
-       pid=$!
-       echo "start($1) EXECUTING: echo $process &"
-       echo $process > $pidDir/$pid
-   fi
-}
-
 stopProcess() {
    pid=$1
    if [ -z "$pid" ]
@@ -74,7 +70,7 @@ stopProcess() {
       usage "***ERROR*** NO PID TO STOP"
    else
      pidFile=$pidDir/$1
-     echo STOPPING PID $pid for process $pidFile
+     echoLog STOPPING PID $pid for process $pidFile
      rm $pidFile
      kill -9 $pid
     fi
@@ -82,7 +78,7 @@ stopProcess() {
 
 stop() {
    process="$*"
-   echo "STOP($process)"
+   echoLog "STOP($process)" | tee -a $logFile
 #   pids=$(echo $args | cut -d " " -f2-)
    if [ -z "$pids" ]
    then
@@ -95,9 +91,23 @@ stop() {
     fi
 }
 
+start() {
+   process="$* &"
+   echoLog "START($process)" | tee -a $logFile
+   if [ -z "$process" ]
+   then
+      usage "***ERROR*** PROGRAM NOT DEFINED"
+   else
+       $process
+       pid=$!
+       echo "start($1) EXECUTING: echo $process" | tee -a $logFile
+       echo $process > $pidDir/$pid
+   fi
+}
+
 test() {
    testDir="$*"
-   echo "TEST($testDir)"
+   echoLog "TEST($testDir)" | tee -a $logFile
    for f in $testDir
    do
       echo "Starting Test File $f"
@@ -108,7 +118,7 @@ test() {
 
 showStatus() {
    pid=$1
-   echo "SHOW STATUS($pid)"
+   echoLog "SHOW STATUS($pid)"
    if [ -z "$pid" ]
    then
       usage "***ERROR*** NO PID TO STOP"
@@ -121,7 +131,7 @@ showStatus() {
 }
 
 clean() {
-   echo "======================= APPS CLEAN SERVICES =========================="
+   echoLog "======================= APPS CLEAN SERVICES =========================="
 }
 
 status() {
@@ -129,8 +139,8 @@ status() {
    #Remove Functions Call Name
    pids=${pids//$1/}
 
-   echo "===================== SHOW APP SERVICES STATUS ======================="
-   echo "STATUS($pids)"
+   echoLog "===================== SHOW APP SERVICES STATUS ======================="
+   echoLog "STATUS($pids)"
    if [ -z "$pids" ]
    then
       for file in $pidDir/*
