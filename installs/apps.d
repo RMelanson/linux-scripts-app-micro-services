@@ -15,8 +15,6 @@ testScripts=$servicesDir/test/scripts/*
 
 #Trim args leading and trailing white spaces
 
-
-mode=$1
 setLogFile(){
    logfile=log$(date +"%y-%m-%d")
 }
@@ -25,8 +23,6 @@ echoLog() {
    setLogFile
    logStr="$(date +"%H:%M:%S>") $*" | tee -a logFile
 }
-
-echoLog "Executing service $args"
 
 usage() {
    if [ ! -z $1 ]
@@ -161,6 +157,8 @@ status() {
 }
 
 ### main logic ###
+mode=$1
+echoLog "Executing service $args"
 # Concatinate Args
 serviceParms=$(echo $args | cut -d " " -f2-)
 
