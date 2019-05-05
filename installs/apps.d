@@ -21,7 +21,9 @@ setLogFile(){
 
 echoLog() {
    setLogFile
-   echo logStr="$(date +"%H:%M:%S>") $*" | tee -a logFile
+   parms="$*"
+   tm=$(date +"%H:%M:%S>") 
+   echo "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ $tm$parms" | tee -a logFile
 }
 
 usage() {
