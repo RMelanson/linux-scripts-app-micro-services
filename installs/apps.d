@@ -23,7 +23,11 @@ echoLog() {
    setLogFile
    parms="$*"
    tm=$(date +"%H:%M:%S>") 
-   echo "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ $tm$parms" | tee -a logFile
+   echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" | tee -a logFile
+   echo "tm = $tm" | tee -a logFile
+   echo "parms = $parms" | tee -a logFile
+   echo "$tm$parms" | tee -a logFile
+   echo "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" | tee -a logFile
 }
 
 usage() {
