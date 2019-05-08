@@ -1,6 +1,6 @@
 #!/bin/bash
 bootstrapDir=$PWD
-bootstrap=$webCurrDir/appMicroServicesBootstrap.sh
+bootstrap=$bootstrapDir/appMicroServicesBootstrap.sh
 
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
