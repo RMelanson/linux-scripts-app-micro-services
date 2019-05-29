@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # LINUX SCRIPTS CONFIGURATION PARAMETERS
-bootstrap="appMicroServicesBootstrap.sh"
+bootstrap="appServicesBootStrap.sh"
 gitRepo="linux-scripts-app-services"
 
 #SET UP INSTALLATION DIRECTORY
