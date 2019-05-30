@@ -5,7 +5,7 @@ echo setup.sh: EXECUTING: ./env/setEnv.sh
 . ./env/setEnv.sh
 
 #INSTALL JAVA 8
-echo Setup.sh:  EXECUTING: . ./installs/installJava8.sh
+echo $setupName:  EXECUTING: . ./installs/installJava8.sh
 . ./installs/installJava8.sh
 
 # SETUP RECOVERY
