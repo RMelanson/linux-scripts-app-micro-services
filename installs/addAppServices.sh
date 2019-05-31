@@ -28,4 +28,4 @@ echo addAppServices.sh EXECUTING: mkdir $testServicesScriptsDir
 mkdir -p $testServicesScriptsDir
 
 echo addAppServices.sh EXECUTING: chmod -R 744 $servicesDir
-chmod -R 744 $servicesDir
+chmod -R 755 $servicesDir
