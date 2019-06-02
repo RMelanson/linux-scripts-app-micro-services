@@ -136,9 +136,10 @@ clean() {
    do
      pid=$(basename -- $absPID)
      if [[ ! $pidList == *"$pid"* ]]; then
-        echo "removing dead process $pid $(cat $absPID)"
+        echo "removing dead process $pid $(cat $absPID)";
+        rm $absPID;
      else
-        echo "PID $pid is running"
+        echo "PID $pid is running";
      fi
    done
 }
@@ -164,7 +165,6 @@ status() {
          showStatus "$pid"
       done
    fi
-   echo "======================================================================"
 }
 
 ### main logic ###
