@@ -173,7 +173,7 @@ status() {
 
 ### main logic ###
 mode=$1
-echoLog "Executing service $args"
+echoLog "Executing service apps $args"
 # Concatinate Args
 serviceParms=$(echo $args | cut -d " " -f2-)
 
