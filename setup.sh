@@ -1,7 +1,7 @@
 #! /bin/bash
 setupName=setup.sh:
 
-# SETUP THE ENVIRONMENTT
+# SETUP THE ENVIRONMENT
 echo "$setupName: EXECUTING: . ./env/setEnv.sh $*"
 . ./env/setEnv.sh $*
 
