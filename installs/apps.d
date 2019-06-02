@@ -24,7 +24,7 @@ echoLog() {
    parms="$*"
    tm=$(date +"%H:%M:%S>")
    tmParms = $tm$parms
-   echo $tmParms
+   echo $tmParms 
    log $tmParms 
 }
 
@@ -114,7 +114,7 @@ test() {
    echoLog "TEST($testDir)" | tee -a $logFile
    for f in $testDir
    do
-      echo "Starting Test File $f"
+      echoLog  "Starting Test File $f"
       script=$(cat $f)
       start "$script"
    done
@@ -140,10 +140,10 @@ clean() {
    do
      pid=$(basename -- $absPID)
      if [[ ! $pidList == *"$pid"* ]]; then
-        echo "removing dead process $pid $(cat $absPID)";
+        echoLog  "removing dead process $pid $(cat $absPID)";
         rm $absPID;
      else
-        echo "PID $pid is running";
+        echoLog  "PID $pid is running";
      fi
    done
 }
