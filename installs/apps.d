@@ -23,8 +23,6 @@ echoLog() {
    setLogFile
    parms="$*"
    tm=$(date +"%H:%M:%S>") 
-   echo "tm = $tm" | tee -a logFile
-   echo "parms = $parms" | tee -a logFile
    echo "$tm$parms" | tee -a logFile
 }
 
@@ -39,7 +37,7 @@ usage() {
 
 about() {
    clear;
-   echo "======================= ABOUT APPS SERVICES =========================="
+   echoLog "======================= ABOUT APPS SERVICES =========================="
    echo "# description: $prog ~ Add Applications as a Services"
    echo "# processname: $prog"
    echo "# Author     : Robin Melanson (Contractor)"
@@ -49,7 +47,7 @@ about() {
 
 help () {
    about
-   echo "====================  APPS SERVICES HELP MENU ========================"
+   echoLog "====================  APPS SERVICES HELP MENU ========================"
    echo "Usage(1): service $prog start <cmd (Optional)>"
    echo "             The application as a services will be started"
    echo "Usage(2): service $prog stop"
@@ -187,7 +185,6 @@ case "$mode" in
         test $testScripts
         ;;
   status)
-        clean;
         status $serviceParms
         ;;
   clean)
