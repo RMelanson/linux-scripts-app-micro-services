@@ -1,7 +1,8 @@
 #! /bin/bash
 setupName=setup.sh:
-# SETUP THE REQUIRED ENVIRONMENTt
-echo setup.sh: EXECUTING: ./env/setEnv.sh
+
+# SETUP THE ENVIRONMENTT
+echo "$setupName: EXECUTING: . ./env/setEnv.sh $*"
 . ./env/setEnv.sh $*
 
 #INSTALL JAVA 8
