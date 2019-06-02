@@ -23,11 +23,9 @@ echoLog() {
    setLogFile
    parms="$*"
    tm=$(date +"%H:%M:%S>") 
-   echo "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" | tee -a logFile
    echo "tm = $tm" | tee -a logFile
    echo "parms = $parms" | tee -a logFile
    echo "$tm$parms" | tee -a logFile
-   echo "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" | tee -a logFile
 }
 
 usage() {
@@ -119,21 +117,30 @@ test() {
 }
 
 showStatus() {
-   pid=$1
-   echoLog "SHOW STATUS($pid)"
+   absPID=$1
+   pid=$(basename -- $absPID)
    if [ -z "$pid" ]
    then
       usage "***ERROR*** NO PID TO STOP"
    else
      pidFile=$pidDir/$1
-     cat $pidFile
-#     rm $pidFile
-#     kill -9 $pid
+     echo "$pid $(cat $pidFile)"
    fi
 }
 
 clean() {
-   echoLog "======================= APPS CLEAN SERVICES =========================="
+   echoLog "======================= APPS CLEAN SERVICES =========================="   
+   pidList=$(ps -A -o pid)
+
+   for absPID in "$pidDir"/*
+   do
+     pid=$(basename -- $absPID)
+     if [[ ! $pidList == *"$pid"* ]]; then
+        echo "removing dead process $pid $(cat $absPID)"
+     else
+        echo "PID $pid is running"
+     fi
+   done
 }
 
 status() {
@@ -148,14 +155,12 @@ status() {
       for file in $pidDir/*
       do
          pid="$(basename -- $file)"
-         #echo "FOUND PID $pid"
          showStatus "$pid"
       done
    else
       for file in "$pids"
       do
          pid="$(basename -- $file)"
-         #echo "FOUND PID $pid"
          showStatus "$pid"
       done
    fi
@@ -170,15 +175,19 @@ serviceParms=$(echo $args | cut -d " " -f2-)
 
 case "$mode" in
   start)
+        clean;
         start $serviceParms
         ;;
   stop)
+        clean;
         stop $serviceParms
         ;;
   test)
+        clean;
         test $testScripts
         ;;
   status)
+        clean;
         status $serviceParms
         ;;
   clean)
