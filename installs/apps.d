@@ -22,8 +22,14 @@ setLogFile(){
 echoLog() {
    setLogFile
    parms="$*"
-   tm=$(date +"%H:%M:%S>") 
-   echo "$tm$parms" | tee -a logFile
+   tm=$(date +"%H:%M:%S>")
+   tmParms = $tm$parms
+   echo $tmParms
+   log $tmParms 
+}
+
+log() {
+   echo $1 >> logfile
 }
 
 usage() {
