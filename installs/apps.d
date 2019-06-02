@@ -24,12 +24,12 @@ echoLog() {
    parms="$*"
    tm=$(date +"%H:%M:%S>")
    tmParms = $tm$parms
-   echo $tmParms 
+   echo $tmParms ! tee -a $logfile
    log $tmParms 
 }
 
 log() {
-   echo $1 >> logfile
+   echo $1 >> $logfile
 }
 
 usage() {
