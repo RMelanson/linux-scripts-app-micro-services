@@ -161,7 +161,6 @@ status() {
       for file in "$pids"
       do
          pid="$(basename -- $file)"
-         showStatus "$pid"
          if [[ $pidList == *"$pid"* ]]; then
             echoLog "Running Process Found: $pid $(cat file)";
          else
