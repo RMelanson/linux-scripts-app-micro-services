@@ -158,13 +158,13 @@ status() {
    then
       pids=$pidDir/*;
    fi
-      for file in "$pids"
+      for pidFile in "$pids"
       do
-         pid="$(basename -- $file)"
+         pid="$(basename -- $pidFile)"
          if [[ $pidList == *"$pid"* ]]; then
-            echoLog "Running Process Found: $pid $(cat file)";
+            echoLog "Running Process Found: $pid $(cat $pidFile)";
          else
-            echoLog "\*NOT\* Running Process: $pid $(cat file)";
+            echoLog "\*NOT\* Running Process: $pid $(cat $pidFile)";
          fi
       done
 }
