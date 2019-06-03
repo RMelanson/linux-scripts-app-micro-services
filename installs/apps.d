@@ -53,7 +53,8 @@ about() {
 
 help () {
    about
-   echoLog "====================  APPS SERVICES HELP MENU ========================"
+   echoLog;
+   echo "====================  APPS SERVICES HELP MENU ========================"
    echo "Usage(1): service $prog start <cmd (Optional)>"
    echo "             The application as a services will be started"
    echo "Usage(2): service $prog stop"
@@ -81,18 +82,20 @@ stopProcess() {
 }
 
 stop() {
-   process="$*"
-   echoLog "STOP($process)" | tee -a $logFile
-#   pids=$(echo $args | cut -d " " -f2-)
-   if [ -z "$pids" ]
-   then
-      usage "***ERROR*** NO PID TO STOP"
-   else
-      for pid in "$pids"
-      do
-         stopProcess "$pid"
-      done
-    fi
+   procs="$*"
+   pidList=$(ps -A -o pid)
+   for proc in "$procs"
+   do
+     pid=$(basename -- $proc)
+     echoLog  "Stopping process $pid";
+     if [[ $pidList == *"$pid"* ]]; then
+        kill -9 $proc;
+     fi
+     procFile=pidDir/$pid;
+     if [ -f "$procFile" ]; then
+          echoLog  "removing dead process $pid $(cat $procFile)";
+     fi
+   done
 }
 
 start() {
