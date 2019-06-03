@@ -24,8 +24,7 @@ echoLog() {
    parms="$*"
    tm=$(date +"%H:%M:%S>")
    tmParms=$tm$parms
-   echo $tmParms ! tee -a $logfile
-   log $tmParms 
+   echo $tmParms | tee -a $logfile
 }
 
 log() {
