@@ -16,7 +16,7 @@ testScripts=$servicesDir/test/scripts/*
 #Trim args leading and trailing white spaces
 
 setLogFile(){
-   logfile=log$(date +"%y-%m-%d")
+   logfile=$logDir/$(date +"%y-%m-%d").log
 }
 
 echoLog() {
@@ -150,8 +150,6 @@ clean() {
 
 status() {
    pids=$*
-   #Remove Functions Call Name
-   pids=${pids//$1/}
 
    echoLog "===================== SHOW APP SERVICES STATUS ======================="
    echoLog "STATUS($pids)"
@@ -176,6 +174,8 @@ mode=$1
 echoLog "Executing service apps $args"
 # Concatinate Args
 serviceParms=$(echo $args | cut -d " " -f2-)
+#Remove Functions Call Name
+serviceParms=${serviceParms//$1/}
 
 case "$mode" in
   start)
