@@ -23,7 +23,7 @@ echoLog() {
    setLogFile
    parms="$*"
    tm=$(date +"%H:%M:%S>")
-   tmParms = $tm$parms
+   tmParms=$tm$parms
    echo $tmParms ! tee -a $logfile
    log $tmParms 
 }
