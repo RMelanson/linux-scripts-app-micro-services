@@ -163,7 +163,7 @@ status() {
          if [[ $pidList == *"$pid"* ]]; then
             echoLog "Running Process Found: $pid $(cat $pidFile)";
          else
-            echoLog "\*NOT\* Running Process: $pid $(cat $pidFile)";
+            echoLog "*NOT* Running Process: $pid $(cat $pidFile)";
          fi
       done
 }
