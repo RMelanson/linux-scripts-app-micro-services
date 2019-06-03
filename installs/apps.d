@@ -100,7 +100,7 @@ stop() {
 
 start() {
    process="$*"
-   echoLog "START($process)" | tee -a $logFile
+   echoLog "START('$process')" | tee -a $logFile
    if [ -z "$process" ]
    then
       usage "***ERROR*** PROGRAM NOT DEFINED"
@@ -114,7 +114,7 @@ start() {
 
 test() {
    testDir="$*"
-   echoLog "TEST($testDir)" | tee -a $logFile
+   echoLog "TEST('$testDir')" | tee -a $logFile
    for f in $testDir
    do
       echoLog  "Starting Test File $f"
@@ -155,7 +155,7 @@ status() {
    pids=$*
 
    echoLog "===================== SHOW APP SERVICES STATUS ======================="
-   echoLog "STATUS($pids)"
+   echoLog "STATUS('$pids')"
    if [ -z "$pids" ]
    then
       for file in $pidDir/*
