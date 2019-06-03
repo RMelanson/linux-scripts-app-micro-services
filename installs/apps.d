@@ -68,6 +68,22 @@ help () {
    echo "======================================================================"
 }
 
+clean() {
+   echoLog "======================= APPS CLEAN SERVICES =========================="   
+   pidList=$(ps -A -o pid)
+
+   for absPID in "$pidDir"/*
+   do
+     pid=$(basename -- $absPID)
+     if [[ ! $pidList == *"$pid"* ]]; then
+        echoLog  "removing dead process $pid $(cat $absPID)";
+        rm $absPID;
+     else
+        echoLog  "PID $pid is running";
+     fi
+   done
+}
+
 stopProcess() {
    pid=$1
    if [ -z "$pid" ]
@@ -96,6 +112,14 @@ stop() {
           echoLog  "removing dead process $pid $(cat $procFile)";
      fi
    done
+}
+
+stopAll() {
+  for absPID in $pidDir/*
+  do
+     pid="$(basename -- $absPID)"
+     kill -9 "$pid"
+  done
 }
 
 start() {
@@ -135,22 +159,6 @@ showStatus() {
    fi
 }
 
-clean() {
-   echoLog "======================= APPS CLEAN SERVICES =========================="   
-   pidList=$(ps -A -o pid)
-
-   for absPID in "$pidDir"/*
-   do
-     pid=$(basename -- $absPID)
-     if [[ ! $pidList == *"$pid"* ]]; then
-        echoLog  "removing dead process $pid $(cat $absPID)";
-        rm $absPID;
-     else
-        echoLog  "PID $pid is running";
-     fi
-   done
-}
-
 status() {
    pids=$*
 
@@ -187,21 +195,25 @@ case "$mode" in
         ;;
   stop)
         clean;
-        stop $serviceParms
+        stop $serviceParms;
+        ;;
+  stopAll)
+        clean;
+        stopAll;
         ;;
   test)
         clean;
-        test $testScripts
+        test $testScripts;
         ;;
   status)
-        status $serviceParms
+        status $serviceParms;
         ;;
   clean)
-        clean $serviceParms
+        clean $serviceParms;
         ;;
   restart|reload)
-        stop $serviceParms
-        start $serviceParms
+        stop $serviceParms;
+        start $serviceParms;
         ;;
   help|usage|about|?)
         help
