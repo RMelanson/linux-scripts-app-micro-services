@@ -147,37 +147,27 @@ test() {
    done
 }
 
-showStatus() {
-   absPID=$1
-   pid=$(basename -- $absPID)
-   if [ -z "$pid" ]
-   then
-      usage "***ERROR*** NO PID TO STOP"
-   else
-     pidFile=$pidDir/$1
-     echo "$pid $(cat $pidFile)"
-   fi
-}
-
 status() {
-   pids=$*
+   pids=$*;
+   pidList=$(ps -A -o pid);
+   var pid;
 
    echoLog "===================== SHOW APP SERVICES STATUS ======================="
    echoLog "STATUS('$pids')"
    if [ -z "$pids" ]
    then
-      for file in $pidDir/*
-      do
-         pid="$(basename -- $file)"
-         showStatus "$pid"
-      done
-   else
+      pids=$pidDir/*;
+   fi
       for file in "$pids"
       do
          pid="$(basename -- $file)"
          showStatus "$pid"
+         if [[ $pidList == *"$pid"* ]]; then
+            echoLog "Running Process Found: $pid $(cat file)";
+         else
+            echoLog "\*NOT\* Running Process: $pid $(cat file)";
+         fi
       done
-   fi
 }
 
 ### main logic ###
