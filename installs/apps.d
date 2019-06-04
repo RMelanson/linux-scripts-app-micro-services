@@ -34,7 +34,7 @@ log() {
 usage() {
    if [ ! -z $1 ]
    then
-     echo $1
+     echoLog $1
    fi
    echo "=============================USAGE================================"
    echo $"Usage: $0 {start|stop|restart|clean|status|help}"
@@ -147,15 +147,21 @@ stopAll() {
 }
 
 start() {
-   process="$*"
-   if [ -z "$process" ]
+   procs="$*"
+   if [ -z "$procs" ]
    then
       usage "***ERROR*** PROGRAM NOT DEFINED"
    else
-       $process &
+      if [ "${procs^^}" == "ALL" ]; then
+         echoLog "Stopping All services"
+      else
+         echo "Stopping Services $procs"
+      fi
+   
+       $procs &
        pid=$!
-       echo "start($1) EXECUTING: echo $process &" | tee -a $logFile
-       echo $process > $pidDir/$pid
+       echo "start($1) EXECUTING: echo $procs &" | tee -a $logFile
+       echo $procs > $pidDir/$pid
    fi
 }
 
