@@ -68,7 +68,6 @@ help () {
 }
 
 clean() {
-   echoLog "======================= APPS CLEAN SERVICES =========================="   
    pidList=$(ps -A -o pid)
 
    for absPID in "$pidDir"/*
@@ -83,20 +82,7 @@ clean() {
    done
 }
 
-stopProcess() {
-   pid=$1
-   if [ -z "$pid" ]
-   then
-      usage "***ERROR*** NO PID TO STOP"
-   else
-     pidFile=$pidDir/$1
-     echoLog STOPPING PID $pid for process $pidFile
-     rm $pidFile
-     kill -9 $pid
-    fi
-}
-
-stop() {
+delete() {
    procs="$*"
    pidList=$(ps -A -o pid)
    for proc in "$procs"
@@ -106,24 +92,62 @@ stop() {
      if [[ $pidList == *"$pid"* ]]; then
         kill -9 $proc;
      fi
-     procFile=pidDir/$pid;
-     if [ -f "$procFile" ]; then
-          echoLog  "removing dead process $pid $(cat $procFile)";
+     absPID=pidDir/$pid;
+     if [ -f "$absPID" ]; then
+          echoLog  "removing dead process $pid $(cat $absPID)";
+     fi
+   done
+}
+
+deleteAll() {
+  pidList=$(ps -A -o pid)
+  for absPID in $pidDir/*
+  do
+     pid="$(basename -- $absPID)"
+     if [[ $pidList == *"$pid"* ]]; then
+        echoLog  "stopping process $pid $(cat $absPID)";
+        kill -9 "$pid"
+     fi
+  done
+}
+
+stop() {
+   procs="$*"
+if [ "${procs^^}" == "ALL" ]; then
+    echoLog "Stopping All services"
+else
+    echo "Stopping Services $procs"
+fi
+
+   pidList=$(ps -A -o pid)
+   for proc in "$procs"
+   do
+     pid=$(basename -- $proc)
+     echoLog  "Stopping process $pid";
+     if [[ $pidList == *"$pid"* ]]; then
+        kill -9 $proc;
+     fi
+     absPID=pidDir/$pid;
+     if [ -f "$absPID" ]; then
+          echoLog  "removing dead process $pid $(cat $absPID)";
      fi
    done
 }
 
 stopAll() {
+  pidList=$(ps -A -o pid)
   for absPID in $pidDir/*
   do
      pid="$(basename -- $absPID)"
-     kill -9 "$pid"
+     if [[ $pidList == *"$pid"* ]]; then
+        echoLog  "stopping process $pid $(cat $absPID)";
+        kill -9 "$pid"
+     fi
   done
 }
 
 start() {
    process="$*"
-   echoLog "START('$process')" | tee -a $logFile
    if [ -z "$process" ]
    then
       usage "***ERROR*** PROGRAM NOT DEFINED"
@@ -137,7 +161,6 @@ start() {
 
 test() {
    testDir="$*"
-   echoLog "TEST('$testDir')" | tee -a $logFile
    for f in $testDir
    do
       echoLog  "Starting Test File $f"
@@ -151,8 +174,6 @@ status() {
    pidList=$(ps -A -o pid);
    var pid;
 
-   echoLog "===================== SHOW APP SERVICES STATUS ======================="
-   echoLog "STATUS('$pids')"
    if [ -z "$pids" ]
    then
       pids=$pidDir/*;
@@ -170,13 +191,29 @@ status() {
 
 ### main logic ###
 mode=$1
-echoLog "Executing service apps $args"
+echoLog "<======== Executing service apps $args ========>"
 # Concatinate Args
 serviceParms=$(echo $args | cut -d " " -f2-)
 #Remove Functions Call Name
 serviceParms=${serviceParms//$1/}
 
 case "$mode" in
+  clean)
+        clean $serviceParms;
+        ;;
+  delete)
+        delete $serviceParms;
+        ;;
+  deleteAll)
+        delete $serviceParms;
+        ;;
+  help|usage|about|?)
+        help
+        ;;
+  restart|reload)
+        stop $serviceParms;
+        start $serviceParms;
+        ;;
   start)
         clean;
         start $serviceParms
@@ -186,25 +223,13 @@ case "$mode" in
         stop $serviceParms;
         ;;
   stopAll)
-        clean;
         stopAll;
-        ;;
-  test)
-        clean;
-        test $testScripts;
         ;;
   status)
         status $serviceParms;
         ;;
-  clean)
-        clean $serviceParms;
-        ;;
-  restart|reload)
-        stop $serviceParms;
-        start $serviceParms;
-        ;;
-  help|usage|about|?)
-        help
+  test)
+        test $testScripts;
         ;;
  *) usage
         exit 1
