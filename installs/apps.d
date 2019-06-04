@@ -13,7 +13,56 @@ pidDir=$servicesDir/ids
 logDir=$servicesDir/logs
 testScripts=$servicesDir/test/scripts/*
 
-#Trim args leading and trailing white spaces
+processType=null;
+
+isNumber() {
+  parms=$1
+  nums='^[0-9]+$'
+  if [[ $parms =~ $nums ]]
+  then
+     return 0
+  else
+     return 1
+  fi
+}
+
+isAll() {
+  parms=$1
+  if [ "${parms^^}" == "ALL" ]
+  then
+     return 0
+  else
+     return 1
+  fi
+}
+
+isNull() {
+   if [ ! -z $1 ]
+   then
+      return 1
+   else
+      return 0
+   fi
+}
+
+setProcessType() {
+   if isNull $1
+    then
+       processType="NULL"
+       echo "is NULL";
+   elif isNumber $1
+   then
+       processType="PID"
+       echo "is PID";
+   elif isAll $1
+   then
+       processType="ALL"
+       echo "Process ALL"
+   else
+       processType="JOB"
+       echo "Process job"
+   fi
+}
 
 setLogFile(){
    logfile=$logDir/$(date +"%y-%m-%d").log
@@ -146,25 +195,6 @@ stopAll() {
   done
 }
 
-start() {
-   procs="$*"
-   if [ -z "$procs" ]
-   then
-      usage "***ERROR*** PROGRAM NOT DEFINED"
-   else
-      if [ "${procs^^}" == "ALL" ]; then
-         echoLog "Stopping All services"
-      else
-         echo "Stopping Services $procs"
-      fi
-   
-       $procs &
-       pid=$!
-       echo "start($1) EXECUTING: echo $procs &" | tee -a $logFile
-       echo $procs > $pidDir/$pid
-   fi
-}
-
 test() {
    testDir="$*"
    for f in $testDir
@@ -193,6 +223,71 @@ status() {
             echoLog "*NOT* Running Process: $pid $(cat $pidFile)";
          fi
       done
+}
+
+startAll() {
+  pidList=$(ps -A -o pid)
+  for absPID in $pidDir/*
+  do
+     pid="$(basename -- $absPID)"
+     if [[ $pidList == *"$pid"* ]]; then
+        echoLog  "starting process $pid $(cat $absPID)";
+        kill -9 "$pid"
+     fi
+  done
+}
+
+IsNumber
+re='^[0-9]+$'
+if ! [[ $yournumber =~ $re ]] ; then
+   echo "error: Not a number" >&2; exit 1
+fi
+
+
+start() {
+   setProcessType $1;
+   procs="$*"
+   
+   case "$processType" in
+      NULL)
+           clean $serviceParms;
+           ;;
+      ALL)
+           echoLog "Starting All services"
+           startAll $procs;
+           ;;
+      PID)
+           echoLog "Starting All services"
+           startPIDs $procs;
+           ;;
+      JOB)
+           echoLog "Starting All services"
+           startJOB $procs;
+           ;;
+        *) usage
+           exit 1
+           ;;
+   esac
+   }
+   
+   
+   
+   if [ -z "$procs" ]
+   then
+      usage "***ERROR*** PROGRAM NOT DEFINED"
+   else
+      if [ "${procs^^}" == "ALL" ]; then
+         echoLog "Starting All services"
+         startAll;
+      else
+         echo "Starting Service(s) $procs"
+      fi
+   
+       $procs &
+       pid=$!
+       echo "start($1) EXECUTING: echo $procs &" | tee -a $logFile
+       echo $procs > $pidDir/$pid
+   fi
 }
 
 ### main logic ###
