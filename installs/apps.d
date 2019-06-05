@@ -225,7 +225,7 @@ status() {
       done
 }
 
-startAll() {
+processPIDs() {
   pidList=$(ps -A -o pid)
   for absPID in $pidDir/*
   do
@@ -237,40 +237,31 @@ startAll() {
   done
 }
 
-IsNumber
-re='^[0-9]+$'
-if ! [[ $yournumber =~ $re ]] ; then
-   echo "error: Not a number" >&2; exit 1
-fi
-
-
 start() {
    setProcessType $1;
    procs="$*"
    
    case "$processType" in
       NULL)
-           clean $serviceParms;
+           usage "Start requires parameters";
            ;;
       ALL)
-           echoLog "Starting All services"
-           startAll $procs;
+           echoLog "Starting Registered PIDs"
+           processPIDs $pidDir"/*;
            ;;
       PID)
-           echoLog "Starting All services"
-           startPIDs $procs;
+           echoLog "Starting PIDs $procs"
+           processPIDs $procs;
            ;;
       JOB)
-           echoLog "Starting All services"
+           echo "Starting Service(s) $procs"
            startJOB $procs;
            ;;
-        *) usage
+        *) usage;
            exit 1
            ;;
-   esac
+      esac
    }
-   
-   
    
    if [ -z "$procs" ]
    then
