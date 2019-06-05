@@ -154,6 +154,7 @@ processPIDs() {
   servicePids=$(echo $args | cut -d " " -f2-)
   #Remove Functions Call Name
   servicePids=${servicePids//$1/}
+  echoLog  "EXECUTING processPIDs() $serviceType $servicePids";
   for pid in $servicePids
   do
      pid="$(basename -- $pid)"
@@ -201,34 +202,6 @@ processPIDs() {
   done
 }
 
-
-start() {
-   setProcessType $1;
-   procs="$*"
-   
-   case "${processType^^}" in
-      NULL)
-           usage "Start Requires Parameters";
-           ;;
-      ALL)
-           echoLog "Starting Registered PIDs"
-           processPIDs "START" $pidDir"/*;
-           ;;
-      PID)
-           echoLog "Starting PIDs $procs"
-           processPIDs "START" $procs;
-           ;;
-      JOB)
-           echoLog "Starting Service(s) $procs"
-           startJOB $procs;
-           ;;
-        *) usage;
-           exit 1
-           ;;
-      esac
-   }
-}
-
 ### main logic ###
 mode="${1^^}"
 echoLog "<======== Executing service apps $args ========>"
@@ -244,35 +217,37 @@ then
    serviceParms="$pidDir"/*;
 fi
 
-case "$mode" in
-  CLEAN)
-        clean $serviceParms;
+if [[ $serviceType == "ALL" ]] || [[ $serviceType == "PID" ]]
+   case "$mode" in
+        HELP|USAGE|ABOUT|?)
+              help
+              ;;
+        CLEAN|DELETE|RESTART|RELOAD|START|STATUS|STOP)
+             processPIDs $mode $serviceParms
+               ;;
+        TEST)
+              usage "Undefined Parameters $testScripts";
+              ;;
+       *) usage
+              exit 1
+              ;;
+   esac
+elif [[ $serviceType == "NULL" ]]
+    case "$mode" in
+         STATUS)
+            status $serviceParms;
+         ;;
+         TEST)
+            test $testScripts;
+         ;;
+       *) usage
+            exit 1
         ;;
-  DELETE)
-        delete $serviceParms;
-        ;;
-  HELP|USAGE|ABOUT|?)
-        help
-        ;;
-  RESTART|RELOAD)
-        stop $serviceParms;
-        start $serviceParms;
-        ;;
-  START)
-        start $serviceParms
-        ;;
-  STOP)
-        stop $serviceParms;
-        ;;
-  STATUS)
-        status $serviceParms;
-        ;;
-  TEST)
-        test $testScripts;
-        ;;
- *) usage
-        exit 1
-        ;;
-esac
+    esac
+elif [[ $serviceType == "JOB" ]]
+    echoLog "Starting Service(s) $procs"
+       startJOB $procs;
+    ;;
+fi
 
 exit 0
