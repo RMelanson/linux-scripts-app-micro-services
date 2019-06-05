@@ -128,40 +128,6 @@ help () {
 }
 
 
-stop() {
-   procs="$*"
-if [ "${procs^^}" == "ALL" ]; then
-    echoLog "Stopping All services"
-else
-    echo "Stopping Services $procs"
-fi
-
-   systemPIDs=$(ps -A -o pid)
-   for proc in "$procs"
-   do
-     pid=$(basename -- $proc)
-     echoLog  "Stopping process $pid";
-     if [[ $systemPIDs == *"$pid"* ]]; then
-        kill -9 $proc;
-     fi
-     absPID=pidDir/$pid;
-     if [ -f "$absPID" ]; then
-          echoLog  "removing dead process $pid $(cat $absPID)";
-     fi
-   done
-}
-
-stopAll() {
-  systemPIDs=$(ps -A -o pid)
-  for absPID in $pidDir/*
-  do
-     pid="$(basename -- $absPID)"
-     if [[ $systemPIDs == *"$pid"* ]]; then
-        echoLog  "stopping process $pid $(cat $absPID)";
-        kill -9 "$pid"
-     fi
-  done
-}
 
 test() {
    testDir="$*"
@@ -173,29 +139,9 @@ test() {
    done
 }
 
-status() {
-   pids=$*;
-   systemPIDs=$(ps -A -o pid);
-   var pid;
-
-   if [ -z "$pids" ]
-   then
-      pids=$pidDir/*;
-   fi
-      for pidFile in "$pids"
-      do
-         pid="$(basename -- $pidFile)"
-         if [[ $systemPIDs == *"$pid"* ]]; then
-            echoLog "Running Process Found: $pid $(cat $pidFile)";
-         else
-            echoLog "*NOT* Running Process: $pid $(cat $pidFile)";
-         fi
-      done
-}
-
 startJOB()
 {
-    job=$1;
+    job=$*;
     $job &;
     pid=$!;
     echoLog "start($1) EXECUTING: echo $job &";
@@ -234,13 +180,6 @@ processPIDs() {
                     startJOB $job;
                     echoLog "Starting PID $pid is already running";
                  fi
-                 
-                 job=$(cat $absPID)";
-                 $job & $job;
-                  pid=$!;
-                  echoLog "start($1) EXECUTING: echo $job &";
-                  echo $job > $pidDir/$pid;
-                 ;;
            STOP)
                  if runningPID $pid
                     echoLog "Killing Process $pid : $(cat $absPID)";
@@ -299,6 +238,11 @@ serviceParms=$(echo $args | cut -d " " -f2-)
 serviceParms=${serviceParms//$1/}
 # Get the Service Process Type
 setProcessType $serviceParms;
+
+if [[ $serviceType == "ALL" ]]
+then
+   serviceParms="$pidDir"/*;
+fi
 
 case "$mode" in
   CLEAN)
