@@ -26,7 +26,7 @@ isNumber() {
   fi
 }
 
-isAll() {
+selectAll() {
   parms=$1
   if [ "${parms^^}" == "ALL" ]
   then
@@ -45,6 +45,17 @@ isNull() {
    fi
 }
 
+runningPID() {
+   pid=$1
+   systemPIDs=$(ps -A -o pid)
+   if [[ $systemPIDs == *"$pid"* ]]; then
+   then
+      return 1
+   else
+      return 0
+   fi
+}
+
 setProcessType() {
    if isNull $1
     then
@@ -54,7 +65,7 @@ setProcessType() {
    then
        processType="PID"
        echo "is PID";
-   elif isAll $1
+   elif selectAll $1
    then
        processType="ALL"
        echo "Process ALL"
@@ -116,49 +127,6 @@ help () {
    echo "======================================================================"
 }
 
-clean() {
-   pidList=$(ps -A -o pid)
-
-   for absPID in "$pidDir"/*
-   do
-     pid=$(basename -- $absPID)
-     if [[ ! $pidList == *"$pid"* ]]; then
-        echoLog  "removing dead process $pid $(cat $absPID)";
-        rm $absPID;
-     else
-        echoLog  "PID $pid is running";
-     fi
-   done
-}
-
-delete() {
-   procs="$*"
-   pidList=$(ps -A -o pid)
-   for proc in "$procs"
-   do
-     pid=$(basename -- $proc)
-     echoLog  "Stopping process $pid";
-     if [[ $pidList == *"$pid"* ]]; then
-        kill -9 $proc;
-     fi
-     absPID=pidDir/$pid;
-     if [ -f "$absPID" ]; then
-          echoLog  "removing dead process $pid $(cat $absPID)";
-     fi
-   done
-}
-
-deleteAll() {
-  pidList=$(ps -A -o pid)
-  for absPID in $pidDir/*
-  do
-     pid="$(basename -- $absPID)"
-     if [[ $pidList == *"$pid"* ]]; then
-        echoLog  "stopping process $pid $(cat $absPID)";
-        kill -9 "$pid"
-     fi
-  done
-}
 
 stop() {
    procs="$*"
@@ -168,12 +136,12 @@ else
     echo "Stopping Services $procs"
 fi
 
-   pidList=$(ps -A -o pid)
+   systemPIDs=$(ps -A -o pid)
    for proc in "$procs"
    do
      pid=$(basename -- $proc)
      echoLog  "Stopping process $pid";
-     if [[ $pidList == *"$pid"* ]]; then
+     if [[ $systemPIDs == *"$pid"* ]]; then
         kill -9 $proc;
      fi
      absPID=pidDir/$pid;
@@ -184,11 +152,11 @@ fi
 }
 
 stopAll() {
-  pidList=$(ps -A -o pid)
+  systemPIDs=$(ps -A -o pid)
   for absPID in $pidDir/*
   do
      pid="$(basename -- $absPID)"
-     if [[ $pidList == *"$pid"* ]]; then
+     if [[ $systemPIDs == *"$pid"* ]]; then
         echoLog  "stopping process $pid $(cat $absPID)";
         kill -9 "$pid"
      fi
@@ -207,7 +175,7 @@ test() {
 
 status() {
    pids=$*;
-   pidList=$(ps -A -o pid);
+   systemPIDs=$(ps -A -o pid);
    var pid;
 
    if [ -z "$pids" ]
@@ -217,7 +185,7 @@ status() {
       for pidFile in "$pids"
       do
          pid="$(basename -- $pidFile)"
-         if [[ $pidList == *"$pid"* ]]; then
+         if [[ $systemPIDs == *"$pid"* ]]; then
             echoLog "Running Process Found: $pid $(cat $pidFile)";
          else
             echoLog "*NOT* Running Process: $pid $(cat $pidFile)";
@@ -225,50 +193,75 @@ status() {
       done
 }
 
-processPIDs() {
-  serviceType=$1
-  #Remove Request Service Type
-  serviceParms=${serviceParms//$1/}
-  pidList=$(ps -A -o pid)
-  for absPID in $serviceParms
-  do
-     pid="$(basename -- $absPID)"
-   case "${processType^^}" in
-      CLEAN)
-            clean $serviceParms;
-            ;;
-      DELETE)
-            delete $serviceParms;
-            ;;
-      START)
-            start $serviceParms
-            ;;
-      STOP)
-            stop $serviceParms;
-            ;;
-      STATUS)
-            status $serviceParms;
-            ;;
-      *) usage
-        exit 1
-        ;;
-esac
+startJOB()
+{
+    job=$1;
+    $job &;
+    pid=$!;
+    echoLog "start($1) EXECUTING: echo $job &";
+    echo $procs > $pidDir/$pid;
+}
 
-if [[ $pidList == *"$pid"* ]]; then
-        echoLog  "starting process $pid $(cat $absPID)";
-        kill -9 "$pid"
-     fi
+processPIDs() {
+  serviceType=${1^^}"
+  # Concatinate Args
+  servicePids=$(echo $args | cut -d " " -f2-)
+  #Remove Functions Call Name
+  servicePids=${servicePids//$1/}
+  for pid in $servicePids
+  do
+     pid="$(basename -- $pid)"
+     absPID="$pidDir/$pid"
+     echoLog  "EXECUTING $serviceType process $pid";
+     case "$serviceType" in
+           CLEAN)
+                 if runningPID $pid
+                 then
+                    echoLog  "removing dead process $pid $(cat $absPID)";
+                    rm $absPID;
+                 else
+                    echoLog  "PID $pid is running";
+                 fi
+                 ;;
+           DELETE)
+                 ;;
+           START)
+                 if runningPID $pid
+                 then
+                    echoLog "Cannot Start $pid is already running";
+                 else
+                    job=$(cat $absPID);
+                    startJOB $job;
+                    echoLog "Starting PID $pid is already running";
+                 fi
+                 
+                 job=$(cat $absPID)";
+                 $job & $job;
+                  pid=$!;
+                  echoLog "start($1) EXECUTING: echo $job &";
+                  echo $job > $pidDir/$pid;
+                 ;;
+           STOP)
+                 if runningPID $pid
+                    echoLog "Killing Process $pid : $(cat $absPID)";
+                    kill -9 "$pid"
+                  else
+                    echoLog "Process $pid *NOT* Running: $(cat $absPID)";
+                 ;;
+           STATUS)
+                 if runningPID $pid
+                    echoLog "Running Process $pid Found: $(cat $absPID)";
+                 else
+                    echoLog "Process $pid *NOT* Running: $(cat $absPID)";
+                 fi
+                 ;;
+           *) usage
+             exit 1
+             ;;
+         esac
   done
 }
 
-startJOB()
-{
-    procs=$1;
-    $procs &;
-    pid=$!;
-    echo "start($1) EXECUTING: echo $procs &" | tee -a $logFile;
-    echo $procs > $pidDir/$pid;
-}
 
 start() {
    setProcessType $1;
@@ -298,14 +291,16 @@ start() {
 }
 
 ### main logic ###
-mode=$1
+mode="${1^^}"
 echoLog "<======== Executing service apps $args ========>"
 # Concatinate Args
 serviceParms=$(echo $args | cut -d " " -f2-)
 #Remove Functions Call Name
 serviceParms=${serviceParms//$1/}
+# Get the Service Process Type
+setProcessType $serviceParms;
 
-case "${mode^^}" in
+case "$mode" in
   CLEAN)
         clean $serviceParms;
         ;;
