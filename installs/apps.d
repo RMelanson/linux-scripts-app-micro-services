@@ -226,35 +226,68 @@ status() {
 }
 
 processPIDs() {
+  serviceType=$1
+  #Remove Request Service Type
+  serviceParms=${serviceParms//$1/}
   pidList=$(ps -A -o pid)
-  for absPID in $pidDir/*
+  for absPID in $serviceParms
   do
      pid="$(basename -- $absPID)"
-     if [[ $pidList == *"$pid"* ]]; then
+   case "${processType^^}" in
+      CLEAN)
+            clean $serviceParms;
+            ;;
+      DELETE)
+            delete $serviceParms;
+            ;;
+      START)
+            start $serviceParms
+            ;;
+      STOP)
+            stop $serviceParms;
+            ;;
+      STATUS)
+            status $serviceParms;
+            ;;
+      *) usage
+        exit 1
+        ;;
+esac
+
+if [[ $pidList == *"$pid"* ]]; then
         echoLog  "starting process $pid $(cat $absPID)";
         kill -9 "$pid"
      fi
   done
 }
 
+startJOB()
+{
+    procs=$1;
+    $procs &;
+    pid=$!;
+    echo "start($1) EXECUTING: echo $procs &" | tee -a $logFile;
+    echo $procs > $pidDir/$pid;
+}
+
 start() {
    setProcessType $1;
    procs="$*"
    
-   case "$processType" in
+   case "${processType^^}" in
       NULL)
-           usage "Start requires parameters";
+           usage "Start Requires Parameters";
            ;;
       ALL)
            echoLog "Starting Registered PIDs"
-           processPIDs $pidDir"/*;
+           processPIDs "START" $pidDir"/*;
            ;;
       PID)
            echoLog "Starting PIDs $procs"
-           processPIDs $procs;
+           processPIDs "START" $procs;
            ;;
       JOB)
-           echo "Starting Service(s) $procs"
+           echoLog "Starting Service(s) $procs"
            startJOB $procs;
            ;;
         *) usage;
@@ -262,23 +295,6 @@ start() {
            ;;
       esac
    }
-   
-   if [ -z "$procs" ]
-   then
-      usage "***ERROR*** PROGRAM NOT DEFINED"
-   else
-      if [ "${procs^^}" == "ALL" ]; then
-         echoLog "Starting All services"
-         startAll;
-      else
-         echo "Starting Service(s) $procs"
-      fi
-   
-       $procs &
-       pid=$!
-       echo "start($1) EXECUTING: echo $procs &" | tee -a $logFile
-       echo $procs > $pidDir/$pid
-   fi
 }
 
 ### main logic ###
@@ -289,38 +305,30 @@ serviceParms=$(echo $args | cut -d " " -f2-)
 #Remove Functions Call Name
 serviceParms=${serviceParms//$1/}
 
-case "$mode" in
-  clean)
+case "${mode^^}" in
+  CLEAN)
         clean $serviceParms;
         ;;
-  delete)
+  DELETE)
         delete $serviceParms;
         ;;
-  deleteAll)
-        delete $serviceParms;
-        ;;
-  help|usage|about|?)
+  HELP|USAGE|ABOUT|?)
         help
         ;;
-  restart|reload)
+  RESTART|RELOAD)
         stop $serviceParms;
         start $serviceParms;
         ;;
-  start)
-        clean;
+  START)
         start $serviceParms
         ;;
-  stop)
-        clean;
+  STOP)
         stop $serviceParms;
         ;;
-  stopAll)
-        stopAll;
-        ;;
-  status)
+  STATUS)
         status $serviceParms;
         ;;
-  test)
+  TEST)
         test $testScripts;
         ;;
  *) usage
