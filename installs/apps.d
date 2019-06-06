@@ -48,7 +48,7 @@ isNull() {
 runningPID() {
    pid=$1
    systemPIDs=$(ps -A -o pid)
-   if [[ $systemPIDs == *"$pid"* ]]; then
+   if [[ $systemPIDs == *"$pid"* ]]
    then
       return 1
    else
