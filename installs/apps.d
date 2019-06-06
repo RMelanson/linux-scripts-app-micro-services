@@ -207,16 +207,21 @@ processPIDs() {
   done
 }
 
+ echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ### main logic ###
 mode="${1^^}"
 echoLog "<======== Executing service apps $args ========>"
+ echo BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 # Concatinate Args
 serviceParms=$(echo $args | cut -d " " -f2-)
+ echo CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 #Remove Functions Call Name
 serviceParms=${serviceParms//$1/}
+ echo DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 # Get the Service Process Type
 setProcessType $serviceParms;
 
+ echo EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 if [[ $serviceType == "ALL" ]]
 then
    serviceParms="$pidDir"/*;
