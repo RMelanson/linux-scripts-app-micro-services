@@ -181,7 +181,8 @@ processPIDs() {
                     startJOB $job;
                     echoLog "Starting PID $pid is already running";
                  fi
-           STOP)
+                  ;;
+          STOP)
                  if runningPID $pid
                     echoLog "Killing Process $pid : $(cat $absPID)";
                     kill -9 "$pid"
