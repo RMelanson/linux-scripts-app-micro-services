@@ -149,17 +149,12 @@ startJOB()
 }
 
 processPIDs() {
-  echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-  serviceType=${1^^}"
+  serviceType="${1^^}"
   # Concatinate Args
   servicePids=$(echo $args | cut -d " " -f2-)
-  echo BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
   #Remove Functions Call Name
-  echo CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
   servicePids=${servicePids//$1/}
-  echo DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
   echoLog  "EXECUTING processPIDs $serviceType $servicePids";
-  echo GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
   for pid in $servicePids
   do
      pid="$(basename -- $pid)"
@@ -207,27 +202,21 @@ processPIDs() {
   done
 }
 
- echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ### main logic ###
 mode="${1^^}"
 echoLog "<======== Executing service apps $args ========>"
- echo BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
 # Concatinate Args
 serviceParms=$(echo $args | cut -d " " -f2-)
- echo CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 #Remove Functions Call Name
 serviceParms=${serviceParms//$1/}
- echo DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 # Get the Service Process Type
 setProcessType $serviceParms;
 
- echo EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 if [[ $serviceType == "ALL" ]]
 then
    serviceParms="$pidDir"/*;
 fi
 
-  echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 if [[ $serviceType == "ALL" ]] || [[ $serviceType == "PID" ]]
    case "$mode" in
         HELP|USAGE|ABOUT|?)
@@ -243,22 +232,22 @@ if [[ $serviceType == "ALL" ]] || [[ $serviceType == "PID" ]]
               exit 1
               ;;
    esac
-#elif [[ $serviceType == "NULL" ]]
-#    case "$mode" in
-#         STATUS)
-#            status $serviceParms;
-#         ;;
-#         TEST)
-#            test $testScripts;
-#         ;;
-#       *) usage
-#            exit 1
-#        ;;
-#    esac
-#elif [[ $serviceType == "JOB" ]]
-#    echoLog "Starting Services $procs"
-#       startJOB $procs;
-#    ;;
+elif [[ $serviceType == "NULL" ]]
+    case "$mode" in
+         STATUS)
+            status $serviceParms;
+         ;;
+         TEST)
+            test $testScripts;
+         ;;
+       *) usage
+            exit 1
+        ;;
+    esac
+elif [[ $serviceType == "JOB" ]]
+    echoLog "Starting Services $procs"
+       startJOB $procs;
+    ;;
 fi
 
 exit 0
