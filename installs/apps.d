@@ -149,14 +149,17 @@ startJOB()
 }
 
 processPIDs() {
+  echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
   serviceType=${1^^}"
   # Concatinate Args
   servicePids=$(echo $args | cut -d " " -f2-)
-  #Remove Functions Call Name
-  servicePids=${servicePids//$1/}
-  echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-  echoLog  "EXECUTING processPIDs $serviceType $servicePids";
   echo BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+  #Remove Functions Call Name
+  echo CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+  servicePids=${servicePids//$1/}
+  echo DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+  echoLog  "EXECUTING processPIDs $serviceType $servicePids";
+  echo GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
   for pid in $servicePids
   do
      pid="$(basename -- $pid)"
@@ -219,6 +222,7 @@ then
    serviceParms="$pidDir"/*;
 fi
 
+  echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 if [[ $serviceType == "ALL" ]] || [[ $serviceType == "PID" ]]
    case "$mode" in
         HELP|USAGE|ABOUT|?)
