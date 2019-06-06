@@ -256,7 +256,7 @@ if [[ $serviceType == "ALL" ]] || [[ $serviceType == "PID" ]]
 #        ;;
 #    esac
 #elif [[ $serviceType == "JOB" ]]
-#    echoLog "Starting Service(s) $procs"
+#    echoLog "Starting Services $procs"
 #       startJOB $procs;
 #    ;;
 fi
