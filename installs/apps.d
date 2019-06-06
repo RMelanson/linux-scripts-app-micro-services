@@ -141,8 +141,8 @@ test() {
 
 startJOB()
 {
-    job=$*;
-    $job &;
+    job=$*
+    $job &
     pid=$!;
     echoLog "start($1) EXECUTING: echo $job &";
     echo $procs > $pidDir/$pid;
