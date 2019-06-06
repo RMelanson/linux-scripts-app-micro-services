@@ -243,22 +243,22 @@ if [[ $serviceType == "ALL" ]] || [[ $serviceType == "PID" ]]
               exit 1
               ;;
    esac
-elif [[ $serviceType == "NULL" ]]
-    case "$mode" in
-         STATUS)
-            status $serviceParms;
-         ;;
-         TEST)
-            test $testScripts;
-         ;;
-       *) usage
-            exit 1
-        ;;
-    esac
-elif [[ $serviceType == "JOB" ]]
-    echoLog "Starting Service(s) $procs"
-       startJOB $procs;
-    ;;
+#elif [[ $serviceType == "NULL" ]]
+#    case "$mode" in
+#         STATUS)
+#            status $serviceParms;
+#         ;;
+#         TEST)
+#            test $testScripts;
+#         ;;
+#       *) usage
+#            exit 1
+#        ;;
+#    esac
+#elif [[ $serviceType == "JOB" ]]
+#    echoLog "Starting Service(s) $procs"
+#       startJOB $procs;
+#    ;;
 fi
 
 exit 0
