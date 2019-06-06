@@ -154,7 +154,7 @@ processPIDs() {
   servicePids=$(echo $args | cut -d " " -f2-)
   #Remove Functions Call Name
   servicePids=${servicePids//$1/}
-  echoLog  "EXECUTING processPIDs\() $serviceType $servicePids";
+  echoLog  "EXECUTING processPIDs $serviceType $servicePids";
   for pid in $servicePids
   do
      pid="$(basename -- $pid)"
