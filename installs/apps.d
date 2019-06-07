@@ -214,6 +214,11 @@ serviceParms=${serviceParms//$1/}
 # Get the Service Process Type
 setProcessType $serviceParms;
 
+if [ "ZZZ" == "ALL" ]
+then
+   echo JUNK REMOVE ME
+fi
+
 if [ $serviceType == "ALL" ]
 then
    serviceParms="$pidDir"/*;
