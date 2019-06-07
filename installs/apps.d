@@ -13,7 +13,7 @@ pidDir=$servicesDir/ids
 logDir=$servicesDir/logs
 testScripts=$servicesDir/test/scripts/*
 
-processType=null;
+#serviceType=null;
 
 isNumber() {
   parms=$1
@@ -59,18 +59,18 @@ runningPID() {
 setProcessType() {
    if isNull $1
     then
-       processType="NULL"
+       serviceType="NULL"
        echo "is NULL";
    elif isNumber $1
    then
-       processType="PID"
+       serviceType="PID"
        echo "is PID";
    elif selectAll $1
    then
-       processType="ALL"
+       serviceType="ALL"
        echo "Process ALL"
    else
-       processType="JOB"
+       serviceType="JOB"
        echo "Process job"
    fi
 }
@@ -218,6 +218,10 @@ if [ "$serviceType" == "ALL" ]
 then
    serviceParms="$pidDir"/*;
 fi
+
+echo SERVICE_PARMS = $serviceParms
+echo SERVICE_TYPE = $serviceType
+echo MODE = $mode
 
 case "$serviceType" in
     ALL|PID)
