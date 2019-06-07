@@ -221,7 +221,6 @@ fi
 
 case "$serviceType" in
     ALL|PID)
-then
    case "$mode" in
         HELP|USAGE|ABOUT|?)
               help
