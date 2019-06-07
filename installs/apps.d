@@ -219,38 +219,40 @@ then
    serviceParms="$pidDir"/*;
 fi
 
-if [ "$serviceType" == "ALL" ] || [ "$serviceType" == "PID" ]
+case "$serviceType" in
+    ALL|PID)
 then
    case "$mode" in
         HELP|USAGE|ABOUT|?)
               help
-              ;;
+        ;;
         CLEAN|DELETE|RESTART|RELOAD|START|STATUS|STOP)
              processPIDs $mode $serviceParms
-               ;;
+        ;;
         TEST)
               usage "Undefined Parameters $testScripts";
-              ;;
+        ;;
        *) usage
               exit 1
-              ;;
-   esac
-elif [ "$serviceType" == "NULL" ]
-    case "$mode" in
-         STATUS)
-            status $serviceParms;
-         ;;
-         TEST)
-            test $testScripts;
-         ;;
-       *) usage
-            exit 1
         ;;
-    esac
-elif [ "$serviceType" == "JOB" ]
+   esac
+   ;;
+   NULL)
+   case "$mode" in
+        STATUS)
+           status $serviceParms;
+        ;;
+        TEST)
+           test $testScripts;
+        ;;
+       *) usage
+          exit 1
+   esac
+   ;;
+   JOB)
     echoLog "Starting Services $procs"
        startJOB $procs;
     ;;
-fi
+esac
 
 exit 0
