@@ -181,7 +181,7 @@ processPIDs() {
                     startJOB $job;
                     echoLog "Starting PID $pid is already running";
                  fi
-                  ;;
+                 ;;
           STOP)
                  if runningPID $pid
                     echoLog "Killing Process $pid : $(cat $absPID)";
@@ -213,12 +213,13 @@ serviceParms=${serviceParms//$1/}
 # Get the Service Process Type
 setProcessType $serviceParms;
 
-if [[ $serviceType == "ALL" ]]
+if [ $serviceType == "ALL" ]
 then
    serviceParms="$pidDir"/*;
 fi
 
-if [[ $serviceType == "ALL" ]] || [[ $serviceType == "PID" ]]
+if [ $serviceType == "ALL" ]] || [[ $serviceType == "PID" ]
+then
    case "$mode" in
         HELP|USAGE|ABOUT|?)
               help
@@ -233,7 +234,7 @@ if [[ $serviceType == "ALL" ]] || [[ $serviceType == "PID" ]]
               exit 1
               ;;
    esac
-elif [[ $serviceType == "NULL" ]]
+elif [ $serviceType == "NULL" ]
     case "$mode" in
          STATUS)
             status $serviceParms;
@@ -245,7 +246,7 @@ elif [[ $serviceType == "NULL" ]]
             exit 1
         ;;
     esac
-elif [[ $serviceType == "JOB" ]]
+elif [ $serviceType == "JOB" ]
     echoLog "Starting Services $procs"
        startJOB $procs;
     ;;
