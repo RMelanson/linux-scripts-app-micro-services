@@ -184,6 +184,7 @@ processPIDs() {
                  ;;
           STOP)
                  if runningPID $pid
+                 then
                     echoLog "Killing Process $pid : $(cat $absPID)";
                     kill -9 "$pid"
                   else
@@ -191,6 +192,7 @@ processPIDs() {
                  ;;
            STATUS)
                  if runningPID $pid
+                 then
                     echoLog "Running Process $pid Found: $(cat $absPID)";
                  else
                     echoLog "Process $pid *NOT* Running: $(cat $absPID)";
