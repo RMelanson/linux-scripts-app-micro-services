@@ -214,17 +214,12 @@ serviceParms=${serviceParms//$1/}
 # Get the Service Process Type
 setProcessType $serviceParms;
 
-if [ "ZZZ" == "ALL" ]
-then
-   echo JUNK REMOVE ME
-fi
-
-if [ $serviceType == "ALL" ]
+if [ "$serviceType" == "ALL" ]
 then
    serviceParms="$pidDir"/*;
 fi
 
-if [ $serviceType == "ALL" ] || [ $serviceType == "PID" ]
+if [ "$serviceType" == "ALL" ] || [ "$serviceType" == "PID" ]
 then
    case "$mode" in
         HELP|USAGE|ABOUT|?)
@@ -240,7 +235,7 @@ then
               exit 1
               ;;
    esac
-elif [ $serviceType == "NULL" ]
+elif [ "$serviceType" == "NULL" ]
     case "$mode" in
          STATUS)
             status $serviceParms;
@@ -252,7 +247,7 @@ elif [ $serviceType == "NULL" ]
             exit 1
         ;;
     esac
-elif [ $serviceType == "JOB" ]
+elif [ "$serviceType" == "JOB" ]
     echoLog "Starting Services $procs"
        startJOB $procs;
     ;;
