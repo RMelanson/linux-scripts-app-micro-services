@@ -219,7 +219,7 @@ then
    serviceParms="$pidDir"/*;
 fi
 
-if [ $serviceType == "ALL" ]] || [[ $serviceType == "PID" ]
+if [ $serviceType == "ALL" ] || [[ $serviceType == "PID" ]
 then
    case "$mode" in
         HELP|USAGE|ABOUT|?)
