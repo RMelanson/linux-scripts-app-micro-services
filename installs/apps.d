@@ -189,6 +189,7 @@ processPIDs() {
                     kill -9 "$pid"
                   else
                     echoLog "Process $pid *NOT* Running: $(cat $absPID)";
+                  fi
                  ;;
            STATUS)
                  if runningPID $pid
