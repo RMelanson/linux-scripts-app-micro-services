@@ -147,6 +147,7 @@ startJOB()
 }
 
 processPIDs() {
+  args=$*;
   serviceType="${1^^}"
   # Concatinate Args
   echoLog  "EXECUTING processPIDs args = $args";
