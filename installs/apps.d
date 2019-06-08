@@ -253,8 +253,8 @@ case "$serviceType" in
        esac
    ;;
    JOB)
-    echoLog "Starting Services $procs"
-       startJOB $procs;
+       echoLog "Starting Services $procs"
+       startJOB $serviceParms;
     ;;
 esac
 
