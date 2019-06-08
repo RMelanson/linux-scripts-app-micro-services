@@ -225,32 +225,32 @@ echo MODE = $mode
 
 case "$serviceType" in
     ALL|PID)
-   case "$mode" in
-        HELP|USAGE|ABOUT|?)
-              help
-        ;;
-        CLEAN|DELETE|RESTART|RELOAD|START|STATUS|STOP)
-             processPIDs $mode $serviceParms
-        ;;
-        TEST)
+         case "$mode" in
+            HELP|USAGE|ABOUT|?)
+               help
+            ;;
+            CLEAN|DELETE|RESTART|RELOAD|START|STATUS|STOP)
+              processPIDs $mode $serviceParms
+            ;;
+            TEST)
               usage "Undefined Parameters $testScripts";
-        ;;
-       *) usage
+            ;;
+           *) usage
               exit 1
-        ;;
-   esac
+           ;;
+       esac
    ;;
    NULL)
-   case "$mode" in
-        STATUS)
-           status $serviceParms;
-        ;;
-        TEST)
-           test $testScripts;
-        ;;
-       *) usage
-          exit 1
-   esac
+       case "$mode" in
+            STATUS)
+               status $serviceParms;
+            ;;
+            TEST)
+               test $testScripts;
+            ;;
+            *) usage
+              exit 1
+       esac
    ;;
    JOB)
     echoLog "Starting Services $procs"
