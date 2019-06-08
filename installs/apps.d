@@ -149,6 +149,7 @@ startJOB()
 processPIDs() {
   serviceType="${1^^}"
   # Concatinate Args
+  echoLog  "EXECUTING processPIDs args = $args";
   servicePids=$(echo $args | cut -d " " -f2-)
   #Remove Functions Call Name
   echoLog  "EXECUTING BEFORE processPIDs $serviceType $servicePids";
