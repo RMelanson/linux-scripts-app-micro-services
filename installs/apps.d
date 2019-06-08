@@ -243,7 +243,7 @@ case "$serviceType" in
    NULL)
        case "$mode" in
             STATUS)
-            echo AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            echo EXECUTING "processPIDs STATUS $pidDir/*"
                processPIDs STATUS $pidDir/*;
             ;;
             TEST)
