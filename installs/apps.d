@@ -189,7 +189,7 @@ processPIDs() {
                     echoLog "Process $pid *NOT* Running: $(cat $absPID)";
                   fi
                  ;;
-           STATUS)
+          STATUS)
                  if runningPID $pid
                  then
                     echoLog "Running Process $pid Found: $(cat $absPID)";
@@ -197,7 +197,7 @@ processPIDs() {
                     echoLog "Process $pid *NOT* Running: $(cat $absPID)";
                  fi
                  ;;
-           *) usage
+          *) usage
              exit 1
              ;;
          esac
