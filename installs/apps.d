@@ -243,7 +243,7 @@ case "$serviceType" in
    NULL)
        case "$mode" in
             STATUS)
-               processPIDs STATUS $serviceParms;
+               processPIDs STATUS $pidDir/*;
             ;;
             TEST)
                test $testScripts;
