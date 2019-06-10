@@ -166,7 +166,6 @@ processPIDs() {
   do
      pid="$(basename -- $pid)"
      absPID="$pidDir/$pid"
-     echoLog  "EXECUTING $serviceType process $pid";
      case "$serviceType" in
            CLEAN)
                  if runningPID $pid
