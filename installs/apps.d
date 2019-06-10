@@ -37,11 +37,11 @@ selectAll() {
 }
 
 isNull() {
-   if [ ! -z $1 ]
+   if [ -z $1 ]
    then
-      return 1
-   else
       return 0
+   else
+      return 1
    fi
 }
 
@@ -53,10 +53,10 @@ runningPID() {
    if [[ $systemPIDs == *"$pid"* ]]
    then
       echo "Found Running pid $pid"
-      return 1
+      return 0
    else
       echo "NOT Running pid $pid"
-      return 0
+      return 1
    fi
 }
 
