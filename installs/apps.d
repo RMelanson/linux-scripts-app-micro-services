@@ -26,6 +26,42 @@ isNumber() {
   fi
 }
 
+dirExists() {
+   dir = $1;
+   if [ -d $dir ]
+   then
+      // 0 is true in shell scripting
+      return 0; 
+   else
+      return 1;
+   fi
+}
+
+
+dirNotEmpty() {
+   dir = $1;
+   if [ dirExists $dir ]
+   then
+      count=$(ls -1q $dir | wc -l);
+      echo Count = $count
+      if [ "$count" -gt "0" ]
+      then
+          return 0;
+      fi
+   fi
+   return 1
+}
+
+pidsExists() {
+   if [ dirNotEmpty $pidDir ]
+   then
+      // 0 is true in shell scripting
+      return 0; 
+   else
+      return 1;
+   fi
+}
+
 selectAll() {
   parms=$1
   if [ "${parms^^}" == "ALL" ]
@@ -259,7 +295,11 @@ case "$serviceType" in
        case "$mode" in
             STATUS)
             pids=$(ls $pidDir/*);
+            if pidsExist
+            then
                processPIDs STATUS $pidDir/*;
+            else
+               echo "NO REGISTERED PID found in $pidDir"
             ;;
             TEST)
                test $testScripts;
