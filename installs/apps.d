@@ -49,7 +49,7 @@ runningPID() {
    pid=$1
    systemPIDs=$(ps -A -o pid)
    echo "Checking pid $pid"
-   echo "CHECKING pids $systemPIDs"
+   #echo "CHECKING pids $systemPIDs"
    if [[ $systemPIDs == *"$pid"* ]]
    then
       echo "Found Running pid $pid"
