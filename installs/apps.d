@@ -182,6 +182,7 @@ processPIDs() {
                     echoLog "Deleting PID File $absPID";
                  else
                     echoLog "File not found  $absPID";
+                 fi
                  ;;
            START)
                  if runningPID $pid
