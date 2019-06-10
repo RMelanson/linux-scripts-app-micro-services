@@ -48,14 +48,11 @@ isNull() {
 runningPID() {
    pid=$1
    systemPIDs=$(ps -A -o pid)
-   echo "Checking pid $pid"
    #echo "CHECKING pids $systemPIDs"
    if [[ $systemPIDs == *"$pid"* ]]
    then
-      echo "Found Running pid $pid"
       return 0
    else
-      echo "NOT Running pid $pid"
       return 1
    fi
 }
@@ -195,6 +192,11 @@ processPIDs() {
                   fi
                  ;;
           STATUS)
+          echo
+          echo AAAAAAAAAAAAAAAAA
+          echo absPID = $absPID
+          echo $(cat $absPID) = "$(cat $absPID)"
+          echo ZZZZZZZZZZZZZZZZZ
                  if runningPID $pid
                  then
                     echoLog "Running Process $pid Found: $(cat $absPID)";
@@ -249,7 +251,6 @@ case "$serviceType" in
        case "$mode" in
             STATUS)
             pids=$(ls $pidDir/*);
-            echo EXECUTING "processPIDs STATUS $pids"
                processPIDs STATUS $pidDir/*;
             ;;
             TEST)
