@@ -196,8 +196,9 @@ processPIDs() {
   # Concatinate Args
   servicePids=$(echo $args | cut -d " " -f2-)
   #Remove Functions Call Name
+  echoLog  "BEFORE processPIDs() $serviceType $servicePids";
   servicePids=${servicePids//$1/}
-  echoLog  "processPIDs() $serviceType $servicePids";
+  echoLog  "AFTER processPIDs() $serviceType $servicePids";
   for pid in $servicePids
   do
      pid="$(basename -- $pid)"
