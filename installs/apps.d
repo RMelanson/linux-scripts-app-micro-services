@@ -2,7 +2,8 @@
 # chkconfig: 2345 20 80
 # description: appServices ~ Start an Application as a Services
 # process Name: start
-# pidDir: /etc/init.d/servives
+# pidDir: /etc/init.d/servives/ids
+# logDir: /etc/init.d/servives/logs
 # Author: Robin Melanson (Contractor)
 # Contact: robin.e.melanson@gmail.com
 
@@ -79,6 +80,14 @@ isNull() {
    else
       return 1;
    fi
+}
+
+getDirFilesOnly(){
+   echo $(ls -p $1 | grep -v /)
+}
+
+getRegusteredPIDs(){
+   getDirFilesOnly $pidDir
 }
 
 fileExists() {
@@ -298,7 +307,7 @@ case "$serviceType" in
             pids=$(ls $pidDir/*);
             if pidsExist
             then
-               processPIDs STATUS $pidDir/*;
+               processPIDs STATUS $(getRegusteredPIDs);
             else
                echo "NO REGISTERED PID found in $pidDir"
             ;;
