@@ -144,7 +144,7 @@ startJOB()
     $job &
     pid=$!;
     echoLog "start($1) EXECUTING: echo $job &";
-    echo $procs > $pidDir/$pid;
+    echo $job > $pidDir/$pid;
 }
 
 processPIDs() {
@@ -192,16 +192,12 @@ processPIDs() {
                   fi
                  ;;
           STATUS)
-          echo
-          echo AAAAAAAAAAAAAAAAA
-          echo absPID = $absPID
-          echo $(cat $absPID) = "$(cat $absPID)"
-          echo ZZZZZZZZZZZZZZZZZ
+                 process=$(cat $absPID)
                  if runningPID $pid
                  then
-                    echoLog "Running Process $pid Found: $(cat $absPID)";
+                    echoLog "Running Process $pid Found: $process";
                  else
-                    echoLog "Process $pid *NOT* Running: $(cat $absPID)";
+                    echoLog "Process $pid *NOT* Running: $process";
                  fi
                  ;;
           *) usage
