@@ -20,9 +20,9 @@ isNumber() {
   nums='^[0-9]+$'
   if [[ $parms =~ $nums ]]
   then
-     return 0
+     return 0;
   else
-     return 1
+     return 1;
   fi
 }
 
@@ -30,20 +30,27 @@ selectAll() {
   parms=$1
   if [ "${parms^^}" == "ALL" ]
   then
-     return 0
+     return 0;
   else
-     return 1
+     return 1;
   fi
 }
 
 isNull() {
    if [ -z $1 ]
    then
-      return 0
+      return 0;
    else
-      return 1
+      return 1;
    fi
 }
+
+fileExists() {
+if [ -f "$1" ]; then
+    return 0;
+else 
+      return 1;
+fi
 
 runningPID() {
    pid=$1
@@ -51,9 +58,9 @@ runningPID() {
    #echo "CHECKING pids $systemPIDs"
    if [[ $systemPIDs == *"$pid"* ]]
    then
-      return 0
+      return 0;
    else
-      return 1
+      return 1;
    fi
 }
 
@@ -64,15 +71,15 @@ setProcessType() {
        echo "is NULL";
    elif isNumber $1
    then
-       serviceType="PID"
+       serviceType="PID";
        echo "is PID";
    elif selectAll $1
    then
-       serviceType="ALL"
-       echo "Process ALL"
+       serviceType="ALL";
+       echo "Process ALL";
    else
-       serviceType="JOB"
-       echo "Process job"
+       serviceType="JOB";
+       echo "Process job";
    fi
 }
 
@@ -81,34 +88,34 @@ setLogFile(){
 }
 
 echoLog() {
-   setLogFile
-   parms="$*"
-   tm=$(date +"%H:%M:%S>")
-   tmParms=$tm$parms
-   echo $tmParms | tee -a $logfile
+   setLogFile;
+   parms="$*";
+   tm=$(date +"%H:%M:%S>");
+   tmParms=$tm$parms;
+   echo $tmParms | tee -a $logfile;
 }
 
 log() {
-   echo $1 >> $logfile
+   echo $1 >> $logfile;
 }
 
 usage() {
    if [ ! -z $1 ]
    then
-     echoLog $1
+     echoLog $1;
    fi
-   echo "=============================USAGE================================"
-   echo $"Usage: $0 {start|stop|restart|clean|status|help}"
+   echo "=============================USAGE================================";
+   echo $"Usage: $0 {start|stop|restart|clean|status|help}";
 }
 
 about() {
    clear;
-   echoLog "======================= ABOUT APPS SERVICES =========================="
-   echo "# description: $prog ~ Add Applications as a Services"
-   echo "# processname: $prog"
-   echo "# Author     : Robin Melanson (Contractor)"
-   echo "# Contact    : robin.e.melanson@gmail.com"
-   usage
+   echoLog "======================= ABOUT APPS SERVICES ==========================";
+   echo "# description: $prog ~ Add Applications as a Services";
+   echo "# processname: $prog";
+   echo "# Author     : Robin Melanson (Contractor)";
+   echo "# Contact    : robin.e.melanson@gmail.com";
+   usage;
 }
 
 help () {
@@ -171,6 +178,11 @@ processPIDs() {
                  fi
                  ;;
            DELETE)
+                 if fileExists $absPID
+                 then
+                    echoLog "Deleting PID File $absPID";
+                 else
+                    echoLog "File not found  $absPID";
                  ;;
            START)
                  if runningPID $pid
