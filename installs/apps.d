@@ -135,7 +135,7 @@ log() {
 }
 
 debugTest() {
-#   echoLog $1;
+#   echoLog ;
 }
 
 usage() {
