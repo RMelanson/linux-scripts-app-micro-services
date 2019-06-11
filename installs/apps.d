@@ -91,7 +91,8 @@ pidRegistered() {
 }
 
 getFileContents() {
-   if fileExists $1; then
+   absPID=$1
+   if fileExists $absPID; then
        process=$(cat $absPID)
    else
        process="$absPID Not Registered"
