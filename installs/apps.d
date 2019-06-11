@@ -87,6 +87,32 @@ fileExists() {
    fi
 }
 
+pidRegistered() {
+   pid=$1
+   if fileExists pidDir/$pid
+      return 0;
+   else 
+      return 1;
+   fi
+
+}
+
+getFileContents() {
+   if fileExists $1
+   then
+       process=$(cat $absPID)
+   else
+       process="$absPID Not Registered"
+    fi
+    echo $process
+}
+
+getPIDContents() {
+   pid=$1
+   echo $(getFileContents $pidDir/$pid);
+}
+
+
 runningPID() {
    pid=$1
    systemPIDs=$(ps -A -o pid)
@@ -204,23 +230,22 @@ processPIDs() {
   for pid in $servicePids
   do
      pid="$(basename -- $pid)"
-     absPID="$pidDir/$pid"
      case "$serviceType" in
            CLEAN)
                  if runningPID $pid
                  then
-                    echoLog  "removing dead process $pid $(cat $absPID)";
-                    rm $absPID;
+                    echoLog  "removing dead process $pid $(cat $pidDir/$pid)";
+                    rm $$pidDir/$pid;
                  else
                     echoLog  "PID $pid is running";
                  fi
                  ;;
            DELETE)
-                 if fileExists $absPID
+                 if pidRegistered $pid
                  then
-                    echoLog "Deleting PID File $absPID";
+                    echoLog "Deleting PID File $$pidDir/$pid";
                  else
-                    echoLog "File not found  $absPID";
+                    echoLog "File not found  $$pidDir/$pid";
                  fi
                  ;;
            START)
@@ -236,19 +261,18 @@ processPIDs() {
           STOP)
                  if runningPID $pid
                  then
-                    echoLog "Killing Process $pid : $(cat $absPID)";
+                    echoLog "Killing Process $pid : $(getPIDContents $pid)";
                     kill -9 "$pid"
                   else
-                    echoLog "Process $pid *NOT* Running: $(cat $absPID)";
+                    echoLog "Process $pid *NOT* Running: $(getPIDContents $pid)";
                   fi
                  ;;
           STATUS)
-                 process=$(cat $absPID)
                  if runningPID $pid
                  then
-                    echoLog "Running Process $pid Found: $process";
+                    echoLog "Running Process $pid Found: $(getPIDContents $pid)";
                  else
-                    echoLog "Process $pid *NOT* Running: $process";
+                    echoLog "Process $pid *NOT* Running: $(getPIDContents $pid)";
                  fi
                  ;;
           *) usage
