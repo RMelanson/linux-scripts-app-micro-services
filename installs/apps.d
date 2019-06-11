@@ -134,6 +134,10 @@ log() {
    echo $1 >> $logfile;
 }
 
+debugTest() {
+#   echoLog $1;
+}
+
 usage() {
    if [ ! -z $1 ]
    then
@@ -270,9 +274,7 @@ then
    serviceParms="$pidDir"/*;
 fi
 
-echo SERVICE_PARMS = $serviceParms
-echo SERVICE_TYPE = $serviceType
-echo MODE = $mode
+debugTest "SERVICE_PARMS = $serviceParms SERVICE_TYPE = $serviceType MODE = $mode"
 
 case "$serviceType" in
     ALL|PID)
