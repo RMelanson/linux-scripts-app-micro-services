@@ -223,10 +223,10 @@ processPIDs() {
      case "$serviceType" in
            CLEAN)
                  if runningPID $pid; then
+                    echoLog  "Running PID $pid $pidContents";
+                 else
                     echoLog  "Removing Stopped Registered PID $pid $pidContents";
                     rm $absPID;
-                 else
-                    echoLog  "Running PID $pid $pidContents";
                  fi
                  ;;
            DELETE)
