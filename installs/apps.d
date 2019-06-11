@@ -249,9 +249,9 @@ processPIDs() {
                  if runningPID $pid; then
                     echoLog "Killing Process $pid : $(getPIDContents $pid)";
                     kill -9 "$pid"
-                  else
+                 else
                     echoLog "Process $pid *NOT* Running: $(getPIDContents $pid)";
-                  fi
+                 fi
                  ;;
           RESTART)
                  if PIDRegistered; then
@@ -264,6 +264,7 @@ processPIDs() {
                  else
                     echoLog "Running Process $pid Not Registered"
                  fi
+                 ;;
           STATUS)
                  if runningPID $pid; then
                     echoLog "Running Process $pid Found: $(getPIDContents $pid)";
