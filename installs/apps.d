@@ -221,16 +221,16 @@ processPIDs() {
            CLEAN)
                  if runningPID $pid; then
                     echoLog  "removing dead process $pid $(cat $pidDir/$pid)";
-                    rm $$pidDir/$pid;
+                    rm $pidDir/$pid;
                  else
                     echoLog  "PID $pid is running";
                  fi
                  ;;
            DELETE)
                  if pidRegistered $pid; then
-                    echoLog "Deleting PID File $$pidDir/$pid";
+                    echoLog "De-registering PID $pid";
                  else
-                    echoLog "File not found  $$pidDir/$pid";
+                    echoLog "PID $pid not registered";
                  fi
                  ;;
            START)
