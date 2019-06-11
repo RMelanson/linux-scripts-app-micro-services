@@ -200,7 +200,7 @@ processPIDs() {
   servicePids=$(echo $args | cut -d " " -f2-)
   #Remove Functions Call Name
   servicePids=${servicePids//$1/}
-  debugTest "AFTER processPIDs() $serviceType $servicePids";
+  debugTest "processPIDs() $serviceType $servicePids";
   for pid in $servicePids
   do
      pid="$(basename -- $pid)"
@@ -272,8 +272,6 @@ if [ "$serviceType" == "ALL" ]
 then
    serviceParms="$pidDir"/*;
 fi
-
-debugTest "SERVICE_PARMS = $serviceParms SERVICE_TYPE = $serviceType MODE = $mode"
 
 case "$serviceType" in
     ALL|PID)
