@@ -103,18 +103,18 @@ setProcessType() {
    if isNull $1
     then
        serviceType="NULL"
-       echo "is NULL";
+#       echo "is NULL";
    elif isNumber $1
    then
        serviceType="PID";
-       echo "is PID";
+#       echo "is PID";
    elif selectAll $1
    then
        serviceType="ALL";
-       echo "Process ALL";
+#       echo "Process ALL";
    else
        serviceType="JOB";
-       echo "Process job";
+#       echo "Process job";
    fi
 }
 
