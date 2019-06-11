@@ -17,14 +17,14 @@ testScripts=$servicesDir/test/scripts/*
 #serviceType=null;
 
 isNumber() {
-  parms=$1
-  nums='^[0-9]+$'
-  if [[ $parms =~ $nums ]]
-  then
-     return 0;
-  else
-     return 1;
-  fi
+   parms=$1
+   nums='^[0-9]+$'
+   if [[ $parms =~ $nums ]]
+   then
+      return 0;
+   else
+      return 1;
+   fi
 }
 
 dirExists() {
@@ -38,7 +38,6 @@ dirExists() {
    fi
 }
 
-
 dirNotEmpty() {
    dir = $1;
    if [ dirExists $dir ]
@@ -51,16 +50,6 @@ dirNotEmpty() {
       fi
    fi
    return 1
-}
-
-pidsExists() {
-   if [ dirNotEmpty $pidDir ]
-   then
-      // 0 is true in shell scripting
-      return 0; 
-   else
-      return 1;
-   fi
 }
 
 selectAll() {
@@ -305,13 +294,7 @@ case "$serviceType" in
    NULL)
        case "$mode" in
             STATUS)
-               pids=$(ls $pidDir/*);
-               if pidsExist
-               then
-                  processPIDs STATUS $(getRegusteredPIDs);
-               else
-                  echo "NO REGISTERED PID found in $pidDir"
-               fi
+               processPIDs STATUS $(getRegusteredPIDs);
             ;;
             TEST)
                test $testScripts;
