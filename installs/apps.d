@@ -218,29 +218,31 @@ processPIDs() {
   for pid in $servicePids
   do
      pid="$(basename -- $pid)"
+     absPID=$pidDir/$pid;
+     pidContents=$(getPIDContents $pid);
      case "$serviceType" in
            CLEAN)
                  if runningPID $pid; then
-                    echoLog  "removing dead process $pid $(cat $pidDir/$pid)";
-                    rm $pidDir/$pid;
+                    echoLog  "Removing Stopped Registered PID $pid $pidContents";
+                    rm $absPID;
                  else
-                    echoLog  "PID $pid is running";
+                    echoLog  "Running PID $pid $pidContents";
                  fi
                  ;;
            DELETE)
                  if pidRegistered $pid; then
-                    echoLog "De-registering PID $pid";
+                    echoLog "De-registering PID $pid $pidContents";
                  else
-                    echoLog "PID $pid not registered";
+                    echoLog "Not Registered PID $pid";
                  fi
                  ;;
            START)
                  if runningPID $pid; then
-                    echoLog "Cannot Start $pid is already running";
+                    echoLog "Already running PID $pid $pidContents";
                  else
                     job=$(cat $absPID);
                     startJOB $job;
-                    echoLog "Starting PID $pid is already running";
+                    echoLog "Starting PID $pid $job";
                  fi
                  ;;
           STOP)
@@ -251,6 +253,17 @@ processPIDs() {
                     echoLog "Process $pid *NOT* Running: $(getPIDContents $pid)";
                   fi
                  ;;
+          RESTART)
+                 if PIDRegistered; then
+                    if runningPID $pid; then
+                       kill -9 "$pid"
+                    fi
+                    job=$(cat $absPID);
+                    startJOB $job;
+                    echoLog "Re-Started PID $pid $job";
+                 else
+                    echoLog "Running Process $pid Not Registered"
+                 fi
           STATUS)
                  if runningPID $pid; then
                     echoLog "Running Process $pid Found: $(getPIDContents $pid)";
@@ -279,12 +292,15 @@ if [ "$serviceType" == "ALL" ]; then
    serviceParms="$pidDir"/*;
 fi
 
+echoLog "<======== Executing service apps $mode $serviceParms ========>"
+
+if [ "$serviceType" == "ALL" ]; then
+   serviceParms="$(getRegusteredPIDs)";
+fi
+
 case "$serviceType" in
     ALL|PID)
          case "$mode" in
-            HELP|USAGE|ABOUT|?)
-               help
-            ;;
             CLEAN|DELETE|RESTART|RELOAD|START|STATUS|STOP)
               processPIDs $mode $serviceParms
             ;;
@@ -298,6 +314,9 @@ case "$serviceType" in
    ;;
    NULL)
        case "$mode" in
+            HELP|USAGE|ABOUT|?)
+               help
+            ;;
             STATUS)
                processPIDs STATUS $(getRegusteredPIDs);
             ;;
