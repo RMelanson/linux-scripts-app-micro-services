@@ -19,8 +19,7 @@ testScripts=$servicesDir/test/scripts/*
 isNumber() {
    parms=$1
    nums='^[0-9]+$'
-   if [[ $parms =~ $nums ]]
-   then
+   if [[ $parms =~ $nums ]]; then
       return 0;
    else
       return 1;
@@ -29,8 +28,7 @@ isNumber() {
 
 dirExists() {
    dir = $1;
-   if [ -d $dir ]
-   then
+   if [ -d $dir ]; then
       // 0 is true in shell scripting
       return 0; 
    else
@@ -40,12 +38,10 @@ dirExists() {
 
 dirNotEmpty() {
    dir = $1;
-   if [ dirExists $dir ]
-   then
+   if [ dirExists $dir ]; then
       count=$(ls -1q $dir | wc -l);
       echo Count = $count:1
-      if [ "$count" -gt "0" ]
-      then
+      if [ "$count" -gt "0" ]; then
           return 0;
       fi
    fi
@@ -54,8 +50,7 @@ dirNotEmpty() {
 
 selectAll() {
   parms=$1
-  if [ "${parms^^}" == "ALL" ]
-  then
+  if [ "${parms^^}" == "ALL" ]; then
      return 0;
   else
      return 1;
@@ -63,8 +58,7 @@ selectAll() {
 }
 
 isNull() {
-   if [ -z $1 ]
-   then
+   if [ -z $1 ]; then
       return 0;
    else
       return 1;
@@ -89,17 +83,15 @@ fileExists() {
 
 pidRegistered() {
    pid=$1
-   if fileExists pidDir/$pid
+   if fileExists pidDir/$pid; then
       return 0;
    else 
       return 1;
    fi
-
 }
 
 getFileContents() {
-   if fileExists $1
-   then
+   if fileExists $1; then
        process=$(cat $absPID)
    else
        process="$absPID Not Registered"
@@ -117,8 +109,7 @@ runningPID() {
    pid=$1
    systemPIDs=$(ps -A -o pid)
    #echo "CHECKING pids $systemPIDs"
-   if [[ $systemPIDs == *"$pid"* ]]
-   then
+   if [[ $systemPIDs == *"$pid"* ]]; then
       return 0;
    else
       return 1;
@@ -126,16 +117,13 @@ runningPID() {
 }
 
 setProcessType() {
-   if isNull $1
-    then
+   if isNull $1; then
        serviceType="NULL"
 #       echo "is NULL";
-   elif isNumber $1
-   then
+   elif isNumber $1; then
        serviceType="PID";
 #       echo "is PID";
-   elif selectAll $1
-   then
+   elif selectAll $1; then
        serviceType="ALL";
 #       echo "Process ALL";
    else
@@ -165,8 +153,7 @@ debugTest() {
 }
 
 usage() {
-   if [ ! -z $1 ]
-   then
+   if [ ! -z $1 ]; then
      echoLog $1;
    fi
    echo "=============================USAGE================================";
@@ -232,8 +219,7 @@ processPIDs() {
      pid="$(basename -- $pid)"
      case "$serviceType" in
            CLEAN)
-                 if runningPID $pid
-                 then
+                 if runningPID $pid; then
                     echoLog  "removing dead process $pid $(cat $pidDir/$pid)";
                     rm $$pidDir/$pid;
                  else
@@ -241,16 +227,14 @@ processPIDs() {
                  fi
                  ;;
            DELETE)
-                 if pidRegistered $pid
-                 then
+                 if pidRegistered $pid; then
                     echoLog "Deleting PID File $$pidDir/$pid";
                  else
                     echoLog "File not found  $$pidDir/$pid";
                  fi
                  ;;
            START)
-                 if runningPID $pid
-                 then
+                 if runningPID $pid; then
                     echoLog "Cannot Start $pid is already running";
                  else
                     job=$(cat $absPID);
@@ -259,8 +243,7 @@ processPIDs() {
                  fi
                  ;;
           STOP)
-                 if runningPID $pid
-                 then
+                 if runningPID $pid; then
                     echoLog "Killing Process $pid : $(getPIDContents $pid)";
                     kill -9 "$pid"
                   else
@@ -268,8 +251,7 @@ processPIDs() {
                   fi
                  ;;
           STATUS)
-                 if runningPID $pid
-                 then
+                 if runningPID $pid; then
                     echoLog "Running Process $pid Found: $(getPIDContents $pid)";
                  else
                     echoLog "Process $pid *NOT* Running: $(getPIDContents $pid)";
@@ -292,8 +274,7 @@ serviceParms=${serviceParms//$1/}
 # Get the Service Process Type
 setProcessType $serviceParms;
 
-if [ "$serviceType" == "ALL" ]
-then
+if [ "$serviceType" == "ALL" ]; then
    serviceParms="$pidDir"/*;
 fi
 
