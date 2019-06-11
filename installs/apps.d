@@ -43,7 +43,7 @@ dirNotEmpty() {
    if [ dirExists $dir ]
    then
       count=$(ls -1q $dir | wc -l);
-      echo Count = $count
+      echo Count = $count:1
       if [ "$count" -gt "0" ]
       then
           return 0;
@@ -199,9 +199,8 @@ processPIDs() {
   # Concatinate Args
   servicePids=$(echo $args | cut -d " " -f2-)
   #Remove Functions Call Name
-  echoLog  "BEFORE processPIDs() $serviceType $servicePids";
   servicePids=${servicePids//$1/}
-  echoLog  "AFTER processPIDs() $serviceType $servicePids";
+  debugTest "AFTER processPIDs() $serviceType $servicePids";
   for pid in $servicePids
   do
      pid="$(basename -- $pid)"
