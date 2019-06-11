@@ -91,11 +91,12 @@ getRegusteredPIDs(){
 }
 
 fileExists() {
-if [ -f "$1" ]; then
-    return 0;
-else 
+   if [ -f "$1" ]; then
+     return 0;
+   else 
       return 1;
-fi
+   fi
+}
 
 runningPID() {
    pid=$1
@@ -304,12 +305,13 @@ case "$serviceType" in
    NULL)
        case "$mode" in
             STATUS)
-            pids=$(ls $pidDir/*);
-            if pidsExist
-            then
-               processPIDs STATUS $(getRegusteredPIDs);
-            else
-               echo "NO REGISTERED PID found in $pidDir"
+               pids=$(ls $pidDir/*);
+               if pidsExist
+               then
+                  processPIDs STATUS $(getRegusteredPIDs);
+               else
+                  echo "NO REGISTERED PID found in $pidDir"
+               fi
             ;;
             TEST)
                test $testScripts;
