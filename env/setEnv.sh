@@ -11,7 +11,8 @@ parentDir="/tmp/scripts/$scriptType"
 pkgDir="$parentDir/$pkg"
 installDir="$pkgDir/installs"
 
-appServicesDir=/etc/init.d
+#appServicesDir=/etc/init.d
+appServicesDir=/opt/CI
 daemon=apps
 servicesDir=$appServicesDir/services
 
