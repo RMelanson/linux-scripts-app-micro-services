@@ -257,7 +257,7 @@ processPIDs() {
                  fi
                  ;;
           RESTART)
-                 if PIDRegistered; then
+                 if pidRegistered; then
                     if runningPID $pid; then
                        kill -9 "$pid"
                     fi
