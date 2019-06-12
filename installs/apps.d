@@ -263,6 +263,7 @@ processPIDs() {
                     fi
                     job=$(cat $absPID);
                     startJOB $job;
+                    rm $absPID;
                     echoLog "Re-Started PID $pid $job";
                  else
                     echoLog "Running Process $pid Not Registered"
