@@ -291,14 +291,10 @@ serviceParms=${serviceParms//$1/}
 setProcessType $serviceParms;
 
 if [ "$serviceType" == "ALL" ]; then
-   serviceParms="$pidDir"/*;
+   serviceParms="$(getRegusteredPIDs)";
 fi
 
 echoLog "<======== Executing service apps $mode $serviceParms ========>"
-
-if [ "$serviceType" == "ALL" ]; then
-   serviceParms="$(getRegusteredPIDs)";
-fi
 
 case "$serviceType" in
     ALL|PID)
