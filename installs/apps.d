@@ -84,7 +84,7 @@ fileExists() {
 
 pidRegistered() {
    pid=$1
-   if fileExists pidDir/$pid; then
+   if fileExists $pidDir/$pid; then
       return 0;
    else 
       return 1;
@@ -233,6 +233,7 @@ processPIDs() {
            DELETE)
                  if pidRegistered $pid; then
                     echoLog "De-registering PID $pid $pidContents";
+                    rm $absPID;
                  else
                     echoLog "Not Registered PID $pid";
                  fi
@@ -244,6 +245,7 @@ processPIDs() {
                     job=$(cat $absPID);
                     startJOB $job;
                     echoLog "Starting PID $pid $job";
+                    rm $absPID;
                  fi
                  ;;
           STOP)
@@ -251,7 +253,7 @@ processPIDs() {
                     echoLog "Killing Process $pid : $(getPIDContents $pid)";
                     kill -9 "$pid"
                  else
-                    echoLog "Process $pid *NOT* Running: $(getPIDContents $pid)";
+                    echoLog "Process $pid Running: $(getPIDContents $pid)";
                  fi
                  ;;
           RESTART)
@@ -293,8 +295,6 @@ setProcessType $serviceParms;
 if [ "$serviceType" == "ALL" ]; then
    serviceParms="$(getRegusteredPIDs)";
 fi
-
-echoLog "<======== Executing service apps $mode $serviceParms ========>"
 
 case "$serviceType" in
     ALL|PID)
