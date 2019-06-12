@@ -2,14 +2,15 @@
 # chkconfig: 2345 20 80
 # description: appServices ~ Start an Application as a Services
 # process Name: start
-# pidDir: /etc/init.d/servives/ids
-# logDir: /etc/init.d/servives/logs
+#servicesDir=/opt/CI/services
+#pidDir=$servicesDir/ids
+#logDir=$servicesDir/logs
 # Author: Robin Melanson (Contractor)
 # Contact: robin.e.melanson@gmail.com
 
 args="$*"
 noArgs=$#
-servicesDir=/etc/init.d/services
+servicesDir=/opt/CI/services
 pidDir=$servicesDir/ids
 logDir=$servicesDir/logs
 testScripts=$servicesDir/test/scripts/*
