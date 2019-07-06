@@ -2,7 +2,8 @@
 # chkconfig: 2345 20 80
 # description: appServices ~ Start an Application as a Services
 # process Name: start
-# servicesDir=/opt/CI/services
+#ciDir=/opt/CI
+# servicesDir=$ciDir/services
 # pidDir=$servicesDir/ids
 # logDir=$servicesDir/logs
 # Author: Robin Melanson (Contractor)
@@ -10,7 +11,8 @@
 
 args="$*"
 noArgs=$#
-servicesDir=/opt/CI/services
+ciDir=/opt/CI
+servicesDir=$ciDir/services
 pidDir=$servicesDir/ids
 logDir=$servicesDir/logs
 testScripts=$servicesDir/test/scripts/*
