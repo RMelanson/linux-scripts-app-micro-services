@@ -9,15 +9,15 @@ scriptName=addAppServices.sh
 echo $scriptName Set $daemon as an init.d service
 
 # INSTALL JAVA APPS DAEMON TO SERVER
-echo addAppServices.sh EXECUTING: cp ./installs/$daemon.d $appServicesDir/$daemon
-echo y | cp ./installs/$daemon.d $appServicesDir/$daemon
+echo addAppServices.sh EXECUTING: cp ./installs/$daemon.d $ciBin/$daemon
+echo y | cp ./installs/$daemon.d $ciBin/$daemon
 
 # CREATE SYMBOLIC LINK FOR APPS SERVICES
-echo addAppServices.sh EXECUTING: ln -s  $appServicesDir/$daemon /sbin/apps
-ln -s  $appServicesDir/$daemon /sbin/apps
+echo addAppServices.sh EXECUTING: ln -s  $ciBin/$daemon /sbin/apps
+ln -s  $ciBin/$daemon /sbin/apps
 
-echo addAppServices.sh EXECUTING: chmod 766 $appServicesDir/$daemon
-chmod 766 $appServicesDir/$daemon
+echo addAppServices.sh EXECUTING: chmod 766 $ciBin/$daemon
+chmod 766 $ciBin/$daemon
 
 # CREATE PROCESS DIRECTORY
 echo addAppServices.sh EXECUTING: cp -rf $installDir/servicesDir $servicesDir
