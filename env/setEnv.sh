@@ -12,9 +12,10 @@ pkgDir="$parentDir/$pkg"
 installDir="$pkgDir/installs"
 
 #appServicesDir=/etc/init.d
-appServicesDir=/opt/CI
-daemon=apps
-servicesDir=$appServicesDir/services
+ciDir=/opt/CI
+ciBin=$appServiceDir/bin
+daemon=/cloudInit
+servicesDir=$ciDir/services
 
 # Set Up testApps service
 testApp="springBootHelloWorldDemo-0.1.0.jar"
