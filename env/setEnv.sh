@@ -14,7 +14,7 @@ installDir="$pkgDir/installs"
 #appServicesDir=/etc/init.d
 ciDir=/opt/CI
 ciBin=$appServiceDir/bin
-daemon=/cloudInit.sh
+daemon=/cloudInit
 servicesDir=$ciDir/services
 
 # Set Up testApps service
