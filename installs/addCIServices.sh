@@ -16,8 +16,8 @@ echo y | cp ./installs/$daemon.d $ciBin/$daemon
 echo addCIServices.sh EXECUTING: ln -s  $ciBin/$daemon /sbin/$daemon
 ln -s  $ciBin/$daemon /sbin/$daemon
 
-echo addCIServices.sh EXECUTING: chmod 766 $ciBin/$daemon
-chmod 766 $ciBin/$daemon
+echo addCIServices.sh EXECUTING: chmod 755 $ciBin/$daemon
+chmod 755 $ciBin/$daemon
 
 # CREATE PROCESS DIRECTORY
 echo addCIServices.sh EXECUTING: cp -rf $installDir/servicesDir $servicesDir
@@ -31,5 +31,5 @@ mkdir $programIds
 echo addCIServices.sh EXECUTING: mkdir $testServicesScriptsDir
 mkdir -p $testServicesScriptsDir
 
-echo addCIServices.sh EXECUTING: chmod -R 744 $servicesDir
+echo addCIServices.sh EXECUTING: chmod -R 755 $servicesDir
 chmod -R 755 $servicesDir
