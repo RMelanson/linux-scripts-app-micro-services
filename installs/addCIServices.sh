@@ -9,7 +9,7 @@ echo addCIServices.sh Set $daemon as an Cloud Initialiser service
 
 # INSTALL JAVA APPS DAEMON TO SERVER
 echo addCIServices.sh EXECUTING: cp ./installs/$daemon.d $ciBin/$daemon
-echo y | cp ./installs/$daemon.d $ciBin/$daemon
+echo y | cp -rf ./installs/$daemon.d $ciBin/$daemon
 
 # CREATE SYMBOLIC LINK FOR APPS SERVICES
 echo addCIServices.sh EXECUTING: rm /sbin/$daemon
