@@ -4,7 +4,7 @@ echo addCIServices.sh EXECUTING ./env/setEnv.sh
 . ./env/setEnv.sh
 
 # INSTALL JAVA APPS DAEMON TO SERVER
-echo addCIServices.sh EXECUTING: cp -rf ./installs/CI $ciBin
+echo addCIServices.sh EXECUTING: cp -rf ./installs/CI $ciParentDir
 echo y | cp -rf ./installs/CI $ciParentDir
 
 # REMOVE OLD CLOUD INITIALISER DAEMON
