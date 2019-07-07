@@ -12,7 +12,8 @@ pkgDir="$parentDir/$pkg"
 installDir="$pkgDir/installs"
 
 # SET UP CLOUD INITIALISER PROGRAM DIRECTORY
-ciDir=/opt/CI
+ciParentDir=/opt
+ciDir=/$ciParentDir/CI
 ciBin=$ciDir/bin
 daemon=cloudInit
 servicesDir=$ciDir/services
