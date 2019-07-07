@@ -12,11 +12,12 @@ echo addCIServices.sh EXECUTING: cp ./installs/$daemon.d $ciBin/$daemon
 echo y | cp ./installs/$daemon.d $ciBin/$daemon
 
 # CREATE SYMBOLIC LINK FOR APPS SERVICES
-echo addCIServices.sh EXECUTING: ln -s  $ciBin/$daemon /sbin/$daemon
+rm /sbin/$daemon
+echo addCIServices.sh EXECUTING: ln -s  /sbin/$daemon $ciBin/$daemon
 ln -s  $ciBin/$daemon /sbin/$daemon
 
-echo addCIServices.sh EXECUTING: chmod 755 $ciBin/$daemon
-chmod 755 $ciBin/$daemon
+echo addCIServices.sh EXECUTING: chmod 755 $sbin/$daemon
+chmod 755 $sbin/$daemon
 
 # CREATE PROCESS DIRECTORY
 echo addCIServices.sh EXECUTING: cp -rf $installDir/servicesDir $servicesDir
