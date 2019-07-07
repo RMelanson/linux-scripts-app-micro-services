@@ -1,12 +1,12 @@
 #! /bin/bash
 # SETUP THE REQUIRED ENVIRONMENTTapps
-echo $setupName: EXECUTING ./env/setEnv.sh
+echo addCIServices.sh EXECUTING ./env/setEnv.sh
 . ./env/setEnv.sh
 
 #INSTALL $daemon AS AN init.d SERVICE
 scriptName=addCIServices.sh
 
-echo $scriptName Set $daemon as an Cloud Initialiser service
+echo addCIServices.sh Set $daemon as an Cloud Initialiser service
 
 # INSTALL JAVA APPS DAEMON TO SERVER
 echo addCIServices.sh EXECUTING: cp ./installs/$daemon.d $ciBin/$daemon
