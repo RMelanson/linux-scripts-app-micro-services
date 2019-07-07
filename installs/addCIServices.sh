@@ -12,8 +12,8 @@ echo addCIServices.sh EXECUTING: rm /sbin/$daemon
 rm /sbin/$daemon
 
 # CREATE SYMBOLIC LINK FOR APPS SERVICES
-echo addCIServices.sh EXECUTING: ln -s  /sbin/$daemon $ciBin/$daemon.d
-ln -s  $ciBin/$daemon /sbin/$daemon.d
+echo addCIServices.sh EXECUTING: ln -s  /sbin/$daemon.d $ciBin/$daemon
+ln -s  $ciBin/$daemon.d /sbin/$daemon
 
 echo addCIServices.sh EXECUTING: chmod 755 $sbin/$daemon
 chmod 755 $sbin/$daemon
