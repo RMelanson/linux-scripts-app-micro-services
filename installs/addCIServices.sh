@@ -4,32 +4,32 @@ echo $setupName: EXECUTING ./env/setEnv.sh
 . ./env/setEnv.sh
 
 #INSTALL $daemon AS AN init.d SERVICE
-scriptName=addAppServices.sh
+scriptName=addCIServices.sh
 
-echo $scriptName Set $daemon as an init.d service
+echo $scriptName Set $daemon as an Cloud Initialiser service
 
 # INSTALL JAVA APPS DAEMON TO SERVER
-echo addAppServices.sh EXECUTING: cp ./installs/$daemon.d $ciBin/$daemon
+echo addCIServices.sh EXECUTING: cp ./installs/$daemon.d $ciBin/$daemon
 echo y | cp ./installs/$daemon.d $ciBin/$daemon
 
 # CREATE SYMBOLIC LINK FOR APPS SERVICES
-echo addAppServices.sh EXECUTING: ln -s  $ciBin/$daemon /sbin/$daemon
+echo addCIServices.sh EXECUTING: ln -s  $ciBin/$daemon /sbin/$daemon
 ln -s  $ciBin/$daemon /sbin/$daemon
 
-echo addAppServices.sh EXECUTING: chmod 766 $ciBin/$daemon
+echo addCIServices.sh EXECUTING: chmod 766 $ciBin/$daemon
 chmod 766 $ciBin/$daemon
 
 # CREATE PROCESS DIRECTORY
-echo addAppServices.sh EXECUTING: cp -rf $installDir/servicesDir $servicesDir
+echo addCIServices.sh EXECUTING: cp -rf $installDir/servicesDir $servicesDir
 cp -rf $installDir/services/* $servicesDir
 
 # CREATE PROCESS IDs DIRECTORY
-echo addAppServices.sh EXECUTING: mkdir $programIds
+echo addCIServices.sh EXECUTING: mkdir $programIds
 mkdir $programIds
 
 # ADD apps TEST SERVICES SCRIPTS DIRECTORY
-echo addAppServices.sh EXECUTING: mkdir $testServicesScriptsDir
+echo addCIServices.sh EXECUTING: mkdir $testServicesScriptsDir
 mkdir -p $testServicesScriptsDir
 
-echo addAppServices.sh EXECUTING: chmod -R 744 $servicesDir
+echo addCIServices.sh EXECUTING: chmod -R 744 $servicesDir
 chmod -R 755 $servicesDir
