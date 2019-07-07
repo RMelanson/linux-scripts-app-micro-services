@@ -2,7 +2,7 @@
 # chkconfig: 2345 20 80
 # description: appServices ~ Start an Application as a Services
 # process Name: start
-#ciDir=/opt/CI
+# ciDir=/opt/CI
 # servicesDir=$ciDir/services
 # pidDir=$servicesDir/ids
 # logDir=$servicesDir/logs
