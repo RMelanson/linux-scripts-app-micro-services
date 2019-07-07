@@ -4,7 +4,6 @@ echo addCIServices.sh EXECUTING ./env/setEnv.sh
 . ./env/setEnv.sh
 
 #INSTALL $daemon AS AN init.d SERVICE
-scriptName=addCIServices.sh
 
 echo addCIServices.sh Set $daemon as an Cloud Initialiser service
 
