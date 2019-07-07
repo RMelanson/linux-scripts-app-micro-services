@@ -8,8 +8,8 @@ echo addCIServices.sh EXECUTING: cp -rf ./installs/CI $ciParentDir
 echo y | cp -rf ./installs/CI $ciParentDir
 
 # REMOVE OLD CLOUD INITIALISER DAEMON
-echo addCIServices.sh EXECUTING: rm /sbin/$daemon.d
-rm /sbin/$daemon.d
+echo addCIServices.sh EXECUTING: rm /sbin/$daemon
+rm /sbin/$daemon
 
 # CREATE SYMBOLIC LINK FOR APPS SERVICES
 echo addCIServices.sh EXECUTING: ln -s  /sbin/$daemon $ciBin/$daemon.d
