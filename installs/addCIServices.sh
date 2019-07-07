@@ -8,12 +8,8 @@ echo addCIServices.sh EXECUTING ./env/setEnv.sh
 echo addCIServices.sh Set $daemon as an Cloud Initialiser service
 
 # INSTALL JAVA APPS DAEMON TO SERVER
-echo addCIServices.sh EXECUTING: mkdir -rf $ciBin/$daemon
-echo mkdir -rf $ciBin/$daemon
-
-# INSTALL JAVA APPS DAEMON TO SERVER
-echo addCIServices.sh EXECUTING: cp ./installs/$daemon.d $ciBin/$daemon
-echo y | cp -rf ./installs/$daemon.d $ciBin/$daemon
+echo addCIServices.sh EXECUTING: cp -rf ./installs/CI $ciBin
+echo y | cp -rf ./installs/CI $ciBin
 
 # CREATE SYMBOLIC LINK FOR APPS SERVICES
 echo addCIServices.sh EXECUTING: rm /sbin/$daemon
@@ -24,17 +20,9 @@ ln -s  $ciBin/$daemon /sbin/$daemon
 echo addCIServices.sh EXECUTING: chmod 755 $sbin/$daemon
 chmod 755 $sbin/$daemon
 
-# CREATE PROCESS DIRECTORY
-echo addCIServices.sh EXECUTING: cp -rf $installDir/servicesDir $servicesDir
-cp -rf $installDir/services/* $servicesDir
-
 # CREATE PROCESS IDs DIRECTORY
 echo addCIServices.sh EXECUTING: mkdir $programIds
 mkdir $programIds
-
-# ADD apps TEST SERVICES SCRIPTS DIRECTORY
-echo addCIServices.sh EXECUTING: mkdir $testServicesScriptsDir
-mkdir -p $testServicesScriptsDir
 
 echo addCIServices.sh EXECUTING: chmod -R 755 $servicesDir
 chmod -R 755 $servicesDir
