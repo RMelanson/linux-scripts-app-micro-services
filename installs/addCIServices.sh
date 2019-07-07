@@ -12,6 +12,7 @@ echo addCIServices.sh EXECUTING: cp ./installs/$daemon.d $ciBin/$daemon
 echo y | cp ./installs/$daemon.d $ciBin/$daemon
 
 # CREATE SYMBOLIC LINK FOR APPS SERVICES
+echo addCIServices.sh EXECUTING: rm /sbin/$daemon
 rm /sbin/$daemon
 echo addCIServices.sh EXECUTING: ln -s  /sbin/$daemon $ciBin/$daemon
 ln -s  $ciBin/$daemon /sbin/$daemon
