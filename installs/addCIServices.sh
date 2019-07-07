@@ -1,5 +1,5 @@
 #! /bin/bash
-# SETUP THE REQUIRED ENVIRONMENTT
+# SETUP THE REQUIRED ENVIRONMENTTapps
 echo $setupName: EXECUTING ./env/setEnv.sh
 . ./env/setEnv.sh
 
@@ -13,8 +13,8 @@ echo addAppServices.sh EXECUTING: cp ./installs/$daemon.d $ciBin/$daemon
 echo y | cp ./installs/$daemon.d $ciBin/$daemon
 
 # CREATE SYMBOLIC LINK FOR APPS SERVICES
-echo addAppServices.sh EXECUTING: ln -s  $ciBin/$daemon /sbin/apps
-ln -s  $ciBin/$daemon /sbin/apps
+echo addAppServices.sh EXECUTING: ln -s  $ciBin/$daemon /sbin/$daemon
+ln -s  $ciBin/$daemon /sbin/$daemon
 
 echo addAppServices.sh EXECUTING: chmod 766 $ciBin/$daemon
 chmod 766 $ciBin/$daemon
