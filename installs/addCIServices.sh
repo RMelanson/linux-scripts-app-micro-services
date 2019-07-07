@@ -11,9 +11,11 @@ echo addCIServices.sh Set $daemon as an Cloud Initialiser service
 echo addCIServices.sh EXECUTING: cp -rf ./installs/CI $ciBin
 echo y | cp -rf ./installs/CI $ciBin
 
-# CREATE SYMBOLIC LINK FOR APPS SERVICES
+# REMOVE OLD CLOUD INITIALISER DAEMON
 echo addCIServices.sh EXECUTING: rm /sbin/$daemon
 rm /sbin/$daemon
+
+# CREATE SYMBOLIC LINK FOR APPS SERVICES
 echo addCIServices.sh EXECUTING: ln -s  /sbin/$daemon $ciBin/$daemon
 ln -s  $ciBin/$daemon /sbin/$daemon
 
