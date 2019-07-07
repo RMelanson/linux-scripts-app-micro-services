@@ -4,20 +4,20 @@
 bootstrap="appServicesBootStrap.sh"
 gitRepo="linux-scripts-app-services"
 
-#SET UP INSTALLATION DIRECTORY
+# SET UP INSTALLATION DIRECTORY
 pkg=APP_SERVICES
 scriptType="utils"
 parentDir="/tmp/scripts/$scriptType"
 pkgDir="$parentDir/$pkg"
 installDir="$pkgDir/installs"
 
-#appServicesDir=/etc/init.d
+# SET UP CLOUD INITIALISER PROGRAM DIRECTORY
 ciDir=/opt/CI
-ciBin=$appServiceDir/bin
+ciBin=$ciDir/bin
 daemon=cloudInit
 servicesDir=$ciDir/services
 
-# Set Up testApps service
+# SET UP TESTAPPS SERVICE
 testApp="springBootHelloWorldDemo-0.1.0.jar"
 
 testServicesDir=$servicesDir/test
