@@ -16,7 +16,3 @@ echo $setupName EXECUTING: . ./installs/addAppServices.sh
 # INSTALL $daemon AS A SERVICE
 echo $setupName EXECUTING: . ./installs/addCIServices.sh
 . ./installs/addCIServices.sh
-
-#TURN ON $daemon DAEMON
-echo $scriptName EXECUTING: chkconfig $daemon on
-chkconfig $daemon on
