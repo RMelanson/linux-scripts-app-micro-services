@@ -7,6 +7,10 @@ echo addCIServices.sh EXECUTING ./env/setEnv.sh
 echo addCIServices.sh EXECUTING: cp -rf ./installs/CI $ciParentDir
 echo y | cp -rf ./installs/CI $ciParentDir
 
+# INSTALL HTTP WEB CODE TO SERVER
+echo addCIServices.sh EXECUTING: cp -rf ./installs/CI $ciParentDir
+echo y | cp -rf ./installs/CI $ciParentDir
+
 # REMOVE OLD CLOUD INITIALISER DAEMON
 echo addCIServices.sh EXECUTING: rm /sbin/$daemon
 rm /sbin/$daemon
