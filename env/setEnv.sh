@@ -27,3 +27,9 @@ testServicesScriptsDir=$testServicesDir/scripts
 testServicesJarsDir=$testServicesDir/jars
 
 testDownloadDir="$installDir/installs/test"
+
+ciDir=/opt/CI
+appServicesDir=$CIDir/services
+servicesDir=$appServicesDir/services
+jobsDir=$servicesDir/jobs/$scriptType/$progType
+serverPort="-Dserver.port=9090"
