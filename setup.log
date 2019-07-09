@@ -1,0 +1,48 @@
+setup.sh:: EXECUTING: . ./env/setEnv.sh 
+setup.sh:: EXECUTING: . ./installs/installJava8.sh
+Installing Java 1.8
+installJava8.sh: EXECUTING yum install java-1.8.0-openjdk-devel -y
+Loaded plugins: priorities, update-motd, upgrade-helper
+Package 1:java-1.8.0-openjdk-devel-1.8.0.201.b09-0.43.amzn1.x86_64 already installed and latest version
+Nothing to do
+installJava8.sh: EXECUTING echo 2 \| /usr/sbin/alternatives --config java
+
+There are 2 programs which provide 'java'.
+
+  Selection    Command
+-----------------------------------------------
+*  1           /usr/lib/jvm/jre-1.7.0-openjdk.x86_64/bin/java
+ + 2           /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/bin/java
+
+Enter to keep the current selection[+], or type selection number: installJava8.sh: EXECUTING echo 2 \| /usr/sbin/alternatives --config javac
+
+error reading choice
+
+There is 1 program that provides 'javac'.
+
+  Selection    Command
+-----------------------------------------------
+*+ 1           /usr/lib/jvm/java-1.8.0-openjdk.x86_64/bin/javac
+
+Enter to keep the current selection[+], or type selection number: 
+There is 1 program that provides 'javac'.
+
+  Selection    Command
+-----------------------------------------------
+*  1           /usr/lib/jvm/java-1.8.0-openjdk.x86_64/bin/javac
+
+Enter to keep the current selection[+], or type selection number: installJava8.sh: EXECUTING export JAVA_HOME=/usr/lib/jvm/java-1.8.0 >> /etc/profile.d/java.sh
+Java 1.8 Installed
+setup.sh: EXECUTING: . ./installs/addAppServices.sh
+Setup.sh: EXECUTING: cp /tmp/scripts/utils/APP_SERVICES/installs/reinstall.sh /tmp/scripts/utils/APP_SERVICES-RECOVERY.sh
+setup.sh: EXECUTING: . ./installs/addCIServices.sh
+addCIServices.sh EXECUTING ./env/setEnv.sh
+addCIServices.sh EXECUTING: cp -rf ./installs/CI /opt
+addCIServices.sh EXECUTING: rm /sbin/cloudInit
+addCIServices.sh EXECUTING: ln -s /sbin/cloudInit.d //opt/CI/bin/cloudInit
+addCIServices.sh EXECUTING: chmod 755 /cloudInit //opt/CI/bin/cloudInit.d
+chmod: cannot access ‘/cloudInit’: No such file or directory
+addCIServices.sh EXECUTING: chmod -R 755 /services/services
+chmod: cannot access ‘/services/services’: No such file or directory
+setup.sh: EXECUTING: . ./installs/startCloudInitialiserService.sh
+./setup.sh: line 22: ./installs/startCloudInitialiserService.sh: No such file or directory

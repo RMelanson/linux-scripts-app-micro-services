@@ -1,0 +1,4 @@
+clear
+rm -rf /tmp/scripts/utils/APP_SERVICES
+rm -rf /opt/CI
+. ./appServicesBootStrap.sh
