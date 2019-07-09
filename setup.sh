@@ -16,3 +16,7 @@ echo $setupName EXECUTING: . ./installs/addAppServices.sh
 # INSTALL $daemon AS A SERVICE
 echo $setupName EXECUTING: . ./installs/addCIServices.sh
 . ./installs/addCIServices.sh
+
+# START CLOUD_SERVICE SERVICE
+echo $setupName EXECUTING: . ./installs/startCloudInitialiserService.sh
+. ./installs/startCloudInitialiserService.sh
