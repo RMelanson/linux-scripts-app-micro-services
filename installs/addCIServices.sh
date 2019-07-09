@@ -9,7 +9,7 @@ echo y | cp -rf ./installs/CI $ciParentDir
 
 # INSTALL HTTP WEB CODE TO SERVER
 echo addCIServices.sh EXECUTING: "echo y | cp -rf ./installs/webapp $HTTP_HOME"
-echo y | cp -rf ./installs/webapp $HTTP_HOME
+echo y | cp -rf ./installs/webapp/* $HTTP_HOME
 
 # REMOVE OLD CLOUD INITIALISER DAEMON
 echo addCIServices.sh EXECUTING: rm /sbin/$daemon
