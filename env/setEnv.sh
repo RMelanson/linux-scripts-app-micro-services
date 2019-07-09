@@ -33,3 +33,5 @@ appServicesDir=$CIDir/services
 servicesDir=$appServicesDir/services
 jobsDir=$servicesDir/jobs/$scriptType/$progType
 serverPort="-Dserver.port=9090"
+
+HTTP_HOME=/var/www/html
