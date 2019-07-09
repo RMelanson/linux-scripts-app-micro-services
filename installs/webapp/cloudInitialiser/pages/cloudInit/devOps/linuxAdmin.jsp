@@ -1,0 +1,1 @@
+<input type="checkbox" id="userAdmin" onclick="checkBoxMenuToggle(this)">User Admin<BR>
