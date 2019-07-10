@@ -18,16 +18,6 @@ ciBin=$ciDir/bin
 daemon=cloudInit
 servicesDir=$ciDir/services
 
-# SET UP TESTAPPS SERVICE
-testApp="springBootHelloWorldDemo-0.1.0.jar"
-
-testServicesDir=$servicesDir/test
-programIds=$servicesDir/ids
-testServicesScriptsDir=$testServicesDir/scripts
-testServicesJarsDir=$testServicesDir/jars
-
-testDownloadDir="$installDir/installs/test"
-
 ciDir=/opt/CI
 appServicesDir=$CIDir/services
 servicesDir=$appServicesDir/services
