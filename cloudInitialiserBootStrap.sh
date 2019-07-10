@@ -1,6 +1,6 @@
 #!/bin/bash
 bootstrapDir=$PWD
-bootstrap=$bootstrapDir/appMicroServicesBootstrap.sh
+bootstrap=$bootstrapDir//cloudInitialiserBootStrap.sh
 
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
