@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # LINUX SCRIPTS CONFIGURATION PARAMETERS
-bootstrap="appServicesBootStrap.sh"
-gitRepo="linux-scripts-app-services"
+bootstrap="/cloudInitialiserBootStrap.sh"
+gitRepo="/cloudInitialiserBootStrap."
 
 # SET UP INSTALLATION DIRECTORY
 pkg=APP_SERVICES
