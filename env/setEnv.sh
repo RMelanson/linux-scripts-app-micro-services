@@ -15,11 +15,12 @@ installDir="$pkgDir/installs"
 ciParentDir=/opt
 ciDir=/$ciParentDir/CI
 ciBin=$ciDir/bin
+cilogs=$ciDir/logs
 daemon=cloudInit
 servicesDir=$ciDir/services
 
 ciDir=/opt/CI
-appServicesDir=$CIDir/services
+appServicesDir=$ciDir/services
 servicesDir=$appServicesDir/services
 jobsDir=$servicesDir/jobs/$scriptType/$progType
 serverPort="-Dserver.port=9090"
