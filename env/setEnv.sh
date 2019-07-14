@@ -16,10 +16,10 @@ ciParentDir=/opt
 ciDir=/$ciParentDir/CI
 ciBin=$ciDir/bin
 cilogs=$ciDir/logs
+ciExeJar=$ciBin/java/libs/cloud-initialiser-0.1.0.jar
 daemon=cloudInit
 servicesDir=$ciDir/services
 
-ciDir=/opt/CI
 appServicesDir=$ciDir/services
 servicesDir=$appServicesDir/services
 jobsDir=$servicesDir/jobs/$scriptType/$progType
