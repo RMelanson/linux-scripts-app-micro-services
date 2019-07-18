@@ -7,7 +7,8 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="css/menu.css">
-<script src="./js/jQuery/3.4.1.js"></script>
+<!-- <script src="./js/jQuery/3.4.1.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="./js/ci/menu.js"></script>
 <!-- -->
 </head>
@@ -72,25 +73,45 @@
 		</a>
 	</div>
  
+	ZZZZZZZZZZZZZZZZZZZZZZZ
 	<div id="Home" class="page_Div">
-	    <script> $("#Home").load("./pages/home.jsp"); </script>
+			document.getElementById("Home").innerHTML='<object type="text/html" data="./pages/home.jsp" ></object>';
+			<script> $("#Home").load("./pages/home.jsp"); </script>
 	</div>
-
-	<div id="AppsAutoLoader" class="zzz">
-		<script> $("#AppsAutoLoader").load("./pages/cloudInit.jsp"); </script>
-	</div>
+		
+	<div id="AppsAutoLoader" class="AAAAA">
+ 		 <script>
+		     $("#AppsAutoLoader").load("./pages/cloudInit.jsp");
+		    //  document.getElementById("AppsAutoLoader").innerHTML='<object type="text/html" data="./pages/cloudInit.jsp" ></object>'; 
+		</script>
+		</div>
 
 	<div id="About" class="page_Div">
-	    <script> $("#About").load("./pages/about.jsp"); </script>
+			document.getElementById("About").innerHTML='<object type="text/html" data="./pages/about.jsp" ></object>';
+			<!-- <script> $("#About").load("./pages/about.jsp"); </script> -->
 	</div>
 	
 	<div id=Contact class="page_Div">
-	    <script> $("#Contact").load("./pages/contact.jsp"); </script>
+			document.getElementById("Contact").innerHTML='<object type="text/html" data="./pages/contact.jsp" ></object>';
+			<!-- <script> $("#Contact").load("./pages/contact.jsp"); </script> -->
 	</div>
 
 	<script>
 		// Get the element with id="defaultOpen" and click on it
 		document.getElementById("defaultOpen").click();
 	</script>
+
+============================================================================
+    <script>
+		$(document).ready(function(){
+		  $("button").click(function(){
+			$("#div1").load("./pages/home.jsp");
+		  });
+		});
+	</script>
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+<button>Get External Content</button>
+
 </body>
 </html>
