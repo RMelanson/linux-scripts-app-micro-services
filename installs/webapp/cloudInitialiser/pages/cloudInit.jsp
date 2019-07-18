@@ -1,29 +1,25 @@
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<script src="../js/jQuery/3.4.1.js"></script>
 <div id="CI_Div" class="page_Div">
 	<h1>WELCOME TO CLOUD INITIALISER</h1>
 
 	<input type="checkbox" id="applications" onclick="checkBoxDivToggle(this)">Applications<BR>
 		<div id="applications_Div" class="checkBoxes">
-				<!-- <script> $("#applications_Div").load("./pages/cloudInit/apps.jsp"); </script> -->
-				document.getElementById("applications_Div").innerHTML='<object type="text/html" data="./pages/cloudInit.jsp" ></object>';
+			<script> $("#applications_Div").load("./pages/cloudInit/apps.jsp"); </script>
 		</div>
 	
 	<input type="checkbox" id="dev" onclick="checkBoxDivToggle(this)">Development<BR>
 		<div id="dev_Div" class="checkBoxes">
-				<!-- <script> $("#dev_Div").load("./pages/cloudInit/dev.jsp"); </script> -->
-				document.getElementById("dev_Div").innerHTML='<object type="text/html" data="./pages/cloudInit.jsp" ></object>';
+		    <script> $("#dev_Div").load("./pages/cloudInit/dev.jsp"); </script>
 		</div>
 
 	<input type="checkbox" id="devOps" onclick="checkBoxDivToggle(this)">DevOps<BR>
 		<div id="devOps_Div" class="checkBoxes">
-				<!-- <script> $("#devOps_Div").load("./pages/cloudInit/devOps.jsp"); </script> -->
-				document.getElementById("devOps_Div").innerHTML='<object type="text/html" data="./pages/cloudInit.jsp" ></object>';
+		    <script> $("#devOps_Div").load("./pages/cloudInit/devOps.jsp"); </script>
 		</div>
 
 	<input type="checkbox" id="utilities" onclick="checkBoxDivToggle(this)">Utilities<BR>
 		<div id="utilities_Div" class="checkBoxes">
-				<!-- <script> $("#utilities_Div").load("./pages/cloudInit/utils.jsp"); </script> -->
-				document.getElementById("utilities_Div").innerHTML='<object type="text/html" data="./pages/cloudInit.jsp" ></object>';
+			<script> $("#utilities_Div").load("./pages/cloudInit/utils.jsp"); </script>
 		</div>
 </div>
 
