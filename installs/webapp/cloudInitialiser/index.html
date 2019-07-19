@@ -9,17 +9,14 @@
 <link rel="stylesheet" href="css/menu.css">
 <script src="./js/jQuery/3.4.1.js"></script>
 <script src="./js/ci/menu.js"></script>
-
+<!-- -->
 </head>
 <body>
 	<div class="topnav" id="myTopnav">
 		<button class="topnav" onclick="openMenuTab('Home', this, 'red')"
 			id = "homeTab" class="active">Home</button>
 		<button class="topnav" onclick="openMenuTab('CI', this, 'green')">Cloud Initialiser</button>
-		<button class="topnav" onclick="openMenuTab('About', this, 'pink')">About</button>
-		<button class="topnav" onclick="openMenuTab('Contact', this, 'grey')">Contact</button>
 
-        <!-- AUTO HIDDEN TABS -->
         <div id = "dockerTab" class="hiddenTab">
 			<button class="topnav" onclick="openMenuTab('docker', this, 'orange')">Docker</button>
 		</div>
@@ -68,24 +65,26 @@
 		<div id = "wpTab" class="hiddenTab">
 			<button class="topnav" onclick="openMenuTab('wp', this, 'orange')">WordPress</button>
 		</div>
+		<button class="topnav" onclick="openMenuTab('About', this, 'pink')">About</button>
+		<button class="topnav" onclick="openMenuTab('Contact', this, 'grey')">Contact</button>
 		<a href="javascript:void(0);" class="icon" onclick="showVerticleNavMenu()">
 			<i class="fa fa-bars"></i>
 		</a>
 	</div>
  
-	<div id="Home_Div" class="page_Div">
+	<div id="Home_Div" class="page_Div_ZZZ">
 	    <script> $("#Home").load("./pages/home.html"); </script>
 	</div>
 
-	<div id="AppsAutoLoader" class="page_Div">
+	<div id="AppsAutoLoader" class="page_Div_ZZZ">
 		<script> $("#AppsAutoLoader").load("./pages/cloudInit.html"); </script>
 	</div>
 
-	<div id="About_Div" class="page_Div">
+	<div id="About_Div" class="page_Div_ZZZ">
 	    <script> $("#About").load("./pages/about.html"); </script>
 	</div>
 	
-	<div id="Contact_Div" class="page_Div">
+	<div id="Contact_Div" class="page_Div_ZZZ">
 	    <script> $("#Contact").load("./pages/contact.html"); </script>
 	</div>
 
