@@ -1,2 +1,24 @@
-<h1>About </h1>
-<p>ABOUT CLOUD INITIALISER</p>
+<script src="../js/jQuery/3.4.1.js"></script>
+<div id="About_Div" class="page_Div">
+	<h1>ABOUT CLOUD INITIALISER</h1>
+
+	<input type="checkbox" id="applications" onclick="checkBoxDivToggle(this)">Applications<BR>
+		<div id="applications_Div" class="checkBoxes">
+			<script> $("#applications_Div").load("./pages/cloudInit/apps.html"); </script>
+		</div>
+	
+	<input type="checkbox" id="dev" onclick="checkBoxDivToggle(this)">Development<BR>
+		<div id="dev_Div" class="checkBoxes">
+		    <script> $("#dev_Div").load("./pages/cloudInit/dev.html"); </script>
+		</div>
+
+	<input type="checkbox" id="devOps" onclick="checkBoxDivToggle(this)">DevOps<BR>
+		<div id="devOps_Div" class="checkBoxes">
+		    <script> $("#devOps_Div").load("./pages/cloudInit/devOps.html"); </script>
+		</div>
+
+	<input type="checkbox" id="utilities" onclick="checkBoxDivToggle(this)">Utilities<BR>
+		<div id="utilities_Div" class="checkBoxes">
+			<script> $("#utilities_Div").load("./pages/cloudInit/utils.html"); </script>
+		</div>
+</div>
