@@ -1,0 +1,136 @@
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav button {
+  background-color: #333;
+  color: #f2f2f2;
+  float: left;
+  border: none;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 7px 8px;
+  font-size: 13px;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 7px 8px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.topnav button:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a:hover {
+  background-color: #aaa;
+  color: black;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav button:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .topnav.responsive button {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+}
+
+/************************ NEW FOR TEST *********************/
+
+.hiddenTab {
+    background-color: rgb(255, 255, 255);
+    display: none;
+  }
+
+p {
+	padding: 111;
+	text-align: Center;
+}
+
+h1 {
+	text-align: Center;
+}
+
+/* Style the tab content */
+.page_Div {
+	color: black;
+	display: none;
+	padding: 10px;
+	text-align: Left;
+}
+
+/* Style the tab content */
+.checkBoxes {
+	color: black;
+	display: none;
+	padding-left: 16px;
+	text-align: Left;
+}
+
+#Home_Div {
+	background-color: red;
+}
+
+#CI_Div {
+	background-color: green;
+}
+
+#Utils_Div {
+	background-color: blue;
+}
+
+#dataBase_Div {
+	background-color: orange;
+}
+
+#Contact_Div {
+	background-color: grey;
+}
+
+#About_Div {
+	background-color: pink;
+}
