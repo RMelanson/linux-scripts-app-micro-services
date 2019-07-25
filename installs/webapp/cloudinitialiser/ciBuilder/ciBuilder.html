@@ -81,15 +81,14 @@
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="request">
 						<BR>
-						<form id="UrlForm" action="form_action.asp">
-							<select id="jsonVerb" onchange="buildURL()">
-								<option value="">GET</option>
-								<option value="cmd">POST</option>
-								<option value="MA">PUT</option>
-								<option value="MACD">DELETE</option>
-							</select>
-							<input type="text" id="url" name="url" style="width:80%">
-							<button class="topnav" onclick="callRestApi()" id="send" class="active">Send</button>
+						<select id="jsonMethod" onchange="buildURL()">
+							<option value="">GET</option>
+							<option value="cmd">POST</option>
+							<option value="MA">PUT</option>
+							<option value="MACD">DELETE</option>
+						</select>
+						<input type="text" id="url" name="url" style="width:80%">
+						<button class="topnav" onclick="callRestApi()" id="send" class="active">Send</button>
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="response">JSON Response</div>
 					<div role="tabpanel" class="tab-pane fade" id="log">Log Response</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags always come first -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+
+	<link rel="stylesheet" type="text/css" href="./css/ciBuilder.css">
+	<!-- jQuery first, then Bootstrap JS. -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+	<script src="./js/ciBuilder.js"></script>
+	<script src="./js/ajaxRestCalls.js"></script>
+
+</head>
+
+<body onload="buildURL()">
+	<h1>CLOUD INITIALISER REST TEST APPLICATION</h1>
+
+	<div class="container">
+		<script>
+			function callRestApi() {
+				alert("executing call Rest API");
+				ajaxRestGet(restURL);
+			}
+		</script>
+
+		<div>
+			<select id="jsonMethod" onchange="buildURL()">
+				<option value="">GET</option>
+				<option value="cmd">POST</option>
+				<option value="MA">PUT</option>
+				<option value="MACD">DELETE</option>
+			</select>
+			<input type="text" id="urlText" name="urlText" style="width:80%">
+			<button  id="urlBtn" onclick="callRestApi()" id="send" class="active">Send</button>
+		</div>
+	</div>
+</body>
+
+</html>
