@@ -25,8 +25,9 @@
 	<div class="container">
 		<script>
 			function callRestApi() {
-				alert("executing call Rest API");
-				ajaxRestGet(restURL);
+				var url = document.getElementById("urlTextBox").value;
+		    	alert("executing call Rest API " + url);
+				ajaxRestGet(url);
 			}
 		</script>
 
@@ -37,7 +38,7 @@
 				<option value="MA">PUT</option>
 				<option value="MACD">DELETE</option>
 			</select>
-			<input type="text" id="urlText" name="urlText" style="width:80%">
+			<input type="text" id="urlTextBox" name="urlTextBox" style="width:80%" value="http://www.stockwidgets.com:9090/system?cmd=ls">
 			<button  id="urlBtn" onclick="callRestApi()" id="send" class="active">Send</button>
 		</div>
 	</div>
