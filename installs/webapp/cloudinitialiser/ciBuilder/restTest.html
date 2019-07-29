@@ -14,20 +14,19 @@
 	<!-- jQuery first, then Bootstrap JS. -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
-	<script src="./js/ciBuilder.js"></script>
 	<script src="./js/ajaxRestCalls.js"></script>
 
 </head>
 
-<body onload="buildURL()">
+<body>
 	<h1>CLOUD INITIALISER REST TEST APPLICATION</h1>
 
 	<div class="container">
 		<script>
 			function callRestApi() {
-				var url = document.getElementById("urlTextBox").value;
-		    	alert("executing call Rest API " + url);
-				ajaxRestGet(url);
+				var restURL = document.getElementById("urlTextBox").value;
+//				loadW3Doc(restURL);
+                ajaxGetJson(restURL);
 			}
 		</script>
 
