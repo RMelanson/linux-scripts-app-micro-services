@@ -1,3 +1,9 @@
+function callRestApi() {
+	var restURL = document.getElementById("urlTextBox").value;
+	var method = document.getElementById("jsonMethod").value;
+	ajaxGetJson(restURL);
+}
+
 function ajaxGetJson(url) {
 	var response;
 	var status;
@@ -5,6 +11,27 @@ function ajaxGetJson(url) {
 
 	$.support.cors = true;
 	$.getJSON(url, data, function (data, status) {
+		if (status === "success") {
+			console.log("data = "+data);
+			console.log("GetJSON \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+			alert ("1 " + data);
+			alert ("2 " + JSON.stringify(data));
+		}
+		else {
+		    console.log("GetJSON ERROR \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+		}
+	    console.log(data);
+	    }
+	);
+}
+
+function ajaxPostJson(url) {
+	var response;
+	var status;
+	var data;
+
+	$.support.cors = true;
+	$.getPOST(url, data, function (data, status) {
 		if (status === "success") {
 			console.log("data = "+data);
 			console.log("GetJSON \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
@@ -56,30 +83,4 @@ function ajaxPost(restURL) {
 		}
 	});
 	return response;
-}
-
-
-function tutorialTest(restURL) {
-	$(document).ready(function () {
-		$.ajax({
-			url: "http://rest-service.guides.spring.io/greeting"
-		}).then(function (data) {
-			$('.greeting-id').append(data.id);
-			$('.greeting-content').append(data.content);
-		});
-	});
-}
-
-function loadW3Doc(restURL) {
-	alert("loadW3Doc(restURL)");
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function () {
-		if (this.readyState == 4 && this.status == 200) {
-			alert(this.responseText);
-			//      document.getElementById("demo").innerHTML =
-			this.responseText;
-		}
-	};
-	xhttp.open("GET", restURL, true);
-	xhttp.send();
 }
