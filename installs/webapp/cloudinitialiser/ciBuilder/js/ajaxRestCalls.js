@@ -1,7 +1,16 @@
 function callRestApi() {
-	var restURL = document.getElementById("urlTextBox").value;
-	var method = document.getElementById("jsonMethod").value;
-	ajaxGetJson(restURL);
+	var url = document.getElementById("urlTextBox").value;
+	var method = document.getElementById("jsonMethod").value.toUpperCase();
+	switch(method) {
+		case "GET":
+		  ajaxGetJson(url);
+		  break;
+		case "POST":
+			ajaxPostJson(url);
+		  break;
+		default:
+		  alert("UNKNOWN METHOD "+method)
+	  } 
 }
 
 function ajaxGetJson(url) {
@@ -34,18 +43,19 @@ function ajaxPostJson(url) {
 	$.getPOST(url, data, function (data, status) {
 		if (status === "success") {
 			console.log("data = "+data);
-			console.log("GetJSON \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+			console.log("PostJSON \ajaxPostJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
 			alert ("1 " + data);
 			alert ("2 " + JSON.stringify(data));
 		}
 		else {
-		    console.log("GetJSON ERROR \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+		    console.log("PostJSON ERROR \ajaxPostJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
 		}
 	    console.log(data);
 	    }
 	);
 }
 
+/*
 function ajaxGet(restURL) {
 	var response;
 	$.ajax({
@@ -66,6 +76,7 @@ function ajaxGet(restURL) {
 	return response;
 }
 
+
 function ajaxPost(restURL) {
 	var response;
 	$.ajax({
@@ -84,3 +95,4 @@ function ajaxPost(restURL) {
 	});
 	return response;
 }
+*/
