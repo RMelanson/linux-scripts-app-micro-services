@@ -8,16 +8,22 @@ echo addCIServices.sh EXECUTING: "echo y | cp -rf ./installs/CI $ciParentDir"
 echo y | cp -rf ./installs/CI $ciParentDir
 
 # CHANGE OWNER AND GROUP of all Files in $ciParentDir to $pkgOwner
-echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $ciParentDir"
-chown -R $pkgOwner:$pkgOwner $ciParentDir
+echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $ciParentDir/CI"
+chown -R $pkgOwner:$pkgOwner $ciParentDir/CI
 
 # INSTALL HTTP WEB CODE TO SERVER
 echo addCIServices.sh EXECUTING: "echo y | cp -rf ./installs/webapp $HTTP_HOME"
 echo y | cp -rf ./installs/webapp/* $HTTP_HOME
 
 # CHANGE OWNER AND GROUP of all Files in $HTTP_HOME to $pkgOwner
-echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $HTTP_HOME"
-chown -R $pkgOwner:$pkgOwner $HTTP_HOME
+echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $HTTP_HOME/cloudinitialiser"
+echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $HTTP_HOME/ci"
+echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $HTTP_HOME/cm"
+echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $HTTP_HOME/index"
+chown -R $pkgOwner:$pkgOwner $HTTP_HOME/cloudinitialiser
+chown -R $pkgOwner:$pkgOwner $HTTP_HOME/ci
+chown -R $pkgOwner:$pkgOwner $HTTP_HOME/cm
+chown -R $pkgOwner:$pkgOwner $HTTP_HOME/index
 
 # REMOVE OLD CLOUD INITIALISER DAEMON
 echo addCIServices.sh EXECUTING: rm /sbin/$daemon
