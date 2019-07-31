@@ -21,7 +21,6 @@ echo $setupName EXECUTING: . ./installs/addCIServices.sh
 echo $setupName EXECUTING: cp ./reinstall_CI.sh ..
 echo $setupName EXECUTING: cp ./cloudInitialiserBootStrap.sh ..
 cp ./reinstall_CI.sh ..
-
 cp ./cloudInitialiserBootStrap.sh ..
 
 # START CLOUD_SERVICE SERVICE
