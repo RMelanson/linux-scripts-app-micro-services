@@ -23,11 +23,14 @@ function ajaxGetJson(url) {
 		if (status === "success") {
 			console.log("data = "+data);
 			console.log("GetJSON \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
-			alert ("1 " + data);
-			alert ("2 " + JSON.stringify(data));
+			alert ("getJSON 1 " + data);
+			alert ("getJSON 2 " + JSON.stringify(data));
+			var response = document.getElementById("response");
+			response.innerHTML = JSON.stringify(data);
 		}
 		else {
 		    console.log("GetJSON ERROR \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+            alert("GetJSON ERROR \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
 		}
 	    console.log(data);
 	    }
@@ -40,15 +43,18 @@ function ajaxPostJson(url) {
 	var data;
 
 	$.support.cors = true;
-	$.getPOST(url, data, function (data, status) {
+	$.postJSON(url, data, function (data, status) {
 		if (status === "success") {
 			console.log("data = "+data);
 			console.log("PostJSON \ajaxPostJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
 			alert ("1 " + data);
 			alert ("2 " + JSON.stringify(data));
+			var response = document.getElementById("response");
+			response.innerHTML = JSON.stringify(data);
 		}
 		else {
 		    console.log("PostJSON ERROR \ajaxPostJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+            alert("GetJSON ERROR \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
 		}
 	    console.log(data);
 	    }
