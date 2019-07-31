@@ -25,7 +25,7 @@ servicesDir=$appServicesDir/services
 jobsDir=$servicesDir/jobs/$scriptType/$progType
 serverPort="-Dserver.port=9090"
 
-HTTP_HOME=/var/www/html
+HTML_HOME=/var/www/html
 
 pkgOwner=ec2-user
 
