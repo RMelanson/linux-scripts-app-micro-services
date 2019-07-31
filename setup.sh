@@ -18,8 +18,8 @@ echo $setupName EXECUTING: . ./installs/addCIServices.sh
 . ./installs/addCIServices.sh
 
 # INSTALL $daemon AS A SERVICE
-echo $setupName EXECUTING: cp ./restart.sh ..
-cp ./restart.sh ..
+echo $setupName EXECUTING: cp ./reinstall_CI.sh ..
+cp ./reinstall_CI.sh ..
 
 # START CLOUD_SERVICE SERVICE
 echo $setupName EXECUTING: . $ciBin/startCloudInitialiserService.sh
