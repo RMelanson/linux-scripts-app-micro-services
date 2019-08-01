@@ -54,13 +54,13 @@ function ajaxPostJson(url) {
 				var beautifiedData = JSON.stringify(data, null, 4.);
 				console.log("data = " + data);
 				console.log("beautifiedData = " + beautifiedData);
-				console.log("GetJSON \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+				console.log("PostJSON \ajaxPostJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
 
 				response.innerHTML = beautifiedData;
 			}
 			else {
 				console.log("PostJSON ERROR \ajaxPostJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
-				alert("GetJSON ERROR \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+				alert("PostJSON ERROR \ajaxPostJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
 			}
 			console.log(data);
 		}
