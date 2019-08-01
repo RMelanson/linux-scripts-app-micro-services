@@ -15,6 +15,7 @@ function callRestApi() {
 		default:
 			response.innetHTML = "UNKNOWN METHOD " + method;
 	}
+	return data;
 }
 
 function ajaxGetJson(url, response, data) {
