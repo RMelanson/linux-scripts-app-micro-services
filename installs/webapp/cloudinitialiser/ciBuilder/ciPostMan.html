@@ -24,10 +24,10 @@
 	<div class="container">
 		<div>
 			<select id="jsonMethod" onchange="buildURL()">
-				<option value="">GET</option>
-				<option value="cmd">POST</option>
-				<option value="MA">PUT</option>
-				<option value="MACD">DELETE</option>
+				<option value="get">GET</option>
+				<option value="POST">POST</option>
+				<option value="PUT">PUT</option>
+				<option value="DELETE">DELETE</option>
 			</select>
 			<input type="text" id="urlTextBox" name="urlTextBox" style="width:80%" value="http://www.stockwidgets.com:9090/system?cmd=ls">
 			<button  id="urlBtn" onclick="callRestApi()" id="send" class="active">Send</button>
@@ -35,7 +35,7 @@
 	</div>
 
 	<H2>Response</H2>
-	<div>response</div>
+	<pre id="response"></pre>
 </body>
 
 </html>

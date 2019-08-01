@@ -1,64 +1,70 @@
 function callRestApi() {
 	var url = document.getElementById("urlTextBox").value;
 	var method = document.getElementById("jsonMethod").value.toUpperCase();
-	switch(method) {
+	alert("URL = " + url)
+	alert("METHOD = " + method)
+	switch (method) {
 		case "GET":
-		  ajaxGetJson(url);
-		  break;
+			ajaxGetJson(url);
+			break;
 		case "POST":
 			ajaxPostJson(url);
-		  break;
+			break;
 		default:
-		  alert("UNKNOWN METHOD "+method)
-	  } 
+			alert("UNKNOWN METHOD " + method)
+	}
 }
 
 function ajaxGetJson(url) {
 	var response;
 	var status;
 	var data;
+	var response = document.getElementById("response");
 
 	$.support.cors = true;
 	$.getJSON(url, data, function (data, status) {
 		if (status === "success") {
-			console.log("data = "+data);
-			console.log("GetJSON \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
-			alert ("getJSON 1 " + data);
-			alert ("getJSON 2 " + JSON.stringify(data));
-			var response = document.getElementById("response");
-			response.innerHTML = JSON.stringify(data);
+			var response = document.getElementById("response"); if (status === "success") {
+				var beautifiedData = JSON.stringify(data, null, 4.);
+				console.log("data = " + data);
+				console.log("beautifiedData = " + beautifiedData);
+				console.log("GetJSON \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+
+				response.innerHTML = beautifiedData;
+			}
+			else {
+				console.log("GetJSON ERROR \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+				alert("GetJSON ERROR \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+			}
+			console.log(data);
 		}
-		else {
-		    console.log("GetJSON ERROR \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
-            alert("GetJSON ERROR \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
-		}
-	    console.log(data);
-	    }
-	);
+	});
 }
 
 function ajaxPostJson(url) {
 	var response;
 	var status;
 	var data;
+	var response = document.getElementById("response");
 
 	$.support.cors = true;
 	$.postJSON(url, data, function (data, status) {
 		if (status === "success") {
-			console.log("data = "+data);
-			console.log("PostJSON \ajaxPostJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
-			alert ("1 " + data);
-			alert ("2 " + JSON.stringify(data));
-			var response = document.getElementById("response");
-			response.innerHTML = JSON.stringify(data);
+			var response = document.getElementById("response"); if (status === "success") {
+				var beautifiedData = JSON.stringify(data, null, 4.);
+				console.log("data = " + data);
+				console.log("beautifiedData = " + beautifiedData);
+				console.log("GetJSON \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+
+				response.innerHTML = beautifiedData;
+			}
+			else {
+				console.log("PostJSON ERROR \ajaxPostJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+				alert("GetJSON ERROR \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
+			}
+			console.log(data);
 		}
-		else {
-		    console.log("PostJSON ERROR \ajaxPostJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
-            alert("GetJSON ERROR \ajaxGetJson(" + url + ")\n" + url + "\nWORKS status = " + status + "\ndata = \n" + data);
-		}
-	    console.log(data);
-	    }
-	);
+	});
 }
 
 /*
