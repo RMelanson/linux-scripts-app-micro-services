@@ -1,6 +1,9 @@
 function callRestApi() {
 	var url = document.getElementById("urlTextBox").value;
 	var method = document.getElementById("jsonMethod").value.toUpperCase();
+	var response = document.getElementById("response");
+	response.innetHTML="";
+
 	alert("URL = " + url)
 	alert("METHOD = " + method)
 	switch (method) {
@@ -11,7 +14,7 @@ function callRestApi() {
 			ajaxPostJson(url);
 			break;
 		default:
-			alert("UNKNOWN METHOD " + method)
+			response.innetHTML="UNKNOWN METHOD " + method;
 	}
 }
 
