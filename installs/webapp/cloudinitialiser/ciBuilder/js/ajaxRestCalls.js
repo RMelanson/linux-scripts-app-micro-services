@@ -2,10 +2,8 @@ function callRestApi() {
 	var url = document.getElementById("urlTextBox").value;
 	var method = document.getElementById("jsonMethod").value.toUpperCase();
 	var response = document.getElementById("response");
-	response.innetHTML="";
+	response.innetHTML = "";
 
-	alert("URL = " + url)
-	alert("METHOD = " + method)
 	switch (method) {
 		case "GET":
 			ajaxGetJson(url);
@@ -14,7 +12,7 @@ function callRestApi() {
 			ajaxPostJson(url);
 			break;
 		default:
-			response.innetHTML="UNKNOWN METHOD " + method;
+			response.innetHTML = "UNKNOWN METHOD " + method;
 	}
 }
 
@@ -23,6 +21,8 @@ function ajaxGetJson(url) {
 	var status;
 	var data;
 	var response = document.getElementById("response");
+
+	alert("EXECUTING: " + method + "@" + url)
 
 	$.support.cors = true;
 	$.getJSON(url, data, function (data, status) {
@@ -50,8 +50,10 @@ function ajaxPostJson(url) {
 	var data;
 	var response = document.getElementById("response");
 
+	alert("EXECUTING: " + method + "@" + url)
+
 	$.support.cors = true;
-	$.postJSON(url, data, function (data, status) {
+	$.post(url, data, function (data, status) {
 		if (status === "success") {
 			var response = document.getElementById("response"); if (status === "success") {
 				var beautifiedData = JSON.stringify(data, null, 4.);
@@ -67,7 +69,8 @@ function ajaxPostJson(url) {
 			}
 			console.log(data);
 		}
-	});
+	},
+		'json');
 }
 
 /*
