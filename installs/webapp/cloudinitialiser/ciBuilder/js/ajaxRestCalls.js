@@ -3,26 +3,24 @@ function callRestApi() {
 	var method = document.getElementById("jsonMethod").value.toUpperCase();
 	var response = document.getElementById("response");
 	response.innetHTML = "";
+	var data;
 
 	switch (method) {
 		case "GET":
-			ajaxGetJson(url);
+			ajaxGetJson(url, response, data);
 			break;
 		case "POST":
-			ajaxPostJson(url);
+			ajaxPostJson(url, response, data);
 			break;
 		default:
 			response.innetHTML = "UNKNOWN METHOD " + method;
 	}
 }
 
-function ajaxGetJson(url) {
-	var response;
+function ajaxGetJson(url, response, data) {
 	var status;
-	var data;
-	var response = document.getElementById("response");
 
-	alert("EXECUTING: " + method + "@" + url)
+	alert("EXECUTING: GET@" + url)
 
 	$.support.cors = true;
 	$.getJSON(url, data, function (data, status) {
@@ -44,13 +42,10 @@ function ajaxGetJson(url) {
 	});
 }
 
-function ajaxPostJson(url) {
-	var response;
+function ajaxPostJson(url, response, data) {
 	var status;
-	var data;
-	var response = document.getElementById("response");
 
-	alert("EXECUTING: " + method + "@" + url)
+	alert("EXECUTING: POST@" + url)
 
 	$.support.cors = true;
 	$.post(url, data, function (data, status) {
