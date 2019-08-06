@@ -41,7 +41,7 @@ function ajaxGetJson(url, response) {
 	});
 }
 
-function ajaxPostJson2(url, response) {
+function ajaxPostJson(url, response) {
 	var status;
 
 	$.support.cors = true;
@@ -64,6 +64,7 @@ function ajaxPostJson(restURL, response) {
 		url: restURL,
 		type: "POST",
 		dataType: 'json',
+		data: '{}',
 		contentType: "application/json",
 		success: function (data, status, jqXHR) {
 			var beautifiedData = JSON.stringify(data, null, 4.);
