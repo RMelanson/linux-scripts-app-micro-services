@@ -19,7 +19,7 @@ function callRestApi() {
 function ajaxGetJson(url, response) {
 	var status;
 
-	alert("EXECUTING: GET@" + url)
+//	alert("EXECUTING: GET@" + url)
 
 	$.support.cors = true;
 	$.getJSON(url, function (data, status) {
@@ -45,7 +45,7 @@ function ajaxPostJson(url, response) {
 	var status;
 
 	$.support.cors = true;
-	alert("EXECUTING: POST@" + url)
+//	alert("EXECUTING: POST@" + url)
 
 	$.post(url,   // url
        { myData: 'This is my data.' }, // data to be submit
@@ -59,7 +59,7 @@ function ajaxPostJson(url, response) {
 }
 
 function ajaxPostJson(restURL, response) {
-	alert("EXECUTING: POST@" + restURL)
+//	alert("EXECUTING: POST@" + restURL)
 	$.ajax({
 		url: restURL,
 		type: "POST",
@@ -88,7 +88,7 @@ function ajaxPostJson(restURL, response) {
 function ajaxPostJson(url, response, data) {
 	var status;
 
-	alert("EXECUTING: POST@" + url)
+//	alert("EXECUTING: POST@" + url)
 
 	$.support.cors = true;
 	$.post(url, data, function (data, status) {
