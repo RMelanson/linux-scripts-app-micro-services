@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+
+    <link rel="stylesheet" type="text/css" href="./lib/css/ciBuilder.css">
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <script src="./lib/js/ajaxRestCalls.js"></script>
+
+</head>
+
+<body>
+    <table style="width: 100%; height: 100%;">
+        <tbody>
+            <tr style="height: 22px;">
+                <td style="width: 537.2px; height: 22px;">
+                    <h1>CLOUD INITIALISER REST TEST APPLICATION</h1>
+                </td>
+            </tr>
+            <tr style="height: 22px;">
+                <td style="width: 537.2px; height: 22px;">
+                    <table style="width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 11%;"><select id="jsonMethod" onchange="buildURL()">
+                                        <option value="GET">GET</option>
+                                        <option value="POST">POST</option>
+                                        <option value="PUT">PUT</option>
+                                        <option value="DELETE">DELETE</option>
+                                    </select></td>
+                                <td style="width: 77.054%;"><input id="urlTextBox" style="width: 100%;"
+                                        name="urlTextBox" type="text"
+                                        value="http://www.stockwidgets.com:9090/system?cmd=ls" /></td>
+                                <td style="width: 11.946%;"><button id="urlBtn" class="active">Send</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr style="height: 256px;">
+                <td style="width: 537.2px; height: 100%;">
+                    <table style="width: 100%; height: 100%;">
+                        <tbody>
+                            <tr style="height: 58.7px;">
+                                <td style="width: 50%; height: 58.7px;">
+                                    <H2>JSON Body</H2>
+                                    <div id="jsonBody"></div>
+                                </td>
+                                <td style="width: 50%; height: 58.7px;">
+                                    <H2>Response</H2>
+                                    <div id="response"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr style="height: 22px;">
+                <td style="width: 537.2px; height: 22px;">&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
