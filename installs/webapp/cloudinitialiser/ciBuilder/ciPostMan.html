@@ -17,6 +17,10 @@
 	<script src="./lib/js/ajaxRestCalls.js"></script>
 
 	<style>
+		H1 {
+			height: 44px;
+		}
+
 		H2 {
 			height: 1px;
 		}
@@ -44,6 +48,12 @@
 			height: 1px;
 		}
 
+		select,
+		button,
+		input {
+			height: 25px;
+		}
+
 		.data {
 			height: 290px;
 		}
@@ -68,7 +78,7 @@
 						<tbody>
 							<tr>
 								<td style="width: 1px;">
-									<select id="jsonMethod" onchange="buildURL()">
+									<select id="restMethod" onchange="buildURL()">
 										<option value="GET">GET</option>
 										<option value="POST">POST</option>
 										<option value="PUT">PUT</option>
@@ -103,7 +113,9 @@
 											</tr>
 											<tr class="data">
 												<td style="width: 100%;">
-													<div id="jsonRequestBody">{}</div>
+													<div id="jsonRequestBody" contenteditable="true">
+														{}
+													</div>
 												</td>
 											</tr>
 										</tbody>
@@ -136,6 +148,14 @@
 			</tr>
 		</tbody>
 	</table>
+
+	<script>
+		document.getElementById("jsonRequestBody").addEventListener("input", function () {
+			console.log("input event fired");
+//			alert("input event fired");
+		}, false);
+	</script>
+
 </body>
 
 </html>
