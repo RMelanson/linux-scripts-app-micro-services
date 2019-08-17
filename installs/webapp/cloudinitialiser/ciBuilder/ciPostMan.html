@@ -59,26 +59,31 @@
 		}
 
 		.scrollable {
-			vertical-align: top;
-			background-color: #eee;
-			/* border: 2px dotted red; */
-			overflow: auto;
-            height: 300px;
-			width: 100%;
 /*			margin-top: -200px;
+			border: 2px dotted red;
 
             padding-top: 200px;
 			/**/
+			vertical-align: top;
+			background-color: #eee;
+			overflow: auto;
+            height: 300px;
+			width: 100%;
 
+			display: flex;
+            flex-wrap: nowrap;
+
+			/*
 			-webkit-box-flex: 1;
             -webkit-flex: 1;
             -ms-flex: 1;
             flex: 1;
+ 
 
             display: -webkit-flex;
-            -webkit-flex-wrap: nowrap;
-            display: flex;
-            flex-wrap: nowrap;
+             -webkit-flex-wrap: nowrap;
+
+ 			/**/
 		}
 
 		/*Flexbox gives us the flexiness we need. The Title just stays put as there is no scrolling on the body due to the page never exceeding viewport height*/
