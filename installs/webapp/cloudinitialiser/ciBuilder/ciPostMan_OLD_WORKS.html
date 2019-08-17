@@ -17,10 +17,6 @@
 	<script src="./lib/js/ajaxRestCalls.js"></script>
 
 	<style>
-		H1 {
-			height: 44px;
-		}
-
 		H2 {
 			height: 1px;
 		}
@@ -38,6 +34,15 @@
 			width: 100%;
 		}
 
+		.urlBAR {
+			height: 100%;
+			width: 100%;
+		}
+
+		.urlBarElement {
+			height: 25px;
+		}
+
 		.fixed {
 			border-collapse: collapse;
 			table-layout: fixed;
@@ -49,31 +54,31 @@
 			height: 1px;
 		}
 
-		select,
-		button,
-		input {
-			height: 25px;
-		}
-
-		.data {
-			height: 290px;
-		}
-
 		.dataBar {
 			height: 45px;
 		}
 
-		.mainDiv {
-			height: 100vh;
-			overflow: hidden;
-		}
-
-		div.scrollable {
+		.scrollable {
+			vertical-align: top;
 			background-color: #eee;
-			border: 1px dotted black;
+			/* border: 2px dotted red; */
 			overflow: auto;
-			height: "100%";
-			width: "100%";
+            height: 300px;
+			width: 100%;
+/*			margin-top: -200px;
+
+            padding-top: 200px;
+			/**/
+
+			-webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+
+            display: -webkit-flex;
+            -webkit-flex-wrap: nowrap;
+            display: flex;
+            flex-wrap: nowrap;
 		}
 
 		/*Flexbox gives us the flexiness we need. The Title just stays put as there is no scrolling on the body due to the page never exceeding viewport height*/
@@ -96,39 +101,23 @@
 			z-index: 10;
 			height: 40px;
 		}
-
-		/*This is our main wrapping element, it's made 100vh high to ensure it is always the correct size and then moved into place and padded with negative margin and padding*/
-		.Container {
-			display: -webkit-box;
-			display: -webkit-flex;
-			display: -ms-flexbox;
-			display: flex;
-			/* flex-wrap: nowrap; */
-			overflow: hidden;
-			height: 100vh;
-			margin-top: -40px;
-			padding-top: 40px;
-			position: relative;
-			width: 100%;
-			-webkit-backface-visibility: hidden;
-			backface-visibility: hidden;
-			will-change: overflow;
-		}
 	</style>
 </head>
 
 <body>
-	<div class="Title">CLOUD INITIALISER REST TEST APPLICATION</div>
+	<div class="Title">
+		<H1>CLOUD INITIALISER REST TEST APPLICATION</H1>
+	</div>
 	<div>
 		<table class="fixed">
 			<tbody>
 				<tr style="height: 22px;">
 					<td>
-						<table>
+						<table class="urlBAR">
 							<tbody>
 								<tr>
 									<td style="width: 1px;">
-										<select id="restMethod" onchange="buildURL()">
+										<select id="restMethod" class="urlBarElement" onchange="buildURL()">
 											<option value="GET">GET</option>
 											<option value="POST">POST</option>
 											<option value="PUT">PUT</option>
@@ -136,11 +125,11 @@
 										</select>
 									</td>
 									<td>
-										<input type="text" id="urlTextBox" name="urlTextBox" style="width:100%"
-											value="http://www.stockwidgets.com:9090/system?cmd=ls">
+										<input type="text" id="urlTextBox" class="urlBarElement" name="urlTextBox"
+											style="width:100%" value="http://www.stockwidgets.com:9090/system?cmd=ls">
 									</td>
 									<td style="width: 1px;">
-										<button id="urlBtn" onclick="callRestApi()" id="send"
+										<button id="urlBtn" class="urlBarElement" onclick="callRestApi()" id="send"
 											class="active">Send</button>
 									</td>
 								</tr>
@@ -165,13 +154,6 @@
 										<H2>JSON Request Body</H2>
 									</td>
 								</tr>
-								<tr class="data">
-									<td>
-										<div id="restRequestBody" class=scrollable contenteditable="true">
-											{}
-										</div>
-									</td>
-								</tr>
 							</tbody>
 						</table>
 					</td>
@@ -183,9 +165,39 @@
 										<H2>JSON Response Body</H2>
 									</td>
 								</tr>
-								<tr class="data">
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div>
+		<table id="tableData" class="fixed">
+			<tbody>
+				<tr>
+					<td>
+						<table class="fixed" vertical-align: top; border: 1px solid black;>
+							<tbody>
+								<tr class="scrollable">
 									<td>
-										<div id="restResponse" class=scrollable>JSON Response Data Area
+										<div id="restRequestBody" contenteditable="true">
+											{}
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td>
+						<table class="fixed">
+							<tbody>
+								<tr class="scrollable">
+									<td>
+										<div id="restResponse">
+											JSON Response Data Area
+										</div>
 									</td>
 								</tr>
 							</tbody>
@@ -195,7 +207,6 @@
 			</tbody>
 		</table>
 	</div>
-
 
 	<script>
 		document.getElementById("restRequestBody").addEventListener("input", function () {

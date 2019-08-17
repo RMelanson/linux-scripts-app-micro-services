@@ -54,46 +54,17 @@
 			height: 1px;
 		}
 
-		.data {
-/*			height: 100vh;
-			height: 290px;
-			white-space: pre; */
-		}
-
 		.dataBar {
 			height: 45px;
 		}
 
-		div.scrollable2 {
-            overflow: auto;
-            height: auto;
-            padding: .5rem;
-            border: 1px solid #c3c3c3;
-            -webkit-overflow-scrolling: touch;
-            -ms-overflow-style: none;
-            
-            white-space: pre;
- 
-            -webkit-box-flex: 1;
-            -webkit-flex: 1;
-            -ms-flex: 1;
-            flex: 1;
-
-            display: -webkit-flex;
-             -webkit-flex-wrap: nowrap;
-            display: flex;
-            flex-wrap: nowrap;
-		}
-
-		div.scrollable {
+		.scrollable {
 			vertical-align: top;
 			background-color: #eee;
-			border: 2px dotted red;
+			/* border: 2px dotted red; */
 			overflow: auto;
             height: 300px;
 			width: 100%;
-           
-			
 /*			margin-top: -200px;
 
             padding-top: 200px;
@@ -105,7 +76,7 @@
             flex: 1;
 
             display: -webkit-flex;
-             -webkit-flex-wrap: nowrap;
+            -webkit-flex-wrap: nowrap;
             display: flex;
             flex-wrap: nowrap;
 		}
@@ -209,9 +180,9 @@
 					<td>
 						<table class="fixed" vertical-align: top; border: 1px solid black;>
 							<tbody>
-								<tr class="data">
+								<tr class="scrollable">
 									<td>
-										<div id="restRequestBody" class=scrollable contenteditable="true">
+										<div id="restRequestBody" contenteditable="true">
 											{}
 										</div>
 									</td>
@@ -222,9 +193,9 @@
 					<td>
 						<table class="fixed">
 							<tbody>
-								<tr class="data">
+								<tr class="scrollable">
 									<td>
-										<div id="restResponse" class=scrollable>
+										<div id="restResponse">
 											JSON Response Data Area
 										</div>
 									</td>
