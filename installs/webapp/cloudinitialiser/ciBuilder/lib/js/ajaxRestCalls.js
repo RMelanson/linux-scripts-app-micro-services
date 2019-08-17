@@ -1,7 +1,7 @@
 function callRestApi() {
 	var url = document.getElementById("urlTextBox").value;
 	var method = document.getElementById("restMethod").value.toUpperCase();
-	var response = document.getElementById("response");
+	var response = document.getElementById("restResponse");
 	response.innerHTML = "";
 
 	switch (method) {
@@ -9,7 +9,8 @@ function callRestApi() {
 			ajaxGetJson(url, response);
 			break;
 		case "POST":
-			ajaxPostJson(url, response);
+			var body = document.getElementById("restRequestBody");
+			ajaxPostJson(url, response, body);
 			break;
 		default:
 			response.innetHTML = "UNKNOWN METHOD " + method;
@@ -19,7 +20,7 @@ function callRestApi() {
 function ajaxGetJson(url, response) {
 	var status;
 
-	//	alert("EXECUTING: GET@" + url)
+//	alert("EXECUTING: GET@" + url)
 
 	$.support.cors = true;
 	$.getJSON(url, function (data, status) {
@@ -40,11 +41,37 @@ function ajaxGetJson(url, response) {
 	});
 }
 
-function ajaxPostJson(url, response) {
+function ajaxPostJson(restURL, response, body) {
+//		alert("EXECUTING: 2 POST@" + restURL)
+	$.ajax({
+		url: restURL,
+		type: "POST",
+		dataType: 'json',
+		data: body,
+		contentType: "application/json",
+		success: function (data, status, jqXHR) {
+			var beautifiedData = JSON.stringify(data, null, 4.);
+			response.innerHTML = "<pre>" + beautifiedData + "</pre>";
+			console.log("data = " + data);
+			console.log("beautifiedData = " + beautifiedData);
+//			alert("SUCCESS \ajaxGet(" + restURL + ")\n" + restURL + "\nWORKS status = " + status + "\ndata = \n" + data);
+		},
+		error: function (xhr, ajaxOptions, errorThrown) {
+			var dataResponse = "ERROR \ajaxGet(" + restURL + ")\n" + restURL + "\nFAILED status = " + xhr.status;
+			response.innerHTML = "<pre>" + dataResponse + "</pre>";
+			alert("ERROR ajaxPostJson response\n" + response);
+			console.log(errorThrown);
+		}
+	});
+}
+
+// Possible fix later
+/*
+function ajaxPostJson(url, response, body) {
 	var status;
 
 	$.support.cors = true;
-	//	alert("EXECUTING: POST@" + url)
+	alert("EXECUTING: 1 POST@" + url)
 
 	$.post(url,   // url
 		{ myData: 'This is my data.' }, // data to be submit
@@ -56,27 +83,4 @@ function ajaxPostJson(url, response) {
 		alert("status = " + status);
 	});
 }
-
-function ajaxPostJson(restURL, response) {
-	//	alert("EXECUTING: POST@" + restURL)
-	$.ajax({
-		url: restURL,
-		type: "POST",
-		dataType: 'json',
-		data: '{}',
-		contentType: "application/json",
-		success: function (data, status, jqXHR) {
-			var beautifiedData = JSON.stringify(data, null, 4.);
-			response.innerHTML = "<pre>" + beautifiedData + "</pre>";
-			console.log("data = " + data);
-			console.log("beautifiedData = " + beautifiedData);
-			alert("SUCCESS \ajaxGet(" + restURL + ")\n" + restURL + "\nWORKS status = " + status + "\ndata = \n" + data);
-		},
-		error: function (xhr, ajaxOptions, errorThrown) {
-			var dataResponse = "ERROR \ajaxGet(" + restURL + ")\n" + restURL + "\nFAILED status = " + xhr.status;
-			response.innerHTML = "<pre>" + dataResponse + "</pre>";
-			alert("ERROR response\n" + response);
-			console.log(errorThrown);
-		}
-	});
-}
+*/
