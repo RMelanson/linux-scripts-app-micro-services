@@ -1,7 +1,7 @@
-function callRestApi() {
-	var url = document.getElementById("urlTextBox").value;
-	var method = document.getElementById("restMethod").value.toUpperCase();
-	var response = document.getElementById("restResponse");
+function callRestApi(urlTextBox , restMethod,jsonResponse_Div) {
+	var url = document.getElementById(urlTextBox).value;
+	var method = document.getElementById(restMethod).value.toUpperCase();
+	var response = document.getElementById(jsonResponse_Div);
 	response.innerHTML = "";
 
 	switch (method) {
