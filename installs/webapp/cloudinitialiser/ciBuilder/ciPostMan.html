@@ -187,9 +187,15 @@
                 <tbody>
                   <tr class="dataBar">
                     <td class="padding5px">
-                      <button id="urlBtn" class="urlBarElement" onclick="alert('To Do Gui')" class="active">GUI</button>
-                      <button id="urlBtn" class="urlBarElement" onclick="alert('To Do CMD Parms')" class="active">Parms</button>
-                      <button id="urlBtn" class="urlBarElement" onclick="alert('To Do Body Parms')" class="active">Body</button>
+                      <button id="gui" class="urlBarElement" onclick="alert('To Do Gui')" class="active">GUI</button>
+                      <button id="parms" class="urlBarElement" onclick="alert('To Do CMD Parms')"
+                        class="active">Parms</button>
+                      <button id="body" class="urlBarElement" onclick="alert('To Do Body Parms')"
+                        class="active">Body</button>
+                      <button id="jsonBody" class="urlBarElement" onclick="openMenuDiv(this, 'red')"
+                        class="active">Request</button>
+                      <button id="jsonResponse" class="urlBarElement" onclick="openMenuDiv(this, 'red')"
+                        class="active">Response</button>
                     </td>
                   </tr>
                 </tbody>
@@ -200,10 +206,6 @@
                 <tbody>
                   <tr class="dataBar">
                     <td class="padding5px">
-                      <button id="jsonBody" class="rightColumnMenu" onclick="openMenuDiv(this, 'red')"
-                        class="active">Request</button>
-                      <button id="jsonResponse" class="rightColumnMenu" onclick="openMenuDiv(this, 'red')"
-                        class="active">Response</button>
                     </td>
                   </tr>
                 </tbody>
@@ -220,8 +222,13 @@
     </div>
     <div id="leftCol" class="scrolable">
       <div id="jsonBody_Div" class="page_Div" contenteditable="true">Left Content
-        {}
-      </div>
+        {}</div>
+      <div id="jsonBody_Div" class="page_Div" contenteditable="true">Left Content
+        {}</div>
+      <div id="jsonBody_Div" class="page_Div" contenteditable="true">Left Content
+        {}</div>
+      <div id="jsonBody_Div" class="page_Div" contenteditable="true">Left Content
+        {}</div>
       <div id="jsonResponse_Div" class="page_Div">
         JSON Response Data Area
       </div>
