@@ -21,7 +21,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
   <script src="./lib/js/ajaxRestCalls.js"></script>
-	<script src="../lib/js/ci/menu.js"></script>
+  <script src="../lib/js/ci/menu.js"></script>
 
   <style>
     * {
@@ -169,7 +169,9 @@
                 value="http://www.stockwidgets.com:9090/system?cmd=ls">
             </td>
             <td class="padding5px" style="width: 1px;">
-              <button id="urlBtn" class="urlBarElement" onclick="callRestApi('urlTextBox','restMethod','jsonResponse_Div')" id="send" class="active">Send</button>
+              <button id="urlBtn" class="urlBarElement"
+                onclick="callRestApi('urlTextBox','restMethod','jsonResponse_Div')" id="send"
+                class="active">Send</button>
             </td>
           </tr>
         </tbody>
@@ -185,9 +187,10 @@
                 <tbody>
                   <tr class="dataBar">
                     <td class="padding5px">
-                      <button id="urlBtn" class="urlBarElement" onclick="callRestApi('urlTextBox','restMethod','jsonResponse_Div')" class="active">CMD
+                      <button id="urlBtn" class="urlBarElement" onclick="alert('To Do Gui')" class="active">GUI</button>
+                      <button id="urlBtn" class="urlBarElement" onclick="alert('To Do CMD Parms')" class="active">CMD
                         Parms</button>
-                      <button id="urlBtn" class="urlBarElement" onclick="callRestApi('urlTextBox','restMethod','jsonResponse_Div')" class="active">Body
+                      <button id="urlBtn" class="urlBarElement" onclick="alert('To Do Body Parms')" class="active">Body
                         Parms</button>
                     </td>
                   </tr>
@@ -199,9 +202,11 @@
                 <tbody>
                   <tr class="dataBar">
                     <td class="padding5px">
-                      <button id="jsonBody" class="rightColumnMenu" onclick="openMenuDiv(this, 'red')" class="active">JSON
+                      <button id="jsonBody" class="rightColumnMenu" onclick="openMenuDiv(this, 'red')"
+                        class="active">JSON
                         Body</button>
-                      <button id="jsonResponse" class="rightColumnMenu" onclick="openMenuDiv(this, 'red')" class="active">JSON
+                      <button id="jsonResponse" class="rightColumnMenu" onclick="openMenuDiv(this, 'red')"
+                        class="active">JSON
                         Response</button>
                     </td>
                   </tr>
