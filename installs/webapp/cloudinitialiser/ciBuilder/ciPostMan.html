@@ -21,7 +21,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
   <script src="./lib/js/ajaxRestCalls.js"></script>
-  <script src="../lib/js/ci/menu.js"></script>
+  <script src="./lib/js/ciBuilder.js"></script>
 
   <style>
     * {
@@ -170,7 +170,7 @@
             </td>
             <td class="padding5px" style="width: 1px;">
               <button id="urlBtn" class="urlBarElement"
-                onclick="callRestApi('urlTextBox','restMethod','jsonResponse_Div')" id="send"
+                onclick="prepRestApi('urlTextBox','restMethod','resp')" id="send"
                 class="active">Send</button>
             </td>
           </tr>
@@ -187,15 +187,16 @@
                 <tbody>
                   <tr class="dataBar">
                     <td class="padding5px">
-                      <button id="gui" class="urlBarElement" onclick="alert('To Do Gui')" class="active">GUI</button>
-                      <button id="parms" class="urlBarElement" onclick="alert('To Do CMD Parms')"
+                      <button id="gui" class="urlBarElement" onclick="setActiveDiv(this)"
+                        class="active">GUI</button>
+                      <button id="parms" class="urlBarElement" onclick="setActiveDiv(this)"
                         class="active">Parms</button>
-                      <button id="body" class="urlBarElement" onclick="alert('To Do Body Parms')"
+                      <button id="body" class="urlBarElement" onclick="setActiveDiv(this)"
                         class="active">Body</button>
-                      <button id="jsonBody" class="urlBarElement" onclick="openMenuDiv(this, 'red')"
-                        class="active">Request</button>
-                      <button id="jsonResponse" class="urlBarElement" onclick="openMenuDiv(this, 'red')"
+                      <button id="resp" class="urlBarElement" onclick="setActiveDiv(this)"
                         class="active">Response</button>
+                      <button id="log" class="urlBarElement" onclick="setActiveDiv(this)"
+                        class="active">Log</button>
                     </td>
                   </tr>
                 </tbody>
@@ -218,22 +219,38 @@
   </div>
 
   <div class="Container">
+    <!------- LEFT PANEL------->
     <div id="leftCol" class="scrolable">
+      <div id="gui_Left_Div" class="page_Div" contenteditable="true">
+        {Page:To Do Left Gui}</div>
+      <div id="parms_Left_Div" class="page_Div">
+        {Page:To Do Left Parms}</div>
+      <div id="body_Left_Div" class="page_Div">
+        {Page:To Do Left Body}</div>
+      <div id="resp_Left_Div" class="page_Div">
+        {Page:To Do Left Response}</div>
+      <div id="log_Left_Div" class="page_Div">
+        {Page:To Do Left Log}</div>
     </div>
-    <div id="leftCol" class="scrolable">
-      <div id="jsonBody_Div" class="page_Div" contenteditable="true">Left Content
-        {}</div>
-      <div id="jsonBody_Div" class="page_Div" contenteditable="true">Left Content
-        {}</div>
-      <div id="jsonBody_Div" class="page_Div" contenteditable="true">Left Content
-        {}</div>
-      <div id="jsonBody_Div" class="page_Div" contenteditable="true">Left Content
-        {}</div>
-      <div id="jsonResponse_Div" class="page_Div">
-        JSON Response Data Area
-      </div>
+    <!------- RIGHT PANEL------->
+    <div id="rightCol" class="scrolable">
+      <div id="gui_Right_Div" class="page_Div">
+        {Page:To Do Right Gui}</div>
+      <div id="parms_Right_Div" class="page_Div">
+        {Page:To Do Right Parms}</div>
+      <div id="body_Right_Div" class="page_Div">
+        {Page:To Do Right Body}</div>
+      <div id="resp_Right_Div" class="page_Div">
+        {Page:To Do Right Response}</div>
+      <div id="log_Right_Div" class="page_Div">
+        {Page:To Do Right Log}</div>
     </div>
   </div>
+
+  <script>
+  	 elmnt = document.getElementById("resp");
+	   setActiveDiv(elmnt);
+  </script>
 </body>
 
 </html>

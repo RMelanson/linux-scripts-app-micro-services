@@ -1,5 +1,5 @@
-function callRestApi(urlTextBox , restMethod,jsonResponse_Div) {
-	var url = document.getElementById(urlTextBox).value;
+function callRestApi(urlElmt, restMethod, jsonResponse_Div) {
+	var url = document.getElementById(urlElmt).value;
 	var method = document.getElementById(restMethod).value.toUpperCase();
 	var response = document.getElementById(jsonResponse_Div);
 	response.innerHTML = "";
