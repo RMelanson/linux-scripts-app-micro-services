@@ -9,13 +9,13 @@ function openMenuTab(id, elmnt, color) {
 	var pageDiv = id + "_Div";
 
 	var menuNavClass = elmnt.className;
-	var elementId = document.getElementById(pageDiv);
-	var divClass = elementId.className;
+	var menuPage = document.getElementById(pageDiv);
+	var divClass = menuPage.className;
 
 	closeAllPageDivs(divClass);
 	resetAllNavMenus(elmnt);
 
-	elementId.style.display = "block";
+	menuPage.style.display = "block";
 }
 
 function closeAllPageDivs(divClass) {
