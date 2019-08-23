@@ -1,23 +1,39 @@
+var activeMenuColor = 'red';
+
+function setActiveMenuColor(color) {
+	activeMenuColor = color;
+}
+
 function openMenuTab(id, elmnt, color) {
 	var pageDiv = id + "_Div";
 
 	var menuNavClass = elmnt.className;
-
-	closeAllPageDivs();
-	resetAllNavMenus(elmnt, color);
-
 	var elementId = document.getElementById(pageDiv);
+	var divClass = elementId.className;
+
+	closeAllPageDivs(divClass);
+	resetAllNavMenus(elmnt);
+
 	elementId.style.display = "block";
 }
 
-function resetAllNavMenus(elmnt, activeColor) {
+function closeAllPageDivs(divClass) {
+	var i, pgDiv;
+	pgDiv = document.getElementsByClassName(divClass);
+
+	for (i = 0; i < pgDiv.length; i++) {
+		pgDiv[i].style.display = "none";
+	}
+}
+
+function resetAllNavMenus(elmnt) {
 	var i, tablinks;
 	var navMenuClass = elmnt.className;
 	tablinks = document.getElementsByClassName(navMenuClass);
 	for (i = 0; i < tablinks.length; i++) {
 		tablinks[i].style.backgroundColor = "";
 	}
-	elmnt.style.backgroundColor = activeColor;
+	elmnt.style.backgroundColor = activeMenuColor;
 }
 
 function checkBoxDivToggle(checkBox) {

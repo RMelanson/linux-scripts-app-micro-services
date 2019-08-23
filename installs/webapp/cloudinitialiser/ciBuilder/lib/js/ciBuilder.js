@@ -1,9 +1,12 @@
 var activeColor='yellow';
 
+function setActiveColor(color) {
+	activeColor = color;
+}
+
 function setActiveDiv(elmnt) {
 	resetAllNavMenus(elmnt);
-	closeAllPageDivs();
-	openColumnDivs(elmnt);
+	setActiveColumns(elmnt);
 }
 
 function resetAllNavMenus(elmnt) {
@@ -16,24 +19,29 @@ function resetAllNavMenus(elmnt) {
 	elmnt.style.backgroundColor = activeColor;
 }
 
-function closeAllPageDivs() {
-	var i, pgDiv;
-	pgDiv = document.getElementsByClassName("page_Div");
-
-	for (i = 0; i < pgDiv.length; i++) {
-		pgDiv[i].style.display = "none";
-	}
-}
-
 //		  alert("SHOW " + divId)
-function openColumnDivs(elmnt) {
+function setActiveColumns(elmnt) {
 	var cbId = elmnt.id;
 	var divId = cbId + "_Right_Div";
 	divElement = document.getElementById(divId);
+
+	var divClass = divElement.className;
+	closeAllPageDivs(divClass);
+
 	divElement.style.display = "block";
+
 	divId = cbId + "_Left_Div";
 	divElement = document.getElementById(divId);
 	divElement.style.display = "block";
+}
+
+function closeAllPageDivs(divClass) {
+	var i, classList;
+	classList = document.getElementsByClassName(divClass);
+
+	for (i = 0; i < classList.length; i++) {
+		classList[i].style.display = "none";
+	}
 }
 
 function prepRestApi(urlElmt, restMethod, respID) {
