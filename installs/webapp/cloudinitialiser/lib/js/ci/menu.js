@@ -5,6 +5,7 @@ function setActiveMenuColor(color) {
 }
 
 function openMenuTab(id, elmnt, color) {
+	setActiveMenuColor(color);
 	var pageDiv = id + "_Div";
 
 	var menuNavClass = elmnt.className;
