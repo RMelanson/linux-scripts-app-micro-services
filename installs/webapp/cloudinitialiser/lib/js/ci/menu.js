@@ -20,6 +20,26 @@ function openMenuTab(id, elmnt, color) {
 
 function openPostScripDiv(id, elmnt, color) {
 	openMenuTab("postman", elmnt, color);
+	setPostScripTitle(id, elmnt, color);
+}
+
+function setPostScripTitle(id, elmnt, color) {
+	var postTitle = document.getElementById("postTitle");
+	var newTitle = "Cloud Initialiser ";
+	switch(id) {
+		case "html":
+			newTitle += " HTTP ";
+		  break;
+		case "jBoss":
+			newTitle += " jBoss ";
+		  break;
+		default:
+			newTitle += " ** UNKNOWN ** ";
+	  } 
+	  newTitle += " Postman Installer";
+	  //    alert("Before postTitle = "+postTitle.innerHTML);
+	  postTitle.innerHTML = newTitle;
+//    alert("After postTitle = "+postTitle.innerHTML);
 }
 
 function closeAllPageDivs(divClass) {
