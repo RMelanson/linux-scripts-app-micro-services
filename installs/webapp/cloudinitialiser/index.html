@@ -23,52 +23,52 @@
 		<button class="topnav" onclick="openMenuTab('CI', this, 'green')">Cloud Initialiser</button>
 
 		<div id="dockerTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('docker', this, 'orange')">Docker</button>
+			<button class="topnav" onclick="openPostScripDiv('docker', this, 'orange')">Docker</button>
 		</div>
 		<div id="gitTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('git', this, 'orange')">Git</button>
+			<button class="topnav" onclick="openPostScripDiv('git', this, 'orange')">Git</button>
 		</div>
 		<div id="httpTab" class="hiddenTab">
 			<button class="topnav" onclick="openPostScripDiv('http', this, 'orange')">HTTP</button>
 		</div>
 		<div id="javaTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('java', this, 'orange')">Java</button>
+			<button class="topnav" onclick="openPostScripDiv('java', this, 'orange')">Java</button>
 		</div>
 		<div id="jBossTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('jBoss', this, 'orange')">jBoss</button>
+			<button class="topnav" onclick="openPostScripDiv('jBoss', this, 'orange')">jBoss</button>
 		</div>
 		<div id="jenkinsTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('jenkins', this, 'orange')">Jenkins</button>
+			<button class="topnav" onclick="openPostScripDiv('jenkins', this, 'orange')">Jenkins</button>
 		</div>
 		<div id="langTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('lang', this, 'orange')">Languages/button>
+			<button class="topnav" onclick="openPostScripDiv('lang', this, 'orange')">Languages</button>
 		</div>
 		<div id="mysqlTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('mysql', this, 'orange')">mySQL</button>
+			<button class="topnav" onclick="openPostScripDiv('mysql', this, 'orange')">mySQL</button>
 		</div>
 		<div id="nodeJSTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('nodeJS', this, 'orange')">Node.JS</button>
+			<button class="topnav" onclick="openPostScripDiv('nodeJS', this, 'orange')">Node.JS</button>
 		</div>
 		<div id="oracleTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('oracle', this, 'orange')">Oracle</button>
+			<button class="topnav" onclick="openPostScripDiv('oracle', this, 'orange')">Oracle</button>
 		</div>
 		<div id="perlTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('perl', this, 'orange')">Perl</button>
+			<button class="topnav" onclick="openPostScripDiv('perl', this, 'orange')">Perl</button>
 		</div>
 		<div id="s3fsTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('s3fs', this, 'orange')">AWS S3FS</button>
+			<button class="topnav" onclick="openPostScripDiv('s3fs', this, 'orange')">AWS S3FS</button>
 		</div>
 		<div id="toolsTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('tools', this, 'orange')">Tools</button>
+			<button class="topnav" onclick="openPostScripDiv('tools', this, 'orange')">Tools</button>
 		</div>
 		<div id="userAdminTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('userAdmin', this, 'orange')">User Admin</button>
+			<button class="topnav" onclick="openPostScripDiv('userAdmin', this, 'orange')">User Admin</button>
 		</div>
 		<div id="utilsTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('utils', this, 'blue')">Utilities</button>
+			<button class="topnav" onclick="openPostScripDiv('utils', this, 'blue')">Utilities</button>
 		</div>
 		<div id="wpTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('wp', this, 'orange')">WordPress</button>
+			<button class="topnav" onclick="openPostScripDiv('wp', this, 'orange')">WordPress</button>
 		</div>
 		<button class="topnav" onclick="openMenuTab('About', this, 'pink')">About</button>
 		<button class="topnav" onclick="openMenuTab('Contact', this, 'grey')">Contact</button>
@@ -100,47 +100,6 @@
 		// Get the element with id="defaultOpen" and click on it
 		document.getElementById("defaultOpen").click();
 	</script>
-
-	<!-- PAGES -->
-
-	<div id="docker_Div" class="page_Div">
-		<script> $("#docker_Div").load("./pages/cloudInit/devOps/docker.html"); </script>
-	</div>
-
-	<div id="git_Div" class="page_Div">
-		<script> $("#git_Div").load("./pages/cloudInit/devOps/git.html"); </script>
-	</div>
-
-	<div id="http_Div" class="page_Div">
-		<script> $("#http_Div").load("./pages/cloudInit/apps/web/servers/http.html"); </script>
-	</div>
-
-	<div id="java_Div" class="page_Div">
-		<script> $("#java_Div").load("./pages/cloudInit/dev/lang/java.html"); </script>
-	</div>
-
-	<div id="jBoss_Div" class="page_Div">
-		<script> $("#jBoss_Div").load("./pages/cloudInit/apps/web/servers/jBoss.html"); </script>
-	</div>
-
-	<div id="jenkins_Div" class="page_Div">
-		<script> $("#jenkins_Div").load("./pages/cloudInit/devOps/jenkins.html"); </script>
-	</div>
-
-	<div id="linuxAdmin_Div" class="page_Div">
-		<script> $("#linuxAdmin_Div").load("./pages/cloudInit/devOps/admin/linuxAdmin.html"); </script>
-	</div>
-
-	<div id="wp_Div" class="page_Div">
-		<script> $("#wp_Div").load("./pages/cloudInit/apps/web/blogs/wp.html"); </script>
-	</div>
-
-	<div id="postman_Div" class="page_Div">
-		<script>
-			$("#postman_Div").load("./ciBuilder/ciPostMan.html");
-		</script>
-	</div>
-
 </body>
 
 </html>
