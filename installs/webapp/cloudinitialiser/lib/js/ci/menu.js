@@ -18,6 +18,10 @@ function openMenuTab(id, elmnt, color) {
 	menuPage.style.display = "block";
 }
 
+function openPostScripDiv(id, elmnt, color) {
+	openMenuTab("postman", elmnt, color);
+}
+
 function closeAllPageDivs(divClass) {
 	var i, pgDiv;
 	pgDiv = document.getElementsByClassName(divClass);

@@ -29,7 +29,7 @@
 			<button class="topnav" onclick="openMenuTab('git', this, 'orange')">Git</button>
 		</div>
 		<div id="httpTab" class="hiddenTab">
-			<button class="topnav" onclick="openMenuTab('http', this, 'orange')">HTTP</button>
+			<button class="topnav" onclick="openPostScripDiv('http', this, 'orange')">HTTP</button>
 		</div>
 		<div id="javaTab" class="hiddenTab">
 			<button class="topnav" onclick="openMenuTab('java', this, 'orange')">Java</button>
@@ -134,6 +134,11 @@
 	<div id="wp_Div" class="page_Div">
 		<script> $("#wp_Div").load("./pages/cloudInit/apps/web/blogs/wp.html"); </script>
 	</div>
+
+	<div id="postman_Div" class="page_Div">
+		<script> $("#postman_Div").load("./ciBuilder/ciPostMan.html"); </script> 
+	</div>
+
 </body>
 
 </html>
