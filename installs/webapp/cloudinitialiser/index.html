@@ -22,9 +22,9 @@
 		<button class="topnav" onclick="openMenuTab('Home', this, 'red')" id="homeTab" class="active">Home</button>
 		<button class="topnav" onclick="openMenuTab('CI', this, 'green')">Cloud Initialiser</button>
 
-		<div id="dockerTab" class="hiddenTab">
+		<!-- <div id="dockerTab" class="hiddenTab">
 			<button class="topnav" onclick="openPostScripDiv('docker', this, 'orange')">Docker</button>
-		</div>
+		</div> -->
 		<div id="gitTab" class="hiddenTab">
 			<button class="topnav" onclick="openPostScripDiv('git', this, 'orange')">Git</button>
 		</div>
@@ -100,6 +100,40 @@
 		// Get the element with id="defaultOpen" and click on it
 		document.getElementById("defaultOpen").click();
 	</script>
+
+	<!-- PAGES  VERIFIED-->
+
+	<div id="docker_Div" class="page_Div">
+		<script> $("#docker_Div").load("./pages/cloudInit/devOps/docker.html"); </script>
+	</div>
+
+	<!-- PAGES  UN-VERIFIED-->
+	<!-- <div id="git_Div" class="page_Div">
+		<script> $("#git_Div").load("./pages/cloudInit/devOps/git.html"); </script>
+	</div> -->
+
+	<div id="java_Div" class="page_Div">
+		<script> $("#java_Div").load("./pages/cloudInit/dev/lang/java.html"); </script>
+	</div>
+
+	<!-- <div id="jenkins_Div" class="page_Div">
+		<script> $("#jenkins_Div").load("./pages/cloudInit/devOps/jenkins.html"); </script>
+	</div>
+ -->
+	<div id="linuxAdmin_Div" class="page_Div">
+		<script> $("#linuxAdmin_Div").load("./pages/cloudInit/devOps/admin/linuxAdmin.html"); </script>
+	</div>
+
+	<!-- <div id="wp_Div" class="page_Div">
+		<script> $("#wp_Div").load("./pages/cloudInit/apps/web/blogs/wp.html"); </script>
+	</div> -->
+
+	<div id="postman_Div" class="page_Div">
+		<script>
+			$("#postman_Div").load("./ciBuilder/ciPostMan.html");
+		</script>
+	</div>
+
 </body>
 
 </html>
