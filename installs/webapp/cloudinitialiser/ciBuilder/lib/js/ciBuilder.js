@@ -1,4 +1,4 @@
-var activeColor='yellow';
+var activeColor='red';
 
 function setActiveColor(color) {
 	activeColor = color;
