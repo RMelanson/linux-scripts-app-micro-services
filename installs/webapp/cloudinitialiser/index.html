@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="./lib/css/menu.css">
 	<script src="./lib/js/jQuery/3.4.1.js"></script>
 	<script src="./lib/js/ci/menu.js"></script>
+	<script src="./ciBuilder/lib/js/colors.js"></script>
 	<script src="./ciBuilder/lib/js/ajaxRestCalls.js"></script>
 	<script src="./ciBuilder/lib/js/ciBuilder.js"></script>
 	  <!-- -->
@@ -23,60 +24,60 @@
 </script>
 
 <body>
-	<div class="topnav" id="myTopnav">
-		<button class="topnav" onclick="openMenuTab('Home', this, 'red')" id="homeTab" class="active">Home</button>
-		<button class="topnav" onclick="openMenuTab('CI', this, 'green')">Cloud Initialiser</button>
+	<div class="topNav_MENU" id="topNav_DIV">
+		<button id = "home_BTN" class="topNav_BTN" onclick="openMenuTab('Home', this, 'yellow')">Home</button>
+		<button id = "ci_BTN" class="topNav_BTN" onclick="openMenuTab('CI', this, 'green')">Cloud Initialiser</button>
 
 		<!-- <div id="dockerTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('docker', this, 'orange')">Docker</button>
+			<button id = "docker_BTN" class="topNav_BTN" onclick="openPostScripDiv('docker', this, 'orange')">Docker</button>
 		</div> -->
 		<div id="gitTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('git', this, 'orange')">Git</button>
+			<button id = "git_BTN" class="topNav_BTN" onclick="openPostScripDiv('git', this, 'orange')">Git</button>
 		</div>
 		<div id="httpTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('http', this, 'orange')">HTTP</button>
+			<button id = "HTTP_BTN" class="topNav_BTN" onclick="openPostScripDiv('http', this, 'orange')">HTTP</button>
 		</div>
 		<div id="javaTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('java', this, 'orange')">Java</button>
+			<button id = "java_BTN" class="topNav_BTN" onclick="openPostScripDiv('java', this, 'orange')">Java</button>
 		</div>
 		<div id="jBossTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('jBoss', this, 'orange')">jBoss</button>
+			<button id = "jBoss_BTN" class="topNav_BTN" onclick="openPostScripDiv('jBoss', this, 'orange')">jBoss</button>
 		</div>
 		<div id="jenkinsTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('jenkins', this, 'orange')">Jenkins</button>
+			<button id = "jenkins_BTN" class="topNav_BTN" onclick="openPostScripDiv('jenkins', this, 'orange')">Jenkins</button>
 		</div>
 		<div id="langTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('lang', this, 'orange')">Languages</button>
+			<button id = "lang_BTN" class="topNav_BTN" onclick="openPostScripDiv('lang', this, 'orange')">Languages</button>
 		</div>
 		<div id="mysqlTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('mysql', this, 'orange')">mySQL</button>
+			<button id = "mySQL_BTN" class="topNav_BTN" onclick="openPostScripDiv('mysql', this, 'orange')">mySQL</button>
 		</div>
 		<div id="nodeJSTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('nodeJS', this, 'orange')">Node.JS</button>
+			<button id = "nodeJS_BTN" class="topNav_BTN" onclick="openPostScripDiv('nodeJS', this, 'orange')">Node.JS</button>
 		</div>
 		<div id="oracleTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('oracle', this, 'orange')">Oracle</button>
+			<button id = "oracle_BTN" class="topNav_BTN" onclick="openPostScripDiv('oracle', this, 'orange')">Oracle</button>
 		</div>
 		<div id="perlTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('perl', this, 'orange')">Perl</button>
+			<button id = "perl_BTN" class="topNav_BTN" onclick="openPostScripDiv('perl', this, 'orange')">Perl</button>
 		</div>
 		<div id="s3fsTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('s3fs', this, 'orange')">AWS S3FS</button>
+			<button id = "S3FS_BTN" class="topNav_BTN" onclick="openPostScripDiv('s3fs', this, 'orange')">AWS S3FS</button>
 		</div>
 		<div id="toolsTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('tools', this, 'orange')">Tools</button>
+			<button id = "tools_BTN" class="topNav_BTN" onclick="openPostScripDiv('tools', this, 'orange')">Tools</button>
 		</div>
 		<div id="userAdminTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('userAdmin', this, 'orange')">User Admin</button>
+			<button id = "user_BTN" class="topNav_BTN" onclick="openPostScripDiv('userAdmin', this, 'orange')">User Admin</button>
 		</div>
 		<div id="utilsTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('utils', this, 'blue')">Utilities</button>
+			<button id = "utils_BTN" class="topNav_BTN" onclick="openPostScripDiv('utils', this, 'blue')">Utilities</button>
 		</div>
 		<div id="wpTab" class="hiddenTab">
-			<button class="topnav" onclick="openPostScripDiv('wp', this, 'orange')">WordPress</button>
+			<button id = "WP_BTN" class="topNav_BTN" onclick="openPostScripDiv('wp', this, 'orange')">WordPress</button>
 		</div>
-		<button class="topnav" onclick="openMenuTab('About', this, 'pink')">About</button>
-		<button class="topnav" onclick="openMenuTab('Contact', this, 'grey')">Contact</button>
+		<button id = "about_BTN" class="topNav_BTN" onclick="openMenuTab('About', this, 'pink')">About</button>
+		<button id = "contact_BTN" class="topNav_BTN" onclick="openMenuTab('Contact', this, 'grey')">Contact</button>
 		<a href="javascript:void(0);" class="icon" onclick="showVerticleNavMenu()">
 			<i class="fa fa-bars"></i>
 		</a>
@@ -111,6 +112,10 @@
 			$("#postman_Div").load("./ciBuilder/ciPostMan.html");
 		</script>
 	</div>
+
+	<script>
+//		setActiveClassId("contact_BTN");
+	</script>
 
 </body>
 
