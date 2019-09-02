@@ -123,10 +123,10 @@ function checkBoxDivClose(checkBox) {
 
 function showVerticleNavMenu() {
 	var x = document.getElementById("myTopnav");
-	if (x.className === "topNav_MENU") {
+	if (x.className === "main_MENU") {
 		x.className += " responsive";
 	} else {
-		x.className = "topNav_MENU";
+		x.className = "main_MENU";
 	}
 }
 
