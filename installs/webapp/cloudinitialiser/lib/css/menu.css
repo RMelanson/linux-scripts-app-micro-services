@@ -109,27 +109,3 @@ h1 {
 	padding-left: 16px;
 	text-align: Left;
 }
-
-#Home_DIV {
-	background-color: red;
-}
-
-#CI_DIV {
-	background-color: green;
-}
-
-#Utils_DIV {
-	background-color: blue;
-}
-
-#dataBase_DIV {
-	background-color: orange;
-}
-
-#Contact_DIV {
-	background-color: grey;
-}
-
-#About_DIV {
-	background-color: pink;
-}

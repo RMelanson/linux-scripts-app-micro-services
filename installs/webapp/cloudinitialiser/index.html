@@ -26,7 +26,7 @@
 <body>
 	<div class="topNav_MENU" id="topNav_DIV">
 		<button id="home_BTN" class="topNav_BTN" onclick="activateButtonSelection(this, 'yellow')">Home</button>
-		<button id="ci_BTN" class="topNav_BTN" onclick="activateButtonSelection(this, 'green')">Cloud Initialiser</button>
+		<button id="CI_BTN" class="topNav_BTN" onclick="activateButtonSelection(this, 'green')">Cloud Initialiser</button>
 
 		<!-- 
 		<div id="dockerTab" class="hiddenTab">
@@ -125,27 +125,8 @@
 
 	<script>
 		var btn_ELMT = document.getElementById("home_BTN");
-		activateButtonSelection(btn_ELMT);
-
-		function activateButtonSelection(elmnt_BTN, color) {
-			var btn_ID = elmnt_BTN.id;
-			setActiveColorSelection(btn_ID);
-
-			div_ID = btn_ID.replace('_BTN', '_DIV');
-			setVisableDivSelection(div_ID, color)
-
-			resetAllNavMenus(elmnt_BTN);
-		}
-
-		function setVisableDivSelection(div_ID, color) {
-			setActiveColorSelection(div_ID);
-			var div_ELMT = document.getElementById(div_ID);
-			var div_CLASS = div_ELMT.className;
-			closeAllPageDivs(div_CLASS);
-			div_ELMT.style.display = "block";
-		}
+		activateButtonSelection(btn_ELMT,"blue");
 	</script>
-
 </body>
 
 </html>

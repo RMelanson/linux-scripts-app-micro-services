@@ -1,4 +1,4 @@
-var activeMenuColor = 'red';
+/*var activeMenuColor = 'red';
 
 function setActiveMenuColor(color) {
 	activeMenuColor = color;
@@ -41,6 +41,38 @@ function setPostScripTitle(id, elmnt, color) {
 	postTitle.innerHTML = newTitle;
 	//    alert("After postTitle = "+postTitle.innerHTML);
 }
+*/
+
+function activateButtonSelection(elmnt_BTN, color) {
+	var btn_ID = elmnt_BTN.id;
+	var classSelected = elmnt_BTN.class;
+	setActiveColorSelection(btn_ID);
+
+	div_ID = btn_ID.replace('_BTN', '_DIV');
+	setActiveColorSelection(div_ID);
+	setVisableDivSelection(div_ID, color)
+
+//	resetAllNavMenus(elmnt_BTN);
+}
+
+function setVisableDivSelection(div_ID, color) {
+	var div_ELMT = document.getElementById(div_ID);
+	var div_CLASS = div_ELMT.className;
+	closeAllPageDivs(div_CLASS);
+	div_ELMT.style.display = "block";
+}
+
+/*
+function resetAllNavMenus(elmnt) {
+	var i, tablinks;
+	var navMenuClass = elmnt.className;
+	tablinks = document.getElementsByClassName(navMenuClass);
+	for (i = 0; i < tablinks.length; i++) {
+		tablinks[i].style.backgroundColor = "";
+	}
+	elmnt.style.backgroundColor = activeMenuColor;
+}
+*/
 
 function closeAllPageDivs(divClass) {
 	var i, pgDiv;
@@ -51,16 +83,7 @@ function closeAllPageDivs(divClass) {
 	}
 }
 
-function resetAllNavMenus(elmnt) {
-	var i, tablinks;
-	var navMenuClass = elmnt.className;
-	tablinks = document.getElementsByClassName(navMenuClass);
-	for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].style.backgroundColor = "";
-	}
-	elmnt.style.backgroundColor = activeMenuColor;
-}
-
+/////////////////////////////// CHECT BOXES CODE ///////////////////////////////////
 function checkBoxDivToggle(checkBox) {
 	var cbId = checkBox.id;
 	var divPageId = cbId + "_Div";

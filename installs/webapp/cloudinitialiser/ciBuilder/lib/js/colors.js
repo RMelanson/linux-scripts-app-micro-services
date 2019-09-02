@@ -12,7 +12,7 @@ var defaultClassBackGroundColor = "#333";
 
 const activeIdColors = new Map([
 	["Home", 'red'],
-	["CI", 'green'],
+	["CI_BTN", "#333"],
 	["Postman", 'Orange'],
 	["About", 'pink'],
 	["Contact", 'yellow']
@@ -27,7 +27,7 @@ const defaultIdColors = new Map([
 ]);
 
 const activeClassColors = new Map([
-	["topNav_BTN", 'red'],
+	["topMenu_BTN", 'red'],
 	["rightColClass", 'green'],
 	["leftColClass", 'Orange'],
 	["About", 'pink'],
@@ -35,7 +35,7 @@ const activeClassColors = new Map([
 ]);
 
 const defaultClassColors = new Map([
-	["TopNav", 'black'],
+	["topMenu", 'black'],
 	["rightColClass", 'green'],
 	["leftColClass", 'Orange'],
 	["About", 'pink'],
@@ -43,7 +43,7 @@ const defaultClassColors = new Map([
 ]);
 
 const activeBackGroundClassColors = new Map([
-	["TopNav", 'red'],
+	["CI_BTN", 'green'],
 	["rightColClass", 'green'],
 	["leftColClass", 'Orange'],
 	["About", 'pink'],
@@ -51,7 +51,7 @@ const activeBackGroundClassColors = new Map([
 ]);
 
 const defaultBackGroundClassColors = new Map([
-	["TopNav", 'black'],
+	["topMenu", 'black'],
 	["rightColClass", 'green'],
 	["leftColClass", 'Orange'],
 	["About", 'pink'],
@@ -60,7 +60,7 @@ const defaultBackGroundClassColors = new Map([
 
 const activeBackGroundIdColors = new Map([
 	["Home", 'red'],
-	["CI", 'green'],
+	["CI_BTN", 'green'],
 	["Postman", 'Orange'],
 	["About", 'pink'],
 	["Contact", 'yellow']
