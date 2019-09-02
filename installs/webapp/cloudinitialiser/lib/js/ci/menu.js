@@ -43,16 +43,23 @@ function setPostScripTitle(id, elmnt, color) {
 }
 */
 
-function activateButtonSelection(elmnt_BTN, color) {
+function execSelection(elmnt_BTN, color) {
 	var btn_ID = elmnt_BTN.id;
-	var classSelected = elmnt_BTN.class;
-	setActiveColorSelection(btn_ID);
+	var selectedClass = elmnt_BTN.className;
 
+	switch(selectedClass) {
+		case "mainMenu_BTN":
+		  text = "mainMenu_BTN is good!";
+		  break;
+		default:
+		  alert("Unknown Class " + selectedClass);
+		  break;
+	  }
+
+	setActiveColorSelection(btn_ID);
 	div_ID = btn_ID.replace('_BTN', '_DIV');
 	setActiveColorSelection(div_ID);
 	setVisableDivSelection(div_ID, color)
-
-//	resetAllNavMenus(elmnt_BTN);
 }
 
 function setVisableDivSelection(div_ID, color) {

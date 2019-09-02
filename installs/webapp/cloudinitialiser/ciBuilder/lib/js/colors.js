@@ -35,7 +35,7 @@ const activeClassColors = new Map([
 ]);
 
 const defaultClassColors = new Map([
-	["topMenu", 'black'],
+	["mainMenu", 'black'],
 	["rightColClass", 'green'],
 	["leftColClass", 'Orange'],
 	["About", 'pink'],
@@ -51,7 +51,7 @@ const activeBackGroundClassColors = new Map([
 ]);
 
 const defaultBackGroundClassColors = new Map([
-	["topMenu", 'black'],
+	["mainMenu", 'black'],
 	["rightColClass", 'green'],
 	["leftColClass", 'Orange'],
 	["About", 'pink'],
