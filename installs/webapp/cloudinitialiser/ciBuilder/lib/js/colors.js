@@ -144,19 +144,19 @@ function getDefaultBackGroundClassColor(clazz) {
 	return color;
 }
 
-function setDefaultIdColors(id) {
+function setDefaultIdColors(id, color, backgroundColor) {
 	var elmnt = document.getElementById(id);
 	elmnt.style.backgroundColor = getDefaultBackGroundIdColor(id);
 	elmnt.style.color = getDefaultIdColor(id);
 }
 
-function setActiveColors(id) {
+function setActiveIdColors(id, color, backgroundColor) {
 	var elmnt = document.getElementById(id);
 	elmnt.style.backgroundColor = getActiveBackGroundIdColor(id);
 	elmnt.style.color = getActiveIdColor(id);
 }
 
-function resetClassMemberColors(className) {
+function resetClassMemberColors(className, color, backgroundColor) {
 	var i, tablinks;
 	tablinks = document.getElementsByClassName(className);
 	for (i = 0; i < tablinks.length; i++) {
@@ -165,11 +165,11 @@ function resetClassMemberColors(className) {
 	}
 }
 
-function setActiveColorSelection(id) {
+function setActiveColorSelection(id, color, backgroundColor) {
 	elmnt = document.getElementById(id);
 	var className = elmnt.className;
 	resetClassMemberColors(className);
-	setActiveColors(id);
+	setActiveIdColors(id);
 }
 
 /*

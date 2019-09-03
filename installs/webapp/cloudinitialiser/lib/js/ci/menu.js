@@ -43,26 +43,28 @@ function setPostScripTitle(id, elmnt, color) {
 }
 */
 
-function execSelection(elmnt_BTN, color) {
-	var btn_ID = elmnt_BTN.id;
-	var selectedClass = elmnt_BTN.className;
+function setActiveSelection(elmnt, color, backgroundColor) {
+	var selectedID = elmnt.id;
+	var selectedClass = elmnt.className;
 
-	switch(selectedClass) {
+	switch (selectedClass) {
 		case "mainMenu_BTN":
-		  text = "mainMenu_BTN is good!";
-		  break;
+//			alert("Found Class " + selectedClass);
+			setActiveColorSelection(selectedID, color, backgroundColor);
+			div_ID = selectedID.replace('_BTN', '_DIV');
+			elmnt = document.getElementById(div_ID);
+			setActiveSelection(elmnt, color, backgroundColor)
+			break;
+		case "mainMenu_DIV":
+			setVisableDivSelection(selectedID);
+			break;
 		default:
-		  alert("Unknown Class " + selectedClass);
-		  break;
-	  }
-
-	setActiveColorSelection(btn_ID);
-	div_ID = btn_ID.replace('_BTN', '_DIV');
-	setActiveColorSelection(div_ID);
-	setVisableDivSelection(div_ID, color)
+			alert("Unknown Class " + selectedClass);
+			break;
+	}
 }
 
-function setVisableDivSelection(div_ID, color) {
+function setVisableDivSelection(div_ID, color, backgroundColor) {
 	var div_ELMT = document.getElementById(div_ID);
 	var div_CLASS = div_ELMT.className;
 	closeAllPageDivs(div_CLASS);
