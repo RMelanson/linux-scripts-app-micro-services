@@ -21,12 +21,30 @@
 <script>
 	var loc = window.location.pathname;
 	var dir = loc.substring(0, loc.lastIndexOf('/'))
+
+	var defaultActiveText = "black";
+	var defaultActiveBackGround = "white";
+
+	var defaultActiveHomeText = defaultActiveText;
+	var defaultActiveHomeBackGround = "red";
+
+	var defaultActiveCIText = defaultActiveText;
+	var defaultActiveCIBackGround = "green";
+
+	var defaultActivePosttManText = defaultActiveText;
+	var defaultActivePosttManBackGround = "pink";
+
+	var defaultActiveAboutText = defaultActiveText;
+	var defaultActiveAboutBackGround = "yellow";
+
+	var defaultActiveContactText = defaultActiveText;
+	var defaultActiveContactBackGround = "orange";
 </script>
 
 <body>
 	<div class="main_MENU" id="topNav_DIV">
-		<button id="home_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, 'yellow','black')">Home</button>
-		<button id="CI_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, 'green','black')">Cloud Initialiser</button>
+		<button id="home_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, defaultActiveHomeText,defaultActiveHomeBackGround)">Home</button>
+		<button id="CI_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, defaultActiveText, defaultActiveCIBackGround)">Cloud Initialiser</button>
 
 		<!-- 
 		<div id="dockerTab" class="hiddenTab">
@@ -85,10 +103,10 @@
 		<div id="wpTab" class="hiddenTab">
 			<button id="WP_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, 'orange','black')">WordPress</button>
 		</div>
-		<button id="postMan_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, 'yellow','black')">Test Post</button>
-		<button id="about_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, 'pink','black')">About</button>
-		<button id="contact_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, 'grey','black')">Contact</button>
-		<a href="javascript:void(0);" class="icon" onclick="showVerticleNavMenu(,'black')">
+		<button id="postMan_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, defaultActivePosttManText, defaultActiveBackGround)">Test Post</button>
+		<button id="about_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, defaultActiveAboutText, defaultActiveAboutBackGround)">About</button>
+		<button id="contact_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, defaultActiveContactText, defaultActiveContactBackGround)">Contact</button>
+		<a href="javascript:void(0);" class="icon" onclick="showVerticleNavMenu('grey','black')">
 			<i class="fa fa-bars"></i>
 		</a>
 	</div>
@@ -125,7 +143,7 @@
 
 	<script>
 		var btn_ELMT = document.getElementById("home_BTN");
-		setActiveSelection(btn_ELMT,"blue");
+		setActiveSelection(btn_ELMT, defaultActiveHomeText, defaultActiveHomeBackGround);
 	</script>
 </body>
 

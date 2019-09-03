@@ -49,13 +49,14 @@ function setActiveSelection(elmnt, color, backgroundColor) {
 
 	switch (selectedClass) {
 		case "mainMenu_BTN":
-//			alert("Found Class " + selectedClass);
+			//			alert("Found Class " + selectedClass);
 			setActiveColorSelection(selectedID, color, backgroundColor);
 			div_ID = selectedID.replace('_BTN', '_DIV');
 			elmnt = document.getElementById(div_ID);
-			setActiveSelection(elmnt, color, backgroundColor)
+			setActiveSelection(elmnt, color, backgroundColor);
 			break;
 		case "mainMenu_DIV":
+			setActiveColorSelection(selectedID, color, backgroundColor);
 			setVisableDivSelection(selectedID);
 			break;
 		default:
