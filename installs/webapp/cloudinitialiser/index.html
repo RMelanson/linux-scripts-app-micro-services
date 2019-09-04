@@ -29,10 +29,10 @@
 	var defaultActiveHomeBackGround = "red";
 
 	var defaultActiveCIText = defaultActiveText;
-	var defaultActiveCIBackGround = "green";
+	var defaultActiveCIBackGround = "pink";
 
-	var defaultActivePosttManText = defaultActiveText;
-	var defaultActivePosttManBackGround = "pink";
+	var defaultActivePostManText = defaultActiveText;
+	var defaultActivePostManBackGround = "green";
 
 	var defaultActiveAboutText = defaultActiveText;
 	var defaultActiveAboutBackGround = "yellow";
@@ -44,80 +44,80 @@
 <body>
 	<div class="main_MENU" id="topNav_DIV">
 		<button id="home_BTN" class="mainMenu_BTN"
-			onclick="setActiveSelection(this, defaultActiveHomeText,defaultActiveHomeBackGround)">Home</button>
+			onclick="setMainMenuButtonSelection(this, defaultActiveHomeText, defaultActiveHomeBackGround)">Home</button>
 		<button id="CI_BTN" class="mainMenu_BTN"
-			onclick="setActiveSelection(this, defaultActiveText, defaultActiveCIBackGround)">Cloud Initialiser</button>
+			onclick="setMainMenuButtonSelection(this, defaultActiveText, defaultActiveCIBackGround)">Cloud Initialiser</button>
 
 		<!-- 
 		<div id="dockerTab" class="hiddenTab">
-			<button id = "docker_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, 'orange','black')">Docker</button>
+			<button id = "docker_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this, 'orange','black')">Docker</button>
 		</div>
 	    -->
 		<div id="gitTab" class="hiddenTab">
-			<button id="git_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, 'orange','black')">Git</button>
+			<button id="git_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this, 'orange','black')">Git</button>
 		</div>
 		<div id="httpTab" class="hiddenTab">
 			<button id="HTTP_BTN" class="mainMenu_BTN"
-				onclick="setActiveSelection(this, 'orange','black')">HTTP</button>
+				onclick="setMainMenuButtonSelection(this, 'orange','black')">HTTP</button>
 		</div>
 		<div id="javaTab" class="hiddenTab">
 			<button id="java_BTN" class="mainMenu_BTN"
-				onclick="setActiveSelection(this, 'orange','black')">Java</button>
+				onclick="setMainMenuButtonSelection(this, 'orange','black')">Java</button>
 		</div>
 		<div id="jBossTab" class="hiddenTab">
 			<button id="jBoss_BTN" class="mainMenu_BTN"
-				onclick="setActiveSelection(this, 'orange','black')">jBoss</button>
+				onclick="setMainMenuButtonSelection(this, 'orange','black')">jBoss</button>
 		</div>
 		<div id="jenkinsTab" class="hiddenTab">
 			<button id="jenkins_BTN" class="mainMenu_BTN"
-				onclick="setActiveSelection(this, 'orange','black')">Jenkins</button>
+				onclick="setMainMenuButtonSelection(this, 'orange','black')">Jenkins</button>
 		</div>
 		<div id="langTab" class="hiddenTab">
 			<button id="lang_BTN" class="mainMenu_BTN"
-				onclick="setActiveSelection(this, 'orange','black')">Languages</button>
+				onclick="setMainMenuButtonSelection(this, 'orange','black')">Languages</button>
 		</div>
 		<div id="mysqlTab" class="hiddenTab">
 			<button id="mySQL_BTN" class="mainMenu_BTN"
-				onclick="setActiveSelection(this, 'orange','black')">mySQL</button>
+				onclick="setMainMenuButtonSelection(this, 'orange','black')">mySQL</button>
 		</div>
 		<div id="nodeJSTab" class="hiddenTab">
 			<button id="nodeJS_BTN" class="mainMenu_BTN"
-				onclick="setActiveSelection(this, 'orange','black')">Node.JS</button>
+				onclick="setMainMenuButtonSelection(this, 'orange','black')">Node.JS</button>
 		</div>
 		<div id="oracleTab" class="hiddenTab">
 			<button id="oracle_BTN" class="mainMenu_BTN"
-				onclick="setActiveSelection(this, 'orange','black')">Oracle</button>
+				onclick="setMainMenuButtonSelection(this, 'orange','black')">Oracle</button>
 		</div>
 		<div id="perlTab" class="hiddenTab">
 			<button id="perl_BTN" class="mainMenu_BTN"
-				onclick="setActiveSelection(this, 'orange','black')">Perl</button>
+				onclick="setMainMenuButtonSelection(this, 'orange','black')">Perl</button>
 		</div>
 		<div id="s3fsTab" class="hiddenTab">
-			<button id="S3FS_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, 'orange','black')">AWS
+			<button id="S3FS_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this, 'orange','black')">AWS
 				S3FS</button>
 		</div>
 		<div id="toolsTab" class="hiddenTab">
 			<button id="tools_BTN" class="mainMenu_BTN"
-				onclick="setActiveSelection(this, 'orange','black')">Tools</button>
+				onclick="setMainMenuButtonSelection(this, 'orange','black')">Tools</button>
 		</div>
 		<div id="userAdminTab" class="hiddenTab">
-			<button id="user_BTN" class="mainMenu_BTN" onclick="setActiveSelection(this, 'orange','black')">User
+			<button id="user_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this, 'orange','black')">User
 				Admin</button>
 		</div>
 		<div id="utilsTab" class="hiddenTab">
 			<button id="utils_BTN" class="mainMenu_BTN"
-				onclick="setActiveSelection(this, 'blue','black')">Utilities</button>
+				onclick="setMainMenuButtonSelection(this, 'blue','black')">Utilities</button>
 		</div>
 		<div id="wpTab" class="hiddenTab">
 			<button id="WP_BTN" class="mainMenu_BTN"
-				onclick="setActiveSelection(this, 'orange','black')">WordPress</button>
+				onclick="setMainMenuButtonSelection(this, 'orange','black')">WordPress</button>
 		</div>
 		<button id="postman_BTN" class="mainMenu_BTN"
-			onclick="setActiveSelection(this, defaultActivePosttManText, defaultActiveBackGround)">Test Post</button>
+			onclick="setMainMenuButtonSelection(this, defaultActivePostManText, defaultActivePostManBackGround)">Test Post</button>
 		<button id="about_BTN" class="mainMenu_BTN"
-			onclick="setActiveSelection(this, defaultActiveAboutText, defaultActiveAboutBackGround)">About</button>
+			onclick="setMainMenuButtonSelection(this, defaultActiveAboutText, defaultActiveAboutBackGround)">About</button>
 		<button id="contact_BTN" class="mainMenu_BTN"
-			onclick="setActiveSelection(this, defaultActiveContactText, defaultActiveContactBackGround)">Contact</button>
+			onclick="setMainMenuButtonSelection(this, defaultActiveContactText, defaultActiveContactBackGround)">Contact</button>
 		<a href="javascript:void(0);" class="icon" onclick="showVerticleNavMenu('grey','black')">
 			<i class="fa fa-bars"></i>
 		</a>
@@ -162,7 +162,7 @@
 			document.getElementById(divId).innerHTML = fileData;
 		}
 		var btn_ELMT = document.getElementById("home_BTN");
-		setActiveSelection(btn_ELMT, defaultActiveHomeText, defaultActiveHomeBackGround);
+		setMainMenuButtonSelection(btn_ELMT, defaultActiveHomeText, defaultActiveHomeBackGround);
 	</script>
 </body>
 

@@ -43,34 +43,28 @@ function setPostScripTitle(id, elmnt, color) {
 }
 */
 
-function setActiveSelection(elmnt, color, backgroundColor) {
-	var selectedID = elmnt.id;
-	var selectedClass = elmnt.className;
+function setMainMenuButtonSelection(elmnt, color, backgroundColor) {
+	var id_BTN = elmnt.id;
+	var id_DIV = id_BTN.replace('_BTN', '_DIV');
 
-	setActiveColorSelection(selectedID, color, backgroundColor);
-	switch (selectedClass) {
-		case "mainMenu_BTN":
-			//	alert("Found Class " + selectedClass);
-			div_ID = selectedID.replace('_BTN', '_DIV');
-			elmnt_DIV = document.getElementById(div_ID);
-			setActiveSelection(elmnt_DIV, color, backgroundColor);
-			if (div_ID == postMan_BTN)
-				configurePostMan(elmnt);
-			break;
-		case "mainMenu_DIV":
-			setVisableDivSelection(selectedID);
-			break;
-		default:
-			alert("Unknown Class " + selectedClass);
-			break;
-	}
+	setActiveColorSelection(id_BTN, color, backgroundColor);
+	//	alert("Found Class " + selectedClass);
+	configureDivIdSelection(id_DIV, color, backgroundColor);
+}
+
+function configureDivIdSelection(id_DIV, color, backgroundColor) {
+	var elmnt_DIV = document.getElementById(id_DIV);
+	setActiveColorSelection(id_DIV, color, backgroundColor);
+	if (id_DIV == "postman_DIV")
+		configurePostMan(elmnt_DIV);
+	setVisableSelection(id_DIV);
 }
 
 function configurePostMan(postMan_ELMT) {
 	alert("Configuring PostMan For " + postMan_ELMT.value);
 }
 
-function setVisableDivSelection(div_ID, color, backgroundColor) {
+function setVisableSelection(div_ID, color, backgroundColor) {
 	var div_ELMT = document.getElementById(div_ID);
 	var div_CLASS = div_ELMT.className;
 	closeAllPageDivs(div_CLASS);
