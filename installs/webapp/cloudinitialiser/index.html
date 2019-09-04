@@ -19,8 +19,8 @@
 </head>
 
 <script>
-	var loc = window.location.pathname;
-	var dir = loc.substring(0, loc.lastIndexOf('/'))
+	// var loc = window.location.pathname;
+	// var dir = loc.substring(0, loc.lastIndexOf('/'))
 
 	var defaultActiveText = "black";
 	var defaultActiveBackGround = "white";
@@ -124,27 +124,22 @@
 	</div>
 
 	<div id="home_DIV" class="mainMenu_DIV">
-		<script> $("#home_DIV").load(dir + "/pages/home.html"); </script>
+		<script> $("#home_DIV").load("./pages/home.html"); </script>
 	</div>
 
 	<div id="CI_DIV" class="mainMenu_DIV">
 		<script>
-			$("#CI_DIV").load(dir + "/pages/cloudInit.html"); 
+			$("#CI_DIV").load("./pages/cloudInit.html"); 
 		</script>
 	</div>
 
 	<div id="about_DIV" class="mainMenu_DIV">
 		<!-- <h1>ABOUT CLOUD INITIALISER</h1> -->
-		<script> $("#about_DIV").load(dir + "/pages/about.html"); </script>
+		<script> $("#about_DIV").load("./pages/about.html"); </script>
 	</div>
 
 	<div id="contact_DIV" class="mainMenu_DIV">
-		<script>
-			document.getElementById("contact_DIV").innerHTML = '<object type="/pages/contact.html" data="home.html" ></object>';
-		</script>
-		<!--
-			 <script> $("#contact_DIV").load(dir + "/pages/contact.html"); </script>
-		 -->
+		<script> $("#contact_DIV").load("./pages/contact.html"); </script>
 	</div>
 
 	<script>
@@ -153,12 +148,19 @@
 	</script>
 
 	<div id="postman_DIV" class="mainMenu_DIV">
-		<script>
-			$("#postman_DIV").load("../ciBuilder/ciPostman.html");
-		</script>
+			<script> $("#postman_DIV").load("./ciBuilder/ciPostman.html"); </script>
+			<!-- <script>
+			// var extHTML = "junk.html";
+			// alert(extHTML);
+			// $("#postman_DIV").load(extHTML);
+		</script> -->
 	</div>
 
 	<script>
+		function load_div(divId) {
+			var fileData = '<object type="text/html" data="home.html" ></object>';
+			document.getElementById(divId).innerHTML = fileData;
+		}
 		var btn_ELMT = document.getElementById("home_BTN");
 		setActiveSelection(btn_ELMT, defaultActiveHomeText, defaultActiveHomeBackGround);
 	</script>
