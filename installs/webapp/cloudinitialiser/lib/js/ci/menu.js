@@ -77,8 +77,8 @@ const mainMenuSelection = new Map([
 	["home_BTN_id", 'home_BTN'],
 	["home_BTN_active_fgColor", active_home_fgColor],
 	["home_BTN_active_bgColor", active_home_bgColor],
-	["home_BTN_default_fgColor", ''],
-	["home_BTN_default_bgColor", ''],
+	["home_BTN_default_fgColor", 'default_home_fgColor'],
+	["home_BTN_default_bgColor", 'default_home_bgColor'],
 
 	["home_DIV_id", 'home_DIV'],
 
@@ -87,25 +87,25 @@ const mainMenuSelection = new Map([
 	["CI_DIV_id", "CI_DIV"],
 
 	["postman_test_BTN_id", 'postman_test_BTN'],
-	["postman_test_BTN_active_fgColor", ''],
-	["postman_test_BTN_active_bgColor", ''],
-	["postman_test_BTN_default_fgColo", ''],
-	["postman_test_BTN_default_bgColor", ''],
-	["postman_test_BTN_default_bgColor", ''],
-	["postman_test_BTN_default_bgColor", ''],
+	["postman_test_BTN_active_fgColor", 'active_home_fgColor'],
+	["postman_test_BTN_active_bgColor", 'active_home_bgColor'],
+	["postman_test_BTN_default_fgColor", 'default_home_fgColor'],
+	["postman_test_BTN_default_bgColor", 'default_home_bgColor'],
+	["postman_test_BTN_default_bgColor", 'default_home_bgColor'],
+	["postman_test_BTN_default_bgColor", 'default_home_bgColor'],
 
 	["postman_test_DIV_id", 'postman_test_DIV'],
-	["postman_test_DIV_active_fgColo", ''],
-	["postman_test_DIV_active_bgColor", ''],
-	["postman_test_DIV_default_fgColo", ''],
-	["postman_test_DIV_default_bgColor", ''],
+	["postman_test_DIV_active_fgColor", 'active_home_fgColor'],
+	["postman_test_DIV_active_bgColor", 'active_home_bgColor'],
+	["postman_test_DIV_default_fgColor", 'default_home_fgColor'],
+	["postman_test_DIV_default_bgColor", 'default_home_bgColor'],
 	["postman_test_DIV_URL", ''],
-	["postman_test_DIV_titleHeader_fgColor", ''],
-	["postman_test_DIV_titleHeader_bgColor", ''],
-	["postman_test_DIV_titleResponse_fgColor", ''],
-	["postman_test_DIV_titleResponse_bgColor", ''],
-	["postman_test_DIV_titleResponse_fgColor", ''],
-	["postman_test_DIV_titleResponse_bgColor", ''],
+	["postman_test_DIV_titleHeader_fgColor", 'default_home_fgColor'],
+	["postman_test_DIV_titleHeader_bgColor", 'default_home_bgColor'],
+	["postman_test_DIV_titleResponse_fgColor", 'default_home_fgColor'],
+	["postman_test_DIV_titleResponse_bgColor", 'default_home_bgColor'],
+	["postman_test_DIV_titleResponse_fgColor", 'default_home_fgColor'],
+	["postman_test_DIV_titleResponse_bgColor", 'default_home_bgColor'],
 
 	["about_BTN_id", 'about_BTN'],
 
@@ -143,7 +143,7 @@ function configureDivIdSelection(id_DIV, color, bgColor) {
 }
 
 function configurePostMan(postMan_ELMT) {
-	alert("Configuring PostMan For " + postMan_ELMT.value);
+//	alert("Configuring PostMan For " + postMan_ELMT.value);
 }
 
 function setVisableSelection(div_ID, color, bgColor) {
