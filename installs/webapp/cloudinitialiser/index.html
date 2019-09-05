@@ -54,7 +54,8 @@
 		</div>
 	    -->
 		<div id="gitTab" class="hiddenTab">
-			<button id="git_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this, 'orange','black')">Git</button>
+			<button id="git_BTN" class="mainMenu_BTN"
+				onclick="setMainMenuButtonSelection(this, 'orange','black')">Git</button>
 		</div>
 		<div id="httpTab" class="hiddenTab">
 			<button id="HTTP_BTN" class="mainMenu_BTN"
@@ -113,7 +114,8 @@
 				onclick="setMainMenuButtonSelection(this, 'orange','black')">WordPress</button>
 		</div>
 		<button id="postman_BTN" class="mainMenu_BTN"
-			onclick="setMainMenuButtonSelection(this, active_postman_fgColor, active_postman_bgColor)">Test Post</button>
+			onclick="setMainMenuButtonSelection(this, active_postman_fgColor, active_postman_bgColor)">Test
+			Post</button>
 		<button id="about_BTN" class="mainMenu_BTN"
 			onclick="setMainMenuButtonSelection(this, active_about_fgColor, active_about_bgColor)">About</button>
 		<button id="contact_BTN" class="mainMenu_BTN"
@@ -148,12 +150,7 @@
 	</script>
 
 	<div id="postman_DIV" class="mainMenu_DIV">
-			<script> $("#postman_DIV").load("./ciBuilder/ciPostman.html"); </script>
-			<!-- <script>
-			// var extHTML = "junk.html";
-			// alert(extHTML);
-			// $("#postman_DIV").load(extHTML);
-		</script> -->
+		<script> $("#postman_DIV").load("./ciBuilder/ciPostman.html"); </script>
 	</div>
 
 	<script>
