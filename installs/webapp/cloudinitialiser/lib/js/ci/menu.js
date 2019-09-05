@@ -43,34 +43,34 @@ function setPostScripTitle(id, elmnt, color) {
 }
 */
 
-var active_fgColor = "black";
-var active_bgColor = "white";
+var active_fgColor = "#333";
+var active_bgColor = "red";
+var default_fgColor = "white";
 var default_fgColor = "black";
-var default_bgColor = "white";
 
 var active_home_fgColor = active_fgColor;
 var active_home_bgColor = "red";
-var default_home_fgColor = active_fgColor;
+var default_home_fgColor = default_fgColor;
 var default_home_bgColor = "red";
 
 var active_CI_fgColor = active_fgColor;
 var active_CI_bgColor = "pink";
-var default_CI_fgColor = active_fgColor;
+var default_CI_fgColor = default_fgColor;
 var default_CI_bgColor = "pink";
 
 var active_postman_fgColor = active_fgColor;
 var active_postman_bgColor = "green";
-var default_postman_fgColor = active_fgColor;
+var default_postman_fgColor = default_fgColor;
 var default_postman_bgColor = "green";
 
 var default_about_fgColor = active_fgColor;
 var default_about_bgColor = "yellow";
-var active_about_fgColor = active_fgColor;
+var active_about_fgColor = default_fgColor;
 var active_about_bgColor = "yellow";
 
 var active_contact_fgColor = active_fgColor;
 var active_contact_bgColor = "orange";
-var default_contact_fgColor = active_fgColor;
+var default_contact_fgColor = default_fgColor;
 var default_contact_bgColor = "orange";
 
 const mainMenuSelection = new Map([
