@@ -69,7 +69,7 @@ var active_about_fgColor = default_fgColor;
 var active_about_bgColor = "yellow";
 
 var active_contact_fgColor = active_fgColor;
-var active_contact_bgColor = "orange";
+var active_contact_bgColor = "grey";
 var default_contact_fgColor = default_fgColor;
 var default_contact_bgColor = "orange";
 
