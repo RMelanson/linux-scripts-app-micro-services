@@ -43,18 +43,100 @@ function setPostScripTitle(id, elmnt, color) {
 }
 */
 
-function setMainMenuButtonSelection(elmnt, color, backgroundColor) {
+var active_fgColor = "black";
+var active_bgColor = "white";
+var default_fgColor = "black";
+var default_bgColor = "white";
+
+var active_home_fgColor = active_fgColor;
+var active_home_bgColor = "red";
+var default_home_fgColor = active_fgColor;
+var default_home_bgColor = "red";
+
+var active_CI_fgColor = active_fgColor;
+var active_CI_bgColor = "pink";
+var default_CI_fgColor = active_fgColor;
+var default_CI_bgColor = "pink";
+
+var active_postman_fgColor = active_fgColor;
+var active_postman_bgColor = "green";
+var default_postman_fgColor = active_fgColor;
+var default_postman_bgColor = "green";
+
+var default_about_fgColor = active_fgColor;
+var default_about_bgColor = "yellow";
+var active_about_fgColor = active_fgColor;
+var active_about_bgColor = "yellow";
+
+var active_contact_fgColor = active_fgColor;
+var active_contact_bgColor = "orange";
+var default_contact_fgColor = active_fgColor;
+var default_contact_bgColor = "orange";
+
+const mainMenuSelection = new Map([
+	["home_BTN_id", 'home_BTN'],
+	["home_BTN_active_fgColor", active_home_fgColor],
+	["home_BTN_active_bgColor", active_home_bgColor],
+	["home_BTN_default_fgColor", ''],
+	["home_BTN_default_bgColor", ''],
+
+	["home_DIV_id", 'home_DIV'],
+
+	["CI_BTN_id", "CI_BTN"],
+
+	["CI_DIV_id", "CI_DIV"],
+
+	["postman_test_BTN_id", 'postman_test_BTN'],
+	["postman_test_BTN_active_fgColor", ''],
+	["postman_test_BTN_active_bgColor", ''],
+	["postman_test_BTN_default_fgColo", ''],
+	["postman_test_BTN_default_bgColor", ''],
+	["postman_test_BTN_default_bgColor", ''],
+	["postman_test_BTN_default_bgColor", ''],
+
+	["postman_test_DIV_id", 'postman_test_DIV'],
+	["postman_test_DIV_active_fgColo", ''],
+	["postman_test_DIV_active_bgColor", ''],
+	["postman_test_DIV_default_fgColo", ''],
+	["postman_test_DIV_default_bgColor", ''],
+	["postman_test_DIV_URL", ''],
+	["postman_test_DIV_titleHeader_fgColor", ''],
+	["postman_test_DIV_titleHeader_bgColor", ''],
+	["postman_test_DIV_titleResponse_fgColor", ''],
+	["postman_test_DIV_titleResponse_bgColor", ''],
+	["postman_test_DIV_titleResponse_fgColor", ''],
+	["postman_test_DIV_titleResponse_bgColor", ''],
+
+	["about_BTN_id", 'about_BTN'],
+
+	["about_DIV_id", 'about_DIV'],
+
+	["contact_BTN_id", 'contact_BTN'],
+
+	["contact_DIV_id", 'contact_DIV']
+]);
+
+function setMainMenuButtonSelection(elmnt, color, bgColor) {
 	var id_BTN = elmnt.id;
 	var id_DIV = id_BTN.replace('_BTN', '_DIV');
 
-	setActiveColorSelection(id_BTN, color, backgroundColor);
+	setActiveColorSelection(id_BTN, color, bgColor);
 	//	alert("Found Class " + selectedClass);
-	configureDivIdSelection(id_DIV, color, backgroundColor);
+	configureDivIdSelection(id_DIV, color, bgColor);
 }
 
-function configureDivIdSelection(id_DIV, color, backgroundColor) {
+function setMainMenuMap(elmnt, color, bgColor) {
+	var id_BTN = elmnt.id;
+	var id_DIV = id_BTN.replace('_BTN', '_DIV');
+
+	setActiveColorSelection(id_BTN, color, bgColor);
+	//	alert("Found Class " + selectedClass);
+	configureDivIdSelection(id_DIV, color, bgColor);
+}
+
+function configureDivIdSelection(id_DIV, color, bgColor) {
 	var elmnt_DIV = document.getElementById(id_DIV);
-	setActiveColorSelection(id_DIV, color, backgroundColor);
+	setActiveColorSelection(id_DIV, color, bgColor);
 	if (id_DIV == "postman_DIV")
 		configurePostMan(elmnt_DIV);
 	setVisableSelection(id_DIV);
@@ -64,24 +146,12 @@ function configurePostMan(postMan_ELMT) {
 	alert("Configuring PostMan For " + postMan_ELMT.value);
 }
 
-function setVisableSelection(div_ID, color, backgroundColor) {
+function setVisableSelection(div_ID, color, bgColor) {
 	var div_ELMT = document.getElementById(div_ID);
 	var div_CLASS = div_ELMT.className;
 	closeAllPageDivs(div_CLASS);
 	div_ELMT.style.display = "block";
 }
-
-/*
-function resetAllNavMenus(elmnt) {
-	var i, tablinks;
-	var navMenuClass = elmnt.className;
-	tablinks = document.getElementsByClassName(navMenuClass);
-	for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].style.backgroundColor = "";
-	}
-	elmnt.style.backgroundColor = activeMenuColor;
-}
-*/
 
 function closeAllPageDivs(divClass) {
 	var i, pgDiv;

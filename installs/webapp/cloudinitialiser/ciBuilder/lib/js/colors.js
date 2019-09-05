@@ -6,7 +6,7 @@ var acvtiveBackGroundColor = "red";
 
 var defaultColor = "lightGrey";
 var defaultBackGroundColor = "purple";
-var defaultActiveColor = "black";
+var activeColor = "black";
 var defaultClassColor = "white";
 var defaultClassBackGroundColor = "#333";
 
