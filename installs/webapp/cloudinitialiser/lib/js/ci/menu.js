@@ -143,7 +143,7 @@ function configureDivIdSelection(id_DIV, color, bgColor) {
 }
 
 function configurePostMan(postMan_ELMT) {
-	alert("Configuring PostMan For " + postMan_ELMT.value);
+//	alert("Configuring PostMan For " + postMan_ELMT.value);
 }
 
 function setVisableSelection(div_ID, color, bgColor) {
