@@ -46,12 +46,12 @@ function setPostScripTitle(id, elmnt, color) {
 var active_fgColor = "#333";
 var active_bgColor = "red";
 var default_fgColor = "white";
-var default_fgColor = "black";
+var default_bgColor = "black";
 
 var active_home_fgColor = active_fgColor;
-var active_home_bgColor = "red";
+var active_home_bgColor = active_bgColor;
 var default_home_fgColor = default_fgColor;
-var default_home_bgColor = "red";
+var default_home_bgColor = default_bgColor;
 
 var active_CI_fgColor = active_fgColor;
 var active_CI_bgColor = "pink";
@@ -68,10 +68,15 @@ var default_about_bgColor = "yellow";
 var active_about_fgColor = default_fgColor;
 var active_about_bgColor = "yellow";
 
+var default_test_fgColor = active_fgColor;
+var default_test_bgColor = "yellow";
+var active_test_fgColor = default_fgColor;
+var active_test_bgColor = "yellow";
+
 var active_contact_fgColor = active_fgColor;
 var active_contact_bgColor = "grey";
 var default_contact_fgColor = default_fgColor;
-var default_contact_bgColor = "orange";
+var default_contact_bgColor = "grey";
 
 const mainMenuSelection = new Map([
 	["home_BTN_id", 'home_BTN'],
@@ -86,26 +91,23 @@ const mainMenuSelection = new Map([
 
 	["CI_DIV_id", "CI_DIV"],
 
-	["postman_test_BTN_id", 'postman_test_BTN'],
-	["postman_test_BTN_active_fgColor", 'active_home_fgColor'],
-	["postman_test_BTN_active_bgColor", 'active_home_bgColor'],
-	["postman_test_BTN_default_fgColor", 'default_home_fgColor'],
-	["postman_test_BTN_default_bgColor", 'default_home_bgColor'],
-	["postman_test_BTN_default_bgColor", 'default_home_bgColor'],
-	["postman_test_BTN_default_bgColor", 'default_home_bgColor'],
+	["postman_BTN_test_id", 'postman_BTN_test'],
+	["postman_BTN_test_active_fgColor", 'active_test_fgColor'],
+	["postman_BTN_test_active_bgColor", 'active_test_bgColor'],
+	["postman_BTN_test_default_fgColor", 'default_test_fgColor'],
+	["postman_BTN_test_default_bgColor", 'default_test_bgColor'],
 
-	["postman_test_DIV_id", 'postman_test_DIV'],
-	["postman_test_DIV_active_fgColor", 'active_home_fgColor'],
-	["postman_test_DIV_active_bgColor", 'active_home_bgColor'],
-	["postman_test_DIV_default_fgColor", 'default_home_fgColor'],
-	["postman_test_DIV_default_bgColor", 'default_home_bgColor'],
-	["postman_test_DIV_URL", ''],
-	["postman_test_DIV_titleHeader_fgColor", 'default_home_fgColor'],
-	["postman_test_DIV_titleHeader_bgColor", 'default_home_bgColor'],
-	["postman_test_DIV_titleResponse_fgColor", 'default_home_fgColor'],
-	["postman_test_DIV_titleResponse_bgColor", 'default_home_bgColor'],
-	["postman_test_DIV_titleResponse_fgColor", 'default_home_fgColor'],
-	["postman_test_DIV_titleResponse_bgColor", 'default_home_bgColor'],
+	["postman_DIV_test_id", 'postman_DIV_test'],
+	["postman_DIV_test_active_fgColor", 'active_test_fgColor'],
+	["postman_DIV_test_active_bgColor", 'active_test_bgColor'],
+	["postman_DIV_test_default_fgColor", 'default_test_fgColor'],
+	["postman_DIV_test_default_bgColor", 'default_test_bgColor'],
+	["postman_DIV_test_URL", 'http://www.stockwidgets.com:9090/system?cmd=ls'],
+	["postman_DIV_test_titleHeader_fgColor", 'default_test_fgColor'],
+	["postman_DIV_test_titleHeader_bgColor", 'default_test_bgColor'],
+	["postman_DIV_test_titleResponse_fgColor", 'default_test_fgColor'],
+	["postman_DIV_test_titleResponse_bgColor", 'default_test_bgColor'],
+	["postman_DIV_test_activeColumnSelection", 'default_test_fgColor'],
 
 	["about_BTN_id", 'about_BTN'],
 
@@ -120,7 +122,7 @@ function setMainMenuButtonSelection(elmnt, color, bgColor) {
 	var id_BTN = elmnt.id;
 	var id_DIV = id_BTN.replace('_BTN', '_DIV');
 
-	setActiveColorSelection(id_BTN, color, bgColor);
+	setActiveSelection(id_BTN, color, bgColor);
 	//	alert("Found Class " + selectedClass);
 	configureDivIdSelection(id_DIV, color, bgColor);
 }
@@ -129,14 +131,14 @@ function setMainMenuMap(elmnt, color, bgColor) {
 	var id_BTN = elmnt.id;
 	var id_DIV = id_BTN.replace('_BTN', '_DIV');
 
-	setActiveColorSelection(id_BTN, color, bgColor);
+	setActiveSelection(id_BTN, color, bgColor);
 	//	alert("Found Class " + selectedClass);
 	configureDivIdSelection(id_DIV, color, bgColor);
 }
 
 function configureDivIdSelection(id_DIV, color, bgColor) {
 	var elmnt_DIV = document.getElementById(id_DIV);
-	setActiveColorSelection(id_DIV, color, bgColor);
+	setActiveSelection(id_DIV, color, bgColor);
 	if (id_DIV == "postman_DIV")
 		configurePostMan(elmnt_DIV);
 	setVisableSelection(id_DIV);

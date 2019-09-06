@@ -11,69 +11,200 @@ var defaultClassColor = "white";
 var defaultClassBackGroundColor = "#333";
 
 const activeIdColors = new Map([
-	["Home", 'red'],
-	["CI_BTN", "#333"],
-	["Postman", 'Orange'],
-	["About", 'pink'],
-	["Contact", 'yellow']
 ]);
 
 const defaultIdColors = new Map([
-	["Home", 'red'],
-	["CI", 'green'],
-	["Postman", 'Orange'],
-	["About", 'pink'],
-	["Contact", 'yellow']
 ]);
 
 const activeClassColors = new Map([
-	["topMenu_BTN", 'red'],
-	["rightColClass", 'green'],
-	["leftColClass", 'Orange'],
-	["About", 'pink'],
-	["Contact", 'yellow']
 ]);
 
 const defaultClassColors = new Map([
-	["mainMenu", 'black'],
-	["rightColClass", 'green'],
-	["leftColClass", 'Orange'],
-	["About", 'pink'],
-	["Contact", 'yellow']
 ]);
 
 const activeBackGroundClassColors = new Map([
-	["CI_BTN", 'green'],
-	["rightColClass", 'green'],
-	["leftColClass", 'Orange'],
-	["About", 'pink'],
-	["Contact", 'yellow']
 ]);
 
 const defaultBackGroundClassColors = new Map([
-	["mainMenu", 'black'],
-	["rightColClass", 'green'],
-	["leftColClass", 'Orange'],
-	["About", 'pink'],
-	["Contact", 'yellow']
 ]);
 
 const activeBackGroundIdColors = new Map([
-	["Home", 'red'],
-	["CI_BTN", 'green'],
-	["Postman", 'Orange'],
-	["About", 'pink'],
-	["Contact", 'yellow']
 ]);
 
 const defaultBackGroundIdColors = new Map([
-	["Home", 'red'],
-	["CI", 'green'],
-	["Postman", 'Orange'],
-	["About", 'pink'],
-	["Contact", 'yellow']
 ]);
 
+//////////////////////////// START NEW STUFF ///////////////////////////////////
+
+const selectionMap = new Map([
+	"classMaps", new Map([]),
+	"idMaps", new Map([
+		"activeIdMaps", new Map([]),
+		"defaultIdMaps", new Map([])
+	]),
+]);
+
+// PROCESS CLASS MAPS
+function getClassMaps() {
+	var classMaps = selectionMap.get("classMaps");
+	return classMaps;
+}
+
+function getClassMap(classMapKey) {
+	var classesMaps = getClassMaps();
+	var classMaps = classesMap.get(classMapKey);
+	return classMap;
+}
+
+function addClassMap(classMapKey) {
+	var classMaps = getClassMaps();
+	classMaps.set(classMapKey, new Map([]));
+	return classMap;
+}
+
+function getValidClassMap(classMapKey) {
+	var validClassMap = getClassMap(classMapKey);
+	if (typeof (validClassMap) == 'undefined' || validClassMap == null) {
+		validClassMap = addClassMap(classMapKey);
+	}
+	return validClassMap;
+}
+
+function getClassMapProperty(classMapKey, propertyKey) {
+	var validClassMap = getValidClassMap(classMapKey);
+	var classMapProperty = validClassMap.get(propertyKey);
+	if (typeof (classMapProperty) == 'undefined' || classMapProperty == null)
+		return classMapProperty;
+	return classMap;
+}
+
+function addClassMapPropertyValue(classMapKey, propertyKey, propertyValue) {
+	var validClassMap = getValidClassMap(classMapKey);
+	var validClassMapProperty = validClassMap.get(propertyKey);
+	validClassMapProperty.set(propertyKey, propertyValue);
+	return validClassMapProperty;
+}
+
+function getValidClassMapProperty(classMapKey, propertyKey, defaultValue) {
+	var validClassMap = getValidClassMap(classMapKey);
+	var validClassProperty = validClassMap.get(propertyKey);
+	if (typeof (validClassProperty) == 'undefined' || validClassProperty == null)
+		validClassProperty = defaultValue;
+	return validClassProperty;
+}
+
+// PROCESS ID MAPS
+function getIdMaps() {
+	var idMaps = selectionMap.get("idMaps");
+	return idMaps;
+}
+
+// PROCESS ACTIVE ID MAPS
+
+function getActiveIdMaps() {
+	var idMaps = getIdMaps();
+	var activeIdMaps = idMaps.get("activeIdMaps");
+	return activeIdMaps;
+}
+
+function getActiveIdMap(activeIdMapKey) {
+	var activeIdesMaps = getActiveIdMaps();
+	var activeIdMaps = activeIdesMap.get(activeIdMapKey);
+	return activeIdMap;
+}
+
+function addActiveIdMap(activeIdMapKey) {
+	var activeIdMaps = getActiveIdMaps();
+	activeIdMaps.set(activeIdMapKey, new Map([]));
+	return activeIdMap;
+}
+
+function getValidActiveIdMap(activeIdMapKey) {
+	var validActiveIdMap = getActiveIdMap(activeIdMapKey);
+	if (typeof (validActiveIdMap) == 'undefined' || validActiveIdMap == null) {
+		validActiveIdMap = addActiveIdMap(activeIdMapKey);
+	}
+	return validActiveIdMap;
+}
+
+function getActiveIdMapProperty(activeIdMapKey, propertyKey) {
+	var validActiveIdMap = getValidActiveIdMap(activeIdMapKey);
+	var activeIdMapProperty = validActiveIdMap.get(propertyKey);
+	if (typeof (activeIdMapProperty) == 'undefined' || activeIdMapProperty == null)
+		return activeIdMapProperty;
+	return activeIdMap;
+}
+
+function addActiveIdMapPropertyValue(activeIdMapKey, propertyKey, propertyValue) {
+	var validActiveIdMap = getValidActiveIdMap(activeIdMapKey);
+	var validActiveIdMapProperty = validActiveIdMap.get(propertyKey);
+	validActiveIdMapProperty.set(propertyKey, propertyValue);
+	return validActiveIdMapProperty;
+}
+
+function getValidActiveIdMapProperty(activeIdMapKey, propertyKey, defaultValue) {
+	var validActiveIdMap = getValidActiveIdMap(activeIdMapKey);
+	var validActiveIdProperty = validActiveIdMap.get(propertyKey);
+	if (typeof (validActiveIdProperty) == 'undefined' || validActiveIdProperty == null)
+		validActiveIdProperty = defaultValue;
+	return validActiveIdProperty;
+}
+
+// PROCESS DEFAULT ID MAPS
+
+function getDefaultIdMaps() {
+	var idMaps = getIdMaps();
+	var defaultIdMaps = idMaps.get("defaultIdMaps");
+	return defaultIdMaps;
+}
+
+function getDefaultIdMap(defaultIdMapKey) {
+	var defaultIdesMaps = getDefaultIdMaps();
+	var defaultIdMaps = defaultIdesMap.get(defaultIdMapKey);
+	return defaultIdMap;
+}
+
+function addDefaultIdMap(defaultIdMapKey) {
+	var defaultIdMaps = getDefaultIdMaps();
+	defaultIdMaps.set(defaultIdMapKey, new Map([]));
+	return defaultIdMap;
+}
+
+function getValidDefaultIdMap(defaultIdMapKey) {
+	var validDefaultIdMap = getDefaultIdMap(defaultIdMapKey);
+	if (typeof (validDefaultIdMap) == 'undefined' || validDefaultIdMap == null) {
+		validDefaultIdMap = addDefaultIdMap(defaultIdMapKey);
+	}
+	return validDefaultIdMap;
+}
+
+function getDefaultIdMapProperty(defaultIdMapKey, propertyKey) {
+	var validDefaultIdMap = getValidDefaultIdMap(defaultIdMapKey);
+	var defaultIdMapProperty = validDefaultIdMap.get(propertyKey);
+	if (typeof (defaultIdMapProperty) == 'undefined' || defaultIdMapProperty == null)
+		return defaultIdMapProperty;
+	return defaultIdMap;
+}
+
+function addDefaultIdMapPropertyValue(defaultIdMapKey, propertyKey, propertyValue) {
+	var validDefaultIdMap = getValidDefaultIdMap(defaultIdMapKey);
+	var validDefaultIdMapProperty = validDefaultIdMap.get(propertyKey);
+	validDefaultIdMapProperty.set(propertyKey, propertyValue);
+	return validDefaultIdMapProperty;
+}
+
+function getValidDefaultIdMapProperty(defaultIdMapKey, propertyKey, defaultValue) {
+	var validDefaultIdMap = getValidDefaultIdMap(defaultIdMapKey);
+	var validDefaultIdProperty = validDefaultIdMap.get(propertyKey);
+	if (typeof (validDefaultIdProperty) == 'undefined' || validDefaultIdProperty == null)
+		validDefaultIdProperty = defaultValue;
+	return validDefaultIdProperty;
+}
+
+
+//////////////////////////// END NEW STUFF
+
+// OLD WORKING COLOR CODE
 function getActiveIdColor(id) {
 	var color = activeIdColors.get(id);
 	if (typeof (color) == 'undefined' || color == null) {
@@ -151,7 +282,7 @@ function setDefaultIdColors(id, color, backgroundColor) {
 	elmnt.style.color = getDefaultIdColor(id);
 }
 
-function setActiveColorSelection(id, color, backgroundColor) {
+function setActiveSelection(id, color, backgroundColor) {
 	elmnt = document.getElementById(id);
 	var className = elmnt.className;
 	resetClassMemberColors(className);
@@ -167,10 +298,12 @@ function setActiveIdColors(id, color, backgroundColor) {
 
 function resetClassMemberColors(className, color, backgroundColor) {
 	var i, tablinks;
-	tablinks = document.getElementsByClassName(className);
+	var tablinks = document.getElementsByClassName(className);
+	var fgDefaultClassColor = getDefaultClassColor(className);
+	var bgDefaultClassColor = getDefaultBackGroundClassColor
 	for (i = 0; i < tablinks.length; i++) {
 		var id = tablinks[i].id;
-		setDefaultIdColors(id);
+		setDefaultIdColors(id, fgDefaultClassColor, bgDefaultClassColor);
 	}
 }
 
@@ -180,6 +313,7 @@ function setActiveColorMaps(id, color, backgroundColor) {
 }
 
 function setDefaultColorMaps(id, color, backgroundColor) {
+
 	setColorMap(defaultIdColors, id, color)
 	setColorMap(defaultBackGroundIdColors, id, backgroundColor)
 }
