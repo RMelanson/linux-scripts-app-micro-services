@@ -25,7 +25,7 @@ function openPostScripDiv(id, elmnt, color) {
 
 function setPostScripTitle(id, elmnt, color) {
 	var postTitle = document.getElementById("postTitle");
-	var newTitle = "Cloud setActiveSelection ";
+	var newTitle = "Cloud initializer ";
 	switch (id) {
 		case "http":
 			newTitle += " HTTP ";
