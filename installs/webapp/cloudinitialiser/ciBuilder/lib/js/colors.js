@@ -50,43 +50,43 @@ function getClassMaps() {
 	return classMaps;
 }
 
-function getClassMap(classMapKey) {
+function getClassMap(mapKey) {
 	var classesMaps = getClassMaps();
-	var classMaps = classesMap.get(classMapKey);
+	var classMaps = classesMap.get(mapKey);
 	return classMap;
 }
 
-function addClassMap(classMapKey) {
+function addClassMap(mapKey) {
 	var classMaps = getClassMaps();
-	classMaps.set(classMapKey, new Map([]));
+	classMaps.set(mapKey, new Map([]));
 	return classMap;
 }
 
-function getValidClassMap(classMapKey) {
-	var validClassMap = getClassMap(classMapKey);
+function getValidClassMap(mapKey) {
+	var validClassMap = getClassMap(mapKey);
 	if (typeof (validClassMap) == 'undefined' || validClassMap == null) {
-		validClassMap = addClassMap(classMapKey);
+		validClassMap = addClassMap(mapKey);
 	}
 	return validClassMap;
 }
 
-function getClassMapProperty(classMapKey, propertyKey) {
-	var validClassMap = getValidClassMap(classMapKey);
+function getClassMapProperty(mapKey, propertyKey) {
+	var validClassMap = getValidClassMap(mapKey);
 	var classMapProperty = validClassMap.get(propertyKey);
 	if (typeof (classMapProperty) == 'undefined' || classMapProperty == null)
 		return classMapProperty;
 	return classMap;
 }
 
-function addClassMapPropertyValue(classMapKey, propertyKey, propertyValue) {
-	var validClassMap = getValidClassMap(classMapKey);
+function addClassMapPropertyValue(mapKey, propertyKey, propertyValue) {
+	var validClassMap = getValidClassMap(mapKey);
 	var validClassMapProperty = validClassMap.get(propertyKey);
 	validClassMapProperty.set(propertyKey, propertyValue);
 	return validClassMapProperty;
 }
 
-function getValidClassMapProperty(classMapKey, propertyKey, defaultValue) {
-	var validClassMap = getValidClassMap(classMapKey);
+function getValidClassMapProperty(mapKey, propertyKey, defaultValue) {
+	var validClassMap = getValidClassMap(mapKey);
 	var validClassProperty = validClassMap.get(propertyKey);
 	if (typeof (validClassProperty) == 'undefined' || validClassProperty == null)
 		validClassProperty = defaultValue;
@@ -107,43 +107,43 @@ function getActiveIdMaps() {
 	return activeIdMaps;
 }
 
-function getActiveIdMap(activeIdMapKey) {
+function getActiveIdMap(mapKey) {
 	var activeIdesMaps = getActiveIdMaps();
-	var activeIdMaps = activeIdesMap.get(activeIdMapKey);
+	var activeIdMaps = activeIdesMap.get(mapKey);
 	return activeIdMap;
 }
 
-function addActiveIdMap(activeIdMapKey) {
+function addActiveIdMap(mapKey) {
 	var activeIdMaps = getActiveIdMaps();
-	activeIdMaps.set(activeIdMapKey, new Map([]));
+	activeIdMaps.set(mapKey, new Map([]));
 	return activeIdMap;
 }
 
-function getValidActiveIdMap(activeIdMapKey) {
-	var validActiveIdMap = getActiveIdMap(activeIdMapKey);
+function getValidActiveIdMap(mapKey) {
+	var validActiveIdMap = getActiveIdMap(mapKey);
 	if (typeof (validActiveIdMap) == 'undefined' || validActiveIdMap == null) {
-		validActiveIdMap = addActiveIdMap(activeIdMapKey);
+		validActiveIdMap = addActiveIdMap(mapKey);
 	}
 	return validActiveIdMap;
 }
 
-function getActiveIdMapProperty(activeIdMapKey, propertyKey) {
-	var validActiveIdMap = getValidActiveIdMap(activeIdMapKey);
+function getActiveIdMapProperty(mapKey, propertyKey) {
+	var validActiveIdMap = getValidActiveIdMap(mapKey);
 	var activeIdMapProperty = validActiveIdMap.get(propertyKey);
 	if (typeof (activeIdMapProperty) == 'undefined' || activeIdMapProperty == null)
 		return activeIdMapProperty;
 	return activeIdMap;
 }
 
-function addActiveIdMapPropertyValue(activeIdMapKey, propertyKey, propertyValue) {
-	var validActiveIdMap = getValidActiveIdMap(activeIdMapKey);
+function addActiveIdMapPropertyValue(mapKey, propertyKey, propertyValue) {
+	var validActiveIdMap = getValidActiveIdMap(mapKey);
 	var validActiveIdMapProperty = validActiveIdMap.get(propertyKey);
 	validActiveIdMapProperty.set(propertyKey, propertyValue);
 	return validActiveIdMapProperty;
 }
 
-function getValidActiveIdMapProperty(activeIdMapKey, propertyKey, defaultValue) {
-	var validActiveIdMap = getValidActiveIdMap(activeIdMapKey);
+function getValidActiveIdMapProperty(mapKey, propertyKey, defaultValue) {
+	var validActiveIdMap = getValidActiveIdMap(mapKey);
 	var validActiveIdProperty = validActiveIdMap.get(propertyKey);
 	if (typeof (validActiveIdProperty) == 'undefined' || validActiveIdProperty == null)
 		validActiveIdProperty = defaultValue;
@@ -158,43 +158,43 @@ function getDefaultIdMaps() {
 	return defaultIdMaps;
 }
 
-function getDefaultIdMap(defaultIdMapKey) {
+function getDefaultIdMap(mapKey) {
 	var defaultIdesMaps = getDefaultIdMaps();
-	var defaultIdMaps = defaultIdesMap.get(defaultIdMapKey);
+	var defaultIdMaps = defaultIdesMap.get(mapKey);
 	return defaultIdMap;
 }
 
-function addDefaultIdMap(defaultIdMapKey) {
+function addDefaultIdMap(mapKey) {
 	var defaultIdMaps = getDefaultIdMaps();
-	defaultIdMaps.set(defaultIdMapKey, new Map([]));
+	defaultIdMaps.set(mapKey, new Map([]));
 	return defaultIdMap;
 }
 
-function getValidDefaultIdMap(defaultIdMapKey) {
-	var validDefaultIdMap = getDefaultIdMap(defaultIdMapKey);
+function getValidDefaultIdMap(mapKey) {
+	var validDefaultIdMap = getDefaultIdMap(mapKey);
 	if (typeof (validDefaultIdMap) == 'undefined' || validDefaultIdMap == null) {
-		validDefaultIdMap = addDefaultIdMap(defaultIdMapKey);
+		validDefaultIdMap = addDefaultIdMap(mapKey);
 	}
 	return validDefaultIdMap;
 }
 
-function getDefaultIdMapProperty(defaultIdMapKey, propertyKey) {
-	var validDefaultIdMap = getValidDefaultIdMap(defaultIdMapKey);
+function getDefaultIdMapProperty(mapKey, propertyKey) {
+	var validDefaultIdMap = getValidDefaultIdMap(mapKey);
 	var defaultIdMapProperty = validDefaultIdMap.get(propertyKey);
 	if (typeof (defaultIdMapProperty) == 'undefined' || defaultIdMapProperty == null)
 		return defaultIdMapProperty;
 	return defaultIdMap;
 }
 
-function addDefaultIdMapPropertyValue(defaultIdMapKey, propertyKey, propertyValue) {
-	var validDefaultIdMap = getValidDefaultIdMap(defaultIdMapKey);
+function addDefaultIdMapPropertyValue(mapKey, propertyKey, propertyValue) {
+	var validDefaultIdMap = getValidDefaultIdMap(mapKey);
 	var validDefaultIdMapProperty = validDefaultIdMap.get(propertyKey);
 	validDefaultIdMapProperty.set(propertyKey, propertyValue);
 	return validDefaultIdMapProperty;
 }
 
-function getValidDefaultIdMapProperty(defaultIdMapKey, propertyKey, defaultValue) {
-	var validDefaultIdMap = getValidDefaultIdMap(defaultIdMapKey);
+function getValidDefaultIdMapProperty(mapKey, propertyKey, defaultValue) {
+	var validDefaultIdMap = getValidDefaultIdMap(mapKey);
 	var validDefaultIdProperty = validDefaultIdMap.get(propertyKey);
 	if (typeof (validDefaultIdProperty) == 'undefined' || validDefaultIdProperty == null)
 		validDefaultIdProperty = defaultValue;
