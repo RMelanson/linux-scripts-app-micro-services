@@ -282,7 +282,7 @@ function setDefaultIdColors(id, color, backgroundColor) {
 	elmnt.style.color = getDefaultIdColor(id);
 }
 
-function initializer(id, color, backgroundColor) {
+function setActiveSelection(id, color, backgroundColor) {
 	elmnt = document.getElementById(id);
 	var className = elmnt.className;
 	resetClassMemberColors(className);
