@@ -50,18 +50,16 @@ function getClassMapProperty(mapKey, propertyKey) {
 	return classMap;
 }
 
-function addClassMapPropertyValue(mapKey, propertyKey, propertyValue) {
+function setClassMapPropertyValue(mapKey, propertyKey, propertyValue) {
 	var validClassMap = getValidClassMap(mapKey);
-	var validClassMapProperty = validClassMap.get(propertyKey);
-	validClassMapProperty.set(propertyKey, propertyValue);
-	return validClassMapProperty;
+	validClassMap.set(propertyKey, propertyValue);
+	return propertyValue;
 }
 
 function getValidClassMapProperty(mapKey, propertyKey, defaultValue) {
 	var validClassMap = getValidClassMap(mapKey);
 	var validClassProperty = validClassMap.get(propertyKey);
-	if (typeof (validClassProperty) == 'undefined' || validClassProperty == null)
-	{
+	if (typeof (validClassProperty) == 'undefined' || validClassProperty == null) {
 		validClassProperty = defaultValue;
 		validClassMap.set(propertyKey, validClassProperty);
 	}
@@ -104,11 +102,10 @@ function getIdMapProperty(mapKey, propertyKey) {
 	return idMap;
 }
 
-function addIdMapPropertyValue(mapKey, propertyKey, propertyValue) {
+function setIdMapPropertyValue(mapKey, propertyKey, propertyValue) {
 	var validIdMap = getValidIdMap(mapKey);
-	var validIdMapProperty = validIdMap.get(propertyKey);
-	validIdMapProperty.set(propertyKey, propertyValue);
-	return validIdMapProperty;
+	validIdMap.set(propertyKey, propertyValue);
+	return propertyValue;
 }
 
 function getValidIdMapProperty(mapKey, propertyKey, defaultValue) {
@@ -116,6 +113,10 @@ function getValidIdMapProperty(mapKey, propertyKey, defaultValue) {
 	var validIdProperty = validIdMap.get(propertyKey);
 	if (typeof (validIdProperty) == 'undefined' || validIdProperty == null)
 		validIdProperty = defaultValue;
+	{
+		validIdProperty = defaultValue;
+		validIdMap.set(propertyKey, defaultValue);
+	}
 	return validIdProperty;
 }
 
@@ -171,8 +172,10 @@ function resetClassMemberColors(className, fgColor, bgColor) {
 
 function setActiveIdColors(idName, fgColor, bgColor) {
 	var i, tablinks;
-	var validFgClassColor = getValidFgIdColor(idName);
-	var validBgClassColor = getValidBgIdColor(idName);
+	setIdMapPropertyValue(idName, "fgColor", fgColor);
+	setIdMapPropertyValue(idName, "bgColor", bgColor);
+	var validFgClassColor = getValidFgIdColor(idName, fgColor);
+	var validBgClassColor = getValidBgIdColor(idName, bgColor);
 	var elmnt = document.getElementById(idName);
 	elmnt.style.color = validFgClassColor;
 	elmnt.style.backgroundColor = validBgClassColor;
