@@ -119,21 +119,29 @@ const mainMenuSelection = new Map([
 ]);
 
 function setMainMenuButtonSelection(elmnt, color, bgColor) {
-	var id_BTN = elmnt.id;
-	var id_DIV = id_BTN.replace('_BTN', '_DIV');
+	var elmt_ID = elmnt.id;
+	var idName = elmt_ID.replace('_BTN', '');
+	var elmt_DIV = "";
 
-	setActiveSelection(id_BTN, color, bgColor);
+	if (elmnt.classList.contains("postman")) {
+		elmt_DIV = "postman_DIV";
+	}
+	else {
+		elmt_DIV = idName + '_DIV';
+	}
+
+	setActiveSelection(elmt_DIV, color, bgColor);
 	//	alert("Found Class " + selectedClass);
-	configureDivIdSelection(id_DIV, color, bgColor);
+	configureDivIdSelection(elmt_DIV, color, bgColor);
 }
 
 function setMainMenuMap(elmnt, color, bgColor) {
-	var id_BTN = elmnt.id;
-	var id_DIV = id_BTN.replace('_BTN', '_DIV');
+	var elmt_ID = elmnt.id;
+	var elmt_DIV = elmt_ID.replace('_BTN', '_DIV');
 
-	setActiveSelection(id_BTN, color, bgColor);
+	setActiveSelection(elmt_DIV, color, bgColor);
 	//	alert("Found Class " + selectedClass);
-	configureDivIdSelection(id_DIV, color, bgColor);
+	configureDivIdSelection(elmt_DIV, color, bgColor);
 }
 
 function configureDivIdSelection(id_DIV, color, bgColor) {
