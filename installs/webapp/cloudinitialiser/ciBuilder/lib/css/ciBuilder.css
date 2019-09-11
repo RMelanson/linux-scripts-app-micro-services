@@ -10,3 +10,12 @@ h1 {
     margin-right: 15px;
     margin-left: 15px;
 }
+
+.installTable {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    height: 200px;
+    width: 50px;
+}
