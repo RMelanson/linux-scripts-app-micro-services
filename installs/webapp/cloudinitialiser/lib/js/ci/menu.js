@@ -33,45 +33,50 @@ var active_contact_bgColor = "grey";
 var default_contact_fgColor = default_fgColor;
 var default_contact_bgColor = "grey";
 
-function setMainMenuButtonSelection(elmnt, color, bgColor) {
+function setMainMenuButtonSelection(elmnt, fgColor, bgColor) {
 	var elmt_ID = elmnt.id;
 	var idName = elmt_ID.replace('_BTN', '');
 	var elmt_DIV = "";
-
 	if (elmnt.classList.contains("postman")) {
 		elmt_DIV = "postman_DIV";
+		setActiveIdColors("postman_DIV", fgColor, "bgColor");
+		setActiveIdColors("postmanTitle", "yellow", "pink");
+		setActiveIdColors("restMethod", "magenta", "blue");
+		setActiveIdColors("urlTextBox", "cyan", "grey");
 	}
 	else {
 		elmt_DIV = idName + '_DIV';
 	}
+	return elmt_DIV;
 
-	setActiveSelection(elmt_DIV, color, bgColor);
+	setActiveSelectionColors(elmt_DIV, fgColor, bgColor);
 	//	alert("Found Class " + selectedClass);
-	configureDivIdSelection(elmt_DIV, color, bgColor);
+	configureDivIdSelection(elmt_DIV, fgColor, bgColor);
 }
 
-function setMainMenuMap(elmnt, color, bgColor) {
+function setMainMenuMap(elmnt, fgColor, bgColor) {
 	var elmt_ID = elmnt.id;
 	var elmt_DIV = elmt_ID.replace('_BTN', '_DIV');
 
-	setActiveSelection(elmt_DIV, color, bgColor);
+	setActiveSelectionColors(elmt_DIV, fgColor, bgColor);
 	//	alert("Found Class " + selectedClass);
-	configureDivIdSelection(elmt_DIV, color, bgColor);
+	configureDivIdSelection(elmt_DIV, fgColor, bgColor);
 }
 
-function configureDivIdSelection(id_DIV, color, bgColor) {
+function configureDivIdSelection(id_DIV, fgColor, bgColor) {
 	var elmnt_DIV = document.getElementById(id_DIV);
-	setActiveSelection(id_DIV, color, bgColor);
-	if (id_DIV == "postman_DIV")
+	setActiveSelectionColors(id_DIV, fgColor, bgColor);
+
+	if (elmnt.classList.contains("postman"))
 		configurePostMan(elmnt_DIV);
 	setVisableSelection(id_DIV);
 }
 
 function configurePostMan(postMan_ELMT) {
-//	alert("Configuring PostMan For " + postMan_ELMT.value);
+	//	alert("Configuring PostMan For " + postMan_ELMT.value);
 }
 
-function setVisableSelection(div_ID, color, bgColor) {
+function setVisableSelection(div_ID, fgColor, bgColor) {
 	var div_ELMT = document.getElementById(div_ID);
 	var div_CLASS = div_ELMT.className;
 	closeAllPageDivs(div_CLASS);

@@ -181,7 +181,7 @@ function setActiveIdColors(idName, fgColor, bgColor) {
 	elmnt.style.backgroundColor = validBgClassColor;
 }
 
-function setActiveSelection(idName, fgColor, bgColor) {
+function setActiveSelectionColors(idName, fgColor, bgColor) {
 	elmnt = document.getElementById(idName);
 	var className = elmnt.className;
 	resetClassMemberColors(className);

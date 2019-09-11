@@ -1,9 +1,5 @@
 var activeColor='red';
 
-function setActiveColor(color) {
-	activeColor = color;
-}
-
 function setActiveDiv(elmnt) {
 	resetAllNavMenus(elmnt);
 	setActiveColumns(elmnt);
