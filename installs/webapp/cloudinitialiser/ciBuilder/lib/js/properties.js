@@ -112,7 +112,6 @@ function getValidIdMapProperty(mapKey, propertyKey, defaultValue) {
 	var validIdMap = getValidIdMap(mapKey);
 	var validIdProperty = validIdMap.get(propertyKey);
 	if (typeof (validIdProperty) == 'undefined' || validIdProperty == null)
-		validIdProperty = defaultValue;
 	{
 		validIdProperty = defaultValue;
 		validIdMap.set(propertyKey, defaultValue);

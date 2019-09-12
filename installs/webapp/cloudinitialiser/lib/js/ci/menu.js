@@ -35,9 +35,9 @@ var default_contact_bgColor = "grey";
 
 function setMainMenuButtonSelection(elmnt) {
 	var elmt_ID = elmnt.id;
+	var fgColor = getValidFgIdColor(elmt_ID);
+	var bgColor = getValidBgIdColor(elmt_ID);
 	var idName = elmt_ID.replace('_BTN', '');
-	var fgColor = getValidFgIdColor(idName);
-	var bgColor = getValidBgIdColor(idName);
 	setActiveClassElement(elmnt, fgColor, bgColor);
 	var elmt_DIV = "";
 	if (elmnt.classList.contains("postman")) {

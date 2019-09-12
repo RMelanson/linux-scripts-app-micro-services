@@ -40,11 +40,16 @@
 	var active_contact_fgColor = active_fgColor;
 	var active_contact_bgColor = "orange";
 
-	putActiveIdColors("home_BTN", active_home_fgColor, active_home_bgColor);
-	putActiveIdColors("CI_BTN", active_CI_fgColor, active_CI_bgColor);
-	putActiveIdColors("postman_BTN", active_postman_fgColor, active_postman_bgColor);
-	putActiveIdColors("contact_BTN", active_about_fgColor, active_about_bgColor);
-	putActiveIdColors("about_BTN", active_contact_fgColor, active_contact_bgColor);
+	function putObjColors(elemtName, fgColor, bgColor){
+		putActiveIdColors(elemtName+"BTN", active_home_fgColor, active_home_bgColor);
+		putActiveIdColors(elemtName+"DIV", active_home_fgColor, active_home_bgColor);
+	}
+
+	putObjColors("home", active_home_fgColor, active_home_bgColor);
+	putObjColors("CI", active_CI_fgColor, active_CI_bgColor);
+	putObjColors("postman", active_postman_fgColor, active_postman_bgColor);
+	putObjColors("contact", active_about_fgColor, active_about_bgColor);
+	putObjColors("about", active_contact_fgColor, active_contact_bgColor);
 </script>
 
 <body>
