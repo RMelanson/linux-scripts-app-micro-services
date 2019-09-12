@@ -35,8 +35,10 @@ var default_contact_bgColor = "grey";
 
 function setMainMenuButtonSelection(elmnt) {
 	var elmt_ID = elmnt.id;
-	setActiveClassElement(elmnt, fgColor, bgColor);
 	var idName = elmt_ID.replace('_BTN', '');
+	var fgColor = getValidFgIdColor("active_" + idName + "fgColor");
+	var bgColor = getValidBgIdColor("active_" + idName + "bgColor");
+	setActiveClassElement(elmnt, fgColor, bgColor);
 	var elmt_DIV = "";
 	if (elmnt.classList.contains("postman")) {
 		var innerHTML = "CLOUD_INITIALIZER " + idName.toUpperCase() + " POSTMAN";
@@ -45,7 +47,8 @@ function setMainMenuButtonSelection(elmnt) {
 		setActiveIdColors("restMethod");
 		setActiveIdColors("urlTextBox");
 		elmt_DIV = "postman_DIV";
-	}
+		document.getElementById("postman_BTN").click();
+}
 	else {
 		elmt_DIV = idName + '_DIV';
 	}
