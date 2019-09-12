@@ -35,19 +35,20 @@ var default_contact_bgColor = "grey";
 
 function setMainMenuButtonSelection(elmnt, fgColor, bgColor) {
 	var elmt_ID = elmnt.id;
+	setActiveClassElement(elmnt, fgColor, bgColor);
 	var idName = elmt_ID.replace('_BTN', '');
 	var elmt_DIV = "";
 	if (elmnt.classList.contains("postman")) {
+		var innerHTML = "CLOUD_INITIALIZER " + idName.toUpperCase() + " POSTMAN";
+		document.getElementById("postmanTitle").innerHTML = innerHTML;
+		setActiveIdColors("postmanTitle");
+		setActiveIdColors("restMethod");
+		setActiveIdColors("urlTextBox");
 		elmt_DIV = "postman_DIV";
-		setActiveIdColors("postman_DIV", fgColor, "bgColor");
-		setActiveIdColors("postmanTitle", "yellow", "pink");
-		setActiveIdColors("restMethod", "magenta", "blue");
-		setActiveIdColors("urlTextBox", "cyan", "grey");
 	}
 	else {
 		elmt_DIV = idName + '_DIV';
 	}
-	return elmt_DIV;
 
 	setActiveSelectionColors(elmt_DIV, fgColor, bgColor);
 	//	alert("Found Class " + selectedClass);

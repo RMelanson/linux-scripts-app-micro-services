@@ -187,3 +187,10 @@ function setActiveSelectionColors(idName, fgColor, bgColor) {
 	resetClassMemberColors(className);
 	setActiveIdColors(idName, fgColor, bgColor);
 }
+
+function setActiveClassElement(elmnt,  fgColor, bgColor) {
+	var idName = elmnt.id;
+	var className = elmnt.className;
+	resetClassMemberColors(className);
+	setActiveIdColors(idName,  fgColor, bgColor);
+};

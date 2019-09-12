@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="./lib/css/menu.css">
 	<script src="./lib/js/jQuery/3.4.1.js"></script>
 	<script src="./lib/js/ci/menu.js"></script>
-	<script src="./ciBuilder/lib/js/colors.js"></script>
+	<script src="./ciBuilder/lib/js/properties.js"></script>
 	<script src="./ciBuilder/lib/js/ajaxRestCalls.js"></script>
 	<script src="./ciBuilder/lib/js/ciBuilder.js"></script>
 	<!-- -->
@@ -39,14 +39,20 @@
 
 	var active_contact_fgColor = active_fgColor;
 	var active_contact_bgColor = "orange";
+
+	setActiveIdColors("home_BTN", active_home_fgColor, active_home_bgColor);
+	setActiveIdColors("CI_BTN", active_CI_fgColor, active_CI_bgColor);
+	setActiveIdColors("postman_BTN", active_postman_fgColor, active_postman_bgColor);
+	setActiveIdColors("contact_BTN" , active_about_fgColor, active_about_bgColor);
+<	setActiveIdColors("about_BTN" , active_contact_fgColor, active_contact_bgColor);
 </script>
 
 <body>
 	<div class="main_MENU" id="topNav_DIV">
 		<button id="home_BTN" class="mainMenu_BTN"
-			onclick="setMainMenuButtonSelection(this, active_home_fgColor, active_home_bgColor)">Home</button>
+			onclick="setMainMenuButtonSelection(this)">Home</button>
 		<button id="CI_BTN" class="mainMenu_BTN"
-			onclick="setMainMenuButtonSelection(this, active_fgColor, active_CI_bgColor)">Cloud initializer</button>
+			onclick="setMainMenuButtonSelection(this)">Cloud initializer</button>
 
 		<!-- 
 		<div id="dockerTab" class="hiddenTab">
@@ -114,11 +120,11 @@
 				onclick="setMainMenuButtonSelection(this, 'orange','black')">WordPress</button>
 		</div>
 		<button id="postman_BTN" class="mainMenu_BTN postman"
-			onclick="setMainMenuButtonSelection(this, active_postman_fgColor, active_postman_bgColor)">Postman</button>
+			onclick="setMainMenuButtonSelection(this)">Postman</button>
 		<button id="about_BTN" class="mainMenu_BTN"
-			onclick="setMainMenuButtonSelection(this, active_about_fgColor, active_about_bgColor)">About</button>
+			onclick="setMainMenuButtonSelection(this)">About</button>
 		<button id="contact_BTN" class="mainMenu_BTN"
-			onclick="setMainMenuButtonSelection(this, active_contact_fgColor, active_contact_bgColor)">Contact</button>
+			onclick="setMainMenuButtonSelection(this)">Contact</button>
 		<a href="javascript:void(0);" class="icon" onclick="showVerticleNavMenu('grey','black')">
 			<i class="fa fa-bars"></i>
 		</a>

@@ -1,18 +1,20 @@
-var activeColor='red';
+//var activeColor='red';
 
 function setActiveDiv(elmnt) {
-	resetAllNavMenus(elmnt);
+	resetClassDefaults(elmnt);
 	setActiveColumns(elmnt);
 }
 
-function resetAllNavMenus(elmnt) {
+function resetClassDefaults(elmnt) {
 	var i, tablinks;
-	var navMenuClass = elmnt.className;
-	tablinks = document.getElementsByClassName(navMenuClass);
-	for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].style.backgroundColor = "";
-	}
-	elmnt.style.backgroundColor = activeColor;
+//	var bgcolor = null;
+//	var fgcolor = null;
+	var bgcolor = "blue";
+	var fgcolor = "red";
+	var className = elmnt.className;
+
+	resetClassMemberColors(className, fgColor, bgColor);
+	//	resetClassMemberColors(className, fgColor, bgColor);
 }
 
 //		  alert("SHOW " + divId)
@@ -22,8 +24,9 @@ function setActiveColumns(elmnt) {
 	divElement = document.getElementById(divId);
 
 	var divClass = divElement.className;
-	closeAllPageDivs(divClass);
+	closeClassMembers(divClass);
 
+	//	elmnt.style.backgroundColor = activeColor;
 	divElement.style.display = "block";
 
 	divId = cbId + "_Left_Div";
@@ -31,7 +34,7 @@ function setActiveColumns(elmnt) {
 	divElement.style.display = "block";
 }
 
-function closeAllPageDivs(divClass) {
+function closeClassMembers(divClass) {
 	var i, classList;
 	classList = document.getElementsByClassName(divClass);
 
