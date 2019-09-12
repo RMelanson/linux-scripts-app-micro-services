@@ -43,80 +43,17 @@
 	setActiveIdColors("home_BTN", active_home_fgColor, active_home_bgColor);
 	setActiveIdColors("CI_BTN", active_CI_fgColor, active_CI_bgColor);
 	setActiveIdColors("postman_BTN", active_postman_fgColor, active_postman_bgColor);
-	setActiveIdColors("contact_BTN" , active_about_fgColor, active_about_bgColor);
-<	setActiveIdColors("about_BTN" , active_contact_fgColor, active_contact_bgColor);
+	setActiveIdColors("contact_BTN", active_about_fgColor, active_about_bgColor);
+	setActiveIdColors("about_BTN", active_contact_fgColor, active_contact_bgColor);
 </script>
 
 <body>
 	<div class="main_MENU" id="topNav_DIV">
-		<button id="home_BTN" class="mainMenu_BTN"
-			onclick="setMainMenuButtonSelection(this)">Home</button>
-		<button id="CI_BTN" class="mainMenu_BTN"
-			onclick="setMainMenuButtonSelection(this)">Cloud initializer</button>
-
-		<!-- 
-		<div id="dockerTab" class="hiddenTab">
-			<button id = "docker_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this, 'orange','black')">Docker</button>
-		</div>
-	    -->
-		<div id="javaTab" class="hiddenTab">
-			<button id="java_BTN" class="mainMenu_BTN postman"
-				onclick="setMainMenuButtonSelection(this, 'orange','black')">Java</button>
-		</div>
-		<div id="jBossTab" class="hiddenTab">
-			<button id="jBoss_BTN" class="mainMenu_BTN postman"
-				onclick="setMainMenuButtonSelection(this, 'orange','black')">jBoss</button>
-		</div>
-		<div id="jenkinsTab" class="hiddenTab">
-			<button id="jenkins_BTN" class="mainMenu_BTN postman"
-				onclick="setMainMenuButtonSelection(this, 'orange','black')">Jenkins</button>
-		</div>
-		<div id="langTab" class="hiddenTab">
-			<button id="lang_BTN" class="mainMenu_BTN postman"
-				onclick="setMainMenuButtonSelection(this, 'orange','black')">Languages</button>
-		</div>
-		<div id="mysqlTab" class="hiddenTab">
-			<button id="mySQL_BTN" class="mainMenu_BTN postman"
-				onclick="setMainMenuButtonSelection(this, 'orange','black')">mySQL</button>
-		</div>
-		<div id="nodeJSTab" class="hiddenTab">
-			<button id="nodeJS_BTN" class="mainMenu_BTN postman"
-				onclick="setMainMenuButtonSelection(this, 'orange','black')">Node.JS</button>
-		</div>
-		<div id="oracleTab" class="hiddenTab">
-			<button id="oracle_BTN" class="mainMenu_BTN postman"
-				onclick="setMainMenuButtonSelection(this, 'orange','black')">Oracle</button>
-		</div>
-		<div id="perlTab" class="hiddenTab">
-			<button id="perl_BTN" class="mainMenu_BTN postman"
-				onclick="setMainMenuButtonSelection(this, 'orange','black')">Perl</button>
-		</div>
-		<div id="s3fsTab" class="hiddenTab">
-			<button id="S3FS_BTN" class="mainMenu_BTN postman" onclick="setMainMenuButtonSelection(this, 'orange','black')">AWS
-				S3FS</button>
-		</div>
-		<div id="toolsTab" class="hiddenTab">
-			<button id="tools_BTN" class="mainMenu_BTN postman"
-				onclick="setMainMenuButtonSelection(this, 'orange','black')">Tools</button>
-		</div>
-		<div id="userAdminTab" class="hiddenTab">
-			<button id="user_BTN" class="mainMenu_BTN postman" onclick="setMainMenuButtonSelection(this, 'orange','black')">User
-				Admin</button>
-		</div>
-		<div id="utilsTab" class="hiddenTab">
-			<button id="utils_BTN" class="mainMenu_BTN postman"
-				onclick="setMainMenuButtonSelection(this, 'blue','black')">Utilities</button>
-		</div>
-		<div id="wpTab" class="hiddenTab">
-			<button id="WP_BTN" class="mainMenu_BTN postman"
-				onclick="setMainMenuButtonSelection(this, 'orange','black')">WordPress</button>
-		</div>
-		<button id="postman_BTN" class="mainMenu_BTN postman"
-			onclick="setMainMenuButtonSelection(this)">Postman</button>
-		<button id="about_BTN" class="mainMenu_BTN"
-			onclick="setMainMenuButtonSelection(this)">About</button>
-		<button id="contact_BTN" class="mainMenu_BTN"
-			onclick="setMainMenuButtonSelection(this)">Contact</button>
+		<button id="home_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">Home</button>
+		<button id="CI_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">Cloud initializer</button>
+		<button id="postman_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">Postman</button>
+		<button id="about_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">About</button>
+		<button id="contact_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">Contact</button>
 		<a href="javascript:void(0);" class="icon" onclick="showVerticleNavMenu('grey','black')">
 			<i class="fa fa-bars"></i>
 		</a>
@@ -141,22 +78,13 @@
 		<script> $("#contact_DIV").load("./pages/contact.html"); </script>
 	</div>
 
-	<script>
-		// Get the element with id="defaultOpen" and click on it
-		document.getElementById("defaultOpen").click();
-	</script>
-
 	<div id="postman_DIV" class="mainMenu_DIV">
 		<script> $("#postman_DIV").load("./ciBuilder/ciPostman.html"); </script>
 	</div>
 
 	<script>
-		function load_div(divId) {
-			var fileData = '<object type="text/html" data="home.html" ></object>';
-			document.getElementById(divId).innerHTML = fileData;
-		}
-		var btn_ELMT = document.getElementById("home_BTN");
-		setMainMenuButtonSelection(btn_ELMT, active_home_fgColor, active_home_bgColor);
+		// Get the element with id="home_BTN" and click on it
+		document.getElementById("home_BTN").click();
 	</script>
 </body>
 

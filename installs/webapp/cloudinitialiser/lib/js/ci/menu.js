@@ -33,7 +33,7 @@ var active_contact_bgColor = "grey";
 var default_contact_fgColor = default_fgColor;
 var default_contact_bgColor = "grey";
 
-function setMainMenuButtonSelection(elmnt, fgColor, bgColor) {
+function setMainMenuButtonSelection(elmnt) {
 	var elmt_ID = elmnt.id;
 	setActiveClassElement(elmnt, fgColor, bgColor);
 	var idName = elmt_ID.replace('_BTN', '');
