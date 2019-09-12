@@ -36,8 +36,8 @@ var default_contact_bgColor = "grey";
 function setMainMenuButtonSelection(elmnt) {
 	var elmt_ID = elmnt.id;
 	var idName = elmt_ID.replace('_BTN', '');
-	var fgColor = getValidFgIdColor("active_" + idName + "fgColor");
-	var bgColor = getValidBgIdColor("active_" + idName + "bgColor");
+	var fgColor = getValidFgIdColor(idName);
+	var bgColor = getValidBgIdColor(idName);
 	setActiveClassElement(elmnt, fgColor, bgColor);
 	var elmt_DIV = "";
 	if (elmnt.classList.contains("postman")) {
@@ -53,7 +53,7 @@ function setMainMenuButtonSelection(elmnt) {
 		elmt_DIV = idName + '_DIV';
 	}
 
-	setActiveSelectionColors(elmt_DIV, fgColor, bgColor);
+	setActiveIdColors(elmt_DIV, fgColor, bgColor);
 	//	alert("Found Class " + selectedClass);
 	configureDivIdSelection(elmt_DIV, fgColor, bgColor);
 }
@@ -62,14 +62,14 @@ function setMainMenuMap(elmnt, fgColor, bgColor) {
 	var elmt_ID = elmnt.id;
 	var elmt_DIV = elmt_ID.replace('_BTN', '_DIV');
 
-	setActiveSelectionColors(elmt_DIV, fgColor, bgColor);
+	setActiveIdColors(elmt_DIV, fgColor, bgColor);
 	//	alert("Found Class " + selectedClass);
 	configureDivIdSelection(elmt_DIV, fgColor, bgColor);
 }
 
 function configureDivIdSelection(id_DIV, fgColor, bgColor) {
 	var elmnt_DIV = document.getElementById(id_DIV);
-	setActiveSelectionColors(id_DIV, fgColor, bgColor);
+	setActiveIdColors(id_DIV, fgColor, bgColor);
 
 	if (elmnt.classList.contains("postman"))
 		configurePostMan(elmnt_DIV);

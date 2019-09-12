@@ -68,19 +68,19 @@ function getValidClassMapProperty(mapKey, propertyKey, defaultValue) {
 }
 
 // PROCESS ID MAPS
-function getIdMaps() {
+function putIdMaps() {
 	var idMaps = selectionMap.get("idMaps");
 	return idMaps;
 }
 
 function getIdMap(mapKey) {
-	var idMaps = getIdMaps();
+	var idMaps = putIdMaps();
 	var idMap = idMaps.get(mapKey);
 	return idMap;
 }
 
-function addIdMap(mapKey) {
-	var idMaps = getIdMaps();
+function putIdMap(mapKey) {
+	var idMaps = putIdMaps();
 	var newMap = new Map([]);
 	idMaps.set(mapKey, newMap);
 	return newMap;
@@ -89,7 +89,7 @@ function addIdMap(mapKey) {
 function getValidIdMap(mapKey) {
 	var validIdMap = getIdMap(mapKey);
 	if (typeof (validIdMap) == 'undefined' || validIdMap == null) {
-		validIdMap = addIdMap(mapKey);
+		validIdMap = putIdMap(mapKey);
 	}
 	return validIdMap;
 }
@@ -156,24 +156,14 @@ function getValidBgIdColor(idName, color) {
 	return retColor;
 }
 
-function resetClassMemberColors(className, fgColor, bgColor) {
-	var i, tablinks;
-	var tablinks = document.getElementsByClassName(className);
-	if (typeof (tablinks) != 'undefined' && tablinks != null) {
-		var validFgClassColor = getValidFgClassColor(className, fgColor);
-		var validBgClassColor = getValidBgClassColor(className, bgColor);
-		for (i = 0; i < tablinks.length; i++) {
-			var elmnt = tablinks[i];
-			elmnt.style.color = validFgClassColor;
-			elmnt.style.backgroundColor = validBgClassColor;
-		}
-	}
-}
-
-function setActiveIdColors(idName, fgColor, bgColor) {
-	var i, tablinks;
+function putActiveIdColors(idName, fgColor, bgColor) {
 	setIdMapPropertyValue(idName, "fgColor", fgColor);
 	setIdMapPropertyValue(idName, "bgColor", bgColor);
+}
+
+
+function setActiveIdColors(idName, fgColor, bgColor) {
+	putActiveIdColors(idName, fgColor, bgColor);
 	var validFgClassColor = getValidFgIdColor(idName, fgColor);
 	var validBgClassColor = getValidBgIdColor(idName, bgColor);
 	var elmnt = document.getElementById(idName);
@@ -194,3 +184,17 @@ function setActiveClassElement(elmnt,  fgColor, bgColor) {
 	resetClassMemberColors(className);
 	setActiveIdColors(idName,  fgColor, bgColor);
 };
+
+function resetClassMemberColors(className, fgColor, bgColor) {
+	var i, tablinks;
+	var tablinks = document.getElementsByClassName(className);
+	if (typeof (tablinks) != 'undefined' && tablinks != null) {
+		var validFgClassColor = getValidFgClassColor(className, fgColor);
+		var validBgClassColor = getValidBgClassColor(className, bgColor);
+		for (i = 0; i < tablinks.length; i++) {
+			var elmnt = tablinks[i];
+			elmnt.style.color = validFgClassColor;
+			elmnt.style.backgroundColor = validBgClassColor;
+		}
+	}
+}
