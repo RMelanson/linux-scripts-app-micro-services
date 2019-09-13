@@ -48,7 +48,7 @@ function setMainMenuButtonSelection(elmnt) {
 		setActiveIdColors("urlTextBox");
 		elmt_DIV = "postman_DIV";
 		document.getElementById("postman_BTN").click();
-}
+	}
 	else {
 		elmt_DIV = idName + '_DIV';
 	}
@@ -73,18 +73,18 @@ function configureDivIdSelection(id_DIV, fgColor, bgColor) {
 
 	if (elmnt.classList.contains("postman"))
 		configurePostMan(elmnt_DIV);
-	setVisableSelection(id_DIV);
+	setVisableIdSelection(id_DIV);
 }
 
 function configurePostMan(postMan_ELMT) {
 	//	alert("Configuring PostMan For " + postMan_ELMT.value);
 }
 
-function setVisableSelection(div_ID, fgColor, bgColor) {
-	var div_ELMT = document.getElementById(div_ID);
-	var div_CLASS = div_ELMT.className;
-	closeAllPageDivs(div_CLASS);
-	div_ELMT.style.display = "block";
+function setVisableSelection(elmt_ID) {
+	var elmt = document.getElementById(elmt_ID);
+	var elmt_CLASS = elmt.className;
+	closeAllPageDivs(elmt_CLASS);
+	elmt.style.display = "block";
 }
 
 function closeAllPageDivs(divClass) {
