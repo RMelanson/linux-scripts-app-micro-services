@@ -33,6 +33,10 @@ var active_contact_bgColor = "grey";
 var default_contact_fgColor = default_fgColor;
 var default_contact_bgColor = "grey";
 
+function initMenu(mmenuId) {
+	document.getElementById(mmenuId).click();
+}
+
 function setMainMenuButtonSelection(elmnt) {
 	var elmt_ID = elmnt.id;
 	var fgColor = getValidFgIdColor(elmt_ID);
@@ -68,7 +72,7 @@ function setMainMenuMap(elmnt, fgColor, bgColor) {
 }
 
 function configureDivIdSelection(id_DIV, fgColor, bgColor) {
-	var elmnt_DIV = document.getElementById(id_DIV);
+	var elmnt = document.getElementById(id_DIV);
 	setActiveIdColors(id_DIV, fgColor, bgColor);
 
 	if (elmnt.classList.contains("postman"))
@@ -80,7 +84,7 @@ function configurePostMan(postMan_ELMT) {
 	//	alert("Configuring PostMan For " + postMan_ELMT.value);
 }
 
-function setVisableSelection(elmt_ID) {
+function setVisableIdSelection(elmt_ID) {
 	var elmt = document.getElementById(elmt_ID);
 	var elmt_CLASS = elmt.className;
 	closeAllPageDivs(elmt_CLASS);

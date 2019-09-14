@@ -6,15 +6,9 @@ function setActiveDiv(elmnt) {
 }
 
 function resetClassDefaults(elmnt) {
-	var i, tablinks;
-//	var bgcolor = null;
-//	var fgcolor = null;
-	var bgcolor = "blue";
-	var fgcolor = "red";
 	var className = elmnt.className;
 
-	resetClassMemberColors(className, fgColor, bgColor);
-	//	resetClassMemberColors(className, fgColor, bgColor);
+	setDefaultClassColors(className);
 }
 
 //		  alert("SHOW " + divId)

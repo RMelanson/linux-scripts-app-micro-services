@@ -146,7 +146,7 @@
   </style>
 </head>
 
-<body>
+<body onload=initPostmanDefaults(test)>
   <div class="Top">
     <div>
       <H1 id="postmanTitle">CLOUD initializer POSTMAN</H1>
@@ -168,14 +168,12 @@
                 value="http://www.stockwidgets.com:9090/system?cmd=ls">
             </td>
             <td class="padding5px" style="width: 1px;">
-              <button id="urlBtn" class="urlBarElement"
-                onclick="prepRestApi('urlTextBox','restMethod','resp')" id="send"
-                class="active">Send</button>
+              <button id="urlBtn" class="urlBarElement" onclick="prepRestApi('urlTextBox','restMethod','resp')"
+                id="send" class="active">Send</button>
             </td>
           </tr>
         </tbody>
       </table>
-
     </div>
     <div>
       <table id="tableData" class="fixed">
@@ -186,16 +184,13 @@
                 <tbody>
                   <tr class="dataBar">
                     <td class="padding5px">
-                      <button id="gui" class="urlBarElement" onclick="setActiveDiv(this)"
-                        class="active">GUI</button>
-                      <button id="parms" class="urlBarElement" onclick="setActiveDiv(this)"
+                      <button id="gui" class="leftColumnElement" onclick="setActiveDiv(this)" class="active">GUI</button>
+                      <button id="parms" class="leftColumnElement" onclick="setActiveDiv(this)"
                         class="active">Parms</button>
-                      <button id="body" class="urlBarElement" onclick="setActiveDiv(this)"
-                        class="active">Body</button>
-                      <button id="resp" class="urlBarElement" onclick="setActiveDiv(this)"
+                      <button id="body" class="leftColumnElement" onclick="setActiveDiv(this)" class="active">Body</button>
+                      <button id="resp" class="leftColumnElement" onclick="setActiveDiv(this)"
                         class="active">Response</button>
-                      <button id="log" class="urlBarElement" onclick="setActiveDiv(this)"
-                        class="active">Log</button>
+                      <button id="log" class="leftColumnElement" onclick="setActiveDiv(this)" class="active">Log</button>
                     </td>
                   </tr>
                 </tbody>
@@ -206,7 +201,7 @@
                 <tbody>
                   <tr class="dataBar">
                     <td class="padding5px">
-                    <H2 id="rightColHeader">Response</H2>
+                      <H2 id="rightColHeader">Response</H2>
                     </td>
                   </tr>
                 </tbody>
@@ -248,8 +243,28 @@
   </div>
 
   <script>
-  	 elmnt = document.getElementById("resp");
-	   setActiveDiv(elmnt);
+    postman_ID_TEST_fgColor = "BLUE";
+    postman_ID_TEST_bgColor = "Yellow";
+    postman_ID_TEST_URL = "http://www.stockwidgets.com:9090/system?cmd=ls";
+    setActiveIdColors("urlBarElement", fgColor, bgColor);
+    setActiveIdColors("leftColumnElement", fgColor, bgColor);
+    putDefaultClassColors
+
+    function initPostmanDefaults(apiReq) {
+      switch (apiReq.toUpperCase) {
+        case "TEST":
+          alert("Processing apiReq " + apiReq);
+          break;
+        case "WP":
+          alert("Processing apiReq " + apiReq);
+          break;
+        default:
+          alert("**ERROR** apiReq " + apiReq + " Not Found");
+          break;
+      }
+      elmnt = document.getElementById("resp");
+      setActiveDiv(elmnt);
+    }
   </script>
 </body>
 

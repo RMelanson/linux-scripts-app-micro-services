@@ -9,120 +9,131 @@ var defaultBackGroundColor = "purple";
 var activeColor = "black";
 
 //////////////////////////// START NEW STUFF ///////////////////////////////////
+function isValidType(obj) {
+	if (typeof (obj) == 'undefined' || obj == null) {
+		return false;
+	}
+	return true;
+}
 
-const selectionMap = new Map([
-	["classMaps", new Map([])],
-	["idMaps", new Map([])]
+const classMaps = new Map([]); // Map of Class maps
+const idMaps = new Map([]);    // Map of Id maps
+const selectionMap = new Map([ // Map for Cookie store and retreival (Not Yet Implemented)
+	["classMaps", classMaps],
+	["idMaps", idMaps]
 ]);
 
-// PROCESS CLASS MAPS
-function getClassMaps() {
-	var classMaps = selectionMap.get("classMaps");
-	return classMaps;
+// GENERAL MAP FUNCTIONS
+
+getMapValue(map, key) {
+	return map.get(key);
 }
 
-function getClassMap(mapKey) {
-	var classMaps = getClassMaps();
-	var classMap = classMaps.get(mapKey);
-	return classMap;
-}
-
-function addClassMap(mapKey) {
-	var classMaps = getClassMaps();
-	var newMap = new Map([]);
-	classMaps.set(mapKey, newMap);
+function addNewMap(map, mapKey) {
+	var newMap;
+	if (!isValidType(mapKey)) {
+		newMap = new Map([]);
+		map.set(mapKey, newMap);
+	}
 	return newMap;
 }
 
-function getValidClassMap(mapKey) {
-	var validClassMap = getClassMap(mapKey);
-	if (typeof (validClassMap) == 'undefined' || validClassMap == null) {
-		validClassMap = addClassMap(mapKey);
+function getValidMapValue(map, mapKey) {
+	var validClassMap = getMapValue(map, mapKey);
+	if (!isValidType(validClassMap)) {
+		validClassMap = addNewMap(map, mapKey);
 	}
 	return validClassMap;
 }
 
-function getClassMapProperty(mapKey, propertyKey) {
-	var validClassMap = getValidClassMap(mapKey);
-	var classMapProperty = validClassMap.get(propertyKey);
-	if (typeof (classMapProperty) == 'undefined' || classMapProperty == null)
-		return classMapProperty;
-	return classMap;
+function getMapMapProperty(map, mapKey, propertyKey) {
+	var property;
+	var validMapValue = getMapValue(map, mapKey);
+	if (isValidType(validMapValue))
+		property = validMapValue.get(propertyKey);
+	return property;
 }
 
-function setClassMapPropertyValue(mapKey, propertyKey, propertyValue) {
-	var validClassMap = getValidClassMap(mapKey);
-	validClassMap.set(propertyKey, propertyValue);
+function setMapMapPropertyValue(map, mapKey, propertyValue) {
+	var validMap = getValidMapValue(mapKey);
+	if (!isValidType(validMap))
+		validClassMap.set(propertyKey, propertyValue);
 	return propertyValue;
+}
+
+function getValidMapMapProperty(map, mapKey, propertyKey, defaultPropertyValue) {
+	var validMapValue = getValidMapValue(map, mapKey);
+	var property = validMapValue.get(propertyKey);
+	if (!isValidType(property)) {
+		property = defaultPropertyValue;
+		validMapValue.set(propertyKey, property);
+	}
+	return property;
+}
+
+/*
+function setValidMapValue(map, key, value) {
+	if (isValidType(key) && isvalid(value))
+		map.set(key, value);
+	return value;
+}
+*/
+
+// PROCESS CLASS MAPS
+function getClassMap(mapKey) {
+	return getMapValue(classMaps, mapKey);
+}
+
+function addClassMap(mapKey) {
+	return addNewMap(classMaps, mapKey);
+}
+
+function getValidClassMap(mapKey) {
+	return getValidMapValue(classMaps, mapKey);
+}
+
+function getClassMapProperty(mapKey, propertyKey) {
+	return getMapMapProperty(classMaps, mapKey, propertyKey);
+}
+
+function setClassMapPropertyValue(mapKey, propertyValue) {
+	return setMapMapPropertyValue(classMaps, mapKey, propertyValue);
 }
 
 function getValidClassMapProperty(mapKey, propertyKey, defaultValue) {
-	var validClassMap = getValidClassMap(mapKey);
-	var validClassProperty = validClassMap.get(propertyKey);
-	if (typeof (validClassProperty) == 'undefined' || validClassProperty == null) {
-		validClassProperty = defaultValue;
-		validClassMap.set(propertyKey, validClassProperty);
-	}
-
-	return validClassProperty;
+	return getValidMapMapProperty(classMaps, mapKey, propertyKey, defaultPropertyValue);
 }
 
 // PROCESS ID MAPS
-function putIdMaps() {
-	var idMaps = selectionMap.get("idMaps");
-	return idMaps;
-}
 
 function getIdMap(mapKey) {
-	var idMaps = putIdMaps();
-	var idMap = idMaps.get(mapKey);
-	return idMap;
+	return getMapValue(idMaps, mapKey);
 }
 
-function putIdMap(mapKey) {
-	var idMaps = putIdMaps();
-	var newMap = new Map([]);
-	idMaps.set(mapKey, newMap);
-	return newMap;
+function addIdMap(mapKey) {
+	return addNewMap(idMaps, mapKey);
 }
 
 function getValidIdMap(mapKey) {
-	var validIdMap = getIdMap(mapKey);
-	if (typeof (validIdMap) == 'undefined' || validIdMap == null) {
-		validIdMap = putIdMap(mapKey);
-	}
-	return validIdMap;
+	return getValidMapValue(idMaps, mapKey);
 }
 
 function getIdMapProperty(mapKey, propertyKey) {
-	var validIdMap = getValidIdMap(mapKey);
-	var idMapProperty = validIdMap.get(propertyKey);
-	if (typeof (idMapProperty) == 'undefined' || idMapProperty == null)
-		return idMapProperty;
-	return idMap;
+	return getMapMapProperty(idMaps, mapKey, propertyKey);
 }
 
-function setIdMapPropertyValue(mapKey, propertyKey, propertyValue) {
-	var validIdMap = getValidIdMap(mapKey);
-	validIdMap.set(propertyKey, propertyValue);
-	return propertyValue;
+function setIdMapPropertyValue(mapKey, propertyValue) {
+	return setMapMapPropertyValue(idMaps, mapKey, propertyValue);
 }
 
 function getValidIdMapProperty(mapKey, propertyKey, defaultValue) {
-	var validIdMap = getValidIdMap(mapKey);
-	var validIdProperty = validIdMap.get(propertyKey);
-	if (typeof (validIdProperty) == 'undefined' || validIdProperty == null)
-	{
-		validIdProperty = defaultValue;
-		validIdMap.set(propertyKey, defaultValue);
-	}
-	return validIdProperty;
+	return getValidMapMapProperty(idMaps, mapKey, propertyKey, defaultPropertyValue);
 }
 
 // Color Methods
 
 function isValidColor(strColor) {
-	if (typeof (strColor) == 'undefined' || strColor == null)
+	if (isValidType(strColor))
 		return false;
 	var s = new Option().style;
 	s.color = strColor;
@@ -160,7 +171,6 @@ function putActiveIdColors(idName, fgColor, bgColor) {
 	setIdMapPropertyValue(idName, "bgColor", bgColor);
 }
 
-
 function setActiveIdColors(idName, fgColor, bgColor) {
 	putActiveIdColors(idName, fgColor, bgColor);
 	var validFgClassColor = getValidFgIdColor(idName, fgColor);
@@ -173,21 +183,27 @@ function setActiveIdColors(idName, fgColor, bgColor) {
 function setActiveSelectionColors(idName, fgColor, bgColor) {
 	elmnt = document.getElementById(idName);
 	var className = elmnt.className;
-	resetClassMemberColors(className);
+	setDefaultClassColors(className);
 	setActiveIdColors(idName, fgColor, bgColor);
 }
 
-function setActiveClassElement(elmnt,  fgColor, bgColor) {
+function setActiveClassElement(elmnt, fgColor, bgColor) {
 	var idName = elmnt.id;
 	var className = elmnt.className;
-	resetClassMemberColors(className);
-	setActiveIdColors(idName,  fgColor, bgColor);
+	setDefaultClassColors(className);
+	setActiveIdColors(idName, fgColor, bgColor);
 };
 
-function resetClassMemberColors(className, fgColor, bgColor) {
+function putDefaultClassColors(className, fgColor, bgColor) {
+	setClassMapPropertyValue(className, "fgColor", fgColor);
+	setClassMapPropertyValue(className, "bgColor", bgColor);
+}
+
+function setDefaultClassColors(className, fgColor, bgColor) {
+	putDefaultClassColors(className, fgColor, bgColor)
 	var i, tablinks;
 	var tablinks = document.getElementsByClassName(className);
-	if (typeof (tablinks) != 'undefined' && tablinks != null) {
+	if (!isValidType(tablinks)) {
 		var validFgClassColor = getValidFgClassColor(className, fgColor);
 		var validBgClassColor = getValidBgClassColor(className, bgColor);
 		for (i = 0; i < tablinks.length; i++) {

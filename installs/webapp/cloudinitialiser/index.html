@@ -41,8 +41,8 @@
 	var active_contact_bgColor = "orange";
 
 	function putObjColors(elemtName, fgColor, bgColor) {
-		putActiveIdColors(elemtName + "BTN", active_home_fgColor, active_home_bgColor);
-		putActiveIdColors(elemtName + "DIV", active_home_fgColor, active_home_bgColor);
+		putActiveIdColors(elemtName + "_BTN", fgColor, bgColor);
+		putActiveIdColors(elemtName + "_DIV", fgColor, bgColor);
 	}
 
 	putObjColors("home", active_home_fgColor, active_home_bgColor);
@@ -50,17 +50,12 @@
 	putObjColors("postman", active_postman_fgColor, active_postman_bgColor);
 	putObjColors("contact", active_about_fgColor, active_about_bgColor);
 	putObjColors("about", active_contact_fgColor, active_contact_bgColor);
-
-	function initMenu(initBtn) {
-		document.getElementById("home_BTN").click();
-		var home_DIV = document.getElementById("home_BTN");
-		home_DIV.style.display = "block";
-	}
-	
-//<!-- <body onload="initMenu('home_BTN')"> -->
+	var initActiveMenu = "home_BTN";
 </script>
 
-<body onload="document.getElementById('home_BTN').click()">
+<!-- <body onload = "document.getElementById('home_BTN').click();"> -->
+
+<body onload="initMenu(initActiveMenu);">
 	<div class="main_MENU" id="topNav_DIV">
 		<button id="home_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">Home</button>
 		<button id="CI_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">Cloud initializer</button>
@@ -94,6 +89,11 @@
 	<div id="postman_DIV" class="mainMenu_DIV">
 		<script> $("#postman_DIV").load("./ciBuilder/ciPostman.html"); </script>
 	</div>
-</body>
+
+	<!-- <script>
+		// Get the element with id="home_BTN" and click on it
+		document.getElementById("home_BTN").click();
+	</script>
+</body> -->
 
 </html>
