@@ -18,15 +18,25 @@ function isValidType(obj) {
 
 const classMaps = new Map([]); // Map of Class maps
 const idMaps = new Map([]);    // Map of Id maps
-const selectionMap = new Map([ // Map for Cookie store and retreival (Not Yet Implemented)
+const cookieMap = new Map([ // Map for Cookie store and retreival (Not Yet Implemented)
 	["classMaps", classMaps],
 	["idMaps", idMaps]
 ]);
 
 // GENERAL MAP FUNCTIONS
 
+function getcookieMap() {
+	return cookieMap;
+}
+function getClassMaps() {
+	return classMaps;
+}
+function getIdMaps() {
+	return idMaps;
+}
+
 function getMapValue(map, key) {
-	if (!isValidType(key))
+		if (!isValidType(key))
 		return null;
 	return map.get(key);
 }
