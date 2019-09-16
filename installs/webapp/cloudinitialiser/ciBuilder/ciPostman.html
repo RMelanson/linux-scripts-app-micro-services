@@ -127,20 +127,20 @@
     postman_ID_TEST_fgColor = "BLUE";
     postman_ID_TEST_bgColor = "Yellow";
     postman_ID_TEST_URL = "http://www.stockwidgets.com:9090/system?cmd=ls";
-    setActiveIdColors("urlBarElement", fgColor, bgColor);
-    setActiveIdColors("leftColumnElement", fgColor, bgColor);
+    setIdColors("urlBarElement", fgColor, bgColor);
+    setIdColors("leftColumnElement", fgColor, bgColor);
     putDefaultClassColors
 
     function initPostmanDefaults(apiReq) {
       switch (apiReq.toUpperCase()) {
         case "TEST":
-          alert("Processing apiReq " + apiReq);
+//          alert("Processing apiReq " + apiReq);
           break;
         case "WP":
-          alert("Processing apiReq " + apiReq);
+ //         alert("Processing apiReq " + apiReq);
           break;
         default:
-          alert("**ERROR** apiReq " + apiReq + " Not Found");
+  //        alert("**ERROR** apiReq " + apiReq + " Not Found");
           break;
       }
       elmnt = document.getElementById("resp");

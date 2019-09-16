@@ -40,16 +40,16 @@
 	var active_contact_fgColor = active_fgColor;
 	var active_contact_bgColor = "orange";
 
-	function putObjColors(elemtName, fgColor, bgColor) {
-		putActiveIdColors(elemtName + "_BTN", fgColor, bgColor);
-		putActiveIdColors(elemtName + "_DIV", fgColor, bgColor);
+	function setObjColors(idName, fgColor, bgColor) {
+		setIdBtnColors(idName, fgColor, bgColor);
+		setIdDivColors(idName, fgColor, bgColor);
 	}
 
-	putObjColors("home", active_home_fgColor, active_home_bgColor);
-	putObjColors("CI", active_CI_fgColor, active_CI_bgColor);
-	putObjColors("postman", active_postman_fgColor, active_postman_bgColor);
-	putObjColors("contact", active_about_fgColor, active_about_bgColor);
-	putObjColors("about", active_contact_fgColor, active_contact_bgColor);
+	setObjColors("home", active_home_fgColor, active_home_bgColor);
+	setObjColors("CI", active_CI_fgColor, active_CI_bgColor);
+	setObjColors("postman", active_postman_fgColor, active_postman_bgColor);
+	setObjColors("contact", active_about_fgColor, active_about_bgColor);
+	setObjColors("about", active_contact_fgColor, active_contact_bgColor);
 	var initActiveMenu = "home_BTN";
 </script>
 

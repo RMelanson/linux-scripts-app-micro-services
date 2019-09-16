@@ -7,8 +7,7 @@ function setActiveDiv(elmnt) {
 
 function resetClassDefaults(elmnt) {
 	var className = elmnt.className;
-
-	setDefaultClassColors(className);
+	resetClassColors(className);
 }
 
 //		  alert("SHOW " + divId)

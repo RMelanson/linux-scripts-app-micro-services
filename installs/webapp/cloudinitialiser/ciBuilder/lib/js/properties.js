@@ -31,7 +31,7 @@ function getMapValue(map, key) {
 	return map.get(key);
 }
 
-function addNewMap(map, mapKey) {
+function setValidMap(map, mapKey) {
 	var newMap;
 	if (isValidType(mapKey)) {
 		newMap = new Map([]);
@@ -43,7 +43,7 @@ function addNewMap(map, mapKey) {
 function getValidMap(map, mapKey) {
 	var validMap = getMapValue(map, mapKey);
 	if (!isValidType(validMap)) {
-		validClassMap = addNewMap(map, mapKey);
+		validClassMap = setValidMap(map, mapKey);
 	}
 	return validMap;
 }
@@ -56,10 +56,10 @@ function getMapMapProperty(map, mapKey, propertyKey) {
 	return property;
 }
 
-function addMapMapPropertyValue(map, mapKey, propertyKey, propertyValue) {
+function setMapMapPropertyValue(map, mapKey, propertyKey, propertyValue) {
 	var validMap = getValidMap(map, mapKey);
 	if (isValidType(validMap))
-		validClassMap.set(propertyKey, propertyValue);
+		validMap.set(propertyKey, propertyValue);
 	return propertyValue;
 }
 
@@ -86,8 +86,8 @@ function getClassMap(mapKey) {
 	return getMapValue(classMaps, mapKey);
 }
 
-function addClassMap(mapKey) {
-	return addNewMap(classMaps, mapKey);
+function set(mapKey) {
+	return setValidMap(classMaps, mapKey);
 }
 
 function getValidClassMap(mapKey) {
@@ -98,8 +98,8 @@ function getClassMapProperty(mapKey, propertyKey) {
 	return getMapMapProperty(classMaps, mapKey, propertyKey);
 }
 
-function addClassMapPropertyValue(mapKey, propertyKey, propertyValue) {
-	return addMapMapPropertyValue(classMaps, mapKey, propertyKey, propertyValue);
+function setClassMapPropertyValue(mapKey, propertyKey, propertyValue) {
+	return setMapMapPropertyValue(classMaps, mapKey, propertyKey, propertyValue);
 }
 
 function getValidClassMapProperty(mapKey, propertyKey, defaultValue) {
@@ -112,8 +112,8 @@ function getIdMap(mapKey) {
 	return getMapValue(idMaps, mapKey);
 }
 
-function addIdMap(mapKey) {
-	return addNewMap(idMaps, mapKey);
+function setIdMap(mapKey) {
+	return setValidMap(idMaps, mapKey);
 }
 
 function getValidIdMap(mapKey) {
@@ -125,7 +125,7 @@ function getIdMapProperty(mapKey, propertyKey) {
 }
 
 function setIdMapPropertyValue(mapKey, propertyKey, propertyValue) {
-	return addMapMapPropertyValue(idMaps, mapKey, propertyKey, propertyValue);
+	return setMapMapPropertyValue(idMaps, mapKey, propertyKey, propertyValue);
 }
 
 function getValidIdMapProperty(mapKey, propertyKey, defaultValue) {
@@ -168,13 +168,34 @@ function getValidBgIdColor(idName, color) {
 	return retColor;
 }
 
-function addActiveIdColors(idName, fgColor, bgColor) {
+function setIdColors(idName, fgColor, bgColor) {
 	setIdMapPropertyValue(idName, "fgColor", fgColor);
 	setIdMapPropertyValue(idName, "bgColor", bgColor);
 }
 
+function setIdBtnColors(idName, fgColor, bgColor) {
+	setIdColors(idName + "_BTN", fgColor, bgColor);
+}
+
+function setIdDivColors(idName, fgColor, bgColor) {
+	setIdColors(idName + "_DIV", fgColor, bgColor);
+}
+
+function setClassColors(idName, fgColor, bgColor) {
+	setClassMapPropertyValue(idName, "fgColor", fgColor);
+	setClassMapPropertyValue(idName, "bgColor", bgColor);
+}
+
+function setClassBtnColors(idName, fgColor, bgColor) {
+	setClassColors(idName + "_BTN", fgColor, bgColor);
+}
+
+function setClassDivColors(idName, fgColor, bgColor) {
+	setClassColors(idName + "_DIV", fgColor, bgColor);
+}
+
 function setActiveIdColors(idName, fgColor, bgColor) {
-	addActiveIdColors(idName, fgColor, bgColor);
+	setIdColors(idName, fgColor, bgColor);
 	var validFgClassColor = getValidFgIdColor(idName, fgColor);
 	var validBgClassColor = getValidBgIdColor(idName, bgColor);
 	var elmnt = document.getElementById(idName);
@@ -185,7 +206,7 @@ function setActiveIdColors(idName, fgColor, bgColor) {
 function setActiveSelectionColors(idName, fgColor, bgColor) {
 	elmnt = document.getElementById(idName);
 	var className = elmnt.className;
-	setDefaultClassColors(className);
+	setClassMapPropertyValue(className);
 	setActiveIdColors(idName, fgColor, bgColor);
 }
 
@@ -196,13 +217,13 @@ function setActiveClassElement(elmnt, fgColor, bgColor) {
 	setActiveIdColors(idName, fgColor, bgColor);
 };
 
-function addDefaultClassColors(className, fgColor, bgColor) {
-	addClassMapPropertyValue(className, "fgColor", fgColor);
-	addClassMapPropertyValue(className, "bgColor", bgColor);
+function setDefaultClassColors(className, fgColor, bgColor) {
+	setClassMapPropertyValue(className, "fgColor", fgColor);
+	setClassMapPropertyValue(className, "bgColor", bgColor);
 }
 
-function setDefaultClassColors(className, fgColor, bgColor) {
-	addDefaultClassColors(className, fgColor, bgColor)
+function resetClassColors(className, fgColor, bgColor) {
+	setDefaultClassColors(className, fgColor, bgColor)
 	var i, tablinks;
 	var tablinks = document.getElementsByClassName(className);
 	if (!isValidType(tablinks)) {
