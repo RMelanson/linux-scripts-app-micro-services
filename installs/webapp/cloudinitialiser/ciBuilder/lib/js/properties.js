@@ -43,7 +43,7 @@ function setValidMap(map, mapKey) {
 function getValidMap(map, mapKey) {
 	var validMap = getMapValue(map, mapKey);
 	if (!isValidType(validMap)) {
-		validClassMap = setValidMap(map, mapKey);
+		validMap = setValidMap(map, mapKey);
 	}
 	return validMap;
 }
