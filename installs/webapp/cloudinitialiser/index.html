@@ -55,7 +55,7 @@
 
 <!-- <body onload = "document.getElementById('home_BTN').click();"> -->
 
-<body onload="initMenu(initActiveMenu);">
+<body onload="initMainMenu(initActiveMenu);">
 	<div class="main_MENU" id="topNav_DIV">
 		<button id="home_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">Home</button>
 		<button id="CI_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">Cloud initializer</button>
@@ -90,10 +90,10 @@
 		<script> $("#postman_DIV").load("./ciBuilder/ciPostman.html"); </script>
 	</div>
 
-	<!-- <script>
-		// Get the element with id="home_BTN" and click on it
-		document.getElementById("home_BTN").click();
+	<script>
+		initMenu(initActiveMenu)
+//		document.getElementById("home_BTN").click();
 	</script>
-</body> -->
+</body>
 
 </html>

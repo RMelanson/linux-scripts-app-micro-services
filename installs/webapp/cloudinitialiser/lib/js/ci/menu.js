@@ -33,7 +33,7 @@ var active_contact_bgColor = "grey";
 var default_contact_fgColor = default_fgColor;
 var default_contact_bgColor = "grey";
 
-function initMenu(mmenuId) {
+function initMainMenu(mmenuId) {
 	document.getElementById(mmenuId).click();
 }
 
