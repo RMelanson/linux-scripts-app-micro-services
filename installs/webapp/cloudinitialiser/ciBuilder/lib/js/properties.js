@@ -139,13 +139,13 @@ function setIdMapPropertyValue(mapKey, propertyKey, propertyValue) {
 }
 
 function getValidIdMapProperty(mapKey, propertyKey, defaultValue) {
-	return getValidMapMapProperty(idMaps, mapKey, propertyKey, defaultPropertyValue);
+	return getValidMapMapProperty(idMaps, mapKey, propertyKey, defaultValue);
 }
 
 // Color Methods
 
 function isValidColor(strColor) {
-	if (isValidType(strColor))
+	if (!isValidType(strColor))
 		return false;
 	var s = new Option().style;
 	s.color = strColor;

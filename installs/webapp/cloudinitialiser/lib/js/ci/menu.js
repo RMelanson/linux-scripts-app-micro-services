@@ -4,8 +4,6 @@ function initMainMenu(mmenuId) {
 
 function setMainMenuButtonSelection(elmnt) {
 	var elmt_ID = elmnt.id;
-	var fgColor = getValidFgIdColor(elmt_ID);
-	var bgColor = getValidBgIdColor(elmt_ID);
 	var idName = elmt_ID.replace('_BTN', '');
 	setActiveClassElement(elmnt, fgColor, bgColor);
 	var elmt_DIV = "";
