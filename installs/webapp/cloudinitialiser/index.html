@@ -22,9 +22,9 @@
 	// var loc = window.location.pathname;
 	// var dir = loc.substring(0, loc.lastIndexOf('/'))
 
-	const ciPostmanClass = class {
-		setTestDefault() {
-			this.app = "test";
+	const ciPostmanSettings = class {
+		constructor(app) {
+			this.app = set(app);
 			this.id_fgColor = "black";
 			this.id_bgColor = "white";
 			this.id_font = 'font-family: "Times New Roman", Times, serif'
@@ -45,10 +45,12 @@
 			this.class_rightCol_fgColor = "lightGrey";
 			this.id_rightColHeader = "Test Responce";
 		};
+
+		set(app) {
+			this.app = app;
+		}
 	}
 
-	// Initialize a constructor from a class
-	const constructorFromClass = new ciPostman();
 
 	var id_fgColor = "black";
 	var id_bgColor = "white";

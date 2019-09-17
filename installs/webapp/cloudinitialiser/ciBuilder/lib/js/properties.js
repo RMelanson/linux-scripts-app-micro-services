@@ -3,7 +3,6 @@ const ciPostmanAppSettings = class {
 	constructor(app) {
 		this.app = app;
 	}
-	classMaps = new Map([]); // Map of Class maps
 	idMaps = new Map([]);    // Map of Id maps
 	cookieMap = new Map([ // Map for Cookie store and retreival (Not Yet Implemented)
 		["classMaps", classMaps],
@@ -15,7 +14,8 @@ const ciPostmanAppSettings = class {
 var postmanAppSettings = setNewPostmanApp("test");
 
 function setNewPostmanApp(app) {
-	postmanAppSettings = new ciPostmanAppSettings("test");
+	postmanAppSettings = new ciPostmanAppSettings(app);
+	console.log("postmanAppSettings" = postmanAppSettings)
 }
 
 function isValidType(obj) {
@@ -28,13 +28,13 @@ function isValidType(obj) {
 // GENERAL MAP FUNCTIONS
 
 function getcookieMap() {
-	return cookieMap;
+	return postmanAppSettings.cookieMap;
 }
 function getClassMaps() {
-	return classMaps;
+	return postmanAppSettings.classMaps;
 }
 function getIdMaps() {
-	return idMaps;
+	return postmanAppSettings.idMaps;
 }
 
 function getMapValue(map, key) {
@@ -95,53 +95,53 @@ function setValidMapValue(map, key, value) {
 
 // PROCESS CLASS MAPS
 function getClassMap(mapKey) {
-	return getMapValue(classMaps, mapKey);
+	return getMapValue(postmanAppSettings.classMaps, mapKey);
 }
 
 function set(mapKey) {
-	return setValidMap(classMaps, mapKey);
+	return setValidMap(postmanAppSettings.classMaps, mapKey);
 }
 
 function getValidClassMap(mapKey) {
-	return getValidMap(classMaps, mapKey);
+	return getValidMap(postmanAppSettings.classMaps, mapKey);
 }
 
 function getClassMapProperty(mapKey, propertyKey) {
-	return getMapMapProperty(classMaps, mapKey, propertyKey);
+	return getMapMapProperty(postmanAppSettings.classMaps, mapKey, propertyKey);
 }
 
 function setClassMapPropertyValue(mapKey, propertyKey, propertyValue) {
-	return setMapMapPropertyValue(classMaps, mapKey, propertyKey, propertyValue);
+	return setMapMapPropertyValue(postmanAppSettings.classMaps, mapKey, propertyKey, propertyValue);
 }
 
 function getValidClassMapProperty(mapKey, propertyKey, defaultValue) {
-	return getValidMapMapProperty(classMaps, mapKey, propertyKey, defaultPropertyValue);
+	return getValidMapMapProperty(postmanAppSettings.classMaps, mapKey, propertyKey, defaultPropertyValue);
 }
 
 // PROCESS ID MAPS
 
 function getIdMap(mapKey) {
-	return getMapValue(idMaps, mapKey);
+	return getMapValue(postmanAppSettings.idMaps, mapKey);
 }
 
 function setIdMap(mapKey) {
-	return setValidMap(idMaps, mapKey);
+	return setValidMap(postmanAppSettings.idMaps, mapKey);
 }
 
 function getValidIdMap(mapKey) {
-	return getValidMap(idMaps, mapKey);
+	return getValidMap(postmanAppSettings.idMaps, mapKey);
 }
 
 function getIdMapProperty(mapKey, propertyKey) {
-	return getMapMapProperty(idMaps, mapKey, propertyKey);
+	return getMapMapProperty(postmanAppSettings.idMaps, mapKey, propertyKey);
 }
 
 function setIdMapPropertyValue(mapKey, propertyKey, propertyValue) {
-	return setMapMapPropertyValue(idMaps, mapKey, propertyKey, propertyValue);
+	return setMapMapPropertyValue(postmanAppSettings.idMaps, mapKey, propertyKey, propertyValue);
 }
 
 function getValidIdMapProperty(mapKey, propertyKey, defaultValue) {
-	return getValidMapMapProperty(idMaps, mapKey, propertyKey, defaultValue);
+	return getValidMapMapProperty(postmanAppSettings.idMaps, mapKey, propertyKey, defaultValue);
 }
 
 // Color Methods
