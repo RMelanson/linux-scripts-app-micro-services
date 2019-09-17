@@ -1,38 +1,3 @@
-var active_fgColor = "#333";
-var active_bgColor = "red";
-var default_fgColor = "white";
-var default_bgColor = "black";
-
-var active_home_fgColor = active_fgColor;
-var active_home_bgColor = active_bgColor;
-var default_home_fgColor = default_fgColor;
-var default_home_bgColor = default_bgColor;
-
-var active_CI_fgColor = active_fgColor;
-var active_CI_bgColor = "pink";
-var default_CI_fgColor = default_fgColor;
-var default_CI_bgColor = "pink";
-
-var active_postman_fgColor = active_fgColor;
-var active_postman_bgColor = "green";
-var default_postman_fgColor = default_fgColor;
-var default_postman_bgColor = "green";
-
-var default_about_fgColor = active_fgColor;
-var default_about_bgColor = "yellow";
-var active_about_fgColor = default_fgColor;
-var active_about_bgColor = "yellow";
-
-var default_test_fgColor = active_fgColor;
-var default_test_bgColor = "yellow";
-var active_test_fgColor = default_fgColor;
-var active_test_bgColor = "yellow";
-
-var active_contact_fgColor = active_fgColor;
-var active_contact_bgColor = "grey";
-var default_contact_fgColor = default_fgColor;
-var default_contact_bgColor = "grey";
-
 function initMainMenu(mmenuId) {
 	document.getElementById(mmenuId).click();
 }
