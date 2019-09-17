@@ -1,21 +1,25 @@
 //////////////////////////// START NEW STUFF ///////////////////////////////////
-const ciPostmanAppSettings = class {
+class ciPostmanAppSettings {
 	constructor(app) {
 		this.app = app;
+		this.idMaps = new Map([]);    // Map of Id maps
+		this.classMaps = new Map([]);    // Map of Id maps
 	}
-	idMaps = new Map([]);    // Map of Id maps
-	cookieMap = new Map([ // Map for Cookie store and retreival (Not Yet Implemented)
-		["classMaps", classMaps],
-		["idMaps", idMaps]
-	]);
+	// cookieMap = new Map([ // Map for Cookie store and retreival (Not Yet Implemented)
+	// 	["classMaps", classMaps],
+	// 	["idMaps", idMaps]
+	// ]);
 }
 
 // Initialize a constructor from a class
 var postmanAppSettings = setNewPostmanApp("test");
 
 function setNewPostmanApp(app) {
-	postmanAppSettings = new ciPostmanAppSettings(app);
-	console.log("postmanAppSettings" = postmanAppSettings)
+	newPostmanAppSettings = new ciPostmanAppSettings("Test");
+	//	alert("postmanAppSettings" = postmanAppSettings);
+//	console.log("postmanAppSettings" = newPostmanAppSettings);
+	alert("ZZZZ");
+	return newPostmanAppSettings;
 }
 
 function isValidType(obj) {
