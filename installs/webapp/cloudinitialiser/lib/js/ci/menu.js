@@ -10,9 +10,9 @@ function setMainMenuButtonSelection(elmnt) {
 	if (elmnt.classList.contains("postman")) {
 		var innerHTML = "CLOUD_INITIALIZER " + idName.toUpperCase() + " POSTMAN";
 		document.getElementById("postmanTitle").innerHTML = innerHTML;
-		setIdColors("postmanTitle");
-		setIdColors("restMethod");
-		setIdColors("urlTextBox");
+		setIdColors("postmanTitle","yellow");
+		setIdColors("restMethod","orange");
+		setIdColors("urlTextBox","grey");
 		elmt_DIV = "postman_DIV";
 		document.getElementById("postman_BTN").click();
 	}

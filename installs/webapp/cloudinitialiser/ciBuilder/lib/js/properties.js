@@ -1,27 +1,29 @@
-var activeColor = 'red';
-var app = 'test';
-var rightColClass = "rightColClass";
-var leftColClass = "leftColClass";
-var acvtiveBackGroundColor = "red";
-
-var defaultColor = "lightGrey";
-var defaultBackGroundColor = "purple";
-var activeColor = "black";
-
 //////////////////////////// START NEW STUFF ///////////////////////////////////
+const ciPostmanAppSettings = class {
+	constructor(app) {
+		this.app = app;
+	}
+	classMaps = new Map([]); // Map of Class maps
+	idMaps = new Map([]);    // Map of Id maps
+	cookieMap = new Map([ // Map for Cookie store and retreival (Not Yet Implemented)
+		["classMaps", classMaps],
+		["idMaps", idMaps]
+	]);
+}
+
+// Initialize a constructor from a class
+var postmanAppSettings = setNewPostmanApp("test");
+
+function setNewPostmanApp(app) {
+	postmanAppSettings = new ciPostmanAppSettings("test");
+}
+
 function isValidType(obj) {
 	if (typeof (obj) == 'undefined' || obj == null) {
 		return false;
 	}
 	return true;
 }
-
-const classMaps = new Map([]); // Map of Class maps
-const idMaps = new Map([]);    // Map of Id maps
-const cookieMap = new Map([ // Map for Cookie store and retreival (Not Yet Implemented)
-	["classMaps", classMaps],
-	["idMaps", idMaps]
-]);
 
 // GENERAL MAP FUNCTIONS
 
@@ -36,7 +38,7 @@ function getIdMaps() {
 }
 
 function getMapValue(map, key) {
-		if (!isValidType(key))
+	if (!isValidType(key))
 		return null;
 	return map.get(key);
 }

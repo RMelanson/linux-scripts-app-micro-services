@@ -22,34 +22,62 @@
 	// var loc = window.location.pathname;
 	// var dir = loc.substring(0, loc.lastIndexOf('/'))
 
-	var active_fgColor = "black";
-	var active_bgColor = "white";
+	const ciPostmanClass = class {
+		setTestDefault() {
+			this.app = "test";
+			this.id_fgColor = "black";
+			this.id_bgColor = "white";
+			this.id_font = 'font-family: "Times New Roman", Times, serif'
 
-	var active_home_fgColor = active_fgColor;
-	var active_home_bgColor = "red";
+			this.top_DIV_fgColor = "Blue";
+			this.postmanTitle = "CLOUD initializer POSTMAN";
+			this.url = "http://www.stockwidgets.com:9090/system?cmd=ls -l";
+			this.method = "GET";
 
-	var active_CI_fgColor = active_fgColor;
-	var active_CI_bgColor = "pink";
+			this.container_Div_fgColor = "#777";
+			this.container_Div_bgColor = "yellow";
 
-	var active_postman_fgColor = active_fgColor;
-	var active_postman_bgColor = "green";
+			this.class_urlBarElement_fgColor = "#aaa";
+			this.class_leftColElement_fgColor = "#fff";
 
-	var active_about_fgColor = active_fgColor;
-	var active_about_bgColor = "yellow";
+			this.class_leftCol_fgColor = "lightGrey";
 
-	var active_contact_fgColor = active_fgColor;
-	var active_contact_bgColor = "orange";
+			this.class_rightCol_fgColor = "lightGrey";
+			this.id_rightColHeader = "Test Responce";
+		};
+	}
+
+	// Initialize a constructor from a class
+	const constructorFromClass = new ciPostman();
+
+	var id_fgColor = "black";
+	var id_bgColor = "white";
+
+	var id_home_fgColor = id_fgColor;
+	var id_home_bgColor = "red";
+
+	var id_CI_fgColor = id_fgColor;
+	var id_CI_bgColor = "pink";
+
+	var id_postman_fgColor = id_fgColor;
+	var id_postman_bgColor = "green";
+
+	var id_about_fgColor = id_fgColor;
+	var id_about_bgColor = "yellow";
+
+	var id_contact_fgColor = id_fgColor;
+	var id_contact_bgColor = "orange";
 
 	function setObjColors(idName, fgColor, bgColor) {
 		setIdBtnColors(idName, fgColor, bgColor);
 		setIdDivColors(idName, fgColor, bgColor);
 	}
 
-	setObjColors("home", active_home_fgColor, active_home_bgColor);
-	setObjColors("CI", active_CI_fgColor, active_CI_bgColor);
-	setObjColors("postman", active_postman_fgColor, active_postman_bgColor);
-	setObjColors("contact", active_about_fgColor, active_about_bgColor);
-	setObjColors("about", active_contact_fgColor, active_contact_bgColor);
+	setObjColors("home", id_home_fgColor, id_home_bgColor);
+	setObjColors("CI", id_CI_fgColor, id_CI_bgColor);
+	setObjColors("postman", id_postman_fgColor, id_postman_bgColor);
+	setObjColors("contact", id_about_fgColor, id_about_bgColor);
+	setObjColors("about", id_contact_fgColor, id_contact_bgColor);
 	var initActiveMenu = "home_BTN";
 </script>
 

@@ -1,5 +1,3 @@
-//var activeColor='red';
-
 function setActiveDiv(elmnt) {
 	resetClassDefaults(elmnt);
 	setActiveColumns(elmnt);
