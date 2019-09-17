@@ -5,7 +5,7 @@ function initMainMenu(mmenuId) {
 function setMainMenuButtonSelection(elmnt) {
 	var elmt_ID = elmnt.id;
 	var idName = elmt_ID.replace('_BTN', '');
-	setActiveClassElement(elmnt, fgColor, bgColor);
+	setActiveClassElement(elmnt);
 	var elmt_DIV = "";
 	if (elmnt.classList.contains("postman")) {
 		var innerHTML = "CLOUD_INITIALIZER " + idName.toUpperCase() + " POSTMAN";
@@ -20,9 +20,9 @@ function setMainMenuButtonSelection(elmnt) {
 		elmt_DIV = idName + '_DIV';
 	}
 
-	setActiveIdColors(elmt_DIV, fgColor, bgColor);
+	setActiveIdColors(elmt_DIV);
 	//	alert("Found Class " + selectedClass);
-	configureDivIdSelection(elmt_DIV, fgColor, bgColor);
+	configureDivIdSelection(elmt_DIV);
 }
 
 function setMainMenuMap(elmnt, fgColor, bgColor) {
