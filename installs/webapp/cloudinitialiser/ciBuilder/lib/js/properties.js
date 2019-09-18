@@ -22,8 +22,8 @@ var postmanAppSettings = setNewPostmanApp("test");
 function setNewPostmanApp(app) {
 	newPostmanAppSettings = new ciPostmanAppSettings("Test");
 	//	alert("postmanAppSettings" = postmanAppSettings);
-//	console.log("postmanAppSettings" = newPostmanAppSettings);
-	alert("ZZZZ");
+	//	console.log("postmanAppSettings" = newPostmanAppSettings);
+	//	alert("ZZZZ");
 	return newPostmanAppSettings;
 }
 
@@ -79,8 +79,12 @@ function getMapMapProperty(map, mapKey, propertyKey) {
 
 function setMapMapPropertyValue(map, mapKey, propertyKey, propertyValue) {
 	var validMap = getValidMap(map, mapKey);
-	if (isValidType(validMap))
-		validMap.set(propertyKey, propertyValue);
+	if (isValidType(validMap)) {
+		if (isValidType(propertyValue) && isValidType(propertyKey)) {
+			validMap.set(propertyKey, propertyValue);
+		}
+	}
+	propertyValue = validMap.get(propertyKey);
 	return propertyValue;
 }
 

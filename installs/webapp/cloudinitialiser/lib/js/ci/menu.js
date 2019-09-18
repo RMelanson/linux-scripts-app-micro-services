@@ -4,40 +4,25 @@ function initMainMenu(mmenuId) {
 
 function setMainMenuButtonSelection(elmnt) {
 	var elmt_ID = elmnt.id;
-	var idName = elmt_ID.replace('_BTN', '_DIV');
+	var div_ID = elmt_ID.replace('_BTN', '_DIV');
 
-	setActiveIdColors(elmnt.id);
-	setActiveIdColors(elmt_DIV);
-	//	alert("Found Class " + selectedClass);
-	configureDivIdSelection(elmt_DIV);
+	setButtonDivSelection(elmt_ID, div_ID);
 }
 
 function setCiPostmanButtonSelection(elmnt) {
+	var postman_ID = "postman_ID";
 	var elmt_ID = elmnt.id;
-	var elmt_DIV = "postman_DIV";
+	var div_ID = "postman_DIV";
 
-	setActiveIdColors(elmnt.id);
-	setActiveIdColors(elmt_DIV);
-	//	alert("Found Class " + selectedClass);
-	configureDivIdSelection(elmt_DIV);
+	setActiveIdColors(postman_ID);
+	setButtonDivSelection(elmt_ID, div_ID);
 }
 
-function setMainMenuMap(elmnt, fgColor, bgColor) {
-	var elmt_ID = elmnt.id;
-	var elmt_DIV = elmt_ID.replace('_BTN', '_DIV');
-
-	setActiveIdColors(elmt_DIV, fgColor, bgColor);
-	//	alert("Found Class " + selectedClass);
-	configureDivIdSelection(elmt_DIV, fgColor, bgColor);
-}
-
-function configureDivIdSelection(id_DIV, fgColor, bgColor) {
-	var elmnt = document.getElementById(id_DIV);
-	setActiveIdColors(id_DIV, fgColor, bgColor);
-
-	if (elmnt.classList.contains("postman"))
-		configurePostMan(elmnt_DIV);
-	setVisableIdSelection(id_DIV);
+function setButtonDivSelection(elmt_ID, div_ID) {
+	setActiveIdColors(elmt_ID);
+	resetClassColors(elmt_ID);
+	setActiveIdColors(div_ID);
+	setVisableIdSelection(div_ID);
 }
 
 function configurePostMan(postMan_ELMT) {
