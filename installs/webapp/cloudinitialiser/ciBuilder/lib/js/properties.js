@@ -1,4 +1,9 @@
 //////////////////////////// START NEW STUFF ///////////////////////////////////
+
+// Set ~ store values in Hash map
+// Valid ~ use existing value in hash map or use default and store in Map (Like CASH)
+// Active ~ apply properties to a particular element id or class
+
 class ciPostmanAppSettings {
 	constructor(app) {
 		this.app = app;
@@ -88,14 +93,6 @@ function getValidMapMapProperty(map, mapKey, propertyKey, defaultPropertyValue) 
 	}
 	return property;
 }
-
-/*
-function setValidMapValue(map, key, value) {
-	if (isValidType(key) && isvalid(value))
-		map.set(key, value);
-	return value;
-}
-*/
 
 // PROCESS CLASS MAPS
 function getClassMap(mapKey) {
@@ -226,20 +223,13 @@ function setActiveSelectionColors(idName, fgColor, bgColor) {
 	setActiveIdColors(idName, fgColor, bgColor);
 }
 
-function setActiveClassElement(elmnt, fgColor, bgColor) {
-	var idName = elmnt.id;
-	var className = elmnt.className;
-	setDefaultClassColors(className);
-	setActiveIdColors(idName, fgColor, bgColor);
-};
-
-function setDefaultClassColors(className, fgColor, bgColor) {
+function setClassColors(className, fgColor, bgColor) {
 	setClassMapPropertyValue(className, "fgColor", fgColor);
 	setClassMapPropertyValue(className, "bgColor", bgColor);
 }
 
 function resetClassColors(className, fgColor, bgColor) {
-	setDefaultClassColors(className, fgColor, bgColor)
+	setClassColors(className, fgColor, bgColor)
 	var i, tablinks;
 	var tablinks = document.getElementsByClassName(className);
 	if (!isValidType(tablinks)) {

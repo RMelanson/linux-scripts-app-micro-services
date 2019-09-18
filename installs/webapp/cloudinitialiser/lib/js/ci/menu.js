@@ -4,22 +4,19 @@ function initMainMenu(mmenuId) {
 
 function setMainMenuButtonSelection(elmnt) {
 	var elmt_ID = elmnt.id;
-	var idName = elmt_ID.replace('_BTN', '');
-	setActiveClassElement(elmnt);
-	var elmt_DIV = "";
-	if (elmnt.classList.contains("postman")) {
-		var innerHTML = "CLOUD_INITIALIZER " + idName.toUpperCase() + " POSTMAN";
-		document.getElementById("postmanTitle").innerHTML = innerHTML;
-		setIdColors("postmanTitle","yellow");
-		setIdColors("restMethod","orange");
-		setIdColors("urlTextBox","grey");
-		elmt_DIV = "postman_DIV";
-		document.getElementById("postman_BTN").click();
-	}
-	else {
-		elmt_DIV = idName + '_DIV';
-	}
+	var idName = elmt_ID.replace('_BTN', '_DIV');
 
+	setActiveIdColors(elmnt.id);
+	setActiveIdColors(elmt_DIV);
+	//	alert("Found Class " + selectedClass);
+	configureDivIdSelection(elmt_DIV);
+}
+
+function setCiPostmanButtonSelection(elmnt) {
+	var elmt_ID = elmnt.id;
+	var elmt_DIV = "postman_DIV";
+
+	setActiveIdColors(elmnt.id);
 	setActiveIdColors(elmt_DIV);
 	//	alert("Found Class " + selectedClass);
 	configureDivIdSelection(elmt_DIV);

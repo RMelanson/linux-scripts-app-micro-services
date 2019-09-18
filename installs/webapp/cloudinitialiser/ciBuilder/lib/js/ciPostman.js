@@ -3,11 +3,6 @@ function setActiveDiv(elmnt) {
 	setActiveColumns(elmnt);
 }
 
-function resetClassDefaults(elmnt) {
-	var className = elmnt.className;
-	resetClassColors(className);
-}
-
 //		  alert("SHOW " + divId)
 function setActiveColumns(elmnt) {
 	var cbId = elmnt.id;
@@ -32,11 +27,4 @@ function closeClassMembers(divClass) {
 	for (i = 0; i < classList.length; i++) {
 		classList[i].style.display = "none";
 	}
-}
-
-function prepRestApi(urlElmt, restMethod, respID) {
-	elmnt = document.getElementById(respID);
-	setActiveDiv(elmnt);
-	resp_Right_Div = respID + "_Right_Div";
-	callRestApi(urlElmt, restMethod, resp_Right_Div);
 }
