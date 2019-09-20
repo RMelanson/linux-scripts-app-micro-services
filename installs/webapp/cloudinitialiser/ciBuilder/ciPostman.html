@@ -24,7 +24,9 @@
 
 </head>
 
-<body onload="initPostmanDefaults('test')">
+<!-- <body onload="initPostmanDefaults('test')"> -->
+
+<body onload="initPostmanDefaults('resp')">
   <div class="Top">
     <div>
       <H1 id="postmanTitle">CLOUD initializer POSTMAN</H1>
@@ -129,20 +131,8 @@
     postman_ID_TEST_URL = "http://www.stockwidgets.com:9090/system?cmd=ls";
     setIdColors("class_urlBarElement", fgColor, bgColor);
     setIdColors("class_leftColElement", fgColor, bgColor);
-    putDefaultClassColors
-
+ 
     function initPostmanDefaults(apiReq) {
-      switch (apiReq.toUpperCase()) {
-        case "TEST":
-//          alert("Processing apiReq " + apiReq);
-          break;
-        case "WP":
- //         alert("Processing apiReq " + apiReq);
-          break;
-        default:
-  //        alert("**ERROR** apiReq " + apiReq + " Not Found");
-          break;
-      }
       elmnt = document.getElementById("resp");
       setActiveDiv(elmnt);
     }

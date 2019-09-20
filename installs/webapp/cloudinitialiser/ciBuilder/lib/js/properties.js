@@ -120,7 +120,7 @@ function setClassMapPropertyValue(mapKey, propertyKey, propertyValue) {
 }
 
 function getValidClassMapProperty(mapKey, propertyKey, defaultValue) {
-	return getValidMapMapProperty(postmanAppSettings.classMaps, mapKey, propertyKey, defaultPropertyValue);
+	return getValidMapMapProperty(postmanAppSettings.classMaps, mapKey, propertyKey, defaultValue);
 }
 
 // PROCESS ID MAPS
@@ -149,100 +149,3 @@ function getValidIdMapProperty(mapKey, propertyKey, defaultValue) {
 	return getValidMapMapProperty(postmanAppSettings.idMaps, mapKey, propertyKey, defaultValue);
 }
 
-// Color Methods
-
-function isValidColor(strColor) {
-	if (!isValidType(strColor))
-		return false;
-	var s = new Option().style;
-	s.color = strColor;
-
-	// return 'false' if color wasn't assigned
-	return s.color == strColor.toLowerCase();
-}
-
-function getValidFgClassColor(className, color) {
-	var defaultColor = isValidColor(color) ? color : "white";
-	var retColor = getValidClassMapProperty(className, "fgColor", defaultColor);
-	return retColor;
-}
-
-function getValidBgClassColor(className, color) {
-	var defaultColor = isValidColor(color) ? color : "#333";
-	var retColor = getValidClassMapProperty(className, "bgColor", defaultColor);
-	return retColor;
-}
-
-function getValidFgIdColor(idName, color) {
-	var defaultColor = isValidColor(color) ? color : "black";
-	var retColor = getValidIdMapProperty(idName, "fgColor", defaultColor);
-	return retColor;
-}
-
-function getValidBgIdColor(idName, color) {
-	var defaultColor = isValidColor(color) ? color : "red";
-	var retColor = getValidIdMapProperty(idName, "bgColor", defaultColor);
-	return retColor;
-}
-
-function setIdColors(idName, fgColor, bgColor) {
-	setIdMapPropertyValue(idName, "fgColor", fgColor);
-	setIdMapPropertyValue(idName, "bgColor", bgColor);
-}
-
-function setIdBtnColors(idName, fgColor, bgColor) {
-	setIdColors(idName + "_BTN", fgColor, bgColor);
-}
-
-function setIdDivColors(idName, fgColor, bgColor) {
-	setIdColors(idName + "_DIV", fgColor, bgColor);
-}
-
-function setClassColors(idName, fgColor, bgColor) {
-	setClassMapPropertyValue(idName, "fgColor", fgColor);
-	setClassMapPropertyValue(idName, "bgColor", bgColor);
-}
-
-function setClassBtnColors(idName, fgColor, bgColor) {
-	setClassColors(idName + "_BTN", fgColor, bgColor);
-}
-
-function setClassDivColors(idName, fgColor, bgColor) {
-	setClassColors(idName + "_DIV", fgColor, bgColor);
-}
-
-function setActiveIdColors(idName, fgColor, bgColor) {
-	setIdColors(idName, fgColor, bgColor);
-	var validFgClassColor = getValidFgIdColor(idName, fgColor);
-	var validBgClassColor = getValidBgIdColor(idName, bgColor);
-	var elmnt = document.getElementById(idName);
-	elmnt.style.color = validFgClassColor;
-	elmnt.style.backgroundColor = validBgClassColor;
-}
-
-function setActiveSelectionColors(idName, fgColor, bgColor) {
-	elmnt = document.getElementById(idName);
-	var className = elmnt.className;
-	setClassMapPropertyValue(className);
-	setActiveIdColors(idName, fgColor, bgColor);
-}
-
-function setClassColors(className, fgColor, bgColor) {
-	setClassMapPropertyValue(className, "fgColor", fgColor);
-	setClassMapPropertyValue(className, "bgColor", bgColor);
-}
-
-function resetClassColors(className, fgColor, bgColor) {
-	setClassColors(className, fgColor, bgColor)
-	var i, tablinks;
-	var tablinks = document.getElementsByClassName(className);
-	if (!isValidType(tablinks)) {
-		var validFgClassColor = getValidFgClassColor(className, fgColor);
-		var validBgClassColor = getValidBgClassColor(className, bgColor);
-		for (i = 0; i < tablinks.length; i++) {
-			var elmnt = tablinks[i];
-			elmnt.style.color = validFgClassColor;
-			elmnt.style.backgroundColor = validBgClassColor;
-		}
-	}
-}
