@@ -1,55 +1,20 @@
 <script>
-    //  setIdMapPropertyValue("postman_WP", "Title", "CLOUD initializer Wordpress Installer");
-    setPostmanTitle(idName, key, value);
-
-    function setCiPostmanButtonSelection2(obj) {
-        setCiPostmanButtonSelection(obj);
+    initPostmanDefaults("XXXX");
+    function initPostmanWP(key, value) {
+        setIdMapPropertyValue("postman_WP", key, value);
     }
 
+    function initWP() {
+        initPostmanWP("Title", "CLOUD initializer Wordpress Installer");
+        initPostmanWP("Method", "Get");
+        initPostmanWP("URL", "http://www.stockwidgets.com:9090/install?app=wpInstaller");
+        initPostmanWP("RightCol", "WordPress Results");
+    }
+
+    initWP();
 </script>
-
-<table id="blogsTable" class="installTable">
-    <tr>
-        <td>
-            <button id="wp_BTN" class="install_BTN postman"
-                onclick="setCiPostmanButtonSelection(this)">Wordpress</button>
-        </td>
-    </tr>
-</table>
-
 <!--
  /////// CUSTOM PROPERTIES METHODS
-
-function setClassTopColors(idName, fgColor, fgColor) {
-	setClassMapPropertyValue(idName, "fgColor", fgColor);
-	setClassMapPropertyValue(idName, "bgColor", bgColor);
-}
-
-function setPostmanTitle(idName, key, value) {
-	var idKey = "Title";
-	var key = idName+"Title_Postman";
-	setIdMapPropertyValue(idName, key, value);
-}
-
-function setXXXXXXXX(idName, key, value) {
-	setIdMapPropertyValue(idName, "fgColor", fgColor);
-}
-
-function setRestMethod(idName, key, value) {
-	setIdMapPropertyValue(idName, "fgColor", fgColor);
-}
-
-function setUrlTextBox(idName, key, value) {
-	setIdMapPropertyValue(idName, "fgColor", fgColor);
-}
-
-function setUrlBtn(idName, key, value) {
-	setIdMapPropertyValue(idName, "fgColor", fgColor);
-}
-
-function setRightColHeader(idName, key, value) {
-	setIdMapPropertyValue(idName, "fgColor", fgColor);
-}
 
 /*
 *id="postmanTitle"
@@ -78,3 +43,12 @@ id="rightCol"
    id="log_Right_Div"
    */
  -->
+
+<table id="blogsTable" class="installTable">
+    <tr>
+        <td>
+            <button id="wp_BTN" class="install_BTN postman"
+                onclick="setCiPostmanButtonSelection(this)">Wordpress</button>
+        </td>
+    </tr>
+</table>
