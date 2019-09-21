@@ -229,3 +229,9 @@ function setClassColors(className, fgColor, bgColor) {
 	setClassMapPropertyValue(className, "fgColor", fgColor);
 	setClassMapPropertyValue(className, "bgColor", bgColor);
 }
+
+/////// CUSTOM PROPERTIES METHODS
+
+function setPostmanTitle(idName, key, value) {
+	setIdMapPropertyValue(idName, key, value);
+}
