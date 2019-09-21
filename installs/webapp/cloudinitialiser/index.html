@@ -58,7 +58,8 @@
 		<button id="home_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">Home</button>
 		<button id="CI_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">Cloud initializer</button>
 		<button id="postman_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">Postman</button>
-		<button id=blog_BTN" class="mainMenu_BTN" onclick="window.open('../cloudmigrations/')">Blog</button>
+		<button id=blog_BTN" class="mainMenu_BTN"
+		onclick="window.open('../cloudmigrations/')">Blog</button>
 		<!-- onclick="window.open('http://www.stockwidgets.com/cloudmigrations/')">Blog</button> -->
 		<button id="about_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">About</button>
 		<button id="contact_BTN" class="mainMenu_BTN" onclick="setMainMenuButtonSelection(this)">Contact</button>
@@ -67,18 +68,30 @@
 		</a>
 	</div>
 
-	<div id="home_DIV" class="mainMenu_DIV"></div>
-	<div id="CI_DIV" class="mainMenu_DIV"></div>
-	<div id="about_DIV" class="mainMenu_DIV"></div>
-	<div id="contact_DIV" class="mainMenu_DIV"></div>
-	<div id="postman_DIV" class="mainMenu_DIV"></div>
+	<div id="home_DIV" class="mainMenu_DIV">
+		<script> $("#home_DIV").load("./pages/home.html"); </script>
+	</div>
+
+	<div id="CI_DIV" class="mainMenu_DIV">
+		<script>
+			$("#CI_DIV").load("./pages/cloudInit.html"); 
+		</script>
+	</div>
+
+	<div id="about_DIV" class="mainMenu_DIV">
+		<!-- <h1>ABOUT CLOUD initializer</h1> -->
+		<script> $("#about_DIV").load("./pages/about.html"); </script>
+	</div>
+
+	<div id="contact_DIV" class="mainMenu_DIV">
+		<script> $("#contact_DIV").load("./pages/contact.html"); </script>
+	</div>
+
+	<div id="postman_DIV" class="mainMenu_DIV">
+		<script> $("#postman_DIV").load("./ciBuilder/ciPostman.html"); </script>
+	</div>
 
 	<script>
-		$("#home_DIV").load("./pages/home.html");
-		$("#CI_DIV").load("./pages/cloudInit.html");
-		$("#about_DIV").load("./pages/about.html");
-		$("#contact_DIV").load("./pages/contact.html");
-		$("#postman_DIV").load("./ciBuilder/ciPostman.html");
 		// initMenu(initActiveMenu)
 //		document.getElementById("home_BTN").click();
 	</script>
