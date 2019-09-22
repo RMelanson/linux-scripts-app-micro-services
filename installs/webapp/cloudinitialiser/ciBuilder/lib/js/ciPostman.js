@@ -27,8 +27,8 @@ function setActiveDivId(elmnt_ID) {
 function setActiveDiv(elmnt) {
 	var elmnt_CLASS = elmnt.className;
 	var elmnt_ID = elmnt.id;
-	resetClassDefaults(elmnt_CLASS);
-	setActiveIdColors(elmnt_ID);
+	paintClassDefaults(elmnt_CLASS);
+	paintIdColors(elmnt_ID);
 	setActiveColumns(elmnt);
 }
 
@@ -60,32 +60,32 @@ function closeClassMembers(elmnt) {
 	}
 }
 
-function setCiPostmanButtonSelection(elmnt) {
+function paintPostmanButtonSelection(elmnt) {
 	var postman_ID = "postman_BTN";
 	var elmnt_CLASS = elmnt.className;
 	var elmnt_ID = elmnt.id;
 	var div_ID = "postman_DIV";
 
-	resetClassDefaults(elmnt_CLASS);
-	setActiveIdColors(elmnt_ID);
-	setIdDivSelection(postman_ID, div_ID);
+	paintClassDefaults(elmnt_CLASS);
+	paintIdColors(elmnt_ID);
+	paintIdDivSelection(postman_ID, div_ID);
 }
 
-function setIdDivSelection(elmnt_ID, div_ID) {
+function paintIdDivSelection(elmnt_ID, div_ID) {
 	var elmnt = document.getElementById(elmnt_ID);
 	var elmnt_CLASS = elmnt.className;
 
-	resetClassDefaults(elmnt_CLASS);
-	setActiveIdColors(elmnt_ID);
-	setActiveIdColors(div_ID);
-	setVisableIdSelection(div_ID);
+	paintClassDefaults(elmnt_CLASS);
+	paintIdColors(elmnt_ID);
+	paintIdColors(div_ID);
+	displayIdSelection(div_ID);
 }
 
-function resetClassDefaults(className) {
-	resetClassColors(className);
+function paintClassDefaults(className) {
+	repaintClassColors(className);
 }
 
-function resetClassColors(className) {
+function repaintClassColors(className) {
 	var i, tablinks;
 	var tablinks = document.getElementsByClassName(className);
 	if (isValidType(tablinks)) {
@@ -99,7 +99,7 @@ function resetClassColors(className) {
 	}
 }
 
-function setVisableIdSelection(elmnt_ID) {
+function displayIdSelection(elmnt_ID) {
 	var elmnt = document.getElementById(elmnt_ID);
 	var elmnt_CLASS = elmnt.className;
 	closeAllPageDivs(elmnt_CLASS);
@@ -209,7 +209,7 @@ function setClassDivColors(idName, fgColor, bgColor) {
 	setClassColors(idName + "_DIV", fgColor, bgColor);
 }
 
-function setActiveIdColors(idName, fgColor, bgColor) {
+function paintIdColors(idName, fgColor, bgColor) {
 	setIdColors(idName, fgColor, bgColor);
 	var validFgClassColor = getValidFgIdColor(idName, fgColor);
 	var validBgClassColor = getValidBgIdColor(idName, bgColor);
@@ -222,7 +222,7 @@ function setActiveSelectionColors(idName, fgColor, bgColor) {
 	elmnt = document.getElementById(idName);
 	var className = elmnt.className;
 	setClassMapPropertyValue(className);
-	setActiveIdColors(idName, fgColor, bgColor);
+	paintIdColors(idName, fgColor, bgColor);
 }
 
 function setClassColors(className, fgColor, bgColor) {
