@@ -61,7 +61,7 @@ function closeClassMembers(elmnt) {
 }
 
 function paintPostmanButtonSelection(elmnt) {
-	var elmnt_CLASS = elmnt.className;
+//	var elmnt_CLASS = elmnt.className;
 	paintActiveClassId(elmnt);
 
 	document.getElementById("postman_BTN").click();
