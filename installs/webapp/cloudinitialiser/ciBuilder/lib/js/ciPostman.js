@@ -61,6 +61,20 @@ function closeClassMembers(elmnt) {
 }
 
 function paintPostmanButtonSelection(elmnt) {
+	var elmnt_CLASS = elmnt.className;
+	paintActiveClassId(elmnt);
+
+	document.getElementById("postman_BTN").click();
+
+	// var postman_ID = "postman_BTN";
+	// var postman_ELMNT = document.getElementById(postman_BTN);
+
+	//displayActiveClassId(postman_ELMNT);
+}
+
+
+/*
+function paintPostmanButtonSelection(elmnt) {
 	var postman_ID = "postman_BTN";
 	var elmnt_CLASS = elmnt.className;
 	var elmnt_ID = elmnt.id;
@@ -70,6 +84,7 @@ function paintPostmanButtonSelection(elmnt) {
 	paintIdColors(elmnt_ID);
 	paintIdDivSelection(postman_ID, div_ID);
 }
+*/
 
 function paintIdDivSelection(elmnt_ID, div_ID) {
 	var elmnt = document.getElementById(elmnt_ID);
@@ -104,6 +119,21 @@ function displayIdSelection(elmnt_ID) {
 	var elmnt_CLASS = elmnt.className;
 	closeAllPageDivs(elmnt_CLASS);
 	elmnt.style.display = "block";
+}
+
+function paintActiveClassId(elmnt) {
+	var elmnt_ID = elmnt.id;
+	var elmnt_CLASS = elmnt.className;
+	paintClassDefaults(elmnt_CLASS);
+	paintIdColors(elmnt_ID);
+}
+
+function displayActiveClassId(elmnt) {
+	var elmnt_ID = elmnt.id;
+	var elmnt_CLASS = elmnt.className;
+	closeAllPageDivs(elmnt_CLASS)
+	paintIdColors(elmnt_ID);
+ 	elmnt.style.display = "block";
 }
 
 function closeAllPageDivs(divClass) {
