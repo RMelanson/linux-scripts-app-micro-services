@@ -66,6 +66,10 @@ function paintPostmanButtonSelection(elmnt) {
 
 	document.getElementById("postman_BTN").click();
 
+	// var postman_ID = "postman_BTN";
+	// var postman_ELMNT = document.getElementById(postman_BTN);
+
+	//displayActiveClassId(postman_ELMNT);
 }
 
 function paintIdDivSelection(elmnt_ID, div_ID) {
@@ -108,6 +112,14 @@ function paintActiveClassId(elmnt) {
 	var elmnt_CLASS = elmnt.className;
 	paintClassDefaults(elmnt_CLASS);
 	paintIdColors(elmnt_ID);
+}
+
+function displayActiveClassId(elmnt) {
+	var elmnt_ID = elmnt.id;
+	var elmnt_CLASS = elmnt.className;
+	closeAllPageDivs(elmnt_CLASS)
+	paintIdColors(elmnt_ID);
+ 	elmnt.style.display = "block";
 }
 
 function closeAllPageDivs(divClass) {
