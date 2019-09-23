@@ -73,7 +73,7 @@ function paintPostmanButtonSelection(elmnt) {
     var titleColor = getIdMapProperty(postmanApp, "titleColor");
     var method = getIdMapProperty(postmanApp, "Method");
     var URL = getIdMapProperty(postmanApp, "URL");
-    var RightColText = getIdMapProperty(postmanApp, "RightColText");
+    var rightColHeader = getIdMapProperty(postmanApp, "rightColHeader");
 
     paintIdColors("Body", fgColor, bgColor);
     var title_ELMNT = document.getElementById("postmanTitle");
@@ -83,8 +83,8 @@ function paintPostmanButtonSelection(elmnt) {
     var url_ELMNT = document.getElementById("urlTextBox");
     url_ELMNT.innerHTML = URL;
 
-    var RightColText_ELMNT = document.getElementById("RightColText");
-    RightColText_ELMNT.innerHTML = RightColText;    
+    var rightColText_ELMNT = document.getElementById("rightColHeader");
+    rightColText_ELMNT.innerHTML = rightColHeader;    
 
     document.getElementById("postman_BTN").click();
 
