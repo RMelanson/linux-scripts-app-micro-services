@@ -1,3 +1,71 @@
+<script>
+    function initPostmanWP(key, value) {
+       setIdMapPropertyValue("postman_UTILS", key, value);
+   }
+
+   function initDocker() {
+       initPostmanWP("fgColor", "darkGrey");
+       initPostmanWP("bgColor", "lightGrey");
+       initPostmanWP("titleColor", "Orange");
+       initPostmanWP("Title", "CLOUD initializer Docker Installer");
+       initPostmanWP("Method", "Get");
+       initPostmanWP("URL", "http://www.cloudinitializer.com:9090/install?app=DockerBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
+       initPostmanWP("LeftColButton", "gui");
+       initPostmanWP("rightColHeader", "Docker Results");
+   }
+
+   function initJenkins() {
+       initPostmanWP("fgColor", "darkGrey");
+       initPostmanWP("bgColor", "majenta");
+       initPostmanWP("titleColor", "Orange");
+       initPostmanWP("Title", "CLOUD initializer Docker Installer");
+       initPostmanWP("Method", "Get");
+       initPostmanWP("URL", "http://www.cloudinitializer.com:9090/install?app=JenkinsBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
+       initPostmanWP("LeftColButton", "gui");
+       initPostmanWP("rightColHeader", "Docker Results");
+   }
+
+   function initGit() {
+       initPostmanWP("fgColor", "white");
+       initPostmanWP("bgColor", "black");
+       initPostmanWP("titleColor", "red");
+       initPostmanWP("Title", "CLOUD initializer Git Installer");
+       initPostmanWP("Method", "Get");
+       initPostmanWP("URL", "http://www.cloudinitializer.com:9090/install?app=JenkinsBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
+       initPostmanWP("LeftColButton", "gui");
+       initPostmanWP("rightColHeader", "Git Results");
+   }
+
+   function initLinux() {
+       initPostmanWP("fgColor", "darkGrey");
+       initPostmanWP("bgColor", "majenta");
+       initPostmanWP("titleColor", "Orange");
+       initPostmanWP("Title", "CLOUD initializer Linux Installer");
+       initPostmanWP("Method", "Get");
+       initPostmanWP("URL", "http://www.cloudinitializer.com:9090/install?app=LinuxBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
+       initPostmanWP("LeftColButton", "gui");
+       initPostmanWP("rightColHeader", "Linux Results");
+   }
+
+   function initStorage() {
+       initPostmanWP("fgColor", "white");
+       initPostmanWP("bgColor", "black");
+       initPostmanWP("titleColor", "red");
+       initPostmanWP("Title", "Storage initializer Docker Installer");
+       initPostmanWP("Method", "Get");
+       initPostmanWP("URL", "http://www.cloudinitializer.com:9090/install?app=JenkinsBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
+       initPostmanWP("LeftColButton", "gui");
+       initPostmanWP("rightColHeader", "Storage Results");
+   }
+
+   initDocker();
+   initGit();
+   initJenkins();
+   initLinuxAdmin();
+   initStorage();
+   
+</script>
+
 <table id="devOpsTable" class = "installTable">
     <tr>
         <td>
