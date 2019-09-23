@@ -1,15 +1,16 @@
 <script>
-    setPostmanTitle("postman_WP", "Title", "CLOUD initializer Wordpress Installer");
- 
-    function initPostmanWP(key, value) {
+     function initPostmanWP(key, value) {
         setIdMapPropertyValue("postman_WP", key, value);
     }
 
     function initWP() {
+        initPostmanWP("fgColor", "Brown");
+        initPostmanWP("bgColor", "lightGrey");
+        initPostmanWP("titleColor", "white");
         initPostmanWP("Title", "CLOUD initializer Wordpress Installer");
         initPostmanWP("Method", "Get");
         initPostmanWP("URL", "http://www.stockwidgets.com:9090/install?app=wpInstaller");
-        initPostmanWP("RightCol", "WordPress Results");
+        initPostmanWP("RightColText", "WordPress Results");
     }
 
     initWP();

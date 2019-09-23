@@ -63,6 +63,29 @@ function closeClassMembers(elmnt) {
 function paintPostmanButtonSelection(elmnt) {
 	paintActiveClassId(elmnt);
 
+	elmntId = elmnt.id;
+	app = elmntId.replace("_BTN","").toUpperCase();
+	var postmanApp= "postman_"+app;
+
+	var fgColor = getIdMapProperty(postmanApp, "fgColor");
+    var bgColor = getIdMapProperty(postmanApp, "bgColor");
+ 	var title = getIdMapProperty(postmanApp, "Title");
+    var titleColor = getIdMapProperty(postmanApp, "titleColor");
+    var method = getIdMapProperty(postmanApp, "Method");
+	var URL = getIdMapProperty(postmanApp, "URL");
+	var RightColText = getIdMapProperty(postmanApp, "RightColText");
+
+	paintIdColors("Body", fgColor, bgColor);
+	var title_ELMNT = elmnt.getElementById("postmanTitle");
+	title_ELMNT.innerHTML = title;
+	title_ELMNT.style.color = titleColor;
+
+	var url_ELMNT = elmnt.getElementById("urlTextBox");
+	url_ELMNT.innerHTML = URL;
+
+	var RightColText_ELMNT = elmnt.getElementById("RightColText");
+	RightColText_ELMNT.innerHTML = RightColText;	
+
 	document.getElementById("postman_BTN").click();
 
 	// var postman_ID = "postman_BTN";
