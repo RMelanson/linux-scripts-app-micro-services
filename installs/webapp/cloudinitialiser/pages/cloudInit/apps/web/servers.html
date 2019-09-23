@@ -1,3 +1,32 @@
+<script>
+    function initHTTP() {
+        var app = "postman_HTTP";
+        setIdMapPropertyValue(app, "fgColor", "white");
+        setIdMapPropertyValue(app, "bgColor", "darkGrey");
+        setIdMapPropertyValue(app, "titleColor", "cyan");
+        setIdMapPropertyValue(app, "Title", "CLOUD initializer HTTP Installer");
+        setIdMapPropertyValue(app, "Method", "Get");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=WordpressBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "LeftColButton", "gui");
+        setIdMapPropertyValue(app, "rightColHeader", "HTTP Results");
+    }
+
+    function initJBOSS() {
+        var app = "postman_JBOSS";
+        setIdMapPropertyValue(app, "fgColor", "Brown");
+        setIdMapPropertyValue(app, "bgColor", "lightGrey");
+        setIdMapPropertyValue(app, "titleColor", "black");
+        setIdMapPropertyValue(app, "Title", "CLOUD initializer jBoss Installer");
+        setIdMapPropertyValue(app, "Method", "Get");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=WordpressBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "LeftColButton", "gui");
+        setIdMapPropertyValue(app, "rightColHeader", "jBoss Results");
+    }
+
+    initHTTP();
+    initJBOSS();
+</script>
+
 <table id="serversTable" class = "installTable">
     <tr>
         <td>

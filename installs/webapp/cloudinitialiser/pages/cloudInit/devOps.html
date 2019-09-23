@@ -1,61 +1,62 @@
 <script>
-    function initPostmanWP(key, value) {
-       setIdMapPropertyValue("postman_UTILS", key, value);
-   }
-
    function initDocker() {
-       initPostmanWP("fgColor", "darkGrey");
-       initPostmanWP("bgColor", "lightGrey");
-       initPostmanWP("titleColor", "Orange");
-       initPostmanWP("Title", "CLOUD initializer Docker Installer");
-       initPostmanWP("Method", "Get");
-       initPostmanWP("URL", "http://www.cloudinitializer.com:9090/install?app=DockerBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
-       initPostmanWP("LeftColButton", "gui");
-       initPostmanWP("rightColHeader", "Docker Results");
+       var app = "postman_DOCKER";
+       setIdMapPropertyValue(app, "fgColor", "darkGrey");
+       setIdMapPropertyValue(app, "bgColor", "lightGrey");
+       setIdMapPropertyValue(app, "titleColor", "Orange");
+       setIdMapPropertyValue(app, "Title", "CLOUD initializer Docker Installer");
+       setIdMapPropertyValue(app, "Method", "Get");
+       setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=DockerBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
+       setIdMapPropertyValue(app, "LeftColButton", "gui");
+       setIdMapPropertyValue(app, "rightColHeader", "Docker Results");
    }
 
    function initJenkins() {
-       initPostmanWP("fgColor", "darkGrey");
-       initPostmanWP("bgColor", "majenta");
-       initPostmanWP("titleColor", "Orange");
-       initPostmanWP("Title", "CLOUD initializer Docker Installer");
-       initPostmanWP("Method", "Get");
-       initPostmanWP("URL", "http://www.cloudinitializer.com:9090/install?app=JenkinsBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
-       initPostmanWP("LeftColButton", "gui");
-       initPostmanWP("rightColHeader", "Docker Results");
+       var app = "postman_JENKINS";
+       setIdMapPropertyValue(app, "fgColor", "darkGrey");
+       setIdMapPropertyValue(app, "bgColor", "majenta");
+       setIdMapPropertyValue(app, "titleColor", "Orange");
+       setIdMapPropertyValue(app, "Title", "CLOUD initializer Docker Installer");
+       setIdMapPropertyValue(app, "Method", "Get");
+       setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=JenkinsBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
+       setIdMapPropertyValue(app, "LeftColButton", "gui");
+       setIdMapPropertyValue(app, "rightColHeader", "Docker Results");
    }
 
    function initGit() {
-       initPostmanWP("fgColor", "white");
-       initPostmanWP("bgColor", "black");
-       initPostmanWP("titleColor", "red");
-       initPostmanWP("Title", "CLOUD initializer Git Installer");
-       initPostmanWP("Method", "Get");
-       initPostmanWP("URL", "http://www.cloudinitializer.com:9090/install?app=JenkinsBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
-       initPostmanWP("LeftColButton", "gui");
-       initPostmanWP("rightColHeader", "Git Results");
+       var app = "postman_GIT";
+       setIdMapPropertyValue(app, "fgColor", "white");
+       setIdMapPropertyValue(app, "bgColor", "black");
+       setIdMapPropertyValue(app, "titleColor", "red");
+       setIdMapPropertyValue(app, "Title", "CLOUD initializer Git Installer");
+       setIdMapPropertyValue(app, "Method", "Get");
+       setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=JenkinsBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
+       setIdMapPropertyValue(app, "LeftColButton", "gui");
+       setIdMapPropertyValue(app, "rightColHeader", "Git Results");
    }
 
-   function initLinux() {
-       initPostmanWP("fgColor", "darkGrey");
-       initPostmanWP("bgColor", "majenta");
-       initPostmanWP("titleColor", "Orange");
-       initPostmanWP("Title", "CLOUD initializer Linux Installer");
-       initPostmanWP("Method", "Get");
-       initPostmanWP("URL", "http://www.cloudinitializer.com:9090/install?app=LinuxBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
-       initPostmanWP("LeftColButton", "gui");
-       initPostmanWP("rightColHeader", "Linux Results");
+   function initLinuxAdmin() {
+       var app = "postman_ADMIN";
+       setIdMapPropertyValue(app, "fgColor", "darkGrey");
+       setIdMapPropertyValue(app, "bgColor", "majenta");
+       setIdMapPropertyValue(app, "titleColor", "Orange");
+       setIdMapPropertyValue(app, "Title", "CLOUD initializer Linux Installer");
+       setIdMapPropertyValue(app, "Method", "Get");
+       setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=LinuxBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
+       setIdMapPropertyValue(app, "LeftColButton", "gui");
+       setIdMapPropertyValue(app, "rightColHeader", "Linux Results");
    }
 
    function initStorage() {
-       initPostmanWP("fgColor", "white");
-       initPostmanWP("bgColor", "black");
-       initPostmanWP("titleColor", "red");
-       initPostmanWP("Title", "Storage initializer Docker Installer");
-       initPostmanWP("Method", "Get");
-       initPostmanWP("URL", "http://www.cloudinitializer.com:9090/install?app=JenkinsBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
-       initPostmanWP("LeftColButton", "gui");
-       initPostmanWP("rightColHeader", "Storage Results");
+       var app = "postman_STORAGE";
+       setIdMapPropertyValue(app, "fgColor", "white");
+       setIdMapPropertyValue(app, "bgColor", "black");
+       setIdMapPropertyValue(app, "titleColor", "red");
+       setIdMapPropertyValue(app, "Title", "Storage initializer Docker Installer");
+       setIdMapPropertyValue(app, "Method", "Get");
+       setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=JenkinsBootstrap?SiteName=MyNewSite&port=9111&anminId=MyId&adminPWD=password&installDir=/var");
+       setIdMapPropertyValue(app, "LeftColButton", "gui");
+       setIdMapPropertyValue(app, "rightColHeader", "Storage Results");
    }
 
    initDocker();
