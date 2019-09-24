@@ -77,7 +77,8 @@ function paintPostmanButtonSelection(elmnt_BTN) {
     var leftColButton = getIdMapProperty(postmanApp, "LeftColButton");
     var rightColHeader = getIdMapProperty(postmanApp, "rightColHeader");
 
-	elmnt_BTN.value = buttonTitle;
+	postman_BTN = document.getElementById("postman_BTN");
+	postman_BTN.innerHTML = buttonTitle;
     paintIdColors("Body", fgColor, bgColor);
     setIdBtnColors("postman", fgColor, bgColor);
 	setIdDivColors("postman", fgColor, bgColor);
