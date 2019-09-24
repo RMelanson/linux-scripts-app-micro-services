@@ -60,24 +60,28 @@ function closeClassMembers(elmnt) {
     }
 }
 
-function paintPostmanButtonSelection(elmnt) {
-    paintActiveClassId(elmnt);
+function paintPostmanButtonSelection(elmnt_BTN) {
+    paintActiveClassId(elmnt_BTN);
 
-    elmntId = elmnt.id;
-    app = elmntId.replace("_BTN","").toUpperCase();
+    button_Id = elmnt_BTN.id;
+    app = button_Id.replace("_BTN","").toUpperCase();
     var postmanApp= "postman_"+app;
 
+	var buttonTitle = getIdMapProperty(postmanApp, "buttonTitle");
     var fgColor = getIdMapProperty(postmanApp, "fgColor");
     var bgColor = getIdMapProperty(postmanApp, "bgColor");
-     var title = getIdMapProperty(postmanApp, "Title");
+    var title = getIdMapProperty(postmanApp, "Title");
     var titleColor = getIdMapProperty(postmanApp, "titleColor");
     var method = getIdMapProperty(postmanApp, "Method");
     var URL = getIdMapProperty(postmanApp, "URL");
     var leftColButton = getIdMapProperty(postmanApp, "LeftColButton");
     var rightColHeader = getIdMapProperty(postmanApp, "rightColHeader");
 
+	elmnt_BTN.value = buttonTitle;
     paintIdColors("Body", fgColor, bgColor);
-    var title_ELMNT = document.getElementById("postmanTitle");
+    setIdBtnColors("postman", fgColor, bgColor);
+	setIdDivColors("postman", fgColor, bgColor);
+	var title_ELMNT = document.getElementById("postmanTitle");
     title_ELMNT.innerHTML = title;
     title_ELMNT.style.color = titleColor;
 

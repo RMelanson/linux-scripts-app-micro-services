@@ -1,6 +1,7 @@
 <script>
    function initDocker() {
        var app = "postman_DOCKER";
+       setIdMapPropertyValue(app, "buttonTitle", "Postman Docker");
        setIdMapPropertyValue(app, "fgColor", "darkGrey");
        setIdMapPropertyValue(app, "bgColor", "lightGrey");
        setIdMapPropertyValue(app, "titleColor", "Orange");
@@ -13,6 +14,7 @@
 
    function initJenkins() {
        var app = "postman_JENKINS";
+       setIdMapPropertyValue(app, "buttonTitle", "Postman Jenkins");
        setIdMapPropertyValue(app, "fgColor", "darkGrey");
        setIdMapPropertyValue(app, "bgColor", "majenta");
        setIdMapPropertyValue(app, "titleColor", "Orange");
@@ -25,6 +27,7 @@
 
    function initGit() {
        var app = "postman_GIT";
+       setIdMapPropertyValue(app, "buttonTitle", "Postman Git");
        setIdMapPropertyValue(app, "fgColor", "white");
        setIdMapPropertyValue(app, "bgColor", "black");
        setIdMapPropertyValue(app, "titleColor", "red");
@@ -37,6 +40,7 @@
 
    function initLinuxAdmin() {
        var app = "postman_ADMIN";
+       setIdMapPropertyValue(app, "buttonTitle", "Postman Linux");
        setIdMapPropertyValue(app, "fgColor", "darkGrey");
        setIdMapPropertyValue(app, "bgColor", "majenta");
        setIdMapPropertyValue(app, "titleColor", "Orange");
@@ -49,10 +53,11 @@
 
    function initStorage() {
        var app = "postman_STORAGE";
+       setIdMapPropertyValue(app, "buttonTitle", "Postman S3SF");
        setIdMapPropertyValue(app, "fgColor", "white");
        setIdMapPropertyValue(app, "bgColor", "black");
        setIdMapPropertyValue(app, "titleColor", "red");
-       setIdMapPropertyValue(app, "Title", "Storage initializer Docker Installer");
+       setIdMapPropertyValue(app, "Title", "CLOUD initializer Storage Installer");
        setIdMapPropertyValue(app, "Method", "Get");
        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=s3sfBootstrap?BucketName=MyBucket&adminId=MyId&adminPWD=password&installDir=/var");
        setIdMapPropertyValue(app, "LeftColButton", "gui");
