@@ -1,20 +1,3 @@
-<script>
-    function toolsDocker() {
-        var app = "postman_TOOLS";
-        setIdMapPropertyValue(app, "buttonTitle", "Postman TOOLS");
-        setIdMapPropertyValue(app, "fgColor", "darkGrey");
-        setIdMapPropertyValue(app, "bgColor", "lightGrey");
-        setIdMapPropertyValue(app, "titleColor", "Orange");
-        setIdMapPropertyValue(app, "Title", "CLOUD initializer Tools Installer");
-        setIdMapPropertyValue(app, "Method", "Get");
-        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=toolsBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
-        setIdMapPropertyValue(app, "LeftColButton", "gui");
-        setIdMapPropertyValue(app, "rightColHeader", "Tools Results");
-    }
-
-    toolsDocker();
-</script>
-
 <input type="checkbox" id="db" onclick="checkBoxDivToggle(this)">Database<BR>
 <div id="db_Div" class="checkBoxes">
     <script> $("#db_Div").load("./pages/cloudInit/dev/db.html"); </script>
@@ -26,17 +9,9 @@
     </script>
 </div>
 
-<div id="tools_Div" class="checkBoxes">
+<input type="checkbox" id="tools" onclick="checkBoxDivToggle(this)">Tools<BR>
+    <div id="tools_Div" class="checkBoxes">
     <script>
         $("#tools_Div").load("./pages/cloudInit/dev/tools.html");
     </script>
 </div>
-
-<table id="devTable" class="installTable">
-    <tr>
-        <td>
-            <button id="tools_BTN" class="install_BTN_postman"
-                onclick="paintPostmanButtonSelection(this)">Tools</button>
-        </td>
-    </tr>
-</table>
