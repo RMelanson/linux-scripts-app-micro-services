@@ -63,9 +63,11 @@ function closeClassMembers(elmnt) {
 function paintPostmanButtonSelection(elmnt_BTN) {
     paintActiveClassId(elmnt_BTN);
 
-    button_Id = elmnt_BTN.id;
-    app = button_Id.replace("_BTN","").toUpperCase();
-    var postmanApp= "postman_"+app;
+    var button_Id = elmnt_BTN.id;
+    var app = button_Id.replace("_BTN","").toUpperCase();
+
+    setActiveApp(app);
+    setIdMapPropertyValue(idName, "fgColor", fgColor);
 
 	var buttonTitle = getIdMapProperty(postmanApp, "buttonTitle");
     var fgColor = getIdMapProperty(postmanApp, "fgColor");

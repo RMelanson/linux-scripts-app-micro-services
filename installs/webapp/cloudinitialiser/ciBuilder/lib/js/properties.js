@@ -6,7 +6,7 @@
 
 class ciPostmanAppSettings {
 	constructor(app) {
-		this.app = app;
+		this.activeApp = app;
 		this.idMaps = new Map([]);    // Map of Id maps
 		this.classMaps = new Map([]);    // Map of Id maps
 	}
@@ -36,7 +36,7 @@ function isValidType(obj) {
 
 // GENERAL MAP FUNCTIONS
 
-function getcookieMap() {
+function getCookieMap() {
 	return postmanAppSettings.cookieMap;
 }
 function getClassMaps() {
@@ -96,6 +96,15 @@ function getValidMapMapProperty(map, mapKey, propertyKey, defaultPropertyValue) 
 		validMapValue.set(propertyKey, property);
 	}
 	return property;
+}
+
+// PROCESS ACTIVE APP
+function getActiveApp() {
+	return getMapMapProperty(postmanAppSettings.activeApp);
+}
+
+function setActiveApp(activeApp) {
+	return postmanAppSettings.activeApp = activeApp;
 }
 
 // PROCESS CLASS MAPS
