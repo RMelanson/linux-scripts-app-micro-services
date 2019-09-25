@@ -39,7 +39,7 @@
         setIdMapPropertyValue(app, "rightColHeader", "Perl Results");
     }
 
-	function cPP() {
+	function initCpp() {
         var app = "postman_Python";
         setIdMapPropertyValue(app, "buttonTitle", "C++");
         setIdMapPropertyValue(app, "fgColor", "Brown");
@@ -52,11 +52,38 @@
         setIdMapPropertyValue(app, "rightColHeader", "C++ Results");
     }
 
+	function initPython() {
+        var app = "postman_Python";
+        setIdMapPropertyValue(app, "buttonTitle", "C++");
+        setIdMapPropertyValue(app, "fgColor", "Brown");
+        setIdMapPropertyValue(app, "bgColor", "blue");
+        setIdMapPropertyValue(app, "titleColor", "black");
+        setIdMapPropertyValue(app, "Title", "CLOUD Initializer C++ Installer");
+        setIdMapPropertyValue(app, "Method", "Get");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=CppBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "LeftColButton", "gui");
+        setIdMapPropertyValue(app, "rightColHeader", "C++ Results");
+    }
+
+	function initPHP() {
+        var app = "postman_Python";
+        setIdMapPropertyValue(app, "buttonTitle", "PHP");
+        setIdMapPropertyValue(app, "fgColor", "Brown");
+        setIdMapPropertyValue(app, "bgColor", "blue");
+        setIdMapPropertyValue(app, "titleColor", "black");
+        setIdMapPropertyValue(app, "Title", "CLOUD Initializer PHP Installer");
+        setIdMapPropertyValue(app, "Method", "Get");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=phpBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "LeftColButton", "gui");
+        setIdMapPropertyValue(app, "rightColHeader", "PHP Results");
+    }
+
     initJava();
     initNodeJS();
     initPerl();
     initPython();
     initCpp();
+    initPHP();
 </script>
 
 <table id="blogsTable" class="installTable">
@@ -78,8 +105,8 @@
                 onclick="paintPostmanButtonSelection(this)">Perl</button>
         </td>
         <td>
-            <button id="oracle_BTN" class="install_BTN_postman"
-                onclick="paintPostmanButtonSelection(this)">Oracle</button>
+            <button id="php_BTN" class="install_BTN_postman"
+                onclick="paintPostmanButtonSelection(this)">PHP</button>
         </td>
     </tr>
 </table>
