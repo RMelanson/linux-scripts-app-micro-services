@@ -1,0 +1,66 @@
+<script>
+    function initJava() {
+        var app = "postman_Java";
+        setIdMapPropertyValue(app, "buttonTitle", "Postman Java");
+        setIdMapPropertyValue(app, "fgColor", "Brown");
+        setIdMapPropertyValue(app, "bgColor", "red");
+        setIdMapPropertyValue(app, "titleColor", "black");
+        setIdMapPropertyValue(app, "Title", "CLOUD initializer Java Installer");
+        setIdMapPropertyValue(app, "Method", "Get");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=OrcleBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "LeftColButton", "gui");
+        setIdMapPropertyValue(app, "rightColHeader", "Java Results");
+	}
+
+	function initNodeJS() {
+        var app = "postman_NodeJS";
+        setIdMapPropertyValue(app, "buttonTitle", "Postman nodeJS");
+        setIdMapPropertyValue(app, "fgColor", "Brown");
+        setIdMapPropertyValue(app, "bgColor", "yellow");
+        setIdMapPropertyValue(app, "titleColor", "black");
+        setIdMapPropertyValue(app, "Title", "CLOUD initializer NodeJS Installer");
+        setIdMapPropertyValue(app, "Method", "Get");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=NodeJSBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "LeftColButton", "gui");
+        setIdMapPropertyValue(app, "rightColHeader", "NodeJS Results");
+    }
+
+
+	function initPerl() {
+        var app = "postman_WP";
+        setIdMapPropertyValue(app, "buttonTitle", "Postman Perl");
+        setIdMapPropertyValue(app, "fgColor", "Brown");
+        setIdMapPropertyValue(app, "bgColor", "green");
+        setIdMapPropertyValue(app, "titleColor", "black");
+        setIdMapPropertyValue(app, "Title", "CLOUD initializer Perl Installer");
+        setIdMapPropertyValue(app, "Method", "Get");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=PerlBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "LeftColButton", "gui");
+        setIdMapPropertyValue(app, "rightColHeader", "Perl Results");
+    }
+
+    initJava();
+    initNodeJS();
+    initPerl();
+</script>
+
+<table id="blogsTable" class="installTable">
+    <tr>
+        <td>
+            <button id="Java_BTN" class="install_BTN_postman"
+                onclick="paintPostmanButtonSelection(this)">Java</button>
+        </td>
+        <td>
+            <button id="mongoDB_BTN" class="install_BTN_postman"
+                onclick="paintPostmanButtonSelection(this)">mongoDB</button>
+        </td>
+        <td>
+            <button id="Perl_BTN" class="install_BTN_postman"
+                onclick="paintPostmanButtonSelection(this)">Perl</button>
+        </td>
+        <td>
+            <button id="oracle_BTN" class="install_BTN_postman"
+                onclick="paintPostmanButtonSelection(this)">Oracle</button>
+        </td>
+    </tr>
+</table>
