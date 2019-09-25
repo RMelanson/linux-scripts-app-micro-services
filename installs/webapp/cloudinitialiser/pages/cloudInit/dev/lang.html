@@ -27,7 +27,7 @@
 
 
 	function initPerl() {
-        var app = "postman_WP";
+        var app = "postman_Python";
         setIdMapPropertyValue(app, "buttonTitle", "Postman Perl");
         setIdMapPropertyValue(app, "fgColor", "Brown");
         setIdMapPropertyValue(app, "bgColor", "green");
@@ -39,20 +39,39 @@
         setIdMapPropertyValue(app, "rightColHeader", "Perl Results");
     }
 
+	function cPP() {
+        var app = "postman_Python";
+        setIdMapPropertyValue(app, "buttonTitle", "C++");
+        setIdMapPropertyValue(app, "fgColor", "Brown");
+        setIdMapPropertyValue(app, "bgColor", "blue");
+        setIdMapPropertyValue(app, "titleColor", "black");
+        setIdMapPropertyValue(app, "Title", "CLOUD Initializer C++ Installer");
+        setIdMapPropertyValue(app, "Method", "Get");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=CppBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "LeftColButton", "gui");
+        setIdMapPropertyValue(app, "rightColHeader", "C++ Results");
+    }
+
     initJava();
     initNodeJS();
     initPerl();
+    initPython();
+    initCpp();
 </script>
 
 <table id="blogsTable" class="installTable">
     <tr>
         <td>
+            <button id="cpp_Btn" class="install_BTN_postman"
+                onclick="paintPostmanButtonSelection(this)">C++</button>
+        </td>
+        <td>
             <button id="Java_BTN" class="install_BTN_postman"
                 onclick="paintPostmanButtonSelection(this)">Java</button>
         </td>
         <td>
-            <button id="mongoDB_BTN" class="install_BTN_postman"
-                onclick="paintPostmanButtonSelection(this)">mongoDB</button>
+            <button id="python_BTN" class="install_BTN_postman"
+                onclick="paintPostmanButtonSelection(this)">python</button>
         </td>
         <td>
             <button id="Perl_BTN" class="install_BTN_postman"
