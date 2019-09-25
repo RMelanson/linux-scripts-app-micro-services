@@ -11,23 +11,10 @@
         setIdMapPropertyValue(app, "LeftColButton", "gui");
         setIdMapPropertyValue(app, "rightColHeader", "Maven Results");
 	}
-
-	function initMongoDb() {
-        var app = "postman_WP";
-        setIdMapPropertyValue(app, "buttonTitle", "Postman mongoDb");
-        setIdMapPropertyValue(app, "fgColor", "Brown");
-        setIdMapPropertyValue(app, "bgColor", "yellow");
-        setIdMapPropertyValue(app, "titleColor", "black");
-        setIdMapPropertyValue(app, "Title", "CLOUD initializer MongoDb Installer");
-        setIdMapPropertyValue(app, "Method", "Get");
-        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=MongoDbBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
-        setIdMapPropertyValue(app, "LeftColButton", "gui");
-        setIdMapPropertyValue(app, "rightColHeader", "MongoDb Results");
-    }
     initMaven();
  </script>
 
-<table id="blogsTable" class="installTable">
+<table id="mavenTable" class="installTable">
     <tr>
         <td>
             <button id="Maven_BTN" class="install_BTN_postman"
