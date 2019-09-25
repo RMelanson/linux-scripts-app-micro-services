@@ -1,24 +1,17 @@
-<script>
-    function initMaven() {
-        var app = "postman_MAVEN";
-        setIdMapPropertyValue(app, "buttonTitle", "Postman Maven");
-        setIdMapPropertyValue(app, "fgColor", "Brown");
-        setIdMapPropertyValue(app, "bgColor", "red");
-        setIdMapPropertyValue(app, "titleColor", "black");
-        setIdMapPropertyValue(app, "Title", "CLOUD Initializer Maven Installer");
-        setIdMapPropertyValue(app, "Method", "Get");
-        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=OrcleBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
-        setIdMapPropertyValue(app, "LeftColButton", "gui");
-        setIdMapPropertyValue(app, "rightColHeader", "Maven Results");
-	}
-    initMaven();
- </script>
+<input type="checkbox" id="db" onclick="checkBoxDivToggle(this)">Database<BR>
+<div id="db_Div" class="checkBoxes">
+    <script> $("#db_Div").load("./pages/cloudInit/dev/db.html"); </script>
+</div>
+<input type="checkbox" id="lang" onclick="checkBoxDivToggle(this)">Languages<BR>
+<div id="lang_Div" class="checkBoxes">
+    <script>
+        $("#lang_Div").load("./pages/cloudInit/dev/lang.html");
+    </script>
+</div>
 
-<table id="mavenTable" class="installTable">
-    <tr>
-        <td>
-            <button id="Maven_BTN" class="install_BTN_postman"
-                onclick="paintPostmanButtonSelection(this)">Maven</button>
-        </td>
-    </tr>
-</table>
+<input type="checkbox" id="tools" onclick="checkBoxDivToggle(this)">Tools<BR>
+    <div id="tools_Div" class="checkBoxes">
+    <script>
+        $("#tools_Div").load("./pages/cloudInit/dev/tools.html");
+    </script>
+</div>
