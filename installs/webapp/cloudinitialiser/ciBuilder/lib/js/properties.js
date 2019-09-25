@@ -20,7 +20,7 @@ class ciPostmanAppSettings {
 var postmanAppSettings = setNewPostmanApp("test");
 
 function setNewPostmanApp(app) {
-	newPostmanAppSettings = new ciPostmanAppSettings("Test");
+	newPostmanAppSettings = new ciPostmanAppSettings("");
 	//	alert("postmanAppSettings" = postmanAppSettings);
 	//	console.log("postmanAppSettings" = newPostmanAppSettings);
 	//	alert("ZZZZ");

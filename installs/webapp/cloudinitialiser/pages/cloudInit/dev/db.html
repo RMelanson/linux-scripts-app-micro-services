@@ -1,0 +1,81 @@
+<script>
+    function initDB2() {
+        var app = "postman_db2";
+        setIdMapPropertyValue(app, "buttonTitle", "Postman dB2");
+        setIdMapPropertyValue(app, "fgColor", "Brown");
+        setIdMapPropertyValue(app, "bgColor", "red");
+        setIdMapPropertyValue(app, "titleColor", "black");
+        setIdMapPropertyValue(app, "Title", "CLOUD initializer dB2 Installer");
+        setIdMapPropertyValue(app, "Method", "Get");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=OrcleBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "LeftColButton", "gui");
+        setIdMapPropertyValue(app, "rightColHeader", "dB2 Results");
+	}
+
+	function initMongoDb() {
+        var app = "postman_WP";
+        setIdMapPropertyValue(app, "buttonTitle", "Postman mongoDb");
+        setIdMapPropertyValue(app, "fgColor", "Brown");
+        setIdMapPropertyValue(app, "bgColor", "yellow");
+        setIdMapPropertyValue(app, "titleColor", "black");
+        setIdMapPropertyValue(app, "Title", "CLOUD initializer MongoDb Installer");
+        setIdMapPropertyValue(app, "Method", "Get");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=MongoDbBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "LeftColButton", "gui");
+        setIdMapPropertyValue(app, "rightColHeader", "MongoDb Results");
+    }
+
+
+	function initMySQL() {
+        var app = "postman_WP";
+        setIdMapPropertyValue(app, "buttonTitle", "Postman mySQL");
+        setIdMapPropertyValue(app, "fgColor", "Brown");
+        setIdMapPropertyValue(app, "bgColor", "green");
+        setIdMapPropertyValue(app, "titleColor", "black");
+        setIdMapPropertyValue(app, "Title", "CLOUD initializer mySQL Installer");
+        setIdMapPropertyValue(app, "Method", "Get");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=mySQLBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "LeftColButton", "gui");
+        setIdMapPropertyValue(app, "rightColHeader", "mySQL Results");
+    }
+
+
+	function initOrcle() {
+        var app = "postman_WP";
+        setIdMapPropertyValue(app, "buttonTitle", "Postman Orcle");
+        setIdMapPropertyValue(app, "fgColor", "Brown");
+        setIdMapPropertyValue(app, "bgColor", "lightGrey");
+        setIdMapPropertyValue(app, "titleColor", "blue");
+        setIdMapPropertyValue(app, "Title", "CLOUD initializer Orcle Installer");
+        setIdMapPropertyValue(app, "Method", "Get");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=OrcleBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "LeftColButton", "gui");
+        setIdMapPropertyValue(app, "rightColHeader", "Orcle Results");
+    }
+
+    initDB2();
+    initMongoDb();
+    initMySQL();
+    initOrcle();
+</script>
+
+<table id="blogsTable" class="installTable">
+    <tr>
+        <td>
+            <button id="dB2_BTN" class="install_BTN_postman"
+                onclick="paintPostmanButtonSelection(this)">dB2</button>
+        </td>
+        <td>
+            <button id="mongoDB_BTN" class="install_BTN_postman"
+                onclick="paintPostmanButtonSelection(this)">mongoDB</button>
+        </td>
+        <td>
+            <button id="mySQL_BTN" class="install_BTN_postman"
+                onclick="paintPostmanButtonSelection(this)">mySQL</button>
+        </td>
+        <td>
+            <button id="oracle_BTN" class="install_BTN_postman"
+                onclick="paintPostmanButtonSelection(this)">Oracle</button>
+        </td>
+    </tr>
+</table>

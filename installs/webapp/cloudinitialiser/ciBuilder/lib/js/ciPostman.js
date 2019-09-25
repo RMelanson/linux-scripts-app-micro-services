@@ -65,10 +65,10 @@ function paintPostmanButtonSelection(elmnt_BTN) {
 
     var button_Id = elmnt_BTN.id;
     var app = button_Id.replace("_BTN","").toUpperCase();
-
+    var postmanApp= "postman_"+app;
+   
     setActiveApp(app);
-    setIdMapPropertyValue(idName, "fgColor", fgColor);
-
+ 
 	var buttonTitle = getIdMapProperty(postmanApp, "buttonTitle");
     var fgColor = getIdMapProperty(postmanApp, "fgColor");
     var bgColor = getIdMapProperty(postmanApp, "bgColor");
