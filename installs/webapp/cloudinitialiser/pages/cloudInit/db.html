@@ -7,7 +7,7 @@
         setIdMapPropertyValue(app, "titleColor", "black");
         setIdMapPropertyValue(app, "Title", "CLOUD Initializer dB2 Installer");
         setIdMapPropertyValue(app, "Method", "Get");
-        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=OrcleBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=OracleBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
         setIdMapPropertyValue(app, "LeftColButton", "gui");
         setIdMapPropertyValue(app, "rightColHeader", "dB2 Results");
 	}
@@ -32,7 +32,7 @@
         setIdMapPropertyValue(app, "fgColor", "Brown");
         setIdMapPropertyValue(app, "bgColor", "green");
         setIdMapPropertyValue(app, "titleColor", "black");
-        setIdMapPropertyValue(app, "Title", "CLOUD Initializer KySQL Installer");
+        setIdMapPropertyValue(app, "Title", "CLOUD Initializer MySQL Installer");
         setIdMapPropertyValue(app, "Method", "Get");
         setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=mySQLBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
         setIdMapPropertyValue(app, "LeftColButton", "gui");
@@ -40,23 +40,23 @@
     }
 
 
-	function initOrcle() {
-        var app = "postman_ORCLE";
-        setIdMapPropertyValue(app, "buttonTitle", "Postman Orcle");
+	function initOracle() {
+        var app = "postman_ORACLE";
+        setIdMapPropertyValue(app, "buttonTitle", "Postman Oracle");
         setIdMapPropertyValue(app, "fgColor", "Brown");
         setIdMapPropertyValue(app, "bgColor", "lightGrey");
         setIdMapPropertyValue(app, "titleColor", "blue");
-        setIdMapPropertyValue(app, "Title", "CLOUD Initializer Orcle Installer");
+        setIdMapPropertyValue(app, "Title", "CLOUD Initializer Oracle Installer");
         setIdMapPropertyValue(app, "Method", "Get");
-        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=OrcleBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=OracleBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
         setIdMapPropertyValue(app, "LeftColButton", "gui");
-        setIdMapPropertyValue(app, "rightColHeader", "Orcle Results");
+        setIdMapPropertyValue(app, "rightColHeader", "Oracle Results");
     }
 
     initDB2();
     initMongoDb();
     initMySQL();
-    initOrcle();
+    initOracle();
 </script>
 
 <table id="dBTable" class="installTable">
