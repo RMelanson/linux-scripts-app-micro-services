@@ -1,6 +1,6 @@
 <script>
     function initJava() {
-        var app = "postman_Java";
+        var app = "postman_JAVA";
         setIdMapPropertyValue(app, "buttonTitle", "Postman Java");
         setIdMapPropertyValue(app, "fgColor", "Brown");
         setIdMapPropertyValue(app, "bgColor", "red");
@@ -13,7 +13,7 @@
 	}
 
 	function initNodeJS() {
-        var app = "postman_NodeJS";
+        var app = "postman_NODEJS";
         setIdMapPropertyValue(app, "buttonTitle", "Postman nodeJS");
         setIdMapPropertyValue(app, "fgColor", "Brown");
         setIdMapPropertyValue(app, "bgColor", "yellow");
@@ -27,7 +27,7 @@
 
 
 	function initPerl() {
-        var app = "postman_Python";
+        var app = "postman_PERL";
         setIdMapPropertyValue(app, "buttonTitle", "Postman Perl");
         setIdMapPropertyValue(app, "fgColor", "Brown");
         setIdMapPropertyValue(app, "bgColor", "green");
@@ -40,10 +40,10 @@
     }
 
 	function initCpp() {
-        var app = "postman_Python";
+        var app = "postman_C++";
         setIdMapPropertyValue(app, "buttonTitle", "C++");
         setIdMapPropertyValue(app, "fgColor", "Brown");
-        setIdMapPropertyValue(app, "bgColor", "blue");
+        setIdMapPropertyValue(app, "bgColor", "darkGrey");
         setIdMapPropertyValue(app, "titleColor", "black");
         setIdMapPropertyValue(app, "Title", "CLOUD Initializer C++ Installer");
         setIdMapPropertyValue(app, "Method", "Get");
@@ -53,7 +53,7 @@
     }
 
 	function initPython() {
-        var app = "postman_Python";
+        var app = "postman_PYTHON";
         setIdMapPropertyValue(app, "buttonTitle", "C++");
         setIdMapPropertyValue(app, "fgColor", "Brown");
         setIdMapPropertyValue(app, "bgColor", "blue");
@@ -66,10 +66,10 @@
     }
 
 	function initPHP() {
-        var app = "postman_Python";
+        var app = "postman_PHP";
         setIdMapPropertyValue(app, "buttonTitle", "PHP");
-        setIdMapPropertyValue(app, "fgColor", "Brown");
-        setIdMapPropertyValue(app, "bgColor", "blue");
+        setIdMapPropertyValue(app, "fgColor", "darkGrey");
+        setIdMapPropertyValue(app, "bgColor", "white");
         setIdMapPropertyValue(app, "titleColor", "black");
         setIdMapPropertyValue(app, "Title", "CLOUD Initializer PHP Installer");
         setIdMapPropertyValue(app, "Method", "Get");
@@ -89,19 +89,19 @@
 <table id="blogsTable" class="installTable">
     <tr>
         <td>
-            <button id="cpp_Btn" class="install_BTN_postman"
+            <button id="c++_BTN" class="install_BTN_postman"
                 onclick="paintPostmanButtonSelection(this)">C++</button>
         </td>
         <td>
-            <button id="Java_BTN" class="install_BTN_postman"
+            <button id="java_BTN" class="install_BTN_postman"
                 onclick="paintPostmanButtonSelection(this)">Java</button>
         </td>
         <td>
             <button id="python_BTN" class="install_BTN_postman"
-                onclick="paintPostmanButtonSelection(this)">python</button>
+                onclick="paintPostmanButtonSelection(this)">Python</button>
         </td>
         <td>
-            <button id="Perl_BTN" class="install_BTN_postman"
+            <button id="perl_BTN" class="install_BTN_postman"
                 onclick="paintPostmanButtonSelection(this)">Perl</button>
         </td>
         <td>
