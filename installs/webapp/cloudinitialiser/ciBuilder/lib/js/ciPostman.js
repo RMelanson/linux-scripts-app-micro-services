@@ -43,12 +43,35 @@ function setActiveColumns(elmnt) {
     elmnt_DIV = document.getElementById(divId);
     closeClassMembers(elmnt_DIV);
 
-    //    elmnt.style.backgroundColor = activeColor;
     elmnt_DIV.style.display = "block";
 
     divId = cbId + "_Left_Div";
     elmnt_DIV = document.getElementById(divId);
     elmnt_DIV.style.display = "block";
+
+    elmnt_DIV = document.getElementById("rightColHeader");
+
+    var headerInnerHTML = "UNDEFINED";
+    switch (cbId.toUpperCase()) {
+        case "GUI":
+            headerInnerHTML = "GUI";
+            break;
+        case "PARMS":
+            headerInnerHTML = "PARMS";
+            break;
+        case "BODY":
+            headerInnerHTML = "BODY";
+            break;
+        case "RESP":
+            headerInnerHTML = "RESP";
+            break;
+        case "LOG":
+            headerInnerHTML = "LOG";
+            break;
+        default:
+            break;
+    }
+    elmnt_DIV.innerHTML = headerInnerHTML;
 }
 
 function closeClassMembers(elmnt) {
@@ -64,12 +87,12 @@ function paintPostmanButtonSelection(elmnt_BTN) {
     paintActiveClassId(elmnt_BTN);
 
     var button_Id = elmnt_BTN.id;
-    var app = button_Id.replace("_BTN","").toUpperCase();
-    var postmanApp= "postman_"+app;
-   
+    var app = button_Id.replace("_BTN", "").toUpperCase();
+    var postmanApp = "postman_" + app;
+
     setActiveApp(app);
- 
-	var buttonTitle = getIdMapProperty(postmanApp, "buttonTitle");
+
+    var buttonTitle = getIdMapProperty(postmanApp, "buttonTitle");
     var fgColor = getIdMapProperty(postmanApp, "fgColor");
     var bgColor = getIdMapProperty(postmanApp, "bgColor");
     var title = getIdMapProperty(postmanApp, "Title");
@@ -79,22 +102,22 @@ function paintPostmanButtonSelection(elmnt_BTN) {
     var leftColButton = getIdMapProperty(postmanApp, "LeftColButton");
     var rightColHeader = getIdMapProperty(postmanApp, "rightColHeader");
 
-	postman_BTN = document.getElementById("postman_BTN");
-	postman_BTN.innerHTML = buttonTitle;
+    postman_BTN = document.getElementById("postman_BTN");
+    postman_BTN.innerHTML = buttonTitle;
     paintIdColors("Body", fgColor, bgColor);
     setIdBtnColors("postman", fgColor, bgColor);
-	setIdDivColors("postman", fgColor, bgColor);
-	var title_ELMNT = document.getElementById("postmanTitle");
+    setIdDivColors("postman", fgColor, bgColor);
+    var title_ELMNT = document.getElementById("postmanTitle");
     title_ELMNT.innerHTML = title;
     title_ELMNT.style.color = titleColor;
 
     var url_ELMNT = document.getElementById("urlTextBox");
-	url_ELMNT.value = URL;
-	
-	document.getElementById(leftColButton).click();
+    url_ELMNT.value = URL;
+
+    document.getElementById(leftColButton).click();
 
     var rightColText_ELMNT = document.getElementById("rightColHeader");
-    rightColText_ELMNT.innerHTML = rightColHeader;    
+    rightColText_ELMNT.innerHTML = rightColHeader;
 
     document.getElementById("postman_BTN").click();
 
@@ -151,7 +174,7 @@ function displayActiveClassId(elmnt) {
     var elmnt_CLASS = elmnt.className;
     closeAllPageDivs(elmnt_CLASS)
     paintIdColors(elmnt_ID);
-     elmnt.style.display = "block";
+    elmnt.style.display = "block";
 }
 
 function closeAllPageDivs(divClass) {
