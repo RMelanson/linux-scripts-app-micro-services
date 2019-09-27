@@ -11,7 +11,7 @@ function setMainMenuButtonSelection(elmnt) {
 	var div_ID = elmnt_ID.replace('_BTN', '_DIV');
 	elmnt_DIV = document.getElementById(div_ID);
 
-	if (elmnt_DIV == "postman_DIV") {
+	if (div_ID == "postman_DIV") {
 		if (getActiveApp() == "")
 		document.getElementById('test_BTN').click();
 	}

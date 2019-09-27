@@ -100,7 +100,7 @@ function getValidMapMapProperty(map, mapKey, propertyKey, defaultPropertyValue) 
 
 // PROCESS ACTIVE APP
 function getActiveApp() {
-	return getMapMapProperty(postmanAppSettings.activeApp);
+	return postmanAppSettings.activeApp;
 }
 
 function setActiveApp(activeApp) {
