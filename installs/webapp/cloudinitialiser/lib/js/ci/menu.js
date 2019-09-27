@@ -1,6 +1,6 @@
 function initMainMenu(mmenuId) {
 	document.getElementById(mmenuId).click();
-	initPostmanDefaults('gui');
+	document.getElementById('test_BTN').click();
 }
 
 function setMainMenuButtonSelection(elmnt) {
@@ -10,6 +10,11 @@ function setMainMenuButtonSelection(elmnt) {
 	var elmnt_ID = elmnt.id;
 	var div_ID = elmnt_ID.replace('_BTN', '_DIV');
 	elmnt_DIV = document.getElementById(div_ID);
+
+	if (elmnt_DIV == "postman_DIV") {
+		if (getActiveApp() == "")
+		document.getElementById('test_BTN').click();
+	}
 
 	displayActiveClassId(elmnt_DIV);
 }
