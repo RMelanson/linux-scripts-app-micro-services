@@ -57,16 +57,16 @@ function setActiveColumns(elmnt) {
             headerInnerHTML = "GUI";
             break;
         case "PARMS":
-            headerInnerHTML = "PARMS";
+            headerInnerHTML = "REQUEST PARMS";
             break;
         case "BODY":
-            headerInnerHTML = "BODY";
+            headerInnerHTML = "REQUEST BODY";
             break;
         case "RESP":
-            headerInnerHTML = "RESP";
+            headerInnerHTML = "JSON RESPONSE";
             break;
         case "LOG":
-            headerInnerHTML = "LOG";
+            headerInnerHTML = "JSON RESPONSE LOG";
             break;
         default:
             break;

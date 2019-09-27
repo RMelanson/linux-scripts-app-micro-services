@@ -1,5 +1,6 @@
 function initMainMenu(mmenuId) {
 	document.getElementById(mmenuId).click();
+	initPostmanDefaults('gui');
 }
 
 function setMainMenuButtonSelection(elmnt) {
