@@ -7,12 +7,11 @@
         setIdMapPropertyValue(app, "titleColor", "black");
         setIdMapPropertyValue(app, "Title", "CLOUD Initializer Java Installer");
         setIdMapPropertyValue(app, "Method", "Get");
-        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=OrcleBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=Java?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
         setIdMapPropertyValue(app, "LeftColButton", "gui");
-        setIdMapPropertyValue(app, "rightColHeader", "Java Results");
-	}
+    }
 
-	function initNodeJS() {
+    function initNodeJS() {
         var app = "postman_NODEJS";
         setIdMapPropertyValue(app, "buttonTitle", "Postman nodeJS");
         setIdMapPropertyValue(app, "fgColor", "Brown");
@@ -20,13 +19,12 @@
         setIdMapPropertyValue(app, "titleColor", "black");
         setIdMapPropertyValue(app, "Title", "CLOUD Initializer NodeJS Installer");
         setIdMapPropertyValue(app, "Method", "Get");
-        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=NodeJSBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=NodeJS?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
         setIdMapPropertyValue(app, "LeftColButton", "gui");
-        setIdMapPropertyValue(app, "rightColHeader", "NodeJS Results");
     }
 
 
-	function initPerl() {
+    function initPerl() {
         var app = "postman_PERL";
         setIdMapPropertyValue(app, "buttonTitle", "Postman Perl");
         setIdMapPropertyValue(app, "fgColor", "Brown");
@@ -34,12 +32,11 @@
         setIdMapPropertyValue(app, "titleColor", "black");
         setIdMapPropertyValue(app, "Title", "CLOUD Initializer Perl Installer");
         setIdMapPropertyValue(app, "Method", "Get");
-        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=PerlBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=Perl?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
         setIdMapPropertyValue(app, "LeftColButton", "gui");
-        setIdMapPropertyValue(app, "rightColHeader", "Perl Results");
     }
 
-	function initCpp() {
+    function initCpp() {
         var app = "postman_C++";
         setIdMapPropertyValue(app, "buttonTitle", "Postman C++");
         setIdMapPropertyValue(app, "fgColor", "Brown");
@@ -47,12 +44,11 @@
         setIdMapPropertyValue(app, "titleColor", "black");
         setIdMapPropertyValue(app, "Title", "CLOUD Initializer C++ Installer");
         setIdMapPropertyValue(app, "Method", "Get");
-        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=CppBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=Cpp?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
         setIdMapPropertyValue(app, "LeftColButton", "gui");
-        setIdMapPropertyValue(app, "rightColHeader", "C++ Results");
     }
 
-	function initPython() {
+    function initPython() {
         var app = "postman_PYTHON";
         setIdMapPropertyValue(app, "buttonTitle", "Postman Python");
         setIdMapPropertyValue(app, "fgColor", "Brown");
@@ -60,12 +56,11 @@
         setIdMapPropertyValue(app, "titleColor", "black");
         setIdMapPropertyValue(app, "Title", "CLOUD Initializer C++ Installer");
         setIdMapPropertyValue(app, "Method", "Get");
-        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=CppBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=Python?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
         setIdMapPropertyValue(app, "LeftColButton", "gui");
-        setIdMapPropertyValue(app, "rightColHeader", "C++ Results");
     }
 
-	function initPHP() {
+    function initPHP() {
         var app = "postman_PHP";
         setIdMapPropertyValue(app, "buttonTitle", "Postman PHP");
         setIdMapPropertyValue(app, "fgColor", "darkGrey");
@@ -73,9 +68,8 @@
         setIdMapPropertyValue(app, "titleColor", "black");
         setIdMapPropertyValue(app, "Title", "CLOUD Initializer PHP Installer");
         setIdMapPropertyValue(app, "Method", "Get");
-        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=phpBootstrap?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
+        setIdMapPropertyValue(app, "URL", "http://www.cloudinitializer.com:9090/install?app=PHP?SiteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var");
         setIdMapPropertyValue(app, "LeftColButton", "gui");
-        setIdMapPropertyValue(app, "rightColHeader", "PHP Results");
     }
 
     initJava();
@@ -89,24 +83,20 @@
 <table id="blogsTable" class="installTable">
     <tr>
         <td>
-            <button id="c++_BTN" class="install_BTN_postman"
-                onclick="paintPostmanButtonSelection(this)">C++</button>
+            <button id="c++_BTN" class="install_BTN_postman" onclick="paintPostmanButtonSelection(this)">C++</button>
         </td>
         <td>
-            <button id="java_BTN" class="install_BTN_postman"
-                onclick="paintPostmanButtonSelection(this)">Java</button>
+            <button id="java_BTN" class="install_BTN_postman" onclick="paintPostmanButtonSelection(this)">Java</button>
         </td>
         <td>
             <button id="python_BTN" class="install_BTN_postman"
                 onclick="paintPostmanButtonSelection(this)">Python</button>
         </td>
         <td>
-            <button id="perl_BTN" class="install_BTN_postman"
-                onclick="paintPostmanButtonSelection(this)">Perl</button>
+            <button id="perl_BTN" class="install_BTN_postman" onclick="paintPostmanButtonSelection(this)">Perl</button>
         </td>
         <td>
-            <button id="php_BTN" class="install_BTN_postman"
-                onclick="paintPostmanButtonSelection(this)">PHP</button>
+            <button id="php_BTN" class="install_BTN_postman" onclick="paintPostmanButtonSelection(this)">PHP</button>
         </td>
     </tr>
 </table>
