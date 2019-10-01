@@ -1,5 +1,8 @@
 var rightColClass = "rightColClass";
 var leftColClass = "leftColClass";
+var port = "9090";
+var apiBase = "/ci/api/";
+var version= "v1";
 
 function getValidAppDiv(respID, divClass) {
     var element = document.getElementById(respID);
