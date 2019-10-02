@@ -1,8 +1,15 @@
 var rightColClass = "rightColClass";
 var leftColClass = "leftColClass";
+var protocol = "http";
+var domain = "www.cloudinitializer.com";
 var port = "9090";
-var apiBase = "/ci/api/";
-var version= "v1";
+var apiBase = "/ci/api";
+var version = "v1";
+
+function getURL(app) {
+    var url = protocol + "://" + domain + ":" + port + apiBase + "/" + version + "/" + app;
+    return url;
+}
 
 function getValidAppDiv(respID, divClass) {
     var element = document.getElementById(respID);
