@@ -1,6 +1,6 @@
 #!/bin/bash
 bootstrapDir=$PWD
-bootstrap=$bootstrapDir/cloudInitialiserBootStrap.sh
+bootstrap=$bootstrapDir/cloudInitializerBootStrap.sh
 
 # Ensure script is running under root
 if [ "$EUID" -ne 0 ]
@@ -24,8 +24,8 @@ yum update -y
 yum install git -y
 
 # SETUP ENVIRONMENT AND PARAMETERS
-pkg=CLOUD_INITIALISER
-gitRepo="linux-scripts-cloud-initialiser.git"
+pkg=CLOUD_INITIALIZER
+gitRepo="linux-scripts-cloud-initializer.git"
 installDir="/tmp/scripts/apps/$pkg"
 
 if [ -f ~/.ssh/gitHub.key ]; then
