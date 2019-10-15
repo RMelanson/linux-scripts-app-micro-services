@@ -12,6 +12,7 @@ echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $ciParentDir/CI"
 chown -R $pkgOwner:$pkgOwner $ciParentDir/CI
 
 # INSTALL HTTP WEB CODE TO SERVER
+yum install httpd -y
 echo addCIServices.sh EXECUTING: "echo y | cp -rf ./installs/webapp $HTML_HOME"
 echo y | cp -rf ./installs/webapp/* $HTML_HOME
 
