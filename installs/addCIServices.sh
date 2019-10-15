@@ -22,11 +22,11 @@ echo y | cp -rf ./installs/webapp/* $HTML_HOME
 echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $HTML_HOME/cloudinitializer"
 echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $HTML_HOME/ci"
 echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $HTML_HOME/cm"
-echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $HTML_HOME/index"
+echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $HTML_HOME/index.html"
 chown -R $pkgOwner:$pkgOwner $HTML_HOME/cloudinitializer
 chown -R $pkgOwner:$pkgOwner $HTML_HOME/ci
 chown -R $pkgOwner:$pkgOwner $HTML_HOME/cm
-chown -R $pkgOwner:$pkgOwner $HTML_HOME/index
+chown -R $pkgOwner:$pkgOwner $HTML_HOME/index.html
 
 # REMOVE OLD CLOUD INITIALIZER DAEMON
 echo addCIServices.sh EXECUTING: rm /sbin/$daemon
