@@ -10,6 +10,7 @@ echo y | cp -rf ./installs/CI $ciParentDir
 # CHANGE OWNER AND GROUP of all Files in $ciParentDir to $pkgOwner
 echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $ciParentDir/CI"
 chown -R $pkgOwner:$pkgOwner $ciParentDir/CI
+find $ciParentDir/CI -type f -iname "*.sh" -exec chmod +x {} \;
 
 # INSTALL HTTP WEB CODE TO SERVER
 yum install httpd -y
@@ -17,6 +18,7 @@ service httpd start
 chkconfig httpd on
 echo addCIServices.sh EXECUTING: "echo y | cp -rf ./installs/webapp $HTML_HOME"
 echo y | cp -rf ./installs/webapp/* $HTML_HOME
+echo EXECUTING: "$HTML_HOME/cloudinitializer/ -type f -iname "*.sh" -exec chmod +x {} \;"
 
 # CHANGE OWNER AND GROUP of all Files in $HTML_HOME to $pkgOwner
 echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $HTML_HOME/cloudinitializer"
