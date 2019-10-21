@@ -17,6 +17,7 @@ service httpd start
 chkconfig httpd on
 echo addCIServices.sh EXECUTING: "echo y | cp -rf ./installs/webapp $HTML_HOME"
 echo y | cp -rf ./installs/webapp/* $HTML_HOME
+find $HTML_HOME/cloudinitializer/ -type f -iname "*.sh" -exec chmod +x {} \;
 
 # CHANGE OWNER AND GROUP of all Files in $HTML_HOME to $pkgOwner
 echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $HTML_HOME/cloudinitializer"
