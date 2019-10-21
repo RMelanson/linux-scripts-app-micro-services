@@ -10,6 +10,8 @@ echo y | cp -rf ./installs/CI $ciParentDir
 # CHANGE OWNER AND GROUP of all Files in $ciParentDir to $pkgOwner
 echo addCIServices.sh EXECUTING: "chown -R $pkgOwner:$pkgOwner $ciParentDir/CI"
 chown -R $pkgOwner:$pkgOwner $ciParentDir/CI
+echo EXECUTING: "find $ciParentDir/CI -type f -iname "*.sh" -exec chmod +x {} \;"
+
 find $ciParentDir/CI -type f -iname "*.sh" -exec chmod +x {} \;
 
 # INSTALL HTTP WEB CODE TO SERVER
