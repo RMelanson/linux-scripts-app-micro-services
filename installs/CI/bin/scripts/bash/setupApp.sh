@@ -10,6 +10,7 @@ APP_LOGS=$LOGS/$APP_SUB_DIR
 shift
 PARMS=$*
 MODE=744
+mkdir -p $APP_LOGS
 
 echo "APP_REPO  = $APP_REPO" | tee $APP_LOGS/setup.log
 echo "APP_SUB_DIR  = $APP_SUB_DIR" | tee $APP_LOGS/setup.log
@@ -21,4 +22,5 @@ echo "find $APP_BOOTSTRAP -name '*.sh' -exec chmod $MODE {} \;" | tee -a $APP_LO
 find $APP_BOOTSTRAP -name '*.sh' -exec chmod $MODE {} \;
 
 cd $APP_BOOTSTRAP
-./setup.sh $PARMS 2>&1| tee -a $APP_LOGS/setup.log
+echo EXECUTING: ./setup.sh $PARMS 2>&1| tee -a $APP_LOGS/setup.log
+ ./setup.sh $PARMS 2>&1| tee -a $APP_LOGS/setup.log
