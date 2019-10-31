@@ -4,7 +4,7 @@ CI_HOME="/opt/CI"
 BOOTSTRAPS=$CI_HOME/bootstraps
 LOGS=$CI_HOME/logs
 APP_REPO=$1
-APP_SUB_DIR=$(echo "$1" | sed 's/-/\//g') 
+APP_SUB_DIR=$(echo "$1" | sed 's/linux-scripts-//g' | sed 's/-/\//g') 
 APP_BOOTSTRAP=$BOOTSTRAPS/$APP_SUB_DIR
 APP_LOGS=$LOGS/$APP_SUB_DIR
 shift
