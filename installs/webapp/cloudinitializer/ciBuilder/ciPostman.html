@@ -44,7 +44,7 @@
             </td>
             <td class="padding5px">
               <input type="text" id="urlTextBox" class="class_urlBarElement" name="urlTextBox" style="width:100%"
-                value=getURL("/system?cmd=ls -l")>
+                value="ZZZZZZZZZZZZZZ">
             </td>
             <td class="padding5px" style="width: 1px;">
               <button id="urlBtn" class="class_urlBarElement" onclick="prepRestApi('urlTextBox','restMethod','resp')"
@@ -126,7 +126,14 @@
 
   <script>
     function initPostmanDefaults(apiReq) {
-      elmnt = document.getElementById(apiReq);
+      var cmd="system?cmd=ls -l"
+      var url=getURL(cmd);
+      var page="TEST";
+      var app = "postman_"+page;
+      var elmnt = document.getElementById(apiReq);
+      setIdMapPropertyValue(app, "URL", url);
+      var url_ELMNT = document.getElementById("urlTextBox");
+      url_ELMNT.value = url;
       setActiveDiv(elmnt);
     }
   </script>
