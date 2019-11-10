@@ -29,5 +29,5 @@ cp ./reinstall_CI.sh ..
 cp ./cloudInitializerBootStrap.sh ..
 
 # START CLOUD_SERVICE SERVICE
-echo $setupName EXECUTING: . $ciBin/startCloudInitializerService.sh
-. $ciBin/startCloudInitializerService.sh
+echo $setupName EXECUTING: . $ciBashScripts/startCloudInitializerService.sh
+. $ciBashScripts/startCloudInitializerService.sh
