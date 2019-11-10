@@ -7,14 +7,15 @@ gitRepo="/cloudInitializerBootStrap."
 # SET UP INSTALLATION DIRECTORY
 pkg=APP_SERVICES
 scriptType="apps"
-parentDir="/tmp/scripts/$scriptType"
+parentDir="/opt/CI/bootstraps/$scriptType"
 pkgDir="$parentDir/$pkg"
 installDir="$pkgDir/installs"
 
 # SET UP CLOUD INITIALIZER PROGRAM DIRECTORY
+ciAdmin=root
 ciParentDir=/opt
-ciDir=/$ciParentDir/CI
 ciBin=$ciDir/bin
+ciDir=/$ciParentDir/CI
 cilogs=$ciDir/logs
 ciExeJar=$ciBin/java/libs/cloud-initializer-0.1.0.jar
 daemon=cloudInit

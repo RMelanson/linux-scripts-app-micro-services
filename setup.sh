@@ -17,6 +17,10 @@ echo $setupName EXECUTING: . ./installs/addAppServices.sh
 echo $setupName EXECUTING: . ./installs/addCIServices.sh
 . ./installs/addCIServices.sh
 
+# ADD Admin and Privledges
+echo $setupName EXECUTING: . ./installs/addCIServices.sh
+. ./installs/setAdmin.sh
+
 # COPY Reinstall Methods up a Level
 echo $setupName EXECUTING: cp ./reinstall_CI.sh ..
 echo $setupName EXECUTING: cp ./cloudInitializerBootStrap.sh ..
