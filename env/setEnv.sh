@@ -20,7 +20,7 @@ ciBashScripts=$ciScripts/bash
 ciDir=/$ciParentDir/CI
 cilogs=$ciDir/logs
 ciExeJar=$ciBin/java/libs/cloud-initializer-0.1.0.jar
-daemon=cloudInit
+daemon=cloudinit
 servicesDir=$ciDir/services
 
 appServicesDir=$ciDir/services
