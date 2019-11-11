@@ -16,8 +16,8 @@ installDir="$pkgDir/installs"
 # SET UP CLOUD INITIALIZER PROGRAM DIRECTORY
 ciAdmin=root
 ciParentDir=/opt
-ciBin=$ciDir/bin
 ciDir=/$ciParentDir/CI
+ciBin=$ciDir/bin
 ciScripts=$ciBin/scripts
 ciBashScripts=$ciScripts/bash
 daemonDir=$ciBashScripts/daemon
