@@ -286,6 +286,7 @@ processPIDs() {
 }
 
 ### main logic ###
+# Set mode to Upercase $1 
 mode="${1^^}"
 echoLog "<======== Executing service apps $args ========>"
 # Concatinate Args
@@ -312,6 +313,9 @@ case "$serviceType" in
               exit 1
            ;;
        esac
+   ;;
+   SETMENU)
+      echo EXECUTING SETMENU for PARMS $*
    ;;
    NULL)
        case "$mode" in
