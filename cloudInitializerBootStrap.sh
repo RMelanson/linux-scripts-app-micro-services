@@ -26,7 +26,7 @@ yum install git -y
 # SETUP ENVIRONMENT AND PARAMETERS
 pkg=CLOUD_INITIALIZER
 gitRepo="linux-scripts-cloud-initializer.git"
-installDir="/tmp/scripts/apps/$pkg"
+installDir="/opt/CI/bootstraps/apps/$pkg"
 
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone git@github.com:RMelanson/"
