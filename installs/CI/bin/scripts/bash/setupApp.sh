@@ -1,5 +1,5 @@
 #Sample install Call
-#http://99.79.59.230:9090/ci/api/v1/install/wordpress?siteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&installDir=/var
+#http://99.79.59.230:9090/ci/api/v1/install/wordpress?siteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&dbName=testval
 CI_HOME="/opt/CI"
 BOOTSTRAPS=$CI_HOME/bootstraps
 LOGS=$CI_HOME/logs
