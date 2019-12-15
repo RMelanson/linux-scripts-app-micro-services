@@ -2,13 +2,15 @@
     function initWP() {
         alert("EXECUTING initWP()");
         var app = "postman_WP";
+        var url= "install/wordpress?siteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&dbName=/test";
+        var appURL=getURL(url);
         setIdMapPropertyValue(app, "buttonTitle", "Postman WP");
         setIdMapPropertyValue(app, "fgColor", "Brown");
         setIdMapPropertyValue(app, "bgColor", "lightGrey");
         setIdMapPropertyValue(app, "titleColor", "black");
         setIdMapPropertyValue(app, "Title", "CLOUD Initializer Wordpress Installer");
         setIdMapPropertyValue(app, "Method", "Get");
-        setIdMapPropertyValue(app, "URL", getURL("install/wordpress?siteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&dbName=/test"));
+        setIdMapPropertyValue(app, "URL", getURL(appURL));
         setIdMapPropertyValue(app, "LeftColButton", "gui");
     }
 
