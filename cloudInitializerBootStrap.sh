@@ -45,7 +45,7 @@ cd $installDir
 find . -name "*.sh" -exec chmod 700 {} \;
 
 # Setup Project
-echo "BOOTSTRAP EXECUTING: ./setup.sh $*" | tee -a WP_setup.log
+echo BOOTSTRAP EXECUTING: ./setup.sh $* | tee -a WP_setup.log
 ./setup.sh $* 2>&1| tee -a WP_setup.log
 
 cd $bootstrapDir
