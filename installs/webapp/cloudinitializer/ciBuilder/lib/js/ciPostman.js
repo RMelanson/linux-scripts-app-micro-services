@@ -7,7 +7,7 @@ var apiBase = "/ci/api";
 var version = "v1";
 
 function getURL(app) {
-    alert("EXECUTING getURL("+app+")");
+//    alert("EXECUTING getURL("+app+")");
     var url = protocol + "://" + domain + ":" + port + apiBase + "/" + version + "/" + app;
     return url;
 }
