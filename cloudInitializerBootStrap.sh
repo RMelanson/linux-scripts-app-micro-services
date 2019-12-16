@@ -9,7 +9,7 @@ then
    passwordRequired=$?
 
    if [ "$passwordRequired" == "1" ]; then
-       echo "Please run as root or under user with sudo access sudo"
+       echo "Please run as root or under user with sudo access sudo 2>&1 | tee WP_setup.log"
    else
        sudo chmod +x $bootstrap
        sudo $bootstrap
@@ -35,7 +35,7 @@ else
 fi
 
 # Clone $pkg
-echo Executing $clone$gitRepo $installDir
+echo "BOOTSTRAP EXECUTING:  $clone$gitRepo $installDir 2>&1 | tee WP_setup.log"
 $clone$gitRepo $installDir
 
 # Setup $pkg
@@ -45,7 +45,7 @@ cd $installDir
 find . -name "*.sh" -exec chmod 700 {} \;
 
 # Setup Project
-echo "BOOTSTRAP EXECUTING: ./setup.sh $* 2>&1| tee setup.log"
-./setup.sh $* 2>&1| tee setup.log
+echo "BOOTSTRAP EXECUTING: ./setup.sh $* 2>&1| tee -a WP_setup.log"
+./setup.sh $* 2>&1| tee -a WP_setup.log
 
 cd $bootstrapDir
