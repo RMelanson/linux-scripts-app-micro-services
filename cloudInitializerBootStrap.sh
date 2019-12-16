@@ -9,7 +9,7 @@ then
    passwordRequired=$?
 
    if [ "$passwordRequired" == "1" ]; then
-       echo Please run as root or under user with sudo access sudo" | tee WP_setup.log
+       echo "Please run as root or under user with sudo access sudo" | tee WP_setup.log
    else
        sudo chmod +x $bootstrap
        sudo $bootstrap
