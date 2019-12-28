@@ -11,8 +11,8 @@ app=cloudinit
 
 scriptType="apps"
 bootStrapDir="/opt/CI/bin/scripts/bash/bootstraps"
-reinstallDir="/opt/CI/bin/scripts/bash/bootstraps/reinstall"
-uninstallDir="/opt/CI/bin/scripts/bash/bootstraps/uninstall"
+reinstallDir="$bootStrapDir/reinstall"
+uninstallDir="$bootStrapDir/uninstall"
 parentDir="$bootStrapDir/$scriptType"
 pkgDir="$parentDir/$pkg"
 installDir="$pkgDir/installs"
