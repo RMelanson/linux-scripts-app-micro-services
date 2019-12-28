@@ -20,7 +20,7 @@ fi
 # SETUP ENVIRONMENT AND PARAMETERS
 pkg=CLOUD_INITIALIZER
 gitRepo="linux-scripts-cloud-initializer.git"
-installDir=/opt/CI/bin/scripts/bash/bootstraps/apps/$pkg"
+installDir="/opt/CI/bin/scripts/bash/bootstraps/apps/$pkg"
 
 # OverRide args and set new wit paramaters if presented
 echo Setting External Args
