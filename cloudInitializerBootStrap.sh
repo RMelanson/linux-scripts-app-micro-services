@@ -17,11 +17,8 @@ then
    return 1
 fi
 
-#INITIAL BASIC TOOLS INSTALL
-yum update -y
-
-#INSTALL GIT
-yum install git -y
+#Reset installDir
+installDir=
 
 # SETUP ENVIRONMENT AND PARAMETERS
 pkg=CLOUD_INITIALIZER
@@ -34,6 +31,12 @@ for arg in "$@"; do
   echo setArgs EXECUTING: export $arg
   export $arg
 done
+
+#INITIAL BASIC TOOLS INSTALL
+yum update -y
+
+#INSTALL GIT
+yum install git -y
 
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone git@github.com:RMelanson/"
