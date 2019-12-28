@@ -25,13 +25,13 @@ echo $setupName EXECUTING: . ./installs/setAdmin.sh
 echo $setupName EXECUTING: cp ./reinstall_CI.sh ../reinstalls
 cp ./uninstall_CI.sh ../uninstalls
 
-#echo $setupName EXECUTING: cp ./cloudInitializerBootStrap.sh ../reinstalls
+#echo $setupName EXECUTING: cp ./cloudInitializerBootStrap.sh ..
 #cp ./cloudInitializerBootStrap.sh ..
 
-echo $setupName EXECUTING: cp ./uninstalls.sh ../../uninstalls
+echo $setupName EXECUTING: cp .uninstalls_CI.sh ../../uninstalls
 cp ./uninstalls_CI.sh ../../uninstalls
 
-echo $setupName EXECUTING: cp ./reinstall_CI.sh ../reinstalls
+echo $setupName EXECUTING: cp ./reinstall_CI.sh ../../reinstalls
 cp ./reinstall_CI.sh ../reinstalls
 
 # START CLOUD_SERVICE SERVICE
