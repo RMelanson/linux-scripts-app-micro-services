@@ -1,5 +1,8 @@
 clear
 cloudinit stop all
 cloudinit clean all
-rm -rf /opt/CI/bootstraps/apps/CLOUD_INITIALIZER
+bootstraps="/opt/CI/bin/scripts/bash/bootstraps"
+apps="$bootstraps/apps"
+pkg=$apps/CLOUD_INITIALIZER
+rm -rf $pkg
 rm -rf /var/www/html/cloudinitializer/
