@@ -26,7 +26,15 @@ yum install git -y
 # SETUP ENVIRONMENT AND PARAMETERS
 pkg=CLOUD_INITIALIZER
 gitRepo="linux-scripts-cloud-initializer.git"
-installDir="/opt/CI/bootstraps/apps/$pkg"
+installDir="."
+
+# OverRide args and set new wit paramaters if presented
+echo Setting External Args
+echo These Arguments Overwrite Default Argument Settings
+for arg in "$@"; do
+  echo setArgs EXECUTING: export $arg
+  export $arg
+done
 
 if [ -f ~/.ssh/gitHub.key ]; then
    clone="git clone git@github.com:RMelanson/"
