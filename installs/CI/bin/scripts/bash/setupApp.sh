@@ -1,7 +1,7 @@
 #Sample install Call
 #http://99.79.59.230:9090/ci/api/v1/install/wordpress?siteName=MyNewSite&port=9111&adminId=MyId&adminPWD=password&dbName=testval
 CI_HOME="/opt/CI"
-BOOTSTRAPS=$CI_HOME/bootstraps
+BOOTSTRAPS=$CI_HOME/bin/scripts/bash/bootstraps
 LOGS=$CI_HOME/logs
 APP_REPO=$1
 APP_SUB_DIR=$(echo "$1" | sed 's/linux-scripts-//g' | sed 's/-/\//g') 
