@@ -1,3 +1,3 @@
-. ./uninstall_CI.sh
-
-. ./cloudInitializerBootStrap.sh
+pkg=CLOUD_INITIALIZER
+scriptType="apps"
+. ./reinstall.sh $scriptType $pkg
