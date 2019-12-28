@@ -26,7 +26,6 @@ yum install git -y
 # SETUP ENVIRONMENT AND PARAMETERS
 pkg=CLOUD_INITIALIZER
 gitRepo="linux-scripts-cloud-initializer.git"
-installDir="."
 
 # OverRide args and set new wit paramaters if presented
 echo Setting External Args
