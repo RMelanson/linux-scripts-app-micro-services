@@ -10,7 +10,10 @@ pkg=CLOUD_INITIALIZER
 app=cloudinit
 
 scriptType="apps"
-parentDir="/opt/CI/bootstraps/$scriptType"
+bootStrapDir="/opt/CI/bin/scripts/bash/bootstraps"
+reinstallDir="/opt/CI/bin/scripts/bash/bootstraps/reinstall"
+uninstallDir="/opt/CI/bin/scripts/bash/bootstraps/uninstall"
+parentDir="$bootStrapDir/$scriptType"
 pkgDir="$parentDir/$pkg"
 installDir="$pkgDir/installs"
 
