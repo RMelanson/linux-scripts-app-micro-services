@@ -6,7 +6,7 @@ gitRepo="/cloudInitializerBootStrap."
 
 # SET UP INSTALLATION DIRECTORY
 # pkg=APP_SERVICES
-pkg=CLOUD_INITIALIZER
+pkg=CI
 app=cloudinit
 
 scriptType="apps"
