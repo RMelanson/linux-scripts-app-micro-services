@@ -17,17 +17,12 @@ echo $setupName EXECUTING: . ./installs/addAppServices.sh
 echo $setupName EXECUTING: . ./installs/addCIServices.sh
 . ./installs/addCIServices.sh
 
-# ADD Admin and Privledges
-echo $setupName EXECUTING: . ./installs/setAdmin.sh
-. ./installs/setAdmin.sh
-
 #echo $setupName EXECUTING: cp ./cloudInitializerBootStrap.sh ..
 #cp ./cloudInitializerBootStrap.sh ..
 
 echo $setupName EXECUTING: cp .uninstalls_CI.sh ../../uninstalls
 cp -rf ./installs/uninstall.sh ../../uninstalls/uninstall_$pkg.sh
 
-echo ZZZZZZZZZZZZZZZZZZZZZZZZZZ pkg = $pkg
 echo $setupName EXECUTING: cp ./reinstall_CI.sh ../../reinstalls
 cp -rf ./installs/reinstall.sh ../../reinstalls/reinstall_$pkg.sh
 
