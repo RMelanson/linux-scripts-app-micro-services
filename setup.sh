@@ -21,18 +21,14 @@ echo $setupName EXECUTING: . ./installs/addCIServices.sh
 echo $setupName EXECUTING: . ./installs/setAdmin.sh
 . ./installs/setAdmin.sh
 
-# COPY Reinstall Methods up a Level
-echo $setupName EXECUTING: cp ./reinstall_CI.sh ../reinstalls
-cp ./uninstall_CI.sh ../uninstalls
-
 #echo $setupName EXECUTING: cp ./cloudInitializerBootStrap.sh ..
 #cp ./cloudInitializerBootStrap.sh ..
 
 echo $setupName EXECUTING: cp .uninstalls_CI.sh ../../uninstalls
-cp ./uninstalls_CI.sh ../../uninstalls
+cp ./uninstalls.sh ../../uninstalls/uninstall_CI.sh
 
 echo $setupName EXECUTING: cp ./reinstall_CI.sh ../../reinstalls
-cp ./reinstall_CI.sh ../reinstalls
+cp ./reinstall.sh ../../reinstalls/reinstall_CI.sh
 
 # START CLOUD_SERVICE SERVICE
 echo $setupName EXECUTING: . $ciBashScripts/startCloudInitializerService.sh
