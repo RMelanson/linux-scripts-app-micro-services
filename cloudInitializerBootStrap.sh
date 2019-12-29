@@ -18,7 +18,7 @@ then
 fi
 
 # SETUP ENVIRONMENT AND PARAMETERS
-pkg=CLOUD_INITIALIZER
+pkg=CI
 gitRepo="linux-scripts-cloud-initializer.git"
 installDir="/opt/CI/bin/scripts/bash/bootstraps/apps/$pkg"
 
