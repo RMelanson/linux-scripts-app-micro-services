@@ -25,10 +25,10 @@ echo $setupName EXECUTING: . ./installs/setAdmin.sh
 #cp ./cloudInitializerBootStrap.sh ..
 
 echo $setupName EXECUTING: cp .uninstalls_CI.sh ../../uninstalls
-cp ./installs/uninstall.sh ../../uninstalls/uninstall_CI.sh
+cp -rf ./installs/uninstall.sh ../../uninstalls/uninstall_$pkg.sh
 
 echo $setupName EXECUTING: cp ./reinstall_CI.sh ../../reinstalls
-cp ./installs/reinstall.sh ../../reinstalls/reinstall_CI.sh
+cp -rf ./installs/reinstall.sh ../../reinstalls/reinstall_$pkg.sh
 
 # START CLOUD_SERVICE SERVICE
 echo $setupName EXECUTING: . $ciBashScripts/startCloudInitializerService.sh
