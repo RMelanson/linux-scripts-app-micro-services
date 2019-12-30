@@ -1,7 +1,6 @@
 App=$1
 if [ -z $1 ]; then
    echo "ERROR APP Not Specified"
-   return 0;
 else
    FILE=uninstall_$1.sh
    if [ -f "$FILE" ]; then
